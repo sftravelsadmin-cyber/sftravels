@@ -1,0 +1,494 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fleet, slabRates } from '../../data/fleet.js';
+
+const corpVehicles = fleet.filter(v => ['swift-dzire','toyota-innova','innova-crysta','force-urbania'].includes(v.id));
+
+const whyChoose = [
+  { icon: '📊', title: 'Transparent Slab Rates', desc: 'Fixed-distance pricing. No meter runs, no surge. Exactly what you see on the card.' },
+  { icon: '🏢', title: 'Corporate Billing', desc: 'Monthly invoices, GST-compliant bills, and dedicated account manager for corporates.' },
+  { icon: '👔', title: 'Uniformed Chauffeurs', desc: 'Professionally dressed, background-checked drivers for every corporate engagement.' },
+  { icon: '⚡', title: 'Priority Dispatch', desc: 'Corporate accounts get priority access to our fleet, even on peak-demand days.' },
+  { icon: '🔒', title: 'Confidential Travel', desc: 'NDAs available. Our drivers maintain full discretion for C-suite executive travel.' },
+  { icon: '📱', title: 'Dedicated Coordinator', desc: 'A single point of contact coordinates all your company\'s bookings seamlessly.' },
+];
+
+const clients = [
+  { sector: 'IT & Tech Parks', icon: '💻' },
+  { sector: 'Pharma & Biotech', icon: '🔬' },
+  { sector: 'Banks & Finance', icon: '🏦' },
+  { sector: 'Consulting Firms', icon: '📈' },
+  { sector: 'Manufacturing', icon: '🏭' },
+  { sector: 'Hospitality', icon: '🏨' },
+];
+
+const faqs = [
+  { q: 'How is corporate slab rate calculated?', a: 'Each trip is priced by distance: 0–10 km = ₹600, 11–20 km = ₹700, 21–30 km = ₹800, and 31+ km = ₹900 per trip. Escort trips are billed at 1.5× the slab rate.' },
+  { q: 'Can we book multiple vehicles simultaneously?', a: 'Yes. Corporate accounts can book an entire fleet at once with 2-hour advance notice. Bulk bookings receive priority confirmation.' },
+  { q: 'Do you offer night shift corporate cab services?', a: 'Absolutely. We specialize in late-night and early-morning IT park shift pickups across Bangalore.' },
+  { q: 'Is monthly billing available for companies?', a: 'Yes. After a 30-day trial, corporates may opt for month-end consolidated invoicing with GST breakdown.' },
+  { q: 'Are your drivers trained for corporate conduct?', a: 'All drivers undergo customer-service orientation, dress code compliance checks, and are briefed on corporate etiquette.' },
+];
+---
+
+<Layout
+  title="Corporate Cab Services Bangalore | SF Travels — Slab Rate Billing"
+  description="SF Travels provides transparent slab-rate corporate cab services in Bangalore. Monthly billing, verified chauffeurs, and priority fleet access for IT parks, banks, and businesses."
+>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="service-hero corporate-hero">
+    <div class="hero-overlay-dark"></div>
+    <div class="container service-hero-content">
+      <div class="service-badge-pill">🏢 Corporate Mobility</div>
+      <h1 class="service-hero-title">
+        Corporate Cabs Built for<br />
+        <span class="gold-text">Business, Not Guesswork.</span>
+      </h1>
+      <p class="service-hero-desc">
+        Predictable slab-rate billing, uniformed chauffeurs, and fleet-level reliability — designed for IT parks, corporate offices, and executive travel in Bangalore.
+      </p>
+      <div class="service-hero-cta">
+        <a href="/contact" class="btn-gold">📋 Get Corporate Quote</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20corporate%20cab%20services%20for%20my%20company." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Enquiry</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">✓ GST Billing</span>
+        <span class="pill">✓ Monthly invoicing</span>
+        <span class="pill">✓ Priority dispatch</span>
+        <span class="pill">✓ 24/7 fleet support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLAB RATE CARD ==================== -->
+  <section class="section-padding slab-section bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Our Pricing Structure</div>
+      <h2 class="section-title">Official <span class="gold-text">Slab Rate Card</span></h2>
+      <p class="section-desc">Every trip is pre-priced by distance. Show this card to your management — it's what we invoice.</p>
+      
+      <div class="slab-layout">
+        <!-- Rate Table -->
+        <div class="slab-card glass-card">
+          <div class="slab-header">
+            <span class="slab-header-icon">📊</span>
+            <h3>Distance-Based Flat Rates</h3>
+            <p>Per trip, per vehicle (Sedan category)</p>
+          </div>
+          <div class="slab-rows">
+            {slabRates.map((sr, i) => (
+              <div class={`slab-row ${i === slabRates.length - 1 ? 'slab-row-highlight' : ''}`}>
+                <div class="slab-range">
+                  <span class="slab-km">{sr.range}</span>
+                  <span class="slab-tag">per trip</span>
+                </div>
+                <div class="slab-price">{sr.rate}</div>
+              </div>
+            ))}
+            <div class="slab-row slab-escort">
+              <div class="slab-range">
+                <span class="slab-km">Escort Trips</span>
+                <span class="slab-tag">accompanying vehicle</span>
+              </div>
+              <div class="slab-price slab-escort-price">1.5× Slab</div>
+            </div>
+          </div>
+          <div class="slab-footer-note">
+            ✓ All rates include driver, fuel, and basic tolls. GST extra as applicable.
+          </div>
+        </div>
+
+        <!-- Slab Calculator Visual -->
+        <div class="slab-info-col">
+          <div class="info-highlight glass-card">
+            <div class="info-highlight-icon">💡</div>
+            <h3>How It Works</h3>
+            <ul class="info-steps">
+              <li><span class="step-num">1</span> Your HR/Admin team calls or WhatsApps the trip details.</li>
+              <li><span class="step-num">2</span> Distance is measured (Google Maps verified).</li>
+              <li><span class="step-num">3</span> Slab rate applied. Driver assigned. Ride confirmed.</li>
+              <li><span class="step-num">4</span> At month end, GST invoice delivered to your finance team.</li>
+            </ul>
+          </div>
+          <div class="slab-badge-grid">
+            <div class="slab-badge glass-card">
+              <span class="sb-num">500+</span>
+              <span class="sb-label">Corporate Trips/Month</span>
+            </div>
+            <div class="slab-badge glass-card">
+              <span class="sb-num">25+</span>
+              <span class="sb-label">Companies Served</span>
+            </div>
+            <div class="slab-badge glass-card">
+              <span class="sb-num">4.9★</span>
+              <span class="sb-label">Corp Client Rating</span>
+            </div>
+            <div class="slab-badge glass-card">
+              <span class="sb-num">0</span>
+              <span class="sb-label">Hidden Charges</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE ==================== -->
+  <section class="section-padding why-section">
+    <div class="container">
+      <div class="section-label">Our Corporate Edge</div>
+      <h2 class="section-title">Why Companies <span class="gold-text">Trust SF Travels</span></h2>
+      <div class="why-grid">
+        {whyChoose.map(w => (
+          <div class="why-card glass-card">
+            <div class="why-icon">{w.icon}</div>
+            <h3 class="why-title">{w.title}</h3>
+            <p class="why-desc">{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FLEET ==================== -->
+  <section class="section-padding fleet-section bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Corporate Fleet</div>
+      <h2 class="section-title">Choose Your <span class="gold-text">Corporate Ride</span></h2>
+      <div class="fleet-grid">
+        {corpVehicles.map(v => (
+          <div class="vehicle-card glass-card">
+            <div class="vehicle-img-wrap">
+              <img src={v.image} alt={v.name} class="vehicle-img" loading="lazy" />
+              <span class="vehicle-badge" style={`background:${v.badgeColor}`}>{v.badge}</span>
+            </div>
+            <div class="vehicle-body">
+              <h3 class="vehicle-name">{v.name}</h3>
+              <p class="vehicle-tagline">{v.tagline}</p>
+              <div class="vehicle-specs">
+                <span class="spec-pill">👤 {v.seats} Seats</span>
+                <span class="spec-pill">❄️ {v.acType}</span>
+                <span class="spec-pill">🧳 {v.luggage}</span>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">Starting at</span>
+                <span class="price-value">{v.pricePerKm}</span>
+              </div>
+              <a href={`https://wa.me/919187232348?text=Hi%2C%20I%20need%20corporate%20cab%20with%20${encodeURIComponent(v.name)}`} target="_blank" rel="noopener" class="btn-gold vehicle-book-btn">Book for Corp Duty</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CLIENT SECTORS ==================== -->
+  <section class="section-padding sectors-section">
+    <div class="container">
+      <div class="section-label">Serving Bangalore's Best</div>
+      <h2 class="section-title">Industries We <span class="gold-text">Serve</span></h2>
+      <div class="sectors-grid">
+        {clients.map(c => (
+          <div class="sector-card glass-card">
+            <span class="sector-icon">{c.icon}</span>
+            <span class="sector-name">{c.sector}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section-padding faq-section" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-label dark-label">Have Questions?</div>
+      <h2 class="section-title" style="color:#050d1a;">Corporate <span style="color:#047857;">FAQs</span></h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`corp-faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" aria-controls={`corp-faq-answer-${i}`}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" id={`corp-faq-answer-${i}`} hidden>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <h2 class="cta-title">Partner with SF Travels for Corporate Mobility</h2>
+      <p class="cta-subtitle">Get a custom slab rate agreement for your company. Quick setup, transparent billing, zero headaches.</p>
+      <div class="cta-actions">
+        <a href="tel:+919187232348" class="btn-gold">📞 Talk to Our Corp Team</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20want%20a%20corporate%20cab%20account%20with%20SF%20Travels." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Setup</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.service-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.corporate-hero {
+  background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1400&q=80');
+  background-size: cover;
+  background-position: center 30%;
+}
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5,13,26,0.93) 0%, rgba(5,13,26,0.78) 100%);
+}
+.service-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 20px 80px;
+  max-width: 720px;
+}
+.service-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #10b981;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.service-hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.service-hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 580px;
+}
+.service-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.pill {
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: #a7f3d0;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* === SLAB SECTION === */
+.slab-section { background: var(--bg-secondary); }
+.slab-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 44px;
+  align-items: start;
+}
+.slab-card {
+  overflow: hidden;
+}
+.slab-header {
+  background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(5,13,26,0.3) 100%);
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(16,185,129,0.15);
+}
+.slab-header-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+.slab-header h3 { font-size: 1.15rem; color: #fff; margin-bottom: 4px; }
+.slab-header p { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.slab-rows { padding: 8px 0; }
+.slab-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+.slab-row:hover { background: rgba(16,185,129,0.06); }
+.slab-row-highlight { background: rgba(16,185,129,0.08); }
+.slab-row-highlight .slab-price { color: #10b981; }
+.slab-escort { background: rgba(212,175,55,0.06); }
+.slab-range { display: flex; flex-direction: column; gap: 3px; }
+.slab-km { font-size: 1rem; font-weight: 600; color: #fff; }
+.slab-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+.slab-price { font-size: 1.5rem; font-weight: 800; color: #a7f3d0; font-family: var(--font-heading); }
+.slab-escort-price { color: #fbbf24; }
+.slab-footer-note {
+  padding: 14px 28px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.1);
+}
+
+.slab-info-col { display: flex; flex-direction: column; gap: 24px; }
+.info-highlight { padding: 28px; }
+.info-highlight-icon { font-size: 2rem; margin-bottom: 12px; }
+.info-highlight h3 { font-size: 1.1rem; color: #fff; margin-bottom: 16px; }
+.info-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.info-steps li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: rgba(255,255,255,0.72); line-height: 1.5; }
+.step-num {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.slab-badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.slab-badge {
+  padding: 20px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sb-num { font-size: 1.6rem; font-weight: 800; color: #10b981; font-family: var(--font-heading); }
+.sb-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+/* === WHY GRID === */
+.why-section { background: var(--bg-primary); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+.why-card { padding: 28px 22px; text-align: center; }
+.why-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.why-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.why-desc { font-size: 0.88rem; color: rgba(255,255,255,0.62); line-height: 1.6; }
+
+/* === FLEET === */
+.fleet-section { background: var(--bg-secondary); }
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+.vehicle-card { overflow: hidden; display: flex; flex-direction: column; }
+.vehicle-img-wrap { position: relative; height: 180px; overflow: hidden; }
+.vehicle-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.vehicle-card:hover .vehicle-img { transform: scale(1.05); }
+.vehicle-badge {
+  position: absolute; top: 10px; right: 10px;
+  color: #fff; font-size: 0.7rem; font-weight: 700;
+  padding: 3px 9px; border-radius: 50px;
+}
+.vehicle-body { padding: 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.vehicle-name { font-size: 1rem; font-weight: 700; color: #fff; }
+.vehicle-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.vehicle-specs { display: flex; gap: 6px; flex-wrap: wrap; }
+.spec-pill {
+  font-size: 0.72rem; padding: 3px 8px; border-radius: 50px;
+  background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.2); color: #a7f3d0;
+}
+.vehicle-price { display: flex; align-items: baseline; gap: 6px; }
+.price-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+.price-value { font-size: 1.15rem; font-weight: 700; color: #10b981; font-family: var(--font-heading); }
+.vehicle-book-btn { width: 100%; text-align: center; margin-top: auto; font-size: 0.85rem; padding: 10px 16px; }
+
+/* === SECTORS === */
+.sectors-section { background: var(--bg-primary); }
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+.sector-card {
+  padding: 22px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.sector-icon { font-size: 2rem; }
+.sector-name { font-size: 0.82rem; color: rgba(255,255,255,0.7); font-weight: 600; }
+
+/* === FAQ === */
+.faq-section { background: #f8fafc; }
+.dark-label { color: #047857 !important; }
+.faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.faq-item { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; background: #fff; }
+.faq-question {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; font-size: 0.97rem; font-weight: 600; color: #050d1a;
+  cursor: pointer; gap: 12px; text-align: left; background: transparent; border: none;
+}
+.faq-question:hover { background: #f0fdf4; }
+.faq-chevron { width: 18px; height: 18px; flex-shrink: 0; color: #10b981; transition: transform 0.3s; }
+.faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+.faq-answer { padding: 0 22px 18px; }
+.faq-answer p { font-size: 0.92rem; color: #4b5563; line-height: 1.7; }
+
+/* === CTA === */
+.cta-banner { background: linear-gradient(135deg, #0b172a 0%, #051a2c 100%); border-top: 1px solid rgba(16,185,129,0.2); padding: 80px 20px; }
+.cta-content { text-align: center; }
+.cta-title { font-size: clamp(1.6rem, 4vw, 2.4rem); color: #fff; margin-bottom: 14px; }
+.cta-subtitle { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 32px; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* === SHARED === */
+.section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+.section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: #fff; margin-bottom: 12px; }
+.section-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 560px; }
+
+/* === RESPONSIVE === */
+@media (max-width: 1200px) { .fleet-grid { grid-template-columns: repeat(2, 1fr); } .sectors-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .slab-layout { grid-template-columns: 1fr; } .why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .fleet-grid { grid-template-columns: 1fr; }
+  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .service-hero-cta { flex-direction: column; }
+  .slab-badge-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const answerId = btn.getAttribute('aria-controls');
+    const answer = document.getElementById(answerId);
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) answer.setAttribute('hidden', '');
+    else answer.removeAttribute('hidden');
+  });
+});
+</script>

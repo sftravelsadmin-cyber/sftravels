@@ -1,0 +1,297 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fleet } from '../../data/fleet.js';
+
+const localVehicles = fleet.filter(v => ['swift-dzire','toyota-innova'].includes(v.id));
+
+const hourlyPackages = [
+  { hours: 4, km: 40, sedanPrice: '₹680', suvPrice: '₹1,020', icon: '🕐', popular: false, tag: 'Quick Errands' },
+  { hours: 6, km: 60, sedanPrice: '₹960', suvPrice: '₹1,440', icon: '🕕', popular: false, tag: 'Half Day' },
+  { hours: 8, km: 80, sedanPrice: '₹1,200', suvPrice: '₹1,800', icon: '🕗', popular: true, tag: 'Full Day' },
+  { hours: 10, km: 100, sedanPrice: '₹1,450', suvPrice: '₹2,175', icon: '🕙', popular: false, tag: 'Extended Day' },
+];
+
+const useCases = [
+  { icon: '🏢', title: 'Office Meetings', desc: 'Hop between client sites and meetings without worrying about parking.' },
+  { icon: '🛍️', title: 'Shopping Runs', desc: 'UB City, Phoenix Mall, or wholesale markets — we wait and carry.' },
+  { icon: '🏥', title: 'Hospital Visits', desc: 'Reliable, patient transport for medical appointments and check-ups.' },
+  { icon: '🎓', title: 'College Admissions', desc: 'Campus-hopping visits in Bangalore made stress-free.' },
+  { icon: '✈️', title: 'Pre-Travel Errands', desc: 'Forex, visa appointments, last-minute shopping before a big trip.' },
+  { icon: '👶', title: 'Family Assistance', desc: 'Safe, comfortable rides for seniors and children running city errands.' },
+];
+
+const faqs = [
+  { q: 'What does "hourly hire" mean exactly?', a: 'You book the cab for a set number of hours (minimum 4 hrs). Within that time and the included km allowance, the driver is exclusively yours — no meter, no per-km billing.' },
+  { q: 'What if I exceed the included kilometres?', a: 'Extra distance is billed at ₹12/km (Sedan) or ₹18/km (SUV) above the package limit. This is disclosed upfront.' },
+  { q: 'Can I keep the cab for more than 10 hours?', a: 'Yes. For custom durations beyond 10 hours, we quote a customized rate. Call our dispatch for same-day long bookings.' },
+  { q: 'Is the driver allowed to take me outside Bangalore city limits?', a: 'Local hourly hire covers city limits only (BBMP limits). For travel beyond the city, please book our Outstation package instead.' },
+  { q: 'Can I book for a recurring daily schedule?', a: 'Yes. Regular corporate or personal hourly bookings can be set up as a recurring daily contract with priority driver assignment.' },
+];
+---
+
+<Layout
+  title="Local Hourly Cabs Bangalore | SF Travels — Book by the Hour"
+  description="Book hourly cabs in Bangalore with SF Travels. 4, 6, 8, or 10-hour packages with dedicated driver. Perfect for office meetings, hospital visits, and shopping."
+>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="service-hero local-hero">
+    <div class="hero-overlay-dark"></div>
+    <div class="container service-hero-content">
+      <div class="service-badge-pill">🕐 Local Hourly Hire</div>
+      <h1 class="service-hero-title">
+        Your City, Your Pace —<br />
+        <span class="gold-text">Book by the Hour.</span>
+      </h1>
+      <p class="service-hero-desc">
+        A dedicated cab and driver, exclusively yours for 4–10 hours. Zip across Bangalore without parking stress, cab-hunting, or surge pricing.
+      </p>
+      <div class="service-hero-cta">
+        <a href="/contact" class="btn-gold">📞 Book Hourly Cab</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20a%20local%20hourly%20cab%20in%20Bangalore." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Booking</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">✓ 4–10 hr packages</span>
+        <span class="pill">✓ Flat hourly rate</span>
+        <span class="pill">✓ Dedicated driver</span>
+        <span class="pill">✓ Covers all Bangalore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOURLY PACKAGES ==================== -->
+  <section class="section-padding packages-section">
+    <div class="container">
+      <div class="section-label">Transparent Hourly Pricing</div>
+      <h2 class="section-title">Hourly <span class="gold-text">Packages</span></h2>
+      <p class="section-desc">Each package includes driver, fuel, and a km allowance. Pay only if you exceed the allowance.</p>
+      <div class="packages-grid">
+        {hourlyPackages.map(pkg => (
+          <div class={`package-card glass-card ${pkg.popular ? 'package-popular' : ''}`}>
+            {pkg.popular && <div class="popular-badge">⭐ Most Popular</div>}
+            <div class="pkg-icon">{pkg.icon}</div>
+            <div class="pkg-tag">{pkg.tag}</div>
+            <h3 class="pkg-hours">{pkg.hours} Hours</h3>
+            <div class="pkg-km">{pkg.km} km included</div>
+            <div class="pkg-prices">
+              <div class="pkg-price-row">
+                <span class="vehicle-type">🚗 Sedan</span>
+                <span class="pkg-price">{pkg.sedanPrice}</span>
+              </div>
+              <div class="pkg-price-row">
+                <span class="vehicle-type">🚙 SUV</span>
+                <span class="pkg-price">{pkg.suvPrice}</span>
+              </div>
+            </div>
+            <a href={`https://wa.me/919187232348?text=Hi%2C%20I%20need%20a%20${pkg.hours}-hour%20local%20cab%20in%20Bangalore`} target="_blank" rel="noopener" class={`${pkg.popular ? 'btn-gold' : 'btn-outline'} pkg-cta`}>Book {pkg.hours}-Hr Package</a>
+          </div>
+        ))}
+      </div>
+      <p class="extra-km-note">⚡ Extra km (beyond package): Sedan ₹12/km | SUV ₹18/km | Charged at actuals, disclosed before trip</p>
+    </div>
+  </section>
+
+  <!-- ==================== FLEET ==================== -->
+  <section class="section-padding fleet-section bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Local Hire Fleet</div>
+      <h2 class="section-title">Your Hourly <span class="gold-text">City Ride</span></h2>
+      <div class="fleet-grid-local">
+        {localVehicles.map(v => (
+          <div class="vehicle-card glass-card">
+            <div class="vehicle-img-wrap">
+              <img src={v.image} alt={v.name} class="vehicle-img" loading="lazy" />
+              <span class="vehicle-badge" style={`background:${v.badgeColor}`}>{v.badge}</span>
+            </div>
+            <div class="vehicle-body">
+              <h3 class="vehicle-name">{v.name}</h3>
+              <p class="vehicle-tagline">{v.tagline}</p>
+              <div class="vehicle-specs">
+                <span class="spec-pill">👤 {v.seats} Seats</span>
+                <span class="spec-pill">❄️ {v.acType}</span>
+                <span class="spec-pill">🧳 {v.luggage}</span>
+              </div>
+              <a href={`https://wa.me/919187232348?text=Hi%2C%20I%20need%20hourly%20hire%20with%20${encodeURIComponent(v.name)}%20in%20Bangalore`} target="_blank" rel="noopener" class="btn-gold vehicle-book-btn">Book for Local Hire</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== USE CASES ==================== -->
+  <section class="section-padding usecase-section">
+    <div class="container">
+      <div class="section-label">When Hourly Hire Makes Sense</div>
+      <h2 class="section-title">Popular <span class="gold-text">Use Cases</span></h2>
+      <div class="usecase-grid">
+        {useCases.map(uc => (
+          <div class="usecase-card glass-card">
+            <div class="usecase-icon">{uc.icon}</div>
+            <h3 class="usecase-title">{uc.title}</h3>
+            <p class="usecase-desc">{uc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section-padding faq-section" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-label dark-label">Hourly Hire FAQs</div>
+      <h2 class="section-title" style="color:#050d1a;">Your Questions, <span style="color:#047857;">Answered</span></h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`local-faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" aria-controls={`local-faq-answer-${i}`}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" id={`local-faq-answer-${i}`} hidden>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <h2 class="cta-title">Need a Cab for a Few Hours?</h2>
+      <p class="cta-subtitle">We'll have a driver at your door, with guaranteed availability — no surge, no drama.</p>
+      <div class="cta-actions">
+        <a href="tel:+919187232348" class="btn-gold">📞 Call: 9187232348</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20a%20local%20hourly%20cab%20in%20Bangalore" target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Book</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.service-hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+.local-hero {
+  background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.hero-overlay-dark { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.75) 100%); }
+.service-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; max-width: 720px; }
+.service-badge-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px; }
+.service-hero-title { font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; line-height: 1.15; margin-bottom: 18px; }
+.service-hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 30px; max-width: 580px; }
+.service-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.pill { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #a7f3d0; padding: 5px 14px; border-radius: 50px; font-size: 0.82rem; font-weight: 500; }
+
+/* === PACKAGES === */
+.packages-section { background: var(--bg-primary); }
+.packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px; }
+.package-card {
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  text-align: center;
+}
+.package-popular { border-color: rgba(16,185,129,0.5); background: rgba(16,185,129,0.06); }
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.pkg-icon { font-size: 2.2rem; }
+.pkg-tag { font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #10b981; }
+.pkg-hours { font-size: 1.5rem; font-weight: 800; color: #fff; font-family: var(--font-heading); }
+.pkg-km { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.pkg-prices { display: flex; flex-direction: column; gap: 8px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin: 4px 0; }
+.pkg-price-row { display: flex; justify-content: space-between; align-items: center; }
+.vehicle-type { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+.pkg-price { font-size: 1.1rem; font-weight: 700; color: #10b981; font-family: var(--font-heading); }
+.pkg-cta { width: 100%; text-align: center; font-size: 0.85rem; padding: 10px 16px; margin-top: 4px; }
+.extra-km-note { text-align: center; margin-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+
+/* === FLEET === */
+.fleet-section { background: var(--bg-secondary); }
+.fleet-grid-local { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.vehicle-card { overflow: hidden; display: flex; flex-direction: column; }
+.vehicle-img-wrap { position: relative; height: 200px; overflow: hidden; }
+.vehicle-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.vehicle-card:hover .vehicle-img { transform: scale(1.05); }
+.vehicle-badge { position: absolute; top: 12px; right: 12px; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 50px; }
+.vehicle-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.vehicle-name { font-size: 1.15rem; font-weight: 700; color: #fff; }
+.vehicle-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.vehicle-specs { display: flex; gap: 8px; flex-wrap: wrap; }
+.spec-pill { font-size: 0.78rem; padding: 4px 10px; border-radius: 50px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.2); color: #a7f3d0; }
+.vehicle-book-btn { width: 100%; text-align: center; margin-top: auto; }
+
+/* === USE CASES === */
+.usecase-section { background: var(--bg-primary); }
+.usecase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+.usecase-card { padding: 28px 22px; text-align: center; }
+.usecase-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.usecase-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.usecase-desc { font-size: 0.88rem; color: rgba(255,255,255,0.62); line-height: 1.6; }
+
+/* === FAQ === */
+.faq-section { background: #f8fafc; }
+.dark-label { color: #047857 !important; }
+.faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.faq-item { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; background: #fff; }
+.faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; font-size: 0.97rem; font-weight: 600; color: #050d1a; cursor: pointer; gap: 12px; text-align: left; background: transparent; border: none; }
+.faq-question:hover { background: #f0fdf4; }
+.faq-chevron { width: 18px; height: 18px; flex-shrink: 0; color: #10b981; transition: transform 0.3s; }
+.faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+.faq-answer { padding: 0 22px 18px; }
+.faq-answer p { font-size: 0.92rem; color: #4b5563; line-height: 1.7; }
+
+/* === CTA === */
+.cta-banner { background: linear-gradient(135deg, #0b172a 0%, #051a2c 100%); border-top: 1px solid rgba(16,185,129,0.2); padding: 80px 20px; }
+.cta-content { text-align: center; }
+.cta-title { font-size: clamp(1.6rem, 4vw, 2.4rem); color: #fff; margin-bottom: 14px; }
+.cta-subtitle { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 32px; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* === SHARED === */
+.section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+.section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: #fff; margin-bottom: 12px; }
+.section-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 560px; }
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  .usecase-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .packages-grid { grid-template-columns: 1fr; }
+  .fleet-grid-local { grid-template-columns: 1fr; }
+  .usecase-grid { grid-template-columns: 1fr; }
+  .service-hero-cta { flex-direction: column; }
+}
+</style>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const answerId = btn.getAttribute('aria-controls');
+    const answer = document.getElementById(answerId);
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) answer.setAttribute('hidden', '');
+    else answer.removeAttribute('hidden');
+  });
+});
+</script>

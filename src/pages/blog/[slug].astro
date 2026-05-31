@@ -1,0 +1,534 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts, getPostBySlug, getRelatedPosts } from '../../data/blog.js';
+
+// Generate static paths for all posts
+export function getStaticPaths() {
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = getPostBySlug(slug);
+const relatedPosts = getRelatedPosts(slug, 3);
+
+// Fallback if post not found
+if (!post) {
+  return Astro.redirect('/blog');
+}
+---
+
+<Layout
+  title={`${post.title} | SF Travels Blog`}
+  description={post.excerpt}
+>
+
+  <!-- ==================== BREADCRUMB ==================== -->
+  <div class="breadcrumb-bar">
+    <div class="container breadcrumb-inner">
+      <a href="/" class="bc-link">Home</a>
+      <span class="bc-sep">›</span>
+      <a href="/blog" class="bc-link">Blog</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">{post.title}</span>
+    </div>
+  </div>
+
+  <!-- ==================== ARTICLE LAYOUT ==================== -->
+  <div class="article-layout">
+    <div class="container article-container">
+
+      <!-- MAIN ARTICLE COLUMN -->
+      <article class="article-main">
+
+        <!-- Post Hero -->
+        <div class="article-hero">
+          <span class="article-category-badge" style={`background:${post.categoryColor}`}>{post.category}</span>
+          <h1 class="article-title">{post.title}</h1>
+          <div class="article-meta">
+            <span>✍️ {post.author}</span>
+            <span>📅 {post.dateFormatted}</span>
+            <span>🕐 {post.readTime}</span>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="article-img-wrap">
+          <img src={post.image} alt={post.title} class="article-img" loading="eager" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          {post.content.map(block => {
+            if (block.type === 'intro') {
+              return <p class="article-intro">{block.text}</p>;
+            }
+            if (block.type === 'h2') {
+              return <h2 class="article-h2">{block.text}</h2>;
+            }
+            if (block.type === 'p') {
+              return <p class="article-p" set:html={block.text.replace(/\n/g, '<br/>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/•/g, '&#8226;')}></p>;
+            }
+            if (block.type === 'cta') {
+              return (
+                <div class="article-cta-box">
+                  <p>Ready to book your ride? SF Travels offers premium, transparent cab services across Bangalore and South India.</p>
+                  <a href={block.href} class="btn-gold">{block.text} →</a>
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
+
+        <!-- Tags -->
+        <div class="article-tags-row">
+          <span class="tags-label">Tagged:</span>
+          <div class="article-tags">
+            {post.tags.map(tag => <span class="article-tag">{tag}</span>)}
+          </div>
+        </div>
+
+        <!-- Share Bar -->
+        <div class="share-bar">
+          <span class="share-label">Share this article:</span>
+          <div class="share-links">
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(post.title + ' — Read on SF Travels Blog: https://sftravels.in/blog/' + post.slug)}`}
+              target="_blank"
+              rel="noopener"
+              class="share-btn whatsapp"
+              aria-label="Share on WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="share-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://sftravels.in/blog/' + post.slug)}`}
+              target="_blank"
+              rel="noopener"
+              class="share-btn twitter"
+              aria-label="Share on X/Twitter"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="share-icon"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.733-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Tweet
+            </a>
+            <button
+              class="share-btn copy-btn"
+              id="copyUrlBtn"
+              data-url={`https://sftravels.in/blog/${post.slug}`}
+              aria-label="Copy link"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="share-icon"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span id="copyLabel">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR COLUMN -->
+      <aside class="article-sidebar">
+
+        <!-- Quick Booking Card -->
+        <div class="sidebar-book glass-card">
+          <div class="sidebar-book-icon">📞</div>
+          <h3 class="sidebar-book-title">Book a Cab Now</h3>
+          <p class="sidebar-book-desc">Ready to travel? Our dispatch is live 24/7.</p>
+          <a href="tel:+919187232348" class="btn-gold sidebar-book-btn">Call: 9187232348</a>
+          <a href="https://wa.me/919187232348" target="_blank" rel="noopener" class="btn-outline sidebar-book-btn">WhatsApp Us</a>
+        </div>
+
+        <!-- Services Quick Links -->
+        <div class="sidebar-services glass-card">
+          <h3 class="sidebar-widget-title">Our Services</h3>
+          <div class="sidebar-links">
+            <a href="/services/airport-taxi" class="sidebar-link">✈️ Airport Taxi Bangalore</a>
+            <a href="/services/outstation-cabs" class="sidebar-link">🗺️ Outstation Cabs</a>
+            <a href="/services/corporate" class="sidebar-link">🏢 Corporate Slab Rates</a>
+            <a href="/services/local-hire" class="sidebar-link">🕐 Local Hourly Hire</a>
+            <a href="/more-services/bus-rental" class="sidebar-link">🚌 Bus Rental</a>
+            <a href="/more-services/wedding-transport" class="sidebar-link">💍 Wedding Transport</a>
+          </div>
+        </div>
+
+        <!-- Article Info -->
+        <div class="sidebar-info glass-card">
+          <h3 class="sidebar-widget-title">Article Info</h3>
+          <div class="info-item"><span class="info-label">Category</span><span class="info-val" style={`color:${post.categoryColor}`}>{post.category}</span></div>
+          <div class="info-item"><span class="info-label">Published</span><span class="info-val">{post.dateFormatted}</span></div>
+          <div class="info-item"><span class="info-label">Read Time</span><span class="info-val">{post.readTime}</span></div>
+          <div class="info-item"><span class="info-label">Author</span><span class="info-val">{post.author}</span></div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ==================== RELATED POSTS ==================== -->
+  {relatedPosts.length > 0 && (
+    <section class="section-padding related-section bg-navy-gradient">
+      <div class="container">
+        <div class="section-label">You Might Also Like</div>
+        <h2 class="section-title">Related <span class="gold-text">Articles</span></h2>
+        <div class="related-grid">
+          {relatedPosts.map(rp => (
+            <a href={`/blog/${rp.slug}`} class="related-card glass-card">
+              <div class="related-img-wrap">
+                <img src={rp.image} alt={rp.title} class="related-img" loading="lazy" />
+                <span class="post-category-badge" style={`background:${rp.categoryColor}`}>{rp.category}</span>
+              </div>
+              <div class="related-body">
+                <div class="post-meta-row">
+                  <span class="post-date">📅 {rp.dateFormatted}</span>
+                  <span class="post-read">🕐 {rp.readTime}</span>
+                </div>
+                <h3 class="related-title">{rp.title}</h3>
+                <p class="related-excerpt">{rp.excerpt}</p>
+                <div class="read-more">Read Article <span class="arrow">→</span></div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ==================== BACK TO BLOG ==================== -->
+  <section class="back-section">
+    <div class="container">
+      <a href="/blog" class="back-btn">← Back to All Articles</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+/* ======= BREADCRUMB ======= */
+.breadcrumb-bar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid rgba(16,185,129,0.1);
+  padding: 14px 0;
+  padding-top: 90px; /* Clear fixed header */
+}
+.breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.bc-link {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.bc-link:hover { color: #10b981; }
+.bc-sep { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+.bc-current {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+/* ======= ARTICLE LAYOUT ======= */
+.article-layout {
+  background: var(--bg-primary);
+  padding: 48px 0 80px;
+}
+.article-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ======= ARTICLE MAIN ======= */
+.article-main { min-width: 0; }
+.article-hero { margin-bottom: 28px; }
+.article-category-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
+}
+.article-title {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+.article-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ======= ARTICLE IMAGE ======= */
+.article-img-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 36px;
+  height: 420px;
+}
+.article-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======= ARTICLE BODY ======= */
+.article-body { display: flex; flex-direction: column; gap: 20px; }
+.article-intro {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.8;
+  font-weight: 400;
+  border-left: 3px solid #10b981;
+  padding-left: 18px;
+}
+.article-h2 {
+  font-size: 1.35rem;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 10px;
+  position: relative;
+  padding-bottom: 8px;
+}
+.article-h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, #10b981, transparent);
+  border-radius: 2px;
+}
+.article-p {
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.85;
+}
+.article-cta-box {
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+.article-cta-box p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+/* ======= TAGS & SHARE ======= */
+.article-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.tags-label { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+.article-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.article-tag {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.2);
+  color: #a7f3d0;
+}
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(11,23,42,0.5);
+  border: 1px solid rgba(16,185,129,0.1);
+}
+.share-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.share-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: none;
+}
+.share-icon { width: 16px; height: 16px; }
+.whatsapp { background: rgba(37,211,102,0.15); border: 1px solid rgba(37,211,102,0.3); color: #25d366; }
+.whatsapp:hover { background: rgba(37,211,102,0.25); }
+.twitter { background: rgba(29,161,242,0.15); border: 1px solid rgba(29,161,242,0.3); color: #1da1f2; }
+.twitter:hover { background: rgba(29,161,242,0.25); }
+.copy-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+.copy-btn:hover { background: rgba(255,255,255,0.12); }
+
+/* ======= SIDEBAR ======= */
+.article-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 100px;
+}
+.sidebar-book {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+.sidebar-book-icon { font-size: 2.2rem; }
+.sidebar-book-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.sidebar-book-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.sidebar-book-btn { width: 100%; text-align: center; font-size: 0.9rem; padding: 11px 16px; }
+
+.sidebar-services { padding: 22px; }
+.sidebar-widget-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.sidebar-links { display: flex; flex-direction: column; gap: 8px; }
+.sidebar-link {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  padding: 8px 10px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.sidebar-link:hover {
+  background: rgba(16,185,129,0.08);
+  border-color: rgba(16,185,129,0.15);
+  color: #10b981;
+}
+.sidebar-info { padding: 22px; }
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem;
+}
+.info-label { color: rgba(255,255,255,0.45); }
+.info-val { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+/* ======= RELATED POSTS ======= */
+.related-section { background: var(--bg-secondary); }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.related-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+.related-card:hover { transform: translateY(-4px); }
+.related-img-wrap { position: relative; height: 180px; overflow: hidden; }
+.related-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.related-card:hover .related-img { transform: scale(1.06); }
+.related-body { padding: 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.related-title { font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.35; }
+.related-excerpt {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-top: auto;
+  display: flex;
+  gap: 4px;
+}
+.arrow { transition: transform 0.2s; }
+.related-card:hover .arrow { transform: translateX(4px); }
+.post-meta-row { display: flex; gap: 12px; font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+.post-category-badge {
+  position: absolute; top: 10px; left: 10px;
+  color: #fff; font-size: 0.7rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 50px; z-index: 1;
+}
+
+/* ======= BACK BUTTON ======= */
+.back-section { background: var(--bg-primary); padding: 24px 0 60px; }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #10b981;
+  border: 1px solid rgba(16,185,129,0.25);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.back-btn:hover { background: rgba(16,185,129,0.08); }
+
+/* ======= SHARED ======= */
+.section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+.section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: #fff; margin-bottom: 0; }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1024px) {
+  .article-container { grid-template-columns: 1fr; }
+  .article-sidebar { position: static; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .article-img-wrap { height: 240px; }
+  .related-grid { grid-template-columns: 1fr; }
+  .share-bar { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<script>
+// Copy URL functionality
+const copyBtn = document.getElementById('copyUrlBtn');
+const copyLabel = document.getElementById('copyLabel');
+if (copyBtn && copyLabel) {
+  copyBtn.addEventListener('click', async () => {
+    const url = copyBtn.dataset.url;
+    try {
+      await navigator.clipboard.writeText(url);
+      copyLabel.textContent = 'Copied!';
+      setTimeout(() => { copyLabel.textContent = 'Copy Link'; }, 2000);
+    } catch {
+      copyLabel.textContent = 'Copy failed';
+    }
+  });
+}
+</script>

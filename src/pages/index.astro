@@ -1,0 +1,2551 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { blogPosts } from '../data/blog.js';
+
+// SF Travels - Premium Homepage
+// Pull 3 featured posts for the homepage blog preview
+const homeBlogPosts = blogPosts.slice(0, 3);
+---
+
+<Layout 
+  title="SF Travels | Smooth Ride On Time - Corporate & Luxury Cabs Bangalore"
+  description="Experience executive corporate mobility, professional airport transfers, and outstation trips with SF Travels in Bangalore. Transparent slab rate billing and verified chauffeurs."
+>
+  <!-- Leaflet CSS & JS for Interactive Map Selection -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+  <!-- ==================== HERO & BOOKING SECTION ==================== -->
+  <section class="hero-section">
+    <!-- Overlay & Background -->
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-container">
+      <div class="hero-text-content">
+        <h1 class="hero-title">
+          Looking for a <span class="gold-text">vehicle</span>?<br />You're at the right place.
+        </h1>
+      </div>
+
+      <!-- Quick Enquiry Booking Card (Wide Dashboard Layout) -->
+      <div class="booking-card glass-card">
+        <div class="booking-sidebar">
+          <h3 class="booking-sidebar-title">Service</h3>
+          <!-- Interactive Service Tabs -->
+          <div class="service-tabs">
+            <button type="button" class="tab-btn active" data-service="Outstation">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Outstation</span>
+            </button>
+            <button type="button" class="tab-btn" data-service="Airport">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+              <span>Airport Transfer</span>
+            </button>
+            <button type="button" class="tab-btn" data-service="OneWay">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              <span>One Way</span>
+            </button>
+            <button type="button" class="tab-btn" data-service="Local">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Local Hourly</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="booking-body">
+          <!-- Dynamic Lead Capture Form -->
+          <form class="booking-form" name="homepage-inquiry" data-netlify="true" action="/success" method="POST">
+            <input type="hidden" name="form-name" value="homepage-inquiry" />
+            <!-- Active Tab State (hidden input) -->
+            <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
+
+            <div class="form-grid">
+              <!-- Full Name -->
+              <div class="input-group">
+                <label>Full Name <span class="accent-gold">*</span></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <input type="text" name="fullName" placeholder="Your Full Name" required />
+                </div>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="input-group">
+                <label>Phone Number <span class="accent-gold">*</span></label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <input type="tel" name="phoneNumber" placeholder="10-digit number" required />
+                </div>
+              </div>
+
+              <!-- Pickup Location -->
+              <div class="input-group">
+                <label>Pick Up Location <span class="accent-gold">*</span></label>
+                <div class="location-input-row">
+                  <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <input type="text" id="pickupLocationInput" name="pickupLocation" placeholder="Enter pickup address" required />
+                    <button type="button" class="current-loc-btn" id="pickupCurrentLocBtn" title="Use current location">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><circle cx="12" cy="12" r="7"></circle></svg>
+                    </button>
+                  </div>
+                  <button type="button" class="map-pick-btn" id="pickupMapBtn" title="Pick on Map">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Drop Off Location -->
+              <div class="input-group" id="dropoffGroup">
+                <label>Drop Off Location <span class="accent-gold">*</span></label>
+                <div class="location-input-row">
+                  <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <input type="text" id="dropoffLocationInput" name="dropoffLocation" placeholder="Enter destination address" required />
+                    <button type="button" class="current-loc-btn" id="dropoffCurrentLocBtn" title="Use current location">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><circle cx="12" cy="12" r="7"></circle></svg>
+                    </button>
+                  </div>
+                  <button type="button" class="map-pick-btn" id="dropoffMapBtn" title="Pick on Map">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Dates / Times -->
+              <div class="input-group">
+                <label>Pick Up Date & Time <span class="accent-gold">*</span></label>
+                <div class="datetime-grid">
+                  <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <input type="text" id="pickupDatePicker" name="pickupDate" placeholder="Select Pick Up Date" required />
+                  </div>
+                  <input type="time" name="pickupTime" required />
+                </div>
+              </div>
+
+              <!-- Return Details (only for Outstation roundtrip) -->
+              <div class="input-group" id="returnGroup">
+                <label>Return Date & Time <span class="accent-gold">*</span></label>
+                <div class="datetime-grid">
+                  <div class="input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <input type="text" id="returnDatePicker" name="returnDate" placeholder="Select Return Date" />
+                  </div>
+                  <input type="time" name="returnTime" />
+                </div>
+              </div>
+
+              <!-- Select Vehicle -->
+              <div class="input-group span-full">
+                <label>Select Vehicle <span class="accent-gold">*</span></label>
+                <div class="input-wrapper select-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                  <select name="vehicleType" required>
+                    <option value="" disabled selected>Select a vehicle type</option>
+                    <optgroup label="Executive Cars">
+                      <option value="Hatchback">Hatchback (Dzire / Etios)</option>
+                      <option value="Sedan">Sedan (Executive Sedan)</option>
+                    </optgroup>
+                    <optgroup label="Slab-Duty SUVs & MPVs">
+                      <option value="SUV">Standard SUV (Ertiga)</option>
+                      <option value="Innova Crysta">Toyota Innova Crysta</option>
+                      <option value="Innova Hycross">Toyota Innova Hycross</option>
+                    </optgroup>
+                    <optgroup label="Luxury Coaches & Vans">
+                      <option value="Force Urbania Deluxe">Force Urbania Deluxe (9-14 seats)</option>
+                      <option value="Force Urbania Luxury">Force Urbania Luxury (Maharaj Edition)</option>
+                      <option value="Tempo Traveller">Premium Tempo Traveller</option>
+                    </optgroup>
+                    <optgroup label="Heavy Coaches & Buses">
+                      <option value="Mini Bus">Mini Bus (21-30 seater)</option>
+                      <option value="Volvo Coach">Luxury Volvo Coach (45 seater)</option>
+                      <option value="Transit Bus">Large Transit Bus (50 seater)</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn-gold submit-btn span-full">
+                <span>Request Quote Instantly</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="submit-icon"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ==================== HERO 4-STEPS BANNER ==================== -->
+      <div class="hero-steps-banner span-full">
+        <div class="steps-grid">
+          <div class="step-item group">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Choose a Vehicle</h3>
+            <p class="step-desc">Find the perfect ride from our diverse fleet, custom-selected to make your next road trip comfortable and memorable.</p>
+          </div>
+          <div class="step-item group">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Pick Location</h3>
+            <p class="step-desc">Select your pickup spot and travel date—we'll handle all the logistics and routing details for you.</p>
+          </div>
+          <div class="step-item group">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Make a Booking</h3>
+            <p class="step-desc">Confirm your ride in a few simple taps. Our booking process is quick, direct, and completely hassle-free.</p>
+          </div>
+          <div class="step-item group">
+            <div class="step-number">4</div>
+            <h3 class="step-title">Sit Back & Relax</h3>
+            <p class="step-desc">Unwind and enjoy a stress-free travel experience while our friendly, professional chauffeur does the driving.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== TRUST PILLARS (WHY CHOOSE US - LIGHT & SPACIOUS) ==================== -->
+  <section class="section-padding trust-section">
+    <div class="container text-center">
+      <span class="gold-subtitle">SF TRAVELS STANDARDS</span>
+      <h2 class="section-title text-dark">A Fresh Approach to Travel</h2>
+      <p class="section-desc text-muted max-w-3xl">
+        Experience seamless travel with our high standards of safety, extreme punctuality, and straightforward slab pricing tailored for your daily commutes.
+      </p>
+
+      <div class="features-layout-grid">
+        <!-- Left Side: 2 Features Stacked -->
+        <div class="features-col">
+          <!-- Feature 1 -->
+          <div class="feature-card-spacious text-right-desktop">
+            <div class="feature-icon-wrapper align-right-desktop">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg>
+            </div>
+            <h3 class="feature-card-title">Absolute Safety First</h3>
+            <p class="feature-card-desc">Your safety is our top priority. We thoroughly inspect and clean every vehicle, and use live GPS tracking to keep your ride secure.</p>
+          </div>
+          
+          <!-- Feature 2 -->
+          <div class="feature-card-spacious text-right-desktop">
+            <div class="feature-icon-wrapper align-right-desktop">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3 class="feature-card-title">Extreme Punctuality</h3>
+            <p class="feature-card-desc">We value your time. Our dedicated chauffeurs make it a point to arrive at your pickup point at least 10 minutes early, ensuring a perfectly smooth departure.</p>
+          </div>
+        </div>
+
+        <!-- Center: Gorgeous Premium Transparent Car PNG -->
+        <div class="features-car-center">
+          <div class="car-glow-blur"></div>
+          <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/af218ffd783e5838777bc2ff78950efa.png" alt="Premium Toyota Car Service" class="car-image-effect" />
+        </div>
+
+        <!-- Right Side: 2 Features Stacked -->
+        <div class="features-col text-left-desktop">
+          <!-- Feature 3 -->
+          <div class="feature-card-spacious">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            </div>
+            <h3 class="feature-card-title">Transparent Slab Rates</h3>
+            <p class="feature-card-desc">Say goodbye to sudden price surges or hidden fees. What you see on our rate cards is exactly what you pay—no dynamic pricing spikes or post-trip surprises.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card-spacious">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="feature-card-title">Free Pick-Up & Drop-Off</h3>
+            <p class="feature-card-desc">Enjoy maximum convenience with complimentary doorstep pickup and drop-off service for all executive travels and outstation trips within city limits.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== STATS OVERLAY SECTION ==================== -->
+  <section class="stats-section section-padding">
+    <div class="stats-overlay"></div>
+    <div class="container relative z-10">
+      <div class="stats-header-grid">
+        <h2 class="stats-title gold-text">SF Travels offers premium executive transits across Bangalore and beyond.</h2>
+        <p class="stats-desc text-light">
+          At SF Travels, we are committed to providing safe, comfortable, and reliable transportation services. Our fleet of pristine, modern vehicles and highly professional chauffeurs ensures a smooth journey whether you're catching a flight, traveling outstation, or managing corporate employee transport.
+        </p>
+      </div>
+
+      <div class="counters-grid">
+        <div class="counter-card glass-card">
+          <h3 class="counter-num">15,425+</h3>
+          <p class="counter-label">Completed Orders</p>
+        </div>
+        <div class="counter-card glass-card">
+          <h3 class="counter-num">8,745+</h3>
+          <p class="counter-label">Happy Customers</p>
+        </div>
+        <div class="counter-card glass-card">
+          <h3 class="counter-num">235+</h3>
+          <p class="counter-label">Active Fleet Vehicles</p>
+        </div>
+        <div class="counter-card glass-card">
+          <h3 class="counter-num">15+ Yrs</h3>
+          <p class="counter-label">Combined Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PREMIUM FLEET SHOWCASE (SPACIOUS LIGHT SECTION) ==================== -->
+  <section class="section-padding fleet-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="gold-subtitle">EXQUISITE CHAUFFEURED FLEET</span>
+        <h2 class="section-title text-dark">Explore Our Fleet</h2>
+        <p class="section-desc text-muted max-w-3xl">
+          From daily city runs to premium corporate transits and group getaways, we have a perfectly maintained vehicle ready to make your journey pleasant.
+        </p>
+      </div>
+
+      <!-- CATEGORY 1: CARS FLEET -->
+      <div class="fleet-category-block">
+        <h3 class="category-heading">Cars Fleet</h3>
+        <div class="fleet-grid">
+          <!-- Vehicle 1 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=600&auto=format&fit=crop" alt="Hatchback (Dzire/Etios)" />
+              <div class="fleet-tag">Executive Hatchback</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Dzire / Etios</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  4 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  1-2 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Slab Rates</span>
+                  <span class="price-value">Starts ₹600</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle 2 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=600&auto=format&fit=crop" alt="Executive Sedan" />
+              <div class="fleet-tag">Corporate Sedan</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Executive Sedan</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  4 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  2 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Corporate Rates</span>
+                  <span class="price-value">Starts ₹600</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle 3 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=600&auto=format&fit=crop" alt="Standard SUV (Ertiga)" />
+              <div class="fleet-tag">Slab SUV</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Suzuki Ertiga</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  6 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  3 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Corporate Rates</span>
+                  <span class="price-value">Starts ₹600</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle 4 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1581540222194-0def2dda95b8?q=80&w=600&auto=format&fit=crop" alt="Toyota Innova Crysta" />
+              <div class="fleet-tag">Gold Standard MPV</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Toyota Innova Crysta</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  7 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  4 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Executive Duty</span>
+                  <span class="price-value">Call for Rates</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2: FORCE URBANIA FLEET -->
+      <div class="fleet-category-block">
+        <h3 class="category-heading">Force Urbania Fleet</h3>
+        <div class="fleet-grid">
+          <!-- Vehicle 1 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600&auto=format&fit=crop" alt="Force Urbania Deluxe" />
+              <div class="fleet-tag">Executive Deluxe Van</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Force Urbania Deluxe</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  9-14 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  6-8 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">VIP Cruiser</span>
+                  <span class="price-value">Custom Quote</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle 2 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=600&auto=format&fit=crop" alt="Force Urbania Luxury" />
+              <div class="fleet-tag">Super Luxury Cruiser</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Force Urbania Luxury</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  12-14 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  8-10 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Executive travel</span>
+                  <span class="price-value">Custom Quote</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3: TEMPO TRAVELLER FLEET -->
+      <div class="fleet-category-block">
+        <h3 class="category-heading">Tempo Traveller Fleet</h3>
+        <div class="fleet-grid">
+          <!-- Vehicle 1 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop" alt="Premium Tempo Traveller" />
+              <div class="fleet-tag">Premium Coach</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Tempo Traveller</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  12-16 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  12 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Outstation Packages</span>
+                  <span class="price-value">Custom Quote</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 4: BUS FLEET -->
+      <div class="fleet-category-block">
+        <h3 class="category-heading">Bus Fleet</h3>
+        <div class="fleet-grid">
+          <!-- Vehicle 1 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=600&auto=format&fit=crop" alt="Mini Bus" />
+              <div class="fleet-tag">Executive Mini Bus</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Mini Bus</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  21-30 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  20-25 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">Corporate Group</span>
+                  <span class="price-value">Starts ₹900/hr</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle 2 -->
+          <div class="fleet-card">
+            <div class="fleet-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600&auto=format&fit=crop" alt="Luxury Volvo Coach" />
+              <div class="fleet-tag">Premium Volvo Coach</div>
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Volvo Luxury Coach</h3>
+              <div class="fleet-specs">
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  45 Seats
+                </span>
+                <span class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spec-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  40-45 Bags
+                </span>
+              </div>
+              <div class="fleet-divider"></div>
+              <div class="fleet-footer">
+                <div class="fleet-price">
+                  <span class="price-label">VIP Group Travel</span>
+                  <span class="price-value">Custom Quote</span>
+                </div>
+                <button class="btn-gold book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ADVENTURE BEGINS SECTION ==================== -->
+  <section class="adventure-section section-padding">
+    <div class="adventure-overlay"></div>
+    <div class="container relative z-10">
+      <div class="adventure-content-grid">
+        <div class="adventure-text-block">
+          <h2 class="adventure-title">Let Your <br><span class="gold-text">Adventure</span> <br>Begin</h2>
+          <p class="adventure-desc">Discover the absolute freedom of the open road with our highly reliable, pristine fleet and exceptional driver hospitality.</p>
+        </div>
+
+        <div class="adventure-features-grid">
+          <!-- Card 1 -->
+          <div class="adventure-feature-card">
+            <div class="adventure-icon-bg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+            </div>
+            <h3 class="adv-feature-title">First Class Services</h3>
+            <p class="adv-feature-desc">Experience premium travel with our top-tier vehicle selection and professional chauffeurs dedicated to your comfort.</p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="adventure-feature-card">
+            <div class="adventure-icon-bg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>
+            </div>
+            <h3 class="adv-feature-title">24/7 Road Support</h3>
+            <p class="adv-feature-desc">Travel with peace of mind knowing our dedicated support team is available around the clock to assist you anywhere.</p>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="adventure-feature-card">
+            <div class="adventure-icon-bg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="adv-feature-title">Free Pick & Drop</h3>
+            <p class="adv-feature-desc">Enjoy complimentary doorstep service for long-term rentals and premium bookings inside Bangalore city limits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG PREVIEW SECTION ==================== -->
+  <section class="section-padding blog-preview-section">
+    <div class="container">
+      <div class="blog-preview-header">
+        <div class="blog-preview-text">
+          <span class="gold-subtitle">TRAVEL TIPS & GUIDES</span>
+          <h2 class="section-title text-dark">From Our <span class="gold-text">Travel Blog</span></h2>
+          <p class="section-desc text-muted">Expert road trip guides, airport tips, and South India travel insights from the SF Travels team.</p>
+        </div>
+        <a href="/blog" class="blog-view-all btn-outline-emerald">View All Articles →</a>
+      </div>
+
+      <div class="blog-preview-grid">
+        {homeBlogPosts.map((post, i) => (
+          <a href={`/blog/${post.slug}`} class={`blog-preview-card glass-card ${i === 0 ? 'blog-preview-featured' : ''}`}>
+            <div class="blog-preview-img-wrap">
+              <img src={post.image} alt={post.title} class="blog-preview-img" loading="lazy" />
+              <span class="blog-cat-badge" style={`background:${post.categoryColor}`}>{post.category}</span>
+            </div>
+            <div class="blog-preview-body">
+              <div class="blog-meta">
+                <span>📅 {post.dateFormatted}</span>
+                <span>🕐 {post.readTime}</span>
+              </div>
+              <h3 class="blog-preview-title">{post.title}</h3>
+              <p class="blog-preview-excerpt">{post.excerpt}</p>
+              <div class="blog-read-more">
+                Read Article <span class="blog-arrow">→</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="blog-preview-footer">
+        <a href="/blog" class="btn-gold blog-all-btn">📚 Browse All Travel Guides</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== READY TO BOOK CTA BANNER ==================== -->
+  <section class="ready-to-book-section">
+    <div class="container text-center">
+      <h2 class="ready-title">Ready to Book Your Ride?</h2>
+      <p class="ready-desc max-w-2xl mx-auto">Get started with SF Travels today. Experience executive, high-trust travel at fixed, highly competitive slab rates.</p>
+      <div class="ready-cta-group">
+        <button class="btn-white open-booking-modal">Book Now</button>
+        <a href="tel:9187232348" class="btn-outline-white">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Call 9187232348</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Map Modal Component -->
+  <div id="mapModal" class="map-modal-overlay">
+    <div class="map-modal-card">
+      <div class="map-modal-header">
+        <h3 class="map-modal-title">Select Location on Map</h3>
+        <button type="button" class="map-modal-close" id="closeMapModalBtn">&times;</button>
+      </div>
+      <div class="map-modal-body">
+        <div id="mapContainer" style="height: 350px; width: 100%; border-radius: 8px;"></div>
+        <p class="map-modal-help-text">Click anywhere on the map to place your pin. Click Confirm when satisfied.</p>
+      </div>
+      <div class="map-modal-footer">
+        <div class="selected-address-preview" id="addressPreview">No location selected</div>
+        <button type="button" class="btn-gold" id="confirmMapLocationBtn" disabled>Confirm Location</button>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ==================== HERO & BOOKING STYLES ==================== */
+  .hero-section {
+    min-height: 100vh;
+    position: relative;
+    padding-top: 130px;
+    padding-bottom: 80px;
+    display: flex;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(5, 13, 26, 0.9) 0%, rgba(5, 13, 26, 0.75) 100%);
+    z-index: 1;
+  }
+  
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+  }
+  
+  .hero-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(5, 13, 26, 0.5);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 650px;
+    line-height: 1.7;
+    opacity: 0.95;
+    text-shadow: 0 2px 8px rgba(5, 13, 26, 0.5);
+  }
+  
+  /* Enquiry Form Booking Card - Premium Horizontal Dashboard Layout */
+  .booking-card {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+    display: flex;
+    flex-direction: row;
+    padding: 0 !important; /* Let children touch edge for side-bar framing */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  
+  .booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+  }
+
+  .booking-sidebar {
+    width: 250px;
+    background: #f9fafb;
+    padding: 30px 24px;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  .booking-sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #9ca3af;
+    margin-bottom: 20px;
+  }
+
+  .booking-body {
+    flex: 1;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .service-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #4b5563;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-align: left;
+  }
+  
+  .tab-btn:hover {
+    background: #f9fafb;
+    color: var(--brand-gold);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  .tab-btn.active {
+    background: var(--brand-gold) !important;
+    color: var(--text-white) !important;
+    border-color: var(--brand-gold) !important;
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.22);
+    transform: translateX(6px) scale(1.02);
+  }
+
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2;
+    flex-shrink: 0;
+    color: var(--brand-gold);
+    transition: var(--transition-smooth);
+  }
+
+  .tab-btn.active .tab-icon {
+    color: #ffffff !important;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .span-full {
+    grid-column: span 2;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .input-group label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #374151;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Location Row and Buttons Styling */
+  .location-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .current-loc-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1ecb15; /* Bright emerald green for current location crosshairs */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 10;
+  }
+  
+  .current-loc-btn:hover {
+    color: #19b512;
+    background: rgba(30, 203, 21, 0.08);
+  }
+
+  .current-loc-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke-width: 2.2 !important;
+    display: block !important;
+  }
+  
+  .map-pick-btn {
+    height: 46px;
+    width: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+  }
+  
+  .map-pick-btn:hover {
+    background: var(--brand-gold);
+    color: #ffffff;
+    border-color: var(--brand-gold);
+  }
+
+  .map-pick-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke-width: 2 !important;
+    display: block !important;
+  }
+
+  /* Make sure both location inputs account for their right absolute geolocation buttons */
+  #pickupLocationInput, #dropoffLocationInput {
+    padding-right: 42px !important;
+  }
+
+  /* Premium Map Modal Styling */
+  .map-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 13, 26, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .map-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .map-modal-card {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+  }
+  
+  .map-modal-overlay.active .map-modal-card {
+    transform: translateY(0);
+  }
+  
+  .map-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .map-modal-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #050d1a !important;
+    margin: 0;
+  }
+  
+  .map-modal-close {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .map-modal-close:hover {
+    color: #050d1a;
+  }
+  
+  .map-modal-body {
+    padding: 20px;
+  }
+  
+  .map-modal-help-text {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .map-modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .selected-address-preview {
+    font-size: 0.85rem;
+    color: #374151;
+    font-weight: 500;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  #confirmMapLocationBtn {
+    width: 100%;
+    height: 44px;
+    font-size: 0.88rem;
+  }
+  
+  #confirmMapLocationBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #cbd5e1;
+    box-shadow: none;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--brand-gold-dark);
+    pointer-events: none;
+  }
+  
+  .input-wrapper input, .input-wrapper select {
+    width: 100%;
+    height: 46px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding-left: 40px;
+    padding-right: 16px;
+    color: #050d1a;
+    font-size: 0.88rem;
+    transition: var(--transition-smooth);
+  }
+  
+  .input-wrapper input:focus, .input-wrapper select:focus {
+    border-color: var(--brand-gold);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  }
+  
+  .datetime-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 8px;
+  }
+  
+  .datetime-grid > input {
+    height: 46px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0 12px;
+    color: #050d1a;
+    font-size: 0.88rem;
+    transition: var(--transition-smooth);
+  }
+  
+  .datetime-grid > input:focus {
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  }
+
+  /* Style all input fields inside the booking card globally to completely bypass Astro scoping on dynamic inputs */
+  :global(.booking-card .input-wrapper input) {
+    width: 100% !important;
+    height: 46px !important;
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    padding-left: 40px !important;
+    padding-right: 16px !important;
+    color: #050d1a !important;
+    font-size: 0.88rem !important;
+    transition: var(--transition-smooth) !important;
+    display: block !important;
+  }
+  
+  :global(.booking-card .input-wrapper input:focus) {
+    border-color: var(--brand-gold) !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+  }
+
+  /* Flatpickr Custom Emerald Premium Styling */
+  .flatpickr-calendar {
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    border-radius: var(--border-radius) !important;
+    font-family: var(--font-body) !important;
+  }
+  
+  .flatpickr-day.selected, 
+  .flatpickr-day.startRange, 
+  .flatpickr-day.endRange,
+  .flatpickr-day.selected:hover,
+  .flatpickr-day.nextMonthDay.selected {
+    background: var(--brand-gold) !important;
+    border-color: var(--brand-gold) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+  
+  .flatpickr-day:hover {
+    background: #f3f4f6 !important;
+    border-color: #f3f4f6 !important;
+    color: #050d1a !important;
+  }
+  
+  .flatpickr-months .flatpickr-prev-month:hover svg, 
+  .flatpickr-months .flatpickr-next-month:hover svg {
+    fill: var(--brand-gold-dark) !important;
+  }
+  
+  .flatpickr-current-month .numInputWrapper span.arrowUp:after {
+    border-bottom-color: var(--brand-gold) !important;
+  }
+  .flatpickr-current-month .numInputWrapper span.arrowDown:after {
+    border-top-color: var(--brand-gold) !important;
+  }
+  
+  .select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  
+  .select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--brand-gold);
+    pointer-events: none;
+  }
+  
+  .submit-btn {
+    height: 50px;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .submit-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.5;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .submit-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* ==================== HERO 4-STEPS BANNER ==================== */
+  .hero-steps-banner {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-gold);
+    color: var(--bg-primary);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    transition: var(--transition-smooth);
+  }
+  
+  .step-item:hover .step-number {
+    transform: scale(1.1);
+    background: var(--brand-gold-light);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  }
+  
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 8px;
+  }
+  
+  .step-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ==================== TRUST SECTIONS (LIGHT SYSTEM) ==================== */
+  .trust-section {
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+  }
+  
+  .text-dark {
+    color: #050d1a !important;
+  }
+  
+  .trust-section .section-title {
+    color: #050d1a;
+  }
+  
+  .trust-section .section-desc {
+    color: #4b5563;
+  }
+  
+  .gold-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--brand-gold-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  
+  .section-desc {
+    font-size: 1.05rem;
+    margin: 0 auto 56px auto;
+    line-height: 1.75;
+  }
+  
+  .features-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .features-col {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .features-car-center {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .car-image-effect {
+    width: 100%;
+    max-width: 460px;
+    object-fit: contain;
+    z-index: 2;
+    transition: var(--transition-smooth);
+    filter: drop-shadow(0 20px 30px rgba(16, 185, 129, 0.15));
+  }
+  
+  .features-car-center:hover .car-image-effect {
+    transform: translateY(-8px) scale(1.03);
+  }
+  
+  .car-glow-blur {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0) 70%);
+    filter: blur(40px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .feature-card-spacious {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: var(--transition-smooth);
+  }
+  
+  @media (min-width: 993px) {
+    .text-right-desktop {
+      text-align: right;
+      align-items: flex-end;
+    }
+    
+    .align-right-desktop {
+      margin-left: auto;
+    }
+    
+    .text-left-desktop {
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+  
+  .feature-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-gold-dark);
+    transition: var(--transition-smooth);
+  }
+  
+  .feature-card-spacious:hover .feature-icon-wrapper {
+    background: var(--brand-gold);
+    color: var(--text-white);
+    border-color: var(--brand-gold);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .feature-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .feature-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #050d1a;
+  }
+  
+  .feature-card-desc {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+
+  /* ==================== STATS OVERLAY STYLES ==================== */
+  .stats-section {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1557403072-f101218865a9?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+  }
+  
+  .stats-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(5, 13, 26, 0.95) 0%, rgba(5, 13, 26, 0.85) 100%);
+    z-index: 1;
+  }
+  
+  .stats-header-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  
+  .stats-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+  
+  .stats-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  .counters-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .counter-card {
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .counter-num {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--brand-gold);
+    margin-bottom: 8px;
+  }
+  
+  .counter-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+  }
+
+  /* ==================== FLEET SHOWCASE STYLES ==================== */
+  .fleet-section {
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .fleet-section .section-title {
+    color: #050d1a;
+  }
+  
+  .fleet-section .section-desc {
+    color: #4b5563;
+  }
+
+  .fleet-category-block {
+    margin-bottom: 60px;
+  }
+
+  .category-heading {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #050d1a;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+
+  .category-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 80%;
+    background: var(--brand-gold);
+    border-radius: 4px;
+  }
+  
+  .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .fleet-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: var(--transition-smooth);
+  }
+  
+  .fleet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(212, 175, 55, 0.05);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  
+  .fleet-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #f1f5f9;
+    overflow: hidden;
+  }
+  
+  .fleet-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+  }
+  
+  .fleet-card:hover .fleet-image-wrapper img {
+    transform: scale(1.06);
+  }
+  
+  .fleet-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--bg-primary);
+    color: var(--brand-gold);
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 2;
+  }
+  
+  .fleet-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .fleet-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #050d1a;
+    margin-bottom: 12px;
+  }
+  
+  .fleet-specs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .spec-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #4b5563;
+    font-weight: 500;
+  }
+  
+  .spec-icon {
+    width: 15px;
+    height: 15px;
+    color: var(--brand-gold-dark);
+  }
+  
+  .fleet-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 20px;
+  }
+  
+  .fleet-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .fleet-price {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    font-weight: 600;
+  }
+  
+  .price-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #050d1a;
+  }
+  
+  .book-btn {
+    font-size: 0.75rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+
+  /* ==================== ADVENTURE BEGINS SECTION ==================== */
+  .adventure-section {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  
+  .adventure-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(5, 13, 26, 0.92) 0%, rgba(5, 13, 26, 0.8) 100%);
+    z-index: 1;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .z-10 {
+    z-index: 10;
+  }
+  
+  .adventure-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .adventure-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .adventure-title {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+  
+  .adventure-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  
+  .adventure-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .adventure-feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--border-radius);
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: var(--transition-smooth);
+  }
+  
+  .adventure-feature-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+  }
+  
+  .adventure-icon-bg {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--brand-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+  }
+  
+  .adventure-icon-bg svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .adventure-feature-card:hover .adventure-icon-bg {
+    background: var(--brand-gold);
+    color: var(--bg-primary);
+    transform: scale(1.05);
+  }
+  
+  .adv-feature-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+  
+  .adv-feature-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ==================== BLOG PREVIEW SECTION STYLES ==================== */
+  .blog-preview-section {
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(16,185,129,0.1);
+  }
+
+  .blog-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .blog-preview-text .gold-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #10b981;
+    margin-bottom: 8px;
+  }
+
+  .blog-preview-text .section-title {
+    color: #ffffff !important;
+    margin-bottom: 8px;
+  }
+
+  .blog-preview-text .section-desc {
+    color: rgba(255,255,255,0.6) !important;
+    max-width: 500px;
+  }
+
+  .btn-outline-emerald {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(16,185,129,0.4);
+    color: #10b981;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: var(--border-radius);
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .btn-outline-emerald:hover {
+    background: rgba(16,185,129,0.1);
+    border-color: rgba(16,185,129,0.6);
+    transform: translateY(-2px);
+  }
+
+  .blog-preview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .blog-preview-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+  }
+
+  .blog-preview-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .blog-preview-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-preview-featured .blog-preview-img-wrap {
+    height: 260px;
+  }
+
+  .blog-preview-card:not(.blog-preview-featured) .blog-preview-img-wrap {
+    height: 180px;
+  }
+
+  .blog-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-preview-card:hover .blog-preview-img {
+    transform: scale(1.05);
+  }
+
+  .blog-cat-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    z-index: 1;
+  }
+
+  .blog-preview-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .blog-preview-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+
+  .blog-preview-featured .blog-preview-title {
+    font-size: 1.2rem;
+  }
+
+  .blog-preview-excerpt {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-read-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #10b981;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-top: 8px;
+  }
+
+  .blog-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .blog-preview-card:hover .blog-arrow {
+    transform: translateX(4px);
+  }
+
+  .blog-preview-footer {
+    margin-top: 36px;
+    text-align: center;
+  }
+
+  .blog-all-btn {
+    font-size: 1rem;
+    padding: 14px 36px;
+  }
+
+  /* ==================== READY TO BOOK CTA BANNER STYLES ==================== */
+  .ready-to-book-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, var(--brand-gold) 100%);
+    padding: 70px 0;
+    color: var(--text-white);
+    text-align: center;
+  }
+  
+  .ready-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-white);
+  }
+  
+  .ready-desc {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+  }
+  
+  .ready-cta-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .btn-white {
+    background: #ffffff;
+    color: var(--brand-gold-dark) !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-white:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline-white svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ==================== RESPONSIVE VIEWPORTS ==================== */
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      text-align: center;
+    }
+    
+    .hero-text-content {
+      align-items: center;
+    }
+    
+    .hero-title {
+      font-size: 2.8rem;
+    }
+    
+    .booking-card {
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .hero-steps-banner {
+      display: none; /* Hide complex steps rows on mobile */
+    }
+    
+    .features-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .blog-preview-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .features-col {
+      gap: 30px;
+    }
+    
+    .feature-card-spacious {
+      text-align: center;
+      align-items: center;
+    }
+    
+    .feature-icon-wrapper {
+      margin: 0 auto;
+    }
+    
+    .features-car-center {
+      order: -1;
+      margin: 20px 0;
+    }
+    
+    .car-image-effect {
+      max-width: 320px;
+    }
+    
+    .fleet-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .stats-header-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .counters-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .adventure-content-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+    
+    .adventure-features-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .blog-preview-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .blog-preview-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-section {
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+    
+    .hero-title {
+      font-size: 2.2rem;
+    }
+    
+    .booking-card {
+      padding: 20px;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    .span-full {
+      grid-column: span 1;
+    }
+    
+    .service-tabs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+    
+    .counter-num {
+      font-size: 2.2rem;
+    }
+    
+    .ready-cta-group {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .btn-white, .btn-outline-white {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<!-- Core Interactive Script for Search Booking Tabs & Flatpickr Calendars -->
+<script>
+  import flatpickr from 'flatpickr';
+  import 'flatpickr/dist/flatpickr.min.css';
+
+  const initApp = () => {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const serviceTypeInput = document.getElementById('serviceTypeInput');
+    const dropoffGroup = document.getElementById('dropoffGroup');
+    const dropoffInput = dropoffGroup ? dropoffGroup.querySelector('input') : null;
+    const returnGroup = document.getElementById('returnGroup');
+    
+    // Initialize Flatpickr calendars with premium brand theme and logic
+    const pickupFP = flatpickr("#pickupDatePicker", {
+      minDate: "today",
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "F j, Y",
+      disableMobile: true,
+      onChange: function(selectedDates, dateStr, instance) {
+        if (returnFP) {
+          returnFP.set('minDate', dateStr || "today");
+        }
+      }
+    });
+
+    const returnFP = flatpickr("#returnDatePicker", {
+      minDate: "today",
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "F j, Y",
+      disableMobile: true
+    });
+
+    // Remove required attribute from original hidden input elements to avoid Chrome's focus error
+    const pickupInput = document.getElementById('pickupDatePicker');
+    const returnInput = document.getElementById('returnDatePicker');
+    if (pickupInput) pickupInput.removeAttribute('required');
+    if (returnInput) returnInput.removeAttribute('required');
+
+    // Set required attribute on flatpickr's visible text inputs
+    if (pickupFP && pickupFP.altInput) {
+      pickupFP.altInput.setAttribute('required', 'true');
+    }
+    if (returnFP && returnFP.altInput) {
+      returnFP.altInput.setAttribute('required', 'true');
+    }
+
+    // Open native time picker when clicking anywhere on the time inputs (instead of having to click strictly on the clock icon)
+    const timeInputs = document.querySelectorAll('.booking-form input[type="time"]');
+    timeInputs.forEach(input => {
+      if (input instanceof HTMLInputElement) {
+        input.style.cursor = 'pointer';
+        input.addEventListener('click', () => {
+          try {
+            if (typeof input.showPicker === 'function') {
+              input.showPicker();
+            }
+          } catch (err) {
+            console.warn('HTMLInputElement.showPicker() is not supported on this browser:', err);
+          }
+        });
+      }
+    });
+
+    // ==================== GEOLOCATION & MAP SELECTION LOGIC ====================
+    const pickupLocInput = document.getElementById('pickupLocationInput');
+    const dropoffLocInput = document.getElementById('dropoffLocationInput');
+    const pickupCurrentLocBtn = document.getElementById('pickupCurrentLocBtn');
+    const dropoffCurrentLocBtn = document.getElementById('dropoffCurrentLocBtn');
+    
+    // Reusable function to handle geolocation reverse-geocoding
+    const handleGeolocation = (btnElement, inputField) => {
+      if (!btnElement || !inputField) return;
+      
+      btnElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        if (!navigator || !navigator.geolocation) {
+          alert("Geolocation is not supported by your browser or connection.\n\nNote: Modern browsers strictly require a secure context (such as https:// or http://localhost) to access location data. If you are accessing this page using an IP address (like 127.0.0.1 or a local network IP), the browser will block the sensor for security.");
+          return;
+        }
+
+        const originalHTML = btnElement.innerHTML;
+        btnElement.disabled = true;
+        btnElement.innerHTML = `
+          <svg class="animate-spin w-4 h-4 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        `;
+        
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            
+            try {
+              const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+              const data = await res.json();
+              if (data && data.display_name) {
+                inputField.value = data.display_name;
+              } else {
+                inputField.value = `Current Location (${lat.toFixed(5)}, ${lon.toFixed(5)})`;
+              }
+            } catch (err) {
+              inputField.value = `Current Location (${lat.toFixed(5)}, ${lon.toFixed(5)})`;
+            }
+            btnElement.disabled = false;
+            btnElement.innerHTML = originalHTML;
+          },
+          (error) => {
+            console.error("Geolocation error:", error);
+            let errMsg = "Could not retrieve current location. Please verify location permissions in your browser settings.";
+            if (error.code === error.PERMISSION_DENIED) {
+              errMsg = "Location request was denied. Please click the padlock or settings icon on the left of your browser address bar and change 'Location' permission to 'ALLOW' for this website.";
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+              errMsg = "Location information is unavailable. Please make sure Location Services are enabled in your operating system's settings.";
+            } else if (error.code === error.TIMEOUT) {
+              errMsg = "Location request timed out. Please check your network connection and try again.";
+            }
+            alert(errMsg);
+            btnElement.disabled = false;
+            btnElement.innerHTML = originalHTML;
+          },
+          { enableHighAccuracy: true, timeout: 6000 }
+        );
+      });
+    };
+
+    // Bind both buttons separately
+    handleGeolocation(pickupCurrentLocBtn, pickupLocInput);
+    handleGeolocation(dropoffCurrentLocBtn, dropoffLocInput);
+
+    // 2. Leaflet Map Selection
+    const mapModal = document.getElementById('mapModal');
+    const pickupMapBtn = document.getElementById('pickupMapBtn');
+    const dropoffMapBtn = document.getElementById('dropoffMapBtn');
+    const closeMapModalBtn = document.getElementById('closeMapModalBtn');
+    const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtn');
+    const addressPreview = document.getElementById('addressPreview');
+    
+    let activeInputTarget = null;
+    let leafletMap = null;
+    let leafletMarker = null;
+    let selectedCoords = null;
+    
+    const fetchAddressFromMap = async (coords) => {
+      addressPreview.innerText = "Resolving address details...";
+      confirmMapLocationBtn.disabled = true;
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`);
+        const data = await res.json();
+        if (data && data.display_name) {
+          addressPreview.innerText = data.display_name;
+          confirmMapLocationBtn.disabled = false;
+        } else {
+          addressPreview.innerText = `Coordinates: ${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`;
+          confirmMapLocationBtn.disabled = false;
+        }
+      } catch (err) {
+        addressPreview.innerText = `Coordinates: ${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`;
+        confirmMapLocationBtn.disabled = false;
+      }
+    };
+    
+    const openMapModal = (targetInput) => {
+      activeInputTarget = targetInput;
+      addressPreview.innerText = "Click on the map to choose a location...";
+      confirmMapLocationBtn.disabled = true;
+      selectedCoords = null;
+      
+      if (mapModal) {
+        mapModal.classList.add('active');
+      }
+      
+      setTimeout(() => {
+        if (typeof window.L === 'undefined') {
+          console.error("Leaflet is not loaded yet.");
+          return;
+        }
+        
+        const defaultBangalore = [12.9716, 77.5946];
+        
+        if (!leafletMap) {
+          leafletMap = window.L.map('mapContainer').setView(defaultBangalore, 12);
+          window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(leafletMap);
+          
+          leafletMap.on('click', async (e) => {
+            const { lat, lng } = e.latlng;
+            selectedCoords = { lat, lng };
+            
+            if (leafletMarker) {
+              leafletMarker.setLatLng(e.latlng);
+            } else {
+              leafletMarker = window.L.marker(e.latlng, { draggable: true }).addTo(leafletMap);
+              leafletMarker.on('dragend', async (ev) => {
+                const markerLatLng = ev.target.getLatLng();
+                selectedCoords = { lat: markerLatLng.lat, lng: markerLatLng.lng };
+                await fetchAddressFromMap(selectedCoords);
+              });
+            }
+            await fetchAddressFromMap(selectedCoords);
+          });
+        } else {
+          leafletMap.invalidateSize();
+          leafletMap.setView(defaultBangalore, 12);
+          if (leafletMarker) {
+            leafletMap.removeLayer(leafletMarker);
+            leafletMarker = null;
+          }
+        }
+        
+        // Auto-detect current position to center map
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              const currentLatLng = [pos.coords.latitude, pos.coords.longitude];
+              leafletMap.setView(currentLatLng, 15);
+              if (leafletMarker) {
+                leafletMarker.setLatLng(currentLatLng);
+              } else {
+                leafletMarker = window.L.marker(currentLatLng, { draggable: true }).addTo(leafletMap);
+              }
+              selectedCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+              fetchAddressFromMap(selectedCoords);
+            },
+            () => {
+              console.log("Geolocation prompt dismissed or errored, defaulting map position.");
+            }
+          );
+        }
+      }, 350);
+    };
+    
+    const closeMapModal = () => {
+      if (mapModal) {
+        mapModal.classList.remove('active');
+      }
+    };
+    
+    if (pickupMapBtn && pickupLocInput) {
+      pickupMapBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openMapModal(pickupLocInput);
+      });
+    }
+    
+    if (dropoffMapBtn && dropoffLocInput) {
+      dropoffMapBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openMapModal(dropoffLocInput);
+      });
+    }
+    
+    if (closeMapModalBtn) {
+      closeMapModalBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMapModal();
+      });
+    }
+    
+    if (confirmMapLocationBtn) {
+      confirmMapLocationBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (activeInputTarget && addressPreview.innerText) {
+          activeInputTarget.value = addressPreview.innerText;
+          closeMapModal();
+        }
+      });
+    }
+
+    if (tabs && serviceTypeInput) {
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          
+          const selectedService = tab.getAttribute('data-service') || 'Outstation';
+          
+          // Update hidden input
+          serviceTypeInput.value = selectedService;
+          
+          // Toggle return date visibility (only show for Outstation roundtrip)
+          if (returnGroup) {
+            const dateAltInput = returnFP ? returnFP.altInput : null;
+            const timeInput = returnGroup.querySelector('input[type="time"]');
+
+            if (selectedService === 'Outstation') {
+              returnGroup.style.display = 'flex';
+              if (dateAltInput) dateAltInput.setAttribute('required', 'true');
+              if (timeInput) timeInput.setAttribute('required', 'true');
+            } else {
+              returnGroup.style.display = 'none';
+              if (dateAltInput) dateAltInput.removeAttribute('required');
+              if (timeInput) timeInput.removeAttribute('required');
+              if (returnFP) returnFP.clear();
+            }
+          }
+          
+          // Toggle dropoff visibility (Airport & Local don't strictly require drops)
+          if (dropoffGroup && dropoffInput) {
+            if (selectedService === 'Local') {
+              dropoffGroup.style.display = 'none';
+              dropoffInput.removeAttribute('required');
+            } else {
+              dropoffGroup.style.display = 'flex';
+              dropoffInput.setAttribute('required', 'true');
+            }
+          }
+        });
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
+</script>

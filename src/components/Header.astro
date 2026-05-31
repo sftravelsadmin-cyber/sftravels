@@ -1,0 +1,615 @@
+---
+// SF Travels Header Navigation
+---
+
+<header class="header-main">
+  <div class="container header-container">
+    
+    <!-- Premium Logo Section -->
+    <a href="/" class="logo-wrapper">
+      <!-- Golden Circle SVG Logo -->
+      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"></circle>
+        <circle cx="50" cy="50" r="38" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4 2"></circle>
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f3e5ab"></stop>
+            <stop offset="50%" stop-color="#d4af37"></stop>
+            <stop offset="100%" stop-color="#aa7c11"></stop>
+          </linearGradient>
+        </defs>
+        <text x="50%" y="58%" text-anchor="middle" font-family="Outfit" font-weight="900" font-size="28" fill="url(#goldGrad)">SF</text>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">SF TRAVELS</span>
+        <span class="logo-tagline">Smooth Ride On Time</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-desktop">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/about" class="nav-link">About Us</a>
+      
+      <!-- Services Dropdown -->
+      <div class="dropdown-wrapper">
+        <button class="dropdown-btn">
+          Services
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="dropdown-menu glass-card">
+          <a href="/services/airport-taxi" class="dropdown-link">Airport Taxi</a>
+          <a href="/services/outstation-cabs" class="dropdown-link">Outstation Cabs</a>
+          <a href="/services/local-hire" class="dropdown-link">Local Hourly Cabs</a>
+          <a href="/services/corporate" class="dropdown-link">Corporate Slab Rates</a>
+        </div>
+      </div>
+      
+      <!-- More Services Dropdown -->
+      <div class="dropdown-wrapper">
+        <button class="dropdown-btn">
+          More Services
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="dropdown-menu glass-card">
+          <a href="/more-services/bus-rental" class="dropdown-link">Bus Rental Services</a>
+          <a href="/more-services/wedding-transport" class="dropdown-link">Wedding Events</a>
+          <a href="/more-services/tour-packages" class="dropdown-link">Custom Tour Packages</a>
+        </div>
+      </div>
+      
+      <a href="/driver-vacancy" class="nav-link">Driver Vacancy</a>
+      <a href="/contact" class="nav-link">Contact Us</a>
+      <a href="/blog" class="nav-link">Blog</a>
+    </nav>
+
+    <!-- Desktop Call Button -->
+    <div class="header-action">
+      <a href="tel:9187232348" class="btn-gold header-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>Call Now</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button class="mobile-toggle-btn" aria-label="Toggle Navigation Menu" id="mobileToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- Mobile Slide-out Menu Panel -->
+<div class="mobile-menu-overlay" id="mobileOverlay">
+  <div class="mobile-menu-panel glass-card">
+    <div class="mobile-menu-header">
+      <span class="gold-text menu-title">SF Travels</span>
+      <button class="mobile-close-btn" id="mobileClose" aria-label="Close Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav class="nav-mobile-links">
+      <a href="/" class="mobile-link active">Home</a>
+      <a href="/about" class="mobile-link">About Us</a>
+      
+      <div class="mobile-expandable">
+        <button class="mobile-expand-btn">
+          Services
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="mobile-submenu">
+          <a href="/services/airport-taxi" class="mobile-sub-link">Airport Taxi</a>
+          <a href="/services/outstation-cabs" class="mobile-sub-link">Outstation Cabs</a>
+          <a href="/services/local-hire" class="mobile-sub-link">Local Hourly Cabs</a>
+          <a href="/services/corporate" class="mobile-sub-link">Corporate Slab Rates</a>
+        </div>
+      </div>
+      
+      <div class="mobile-expandable">
+        <button class="mobile-expand-btn">
+          More Services
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="mobile-submenu">
+          <a href="/more-services/bus-rental" class="mobile-sub-link">Bus Rental Services</a>
+          <a href="/more-services/wedding-transport" class="mobile-sub-link">Wedding Events</a>
+          <a href="/more-services/tour-packages" class="mobile-sub-link">Custom Tour Packages</a>
+        </div>
+      </div>
+      
+      <a href="/driver-vacancy" class="mobile-link">Driver Vacancy</a>
+      <a href="/contact" class="mobile-link">Contact Us</a>
+      <a href="/blog" class="mobile-link">Blog</a>
+      
+      <a href="tel:9187232348" class="btn-gold mobile-call-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>Call Hotline</span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<style>
+  /* Header Core Styles */
+  .header-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(5, 13, 26, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    transition: var(--transition-smooth);
+    padding: 12px 0;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  /* Premium Logo Section */
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logo-svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.2));
+    transition: var(--transition-smooth);
+  }
+  
+  .logo-wrapper:hover .logo-svg {
+    transform: scale(1.05) rotate(5deg);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    color: var(--text-white);
+    background: linear-gradient(135deg, var(--brand-gold-light) 0%, var(--brand-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .logo-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* Desktop Menu Links */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-light);
+    position: relative;
+    padding: 8px 4px;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--brand-gold);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--brand-gold);
+  }
+  
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Dropdown Styles */
+  .dropdown-wrapper {
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 4px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .chevron-icon {
+    width: 14px;
+    height: 14px;
+    transition: var(--transition-smooth);
+  }
+  
+  .dropdown-wrapper:hover .dropdown-btn {
+    color: var(--brand-gold);
+  }
+  
+  .dropdown-wrapper:hover .chevron-icon {
+    transform: rotate(180deg);
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 210px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+  }
+  
+  .dropdown-wrapper:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .dropdown-link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text-light);
+  }
+  
+  .dropdown-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--brand-gold);
+    padding-left: 16px;
+  }
+
+  /* Header Actions & Call button */
+  .header-action {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    background: #ffffff !important;
+    color: var(--brand-gold-dark) !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    transition: var(--transition-smooth);
+  }
+  
+  .header-btn:hover {
+    background: #f8fafc !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .header-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: var(--brand-gold) !important;
+    flex-shrink: 0;
+  }
+  
+  .mobile-toggle-btn {
+    display: none;
+    color: var(--text-white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .mobile-toggle-btn:hover {
+    color: var(--brand-gold);
+  }
+
+  .mobile-toggle-btn svg,
+  .mobile-close-btn svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    stroke-width: 2.5;
+  }
+
+  /* Mobile slideout structures */
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(5, 13, 26, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+  }
+  
+  .mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 320px;
+    border-radius: 0;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: var(--transition-smooth);
+  }
+  
+  .mobile-menu-overlay.open .mobile-menu-panel {
+    transform: translateX(0);
+  }
+  
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    padding-bottom: 16px;
+  }
+  
+  .menu-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.3rem;
+  }
+  
+  .mobile-close-btn {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .mobile-close-btn:hover {
+    color: var(--brand-gold);
+  }
+  
+  .nav-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    max-height: calc(100% - 80px);
+    padding-bottom: 40px;
+  }
+  
+  .mobile-link {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 6px 0;
+    color: var(--text-light);
+  }
+  
+  .mobile-link:hover, .mobile-link.active {
+    color: var(--brand-gold);
+  }
+  
+  .mobile-expandable {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-expand-btn {
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    cursor: pointer;
+  }
+  
+  .mobile-expandable:hover .mobile-expand-btn {
+    color: var(--brand-gold);
+  }
+  
+  .mobile-expandable.active .chevron-icon {
+    transform: rotate(180deg);
+  }
+  
+  .mobile-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 16px;
+    margin-top: 4px;
+    border-left: 1px dashed rgba(212, 175, 55, 0.2);
+  }
+  
+  .mobile-expandable.active .mobile-submenu {
+    display: flex;
+  }
+  
+  .mobile-sub-link {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    padding: 4px 0;
+  }
+  
+  .mobile-sub-link:hover {
+    color: var(--brand-gold);
+  }
+  
+  .mobile-call-btn {
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .mobile-call-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    flex-shrink: 0;
+  }
+
+  /* ==================== SCROLLED HEADER TRANSITION ==================== */
+  .header-main.scrolled {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 6px 0;
+  }
+  
+  .header-main.scrolled .logo-title {
+    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, var(--brand-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .header-main.scrolled .logo-tagline {
+    color: #4b5563;
+  }
+  
+  .header-main.scrolled .nav-link,
+  .header-main.scrolled .dropdown-btn {
+    color: #334155;
+  }
+  
+  .header-main.scrolled .nav-link:hover,
+  .header-main.scrolled .nav-link.active,
+  .header-main.scrolled .dropdown-wrapper:hover .dropdown-btn {
+    color: var(--brand-gold);
+  }
+  
+  .header-main.scrolled .mobile-toggle-btn {
+    color: #050d1a;
+  }
+  
+  .header-main.scrolled .header-btn {
+    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%) !important;
+    color: var(--text-white) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25) !important;
+  }
+  
+  .header-main.scrolled .header-btn:hover {
+    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, #059669 100%) !important;
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px);
+  }
+  
+  .header-main.scrolled .header-btn svg {
+    color: var(--text-white) !important;
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 992px) {
+    .nav-desktop, .header-action {
+      display: none;
+    }
+    
+    .mobile-toggle-btn {
+      display: block;
+    }
+  }
+</style>
+
+<!-- Mobile Navigation Toggle Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('mobileToggle');
+    const closeBtn = document.getElementById('mobileClose');
+    const overlay = document.getElementById('mobileOverlay');
+    
+    if (toggleBtn && closeBtn && overlay) {
+      // Toggle Menu Open
+      toggleBtn.addEventListener('click', () => {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Stop scroll
+      });
+      
+      // Close Menu
+      const closeMenu = () => {
+        overlay.classList.remove('open');
+        document.body.style.overflow = ''; // Resume scroll
+      };
+      
+      closeBtn.addEventListener('click', closeMenu);
+      
+      // Close on clicking overlay bg
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeMenu();
+        }
+      });
+    }
+    
+    // Mobile Expandable Dropdowns Logic
+    const expandables = document.querySelectorAll('.mobile-expandable');
+    expandables.forEach(expandable => {
+      const btn = expandable.querySelector('.mobile-expand-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          expandable.classList.toggle('active');
+        });
+      }
+    });
+
+    // Sticky Header Scroll Transition
+    const header = document.querySelector('.header-main');
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
+    };
+    
+    // Trigger on load as well in case of page refresh
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  });
+</script>

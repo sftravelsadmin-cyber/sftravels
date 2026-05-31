@@ -1,0 +1,233 @@
+/* ==========================================================================
+   SF TRAVELS - Premium Design System (Dark Navy Blue & Soft Emerald Theme)
+   ========================================================================== */
+
+/* --- Custom Variables & Tokens --- */
+:root {
+  /* Colors */
+  --bg-primary: #050d1a;       /* Absolute Deep Navy (almost black) */
+  --bg-secondary: #0b172a;     /* Executive Dark Blue */
+  --bg-tertiary: #13243d;      /* Slate Blue for hover elements */
+  
+  --brand-gold: #10b981;       /* Premium Emerald Green */
+  --brand-gold-light: #a7f3d0; /* Soft Mint Green for highlights */
+  --brand-gold-dark: #047857;  /* Deep Forest Emerald for shadows */
+  
+  --text-white: #ffffff;
+  --text-light: #f3f4f6;       /* Soft Gray for readable body */
+  --text-muted: #9ca3af;       /* Warm Muted Gray */
+  
+  --border-glass: rgba(16, 185, 129, 0.15); /* Translucent Emerald Border */
+  --bg-glass: rgba(11, 23, 42, 0.7);        /* Translucent Navy Background */
+  
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Effects */
+  --shadow-gold: 0 4px 20px rgba(16, 185, 129, 0.15);
+  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 12px;
+}
+
+/* --- Global Resets & Defaults --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-white);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* --- Core Premium Utilities --- */
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: var(--shadow-gold), var(--shadow-premium);
+  transform: translateY(-2px);
+}
+
+/* Premium Emerald Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%);
+  color: var(--text-white) !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--brand-gold-dark) 0%, #059669 100%);
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Secondary Ghost Buttons */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--brand-gold);
+  color: var(--brand-gold);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Gradients */
+.gold-text {
+  background: linear-gradient(135deg, var(--brand-gold-light) 0%, var(--brand-gold) 50%, var(--brand-gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-navy-gradient {
+  background: radial-gradient(circle at top right, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+/* Section Structures */
+.section-padding {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* --- Accessible Text Contrast on Light/White Backgrounds --- */
+.positions-section,
+.onboarding-section,
+.faq-section,
+.story-section,
+.values-section,
+.trust-section,
+.bg-white {
+  color: #374151 !important;
+}
+
+.positions-section .gold-subtitle,
+.onboarding-section .gold-subtitle,
+.faq-section .gold-subtitle,
+.story-section .gold-subtitle,
+.values-section .gold-subtitle,
+.trust-section .gold-subtitle,
+.bg-white .gold-subtitle {
+  color: var(--brand-gold-dark) !important;
+}
+
+.positions-section h1, .positions-section h2, .positions-section h3,
+.onboarding-section h1, .onboarding-section h2, .onboarding-section h3,
+.faq-section h1, .faq-section h2, .faq-section h3,
+.story-section h1, .story-section h2, .story-section h3,
+.values-section h1, .values-section h2, .values-section h3,
+.trust-section h1, .trust-section h2, .trust-section h3,
+.bg-white h1, .bg-white h2, .bg-white h3 {
+  color: #050d1a !important;
+}
+
+.positions-section .text-muted,
+.onboarding-section .text-muted,
+.faq-section .text-muted,
+.story-section .text-muted,
+.values-section .text-muted,
+.trust-section .text-muted,
+.bg-white .text-muted,
+.positions-section .section-desc,
+.onboarding-section .section-desc,
+.faq-section .section-desc,
+.story-section .section-desc,
+.values-section .section-desc,
+.trust-section .section-desc,
+.bg-white .section-desc {
+  color: #4b5563 !important;
+  opacity: 1 !important;
+}

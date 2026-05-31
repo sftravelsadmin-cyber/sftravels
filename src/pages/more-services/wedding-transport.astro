@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const weddingServices = [
+  { icon: '💒', title: 'Baraat Procession', desc: 'Decorated buses and luxury SUVs lead the groom\'s entry in grand style.' },
+  { icon: '👰', title: 'Bridal Party Transport', desc: 'Flower-adorned sedans and SUVs for the bride and close family.' },
+  { icon: '🚌', title: 'Guest Shuttle Service', desc: 'Coordinated fleet shuttles guests between venue, hotel, and ceremony points.' },
+  { icon: '📸', title: 'Pre-Wedding Shoots', desc: 'Styled luxury vehicles as props and transport for photo/video shoots.' },
+  { icon: '🌙', title: 'Late Night Returns', desc: 'Post-reception guest drop-offs handled professionally, regardless of hour.' },
+  { icon: '📋', title: 'Event Coordinator Link', desc: 'We coordinate directly with your wedding planner for seamless logistics.' },
+];
+
+const fleetForWedding = [
+  { name: 'Swift Dzire (Bridal Sedan)', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80', badge: '🌸 Bridal', seats: 4 },
+  { name: 'Innova Crysta (VIP Family)', img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80', badge: '👑 VIP', seats: 7 },
+  { name: 'Force Urbania (Wedding Party)', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', badge: '🎉 Party', seats: 17 },
+  { name: 'Luxury Coach (Guest Shuttle)', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80', badge: '🚌 Shuttle', seats: 35 },
+];
+---
+
+<Layout
+  title="Wedding Transport Bangalore | SF Travels — Baraat, Bridal & Guest Cabs"
+  description="Premium wedding transport in Bangalore. Baraat buses, bridal sedans, VIP Innova Crysta, and guest shuttle coaches. Coordinated, decorated, and professional."
+>
+
+  <section class="service-hero wedding-hero">
+    <div class="hero-overlay-dark"></div>
+    <div class="container service-hero-content">
+      <div class="service-badge-pill">💍 Wedding Transport</div>
+      <h1 class="service-hero-title">
+        Your Special Day Deserves<br />
+        <span class="gold-text">A Perfect Ride.</span>
+      </h1>
+      <p class="service-hero-desc">
+        From baraat processions to guest shuttles, SF Travels orchestrates your wedding transport with elegance, punctuality, and personalized care.
+      </p>
+      <div class="service-hero-cta">
+        <a href="/contact" class="btn-gold">📞 Plan Wedding Fleet</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20wedding%20transport%20in%20Bangalore." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Enquiry</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">✓ Decorated vehicles available</span>
+        <span class="pill">✓ Multi-vehicle coordination</span>
+        <span class="pill">✓ 24/7 event support</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding services-section">
+    <div class="container">
+      <div class="section-label">End-to-End Wedding Logistics</div>
+      <h2 class="section-title">Our <span class="gold-text">Wedding Services</span></h2>
+      <div class="wed-grid">
+        {weddingServices.map(ws => (
+          <div class="wed-card glass-card">
+            <div class="wed-icon">{ws.icon}</div>
+            <h3 class="wed-title">{ws.title}</h3>
+            <p class="wed-desc">{ws.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding fleet-section bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Wedding Fleet Options</div>
+      <h2 class="section-title">Pick Your <span class="gold-text">Wedding Wheels</span></h2>
+      <div class="wed-fleet-grid">
+        {fleetForWedding.map(v => (
+          <div class="wed-vehicle glass-card">
+            <div class="wed-img-wrap">
+              <img src={v.img} alt={v.name} class="wed-img" loading="lazy" />
+              <span class="wed-badge">{v.badge}</span>
+            </div>
+            <div class="wed-vehicle-body">
+              <h3>{v.name}</h3>
+              <span class="wed-seats">👥 {v.seats} Passengers</span>
+              <a href={`https://wa.me/919187232348?text=Hi%2C%20I%20need%20${encodeURIComponent(v.name)}%20for%20my%20wedding%20in%20Bangalore`} target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;">Enquire Now</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <h2 class="cta-title">Make Your Big Day Unforgettable</h2>
+      <p class="cta-subtitle">Share your wedding date and guest count — we'll design a transport plan that fits your celebration perfectly.</p>
+      <div class="cta-actions">
+        <a href="tel:+919187232348" class="btn-gold">📞 Call Our Wedding Team</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20wedding%20transport%20coordination%20in%20Bangalore" target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Plan</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.service-hero { position: relative; min-height: 520px; display: flex; align-items: center; overflow: hidden; }
+.wedding-hero { background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80'); background-size: cover; background-position: center; }
+.hero-overlay-dark { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.72) 100%); }
+.service-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; max-width: 720px; }
+.service-badge-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px; }
+.service-hero-title { font-size: clamp(2rem, 5vw, 3rem); color: #fff; line-height: 1.15; margin-bottom: 18px; }
+.service-hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 28px; max-width: 560px; }
+.service-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.pill { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #a7f3d0; padding: 5px 14px; border-radius: 50px; font-size: 0.82rem; }
+.services-section { background: var(--bg-primary); }
+.wed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+.wed-card { padding: 28px 22px; text-align: center; }
+.wed-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.wed-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.wed-desc { font-size: 0.88rem; color: rgba(255,255,255,0.62); line-height: 1.6; }
+.fleet-section { background: var(--bg-secondary); }
+.wed-fleet-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px; }
+.wed-vehicle { overflow: hidden; }
+.wed-img-wrap { position: relative; height: 180px; overflow: hidden; }
+.wed-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.wed-vehicle:hover .wed-img { transform: scale(1.05); }
+.wed-badge { position: absolute; top: 10px; left: 10px; background: rgba(16,185,129,0.9); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 50px; }
+.wed-vehicle-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.wed-vehicle-body h3 { font-size: 0.95rem; font-weight: 700; color: #fff; }
+.wed-seats { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+.cta-banner { background: linear-gradient(135deg, #0b172a 0%, #051a2c 100%); border-top: 1px solid rgba(16,185,129,0.2); padding: 80px 20px; }
+.cta-content { text-align: center; }
+.cta-title { font-size: clamp(1.6rem, 4vw, 2.4rem); color: #fff; margin-bottom: 14px; }
+.cta-subtitle { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 32px; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
+.section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: #fff; margin-bottom: 12px; }
+@media (max-width: 1024px) { .wed-fleet-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .wed-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .wed-grid { grid-template-columns: 1fr; } .wed-fleet-grid { grid-template-columns: 1fr; } .service-hero-cta { flex-direction: column; } }
+</style>

@@ -1,0 +1,448 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fleet } from '../../data/fleet.js';
+
+const airportVehicles = fleet.filter(v => ['swift-dzire','toyota-innova','innova-crysta'].includes(v.id));
+
+const trustPoints = [
+  { icon: '✈️', title: 'Flight Tracking', desc: 'We monitor your flight status and adjust pickup time automatically.' },
+  { icon: '⏱️', title: 'Zero Wait Policy', desc: 'Driver arrives 20 mins early. You never wait at the terminal.' },
+  { icon: '🛡️', title: 'Verified Chauffeurs', desc: 'All drivers are police-verified, licensed, and company-trained.' },
+  { icon: '💳', title: 'Fixed Flat Rate', desc: 'Price agreed upfront — no meter surprises, ever.' },
+  { icon: '📍', title: 'Live GPS Tracking', desc: 'Share live location with your family while your ride is in progress.' },
+  { icon: '📞', title: '24/7 Dispatch', desc: 'Dedicated dispatch line operational around the clock.' },
+];
+
+const faqs = [
+  { q: 'Do you service Kempegowda International Airport (KIA)?', a: 'Yes, KIA is our primary airport. We also serve HAL Airport for domestic charter flights.' },
+  { q: 'What happens if my flight is delayed?', a: 'We track your flight in real time. Your driver will wait at no extra charge for up to 60 minutes after landing.' },
+  { q: 'Can I book for early morning or late night pickups?', a: 'Absolutely. Our dispatch team operates 24/7. Midnight and pre-dawn pickups are our specialty.' },
+  { q: 'Is there a waiting charge at the airport?', a: 'We offer 60 minutes of complimentary waiting. Beyond that, ₹100/30 min applies.' },
+  { q: 'How do I know which driver is coming?', a: 'You receive the driver\'s name, photo, and vehicle number via WhatsApp 1 hour before pickup.' },
+];
+---
+
+<Layout
+  title="Airport Taxi Bangalore | SF Travels — Kempegowda Airport Cab"
+  description="Book a premium airport taxi in Bangalore with SF Travels. Flight-tracking, zero-wait policy, verified chauffeurs. Flat rates to KIA and HAL Airport."
+>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="service-hero airport-hero">
+    <div class="hero-overlay-dark"></div>
+    <div class="container service-hero-content">
+      <div class="service-badge-pill">✈️ Airport Transfer Services</div>
+      <h1 class="service-hero-title">
+        Bangalore Airport Taxi —<br />
+        <span class="gold-text">On Time, Every Flight.</span>
+      </h1>
+      <p class="service-hero-desc">
+        Whether it's a 4 AM departure or a midnight arrival, SF Travels delivers a verified chauffeur to your door — flight-tracked, pre-confirmed, and flat-rated.
+      </p>
+      <div class="service-hero-cta">
+        <a href="/contact" class="btn-gold">📞 Book Airport Cab</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20an%20airport%20taxi%20in%20Bangalore." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Us</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">✓ 60 min free wait</span>
+        <span class="pill">✓ Flight tracked</span>
+        <span class="pill">✓ Zero surge pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST GRID ==================== -->
+  <section class="section-padding trust-highlights bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Why SF Travels for Your Airport Run?</div>
+      <h2 class="section-title">The <span class="gold-text">SF Travels Promise</span></h2>
+      <div class="trust-grid-6">
+        {trustPoints.map(tp => (
+          <div class="trust-card glass-card">
+            <div class="trust-icon">{tp.icon}</div>
+            <h3 class="trust-title">{tp.title}</h3>
+            <p class="trust-desc">{tp.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FLEET SECTION ==================== -->
+  <section class="section-padding fleet-section">
+    <div class="container">
+      <div class="section-label">Our Airport Fleet</div>
+      <h2 class="section-title">Choose Your <span class="gold-text">Ride</span></h2>
+      <p class="section-desc">All vehicles are sanitized, GPS-tracked, and maintained to premium standards.</p>
+      <div class="fleet-grid">
+        {airportVehicles.map(v => (
+          <div class="vehicle-card glass-card">
+            <div class="vehicle-img-wrap">
+              <img src={v.image} alt={v.name} class="vehicle-img" loading="lazy" />
+              <span class="vehicle-badge" style={`background:${v.badgeColor}`}>{v.badge}</span>
+            </div>
+            <div class="vehicle-body">
+              <h3 class="vehicle-name">{v.name}</h3>
+              <p class="vehicle-tagline">{v.tagline}</p>
+              <div class="vehicle-specs">
+                <span class="spec-pill">👤 {v.seats} Seats</span>
+                <span class="spec-pill">❄️ {v.acType}</span>
+                <span class="spec-pill">🧳 {v.luggage}</span>
+              </div>
+              <div class="vehicle-price">
+                <span class="price-label">Starting at</span>
+                <span class="price-value">{v.pricePerKm}</span>
+              </div>
+              <a
+                href={`https://wa.me/919187232348?text=Hi%2C%20I%20need%20an%20Airport%20Taxi%20with%20${encodeURIComponent(v.name)}`}
+                target="_blank"
+                rel="noopener"
+                class="btn-gold vehicle-book-btn"
+              >Book This Car</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RATE CARD ==================== -->
+  <section class="section-padding rate-section bg-navy-gradient">
+    <div class="container">
+      <div class="section-label">Transparent Pricing</div>
+      <h2 class="section-title">Airport Transfer <span class="gold-text">Rate Card</span></h2>
+      <div class="rate-cards-row">
+        <div class="rate-card glass-card">
+          <div class="rate-icon">🏙️</div>
+          <h3>City to KIA (One Way)</h3>
+          <div class="rate-table">
+            <div class="rate-row"><span>Sedan (Dzire)</span><span class="rate-price">₹800 – ₹1,200</span></div>
+            <div class="rate-row"><span>SUV (Innova)</span><span class="rate-price">₹1,200 – ₹1,800</span></div>
+            <div class="rate-row"><span>Premium (Crysta)</span><span class="rate-price">₹1,500 – ₹2,200</span></div>
+          </div>
+          <p class="rate-note">* Varies by pickup zone. Final price confirmed at booking.</p>
+        </div>
+        <div class="rate-card glass-card">
+          <div class="rate-icon">🔁</div>
+          <h3>Round Trip (Drop + Pickup)</h3>
+          <div class="rate-table">
+            <div class="rate-row"><span>Sedan (Dzire)</span><span class="rate-price">₹1,400 – ₹2,200</span></div>
+            <div class="rate-row"><span>SUV (Innova)</span><span class="rate-price">₹2,000 – ₹3,200</span></div>
+            <div class="rate-row"><span>Premium (Crysta)</span><span class="rate-price">₹2,600 – ₹3,800</span></div>
+          </div>
+          <p class="rate-note">* Same driver waits at airport for return. Driver allowance included.</p>
+        </div>
+        <div class="rate-card glass-card highlight-card">
+          <div class="rate-icon">⚡</div>
+          <h3>What's Included — Always</h3>
+          <ul class="include-list">
+            <li>✓ GST & Toll included</li>
+            <li>✓ Driver allowance included</li>
+            <li>✓ Flight tracking included</li>
+            <li>✓ 60-min free wait</li>
+            <li>✓ No hidden charges</li>
+            <li>✓ Instant WhatsApp confirmation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section-padding faq-section" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-label dark-label">Frequently Asked Questions</div>
+      <h2 class="section-title" style="color:#050d1a;">Airport Taxi <span style="color:#047857;">FAQs</span></h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`airport-faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" aria-controls={`airport-faq-answer-${i}`}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" id={`airport-faq-answer-${i}`} hidden>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <h2 class="cta-title">Ready for a Stress-Free Airport Ride?</h2>
+      <p class="cta-subtitle">Call our dispatch team or send a WhatsApp — we'll confirm your cab in under 5 minutes.</p>
+      <div class="cta-actions">
+        <a href="tel:+919187232348" class="btn-gold">📞 Call Now: 9187232348</a>
+        <a href="https://wa.me/919187232348?text=Hi%2C%20I%20need%20an%20airport%20taxi%20booking." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Book</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+/* ======= SERVICE HERO ======= */
+.service-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #050d1a 0%, #0b172a 50%, #051a2c 100%);
+}
+.airport-hero {
+  background-image:
+    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.75) 100%);
+}
+.service-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 20px 80px;
+  max-width: 720px;
+}
+.service-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #10b981;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.service-hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.service-hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 580px;
+}
+.service-hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.hero-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pill {
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: #a7f3d0;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* ======= TRUST GRID ======= */
+.trust-highlights { background: var(--bg-secondary); }
+.trust-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.trust-card {
+  padding: 28px 22px;
+  text-align: center;
+}
+.trust-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.trust-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.trust-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+/* ======= FLEET ======= */
+.fleet-section { background: var(--bg-primary); }
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.vehicle-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.vehicle-img-wrap { position: relative; height: 200px; overflow: hidden; }
+.vehicle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.vehicle-card:hover .vehicle-img { transform: scale(1.05); }
+.vehicle-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+}
+.vehicle-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.vehicle-name { font-size: 1.15rem; font-weight: 700; color: #fff; }
+.vehicle-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.vehicle-specs { display: flex; gap: 8px; flex-wrap: wrap; }
+.spec-pill {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.2);
+  color: #a7f3d0;
+  font-weight: 500;
+}
+.vehicle-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+.price-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.price-value { font-size: 1.3rem; font-weight: 700; color: #10b981; font-family: var(--font-heading); }
+.vehicle-book-btn { width: 100%; text-align: center; margin-top: auto; }
+
+/* ======= RATE CARD ======= */
+.rate-section { background: var(--bg-secondary); }
+.rate-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.rate-card {
+  padding: 30px 24px;
+}
+.rate-icon { font-size: 2.4rem; margin-bottom: 16px; }
+.rate-card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 20px; font-weight: 700; }
+.rate-table { display: flex; flex-direction: column; gap: 10px; }
+.rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+}
+.rate-price { color: #10b981; font-weight: 700; font-size: 0.95rem; }
+.rate-note { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 16px; line-height: 1.5; }
+.highlight-card { border-color: rgba(16,185,129,0.4); }
+.include-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+.include-list li { font-size: 0.92rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 8px; }
+
+/* ======= FAQ ======= */
+.faq-section { background: #f8fafc; }
+.dark-label { color: #047857 !important; border-color: #047857 !important; }
+.faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: #050d1a;
+  cursor: pointer;
+  gap: 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+}
+.faq-question:hover { background: #f0fdf4; }
+.faq-chevron { width: 18px; height: 18px; flex-shrink: 0; color: #10b981; transition: transform 0.3s ease; }
+.faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+.faq-answer { padding: 0 22px 18px; }
+.faq-answer p { font-size: 0.92rem; color: #4b5563; line-height: 1.7; }
+
+/* ======= CTA BANNER ======= */
+.cta-banner {
+  background: linear-gradient(135deg, #0b172a 0%, #051a2c 100%);
+  border-top: 1px solid rgba(16,185,129,0.2);
+  padding: 80px 20px;
+}
+.cta-content { text-align: center; }
+.cta-title { font-size: clamp(1.6rem, 4vw, 2.4rem); color: #fff; margin-bottom: 14px; }
+.cta-subtitle { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 32px; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ======= SHARED ======= */
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #10b981;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: #fff;
+  margin-bottom: 12px;
+}
+.section-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1024px) {
+  .trust-grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+  .rate-cards-row { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 640px) {
+  .trust-grid-6 { grid-template-columns: 1fr; }
+  .fleet-grid { grid-template-columns: 1fr; }
+  .service-hero-cta { flex-direction: column; }
+}
+</style>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const answerId = btn.getAttribute('aria-controls');
+    const answer = document.getElementById(answerId);
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) { answer.setAttribute('hidden', ''); }
+    else { answer.removeAttribute('hidden'); }
+  });
+});
+</script>
