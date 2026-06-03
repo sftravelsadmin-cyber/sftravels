@@ -131,9 +131,13 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
 
-          <!-- Enquiry form (Netlify integrated) -->
-          <form class="contact-enquiry-form" name="contact-enquiry" data-netlify="true" action="/success" method="POST">
-            <input type="hidden" name="form-name" value="contact-enquiry" />
+          <!-- Enquiry form (Web3Forms integrated) -->
+          <form class="contact-enquiry-form" name="contact-enquiry" action="https://api.web3forms.com/submit" method="POST" id="contactEnquiryForm">
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"} />
+            <input type="hidden" name="subject" value="New Website Enquiry - SF Travels" />
+            <input type="hidden" name="from_name" value="SF Travels Website" />
+            <input type="hidden" name="replyto" value="" id="contactReplyToInput" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
             <div class="contact-form-fields">
               
@@ -696,3 +700,90 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
+<script>
+  const initContactForm = () => {
+    const contactForm = document.getElementById('contactEnquiryForm');
+    if (!contactForm) return;
+
+    const emailInput = contactForm.querySelector('input[name="emailAddress"]');
+    const replyToInput = document.getElementById('contactReplyToInput') as HTMLInputElement;
+
+    if (emailInput && replyToInput) {
+      emailInput.addEventListener('input', () => {
+        replyToInput.value = (emailInput as HTMLInputElement).value;
+      });
+    }
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Honeypot spam check
+      const botcheck = contactForm.querySelector('input[name="botcheck"]') as HTMLInputElement;
+      if (botcheck && botcheck.checked) {
+        console.warn("Spam submission blocked.");
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const formElements = contactForm.querySelectorAll('input, select, textarea, button');
+
+      if (submitBtn) submitBtn.classList.add('btn-loading');
+      formElements.forEach(el => el.setAttribute('disabled', 'true'));
+
+      const formData = new FormData(contactForm);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async (response) => {
+        const json = await response.json();
+        if (response.status === 200) {
+          // Success: replace form content with a premium inline success card
+          const formCard = contactForm.closest('.form-card');
+          if (formCard) {
+            formCard.innerHTML = `
+              <div class="form-success-inline">
+                <div class="success-icon-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width: 36px; height: 36px;">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h3 class="success-title">Message Sent!</h3>
+                <p class="success-message">
+                  Thank you for reaching out, <strong>${formData.get('fullName')}</strong>. Your enquiry has been routed directly to our mobility desk. Gagan or a dispatch coordinator will contact you shortly.
+                </p>
+                <div class="success-actions">
+                  <a href="https://wa.me/919187232348?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="btn-wa-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 18px; height: 18px;" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
+                    </svg>
+                    <span>Connect via WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            `;
+          }
+        } else {
+          alert(json.message || "Something went wrong. Please check your form details and try again.");
+          formElements.forEach(el => el.removeAttribute('disabled'));
+        }
+      })
+      .catch(error => {
+        console.error("Submission error:", error);
+        alert("Form submission failed. Please check your internet connection and try again.");
+        formElements.forEach(el => el.removeAttribute('disabled'));
+      })
+      .finally(() => {
+        if (submitBtn) submitBtn.classList.remove('btn-loading');
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
+  } else {
+    initContactForm();
+  }
+</script>

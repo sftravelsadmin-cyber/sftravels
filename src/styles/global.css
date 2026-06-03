@@ -231,3 +231,211 @@ button, input, select, textarea {
   color: #4b5563 !important;
   opacity: 1 !important;
 }
+
+/* ==================== WEB3FORMS ACTIONS, LOADERS & MODALS ==================== */
+
+/* Button loading state styles */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn-loading span {
+  opacity: 0 !important;
+}
+
+.btn-loading svg {
+  opacity: 0 !important;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top-color: var(--text-white) !important;
+  border-radius: 50%;
+  animation: button-spinner 0.6s linear infinite;
+}
+
+@keyframes button-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Premium Success Modal Overlay */
+.form-success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 13, 26, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-success-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form-success-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-gold), var(--shadow-premium);
+  padding: 40px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  transform: translateY(30px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-white);
+}
+
+.form-success-overlay.active .form-success-card {
+  transform: translateY(0);
+}
+
+/* Success Pulse Icon */
+.success-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid var(--brand-gold);
+  color: var(--brand-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: pulse-success 2s infinite;
+}
+
+.success-icon-circle svg {
+  width: 36px;
+  height: 36px;
+  stroke-width: 3;
+}
+
+@keyframes pulse-success {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.success-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.success-message {
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.success-actions .btn-wa-success {
+  width: 100%;
+  background: #10b981;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  height: 48px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.success-actions .btn-wa-success:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.success-actions .btn-close-success {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  height: 48px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.success-actions .btn-close-success:hover {
+  border-color: var(--text-white);
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Inline success block */
+.form-success-inline {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-white);
+  animation: fadeInSuccess 0.5s ease-out;
+}
+
+.form-success-inline p {
+  color: var(--text-light) !important;
+}
+
+.form-success-inline .success-icon-circle {
+  margin-bottom: 16px;
+}
+
+@keyframes fadeInSuccess {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -53,8 +53,11 @@ const homeBlogPosts = blogPosts.slice(0, 3);
 
         <div class="booking-body">
           <!-- Dynamic Lead Capture Form -->
-          <form class="booking-form" name="homepage-inquiry" data-netlify="true" action="/success" method="POST">
-            <input type="hidden" name="form-name" value="homepage-inquiry" />
+          <form class="booking-form" name="homepage-inquiry" action="https://api.web3forms.com/submit" method="POST" id="homepageBookingForm">
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"} />
+            <input type="hidden" name="subject" value="New Booking Enquiry - SF Travels" />
+            <input type="hidden" name="from_name" value="SF Travels Website" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
             <!-- Active Tab State (hidden input) -->
             <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
 
@@ -709,6 +712,32 @@ const homeBlogPosts = blogPosts.slice(0, 3);
       <div class="map-modal-footer">
         <div class="selected-address-preview" id="addressPreview">No location selected</div>
         <button type="button" class="btn-gold" id="confirmMapLocationBtn" disabled>Confirm Location</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web3Forms Submission Success Modal Overlay -->
+  <div class="form-success-overlay" id="successModal">
+    <div class="form-success-card">
+      <div class="success-icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3 class="success-title">Enquiry Submitted!</h3>
+      <p class="success-message" id="successModalMessage">
+        Thank you for choosing SF Travels. Our operations desk will get in touch with you shortly.
+      </p>
+      <div class="success-actions">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-success" id="successModalWhatsAppBtn" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 18px; height: 18px;" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
+          </svg>
+          <span>Connect via WhatsApp</span>
+        </a>
+        <button type="button" class="btn-close-success" id="successModalCloseBtn">
+          Close Window
+        </button>
       </div>
     </div>
   </div>
@@ -2097,6 +2126,44 @@ const homeBlogPosts = blogPosts.slice(0, 3);
       max-width: 600px;
       margin: 0 auto;
       width: 100%;
+      flex-direction: column;
+      padding: 0 !important;
+    }
+
+    .booking-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px;
+    }
+
+    .booking-sidebar-title {
+      display: none;
+    }
+
+    .booking-body {
+      padding: 20px;
+    }
+
+    .service-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .tab-btn {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px 4px;
+      font-size: 0.72rem;
+      gap: 6px;
+      border-radius: 8px;
+    }
+
+    .tab-btn.active {
+      transform: none !important;
     }
     
     .hero-steps-banner {
@@ -2188,7 +2255,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
     }
     
     .booking-card {
-      padding: 20px;
+      padding: 0 !important;
     }
     
     .form-grid {
@@ -2202,7 +2269,16 @@ const homeBlogPosts = blogPosts.slice(0, 3);
     
     .service-tabs {
       grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
+      gap: 6px;
+    }
+
+    .tab-btn {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 8px;
+      font-size: 0.8rem;
+      gap: 8px;
     }
     
     .counter-num {
@@ -2539,6 +2615,108 @@ const homeBlogPosts = blogPosts.slice(0, 3);
             }
           }
         });
+      });
+    }
+
+    // ==================== WEB3FORMS SUBMISSION LOGIC ====================
+    const bookingForm = document.getElementById('homepageBookingForm');
+    const successModal = document.getElementById('successModal');
+    const successModalMessage = document.getElementById('successModalMessage');
+    const successModalCloseBtn = document.getElementById('successModalCloseBtn');
+    const successModalWhatsAppBtn = document.getElementById('successModalWhatsAppBtn');
+
+    if (bookingForm && successModal) {
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Honeypot spam check
+        const botcheck = bookingForm.querySelector('input[name="botcheck"]');
+        if (botcheck && botcheck.checked) {
+          console.warn("Spam submission blocked.");
+          return;
+        }
+
+        const submitBtn = bookingForm.querySelector('button[type="submit"]');
+        const formElements = bookingForm.querySelectorAll('input, select, textarea, button');
+
+        if (submitBtn) submitBtn.classList.add('btn-loading');
+        formElements.forEach(el => el.setAttribute('disabled', 'true'));
+
+        const formData = new FormData(bookingForm);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(async (response) => {
+          const json = await response.json();
+          if (response.status === 200) {
+            // Compile booking details for WhatsApp pre-fill
+            const fullName = formData.get('fullName') || '';
+            const phoneNumber = formData.get('phoneNumber') || '';
+            const pickup = formData.get('pickupLocation') || '';
+            const dropoff = formData.get('dropoffLocation') || '';
+            const date = formData.get('pickupDate') || '';
+            const time = formData.get('pickupTime') || '';
+            const service = formData.get('service-type') || 'Cab Booking';
+            const vehicle = formData.get('vehicleType') || '';
+            const returnDate = formData.get('returnDate') || '';
+            const returnTime = formData.get('returnTime') || '';
+
+            // Update success modal text
+            if (successModalMessage) {
+              successModalMessage.innerHTML = `Thank you, <strong>${fullName}</strong>! Your enquiry for a <strong>${service}</strong> ride (${vehicle}) has been successfully sent. Our dispatch desk will call you at <strong>${phoneNumber}</strong> within 15 minutes to confirm.`;
+            }
+
+            // Generate WhatsApp text
+            let waText = `Hi SF Travels, I would like to book a cab:\n` +
+                         `- *Name*: ${fullName}\n` +
+                         `- *Phone*: ${phoneNumber}\n` +
+                         `- *Service*: ${service}\n` +
+                         `- *Vehicle*: ${vehicle}\n` +
+                         `- *Pickup*: ${pickup}\n`;
+            if (dropoff) waText += `- *Dropoff*: ${dropoff}\n`;
+            waText += `- *Date & Time*: ${date} at ${time}\n`;
+            if (service === 'Outstation' && returnDate) {
+              waText += `- *Return*: ${returnDate} at ${returnTime}\n`;
+            }
+            
+            const encodedText = encodeURIComponent(waText);
+            if (successModalWhatsAppBtn) {
+              successModalWhatsAppBtn.href = `https://wa.me/919187232348?text=${encodedText}`;
+              successModalWhatsAppBtn.style.display = 'inline-flex';
+            }
+
+            // Show success modal
+            successModal.classList.add('active');
+            
+            // Reset form (re-enable first so reset functions correctly)
+            formElements.forEach(el => el.removeAttribute('disabled'));
+            bookingForm.reset();
+            
+            // Clear flatpickr values if initialized
+            if (pickupFP) pickupFP.clear();
+            if (returnFP) returnFP.clear();
+          } else {
+            alert(json.message || "Something went wrong. Please check your form details and try again.");
+            formElements.forEach(el => el.removeAttribute('disabled'));
+          }
+        })
+        .catch(error => {
+          console.error("Submission error:", error);
+          alert("Form submission failed. Please check your internet connection and try again.");
+          formElements.forEach(el => el.removeAttribute('disabled'));
+        })
+        .finally(() => {
+          if (submitBtn) submitBtn.classList.remove('btn-loading');
+        });
+      });
+    }
+
+    if (successModalCloseBtn && successModal) {
+      successModalCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        successModal.classList.remove('active');
       });
     }
   };
