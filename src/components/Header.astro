@@ -201,15 +201,15 @@
   .logo-title {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, var(--brand-gold) 100%);
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .logo-tagline {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2px;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -220,36 +220,45 @@
   .nav-desktop {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 6px;
   }
   
   .nav-link {
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.92rem;
-    color: var(--text-light);
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: #334155;
     position: relative;
-    padding: 8px 4px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
   }
   
   .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     left: 50%;
     width: 0;
-    height: 2px;
-    background: var(--brand-green);
-    transition: var(--transition-smooth);
+    height: 2.5px;
+    background: #1E2D5A;
+    border-radius: 2px;
+    transition: all 0.25s ease;
     transform: translateX(-50%);
   }
   
-  .nav-link:hover, .nav-link.active {
-    color: var(--brand-green);
+  .nav-link:hover {
+    color: #1E2D5A;
+    background: rgba(30, 45, 90, 0.06);
+  }
+
+  .nav-link.active {
+    color: #1E2D5A;
+    background: rgba(30, 45, 90, 0.08);
   }
   
   .nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
+    width: calc(100% - 20px);
   }
 
   /* Dropdown Styles */
@@ -259,25 +268,27 @@
   
   .dropdown-btn {
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.92rem;
-    color: var(--text-light);
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: #334155;
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 8px 4px;
+    padding: 8px 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: var(--transition-smooth);
+    transition: all 0.2s ease;
   }
   
   .chevron-icon {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     transition: var(--transition-smooth);
   }
   
   .dropdown-wrapper:hover .dropdown-btn {
-    color: var(--brand-green);
+    color: #1E2D5A;
+    background: rgba(30, 45, 90, 0.06);
   }
   
   .dropdown-wrapper:hover .chevron-icon {
@@ -286,17 +297,21 @@
   
   .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 210px;
+    transform: translateX(-50%) translateY(6px);
+    width: 220px;
     padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     opacity: 0;
     pointer-events: none;
     transition: var(--transition-smooth);
+    background: #ffffff;
+    border: 1px solid rgba(30, 45, 90, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(30,45,90,0.08);
   }
   
   .dropdown-wrapper:hover .dropdown-menu {
@@ -306,17 +321,18 @@
   }
   
   .dropdown-link {
-    font-size: 0.88rem;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: 9px;
+    color: #334155;
+    transition: all 0.18s ease;
   }
   
   .dropdown-link:hover {
-    background: rgba(16, 185, 129, 0.08);
-    color: var(--brand-green);
-    padding-left: 16px;
+    background: rgba(30, 45, 90, 0.07);
+    color: #1E2D5A;
+    padding-left: 18px;
   }
 
   /* Header Actions & Call button */
@@ -326,32 +342,36 @@
   }
   
   .header-btn {
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%) !important;
+    padding: 11px 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1E2D5A 0%, #2d4080 100%) !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15) !important;
-    transition: var(--transition-smooth);
+    box-shadow: 0 4px 18px rgba(30, 45, 90, 0.28) !important;
+    transition: all 0.25s ease;
     border: none !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   
   .header-btn:hover {
-    background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%) !important;
+    background: linear-gradient(135deg, #D97706 0%, #b45309 100%) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.25) !important;
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35) !important;
   }
   
   .header-btn svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 17px !important;
+    height: 17px !important;
     color: #ffffff !important;
     flex-shrink: 0;
   }
   
   .mobile-toggle-btn {
     display: none;
-    color: var(--text-light);
+    color: var(--text-body);
     cursor: pointer;
     background: none;
     border: none;
@@ -360,7 +380,7 @@
   }
   
   .mobile-toggle-btn:hover {
-    color: var(--brand-green);
+    color: var(--primary);
   }
 
   .mobile-toggle-btn svg,
@@ -425,7 +445,7 @@
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 1.3rem;
-    color: var(--text-light);
+    color: var(--text-body);
   }
   
   .mobile-close-btn {
@@ -435,7 +455,7 @@
   }
   
   .mobile-close-btn:hover {
-    color: var(--brand-green);
+    color: var(--primary);
   }
   
   .nav-mobile-links {
@@ -452,11 +472,11 @@
     font-weight: 600;
     font-size: 1.05rem;
     padding: 6px 0;
-    color: var(--text-light);
+    color: var(--text-body);
   }
   
   .mobile-link:hover, .mobile-link.active {
-    color: var(--brand-green);
+    color: var(--primary);
   }
   
   .mobile-expandable {
@@ -470,7 +490,7 @@
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 1.05rem;
-    color: var(--text-light);
+    color: var(--text-body);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -479,7 +499,7 @@
   }
   
   .mobile-expandable:hover .mobile-expand-btn {
-    color: var(--brand-green);
+    color: var(--primary);
   }
   
   .mobile-expandable.active .chevron-icon {
@@ -506,7 +526,7 @@
   }
   
   .mobile-sub-link:hover {
-    color: var(--brand-green);
+    color: var(--primary);
   }
   
   .mobile-call-btn {
@@ -529,7 +549,7 @@
   }
   
   .header-main.scrolled .logo-title {
-    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, var(--brand-gold) 100%);
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -540,28 +560,28 @@
   
   .header-main.scrolled .nav-link,
   .header-main.scrolled .dropdown-btn {
-    color: var(--text-light);
+    color: var(--text-body);
   }
   
   .header-main.scrolled .nav-link:hover,
   .header-main.scrolled .nav-link.active,
   .header-main.scrolled .dropdown-wrapper:hover .dropdown-btn {
-    color: var(--brand-green);
+    color: var(--primary);
   }
   
   .header-main.scrolled .mobile-toggle-btn {
-    color: var(--text-light);
+    color: var(--text-body);
   }
   
   .header-main.scrolled .header-btn {
-    background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%) !important;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%) !important;
     color: #ffffff !important;
     border: none !important;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15) !important;
   }
   
   .header-main.scrolled .header-btn:hover {
-    background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%) !important;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark) 100%) !important;
     box-shadow: 0 6px 22px rgba(16, 185, 129, 0.25) !important;
     transform: translateY(-2px);
   }

@@ -246,12 +246,12 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.15;
     font-weight: 800;
     margin-bottom: 20px;
-    color: var(--text-white);
+    color: var(--text-heading);
   }
   
   .contact-hero-subtitle {
     font-size: 1.15rem;
-    color: var(--text-light);
+    color: var(--text-body);
     line-height: 1.7;
     margin-bottom: 24px;
   }
@@ -260,7 +260,7 @@ import Layout from '../layouts/Layout.astro';
     display: inline-block;
     background: rgba(16, 185, 129, 0.15);
     border: 1px solid rgba(16, 185, 129, 0.3);
-    color: var(--brand-gold-light);
+    color: var(--accent-light);
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.9rem;
@@ -275,7 +275,7 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 1.5px;
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
     text-transform: uppercase;
     display: block;
     margin-bottom: 12px;
@@ -348,7 +348,7 @@ import Layout from '../layouts/Layout.astro';
     height: 48px;
     border-radius: 10px;
     background: rgba(16, 185, 129, 0.1);
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -405,22 +405,22 @@ import Layout from '../layouts/Layout.astro';
 
   .btn-card-phone {
     background: #0b172a;
-    color: var(--text-white) !important;
+    color: var(--text-heading) !important;
     border: 1px solid rgba(16, 185, 129, 0.2);
   }
 
   .btn-card-phone:hover {
-    background: var(--brand-gold-dark);
-    border-color: var(--brand-gold-dark);
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
   }
 
   .btn-card-wa {
-    background: var(--brand-gold);
-    color: var(--text-white) !important;
+    background: var(--accent);
+    color: var(--text-heading) !important;
   }
 
   .btn-card-wa:hover {
-    background: var(--brand-gold-dark);
+    background: var(--accent-dark);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
   }
 
@@ -440,14 +440,14 @@ import Layout from '../layouts/Layout.astro';
 
   .email-link {
     font-size: 0.95rem;
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
     font-weight: 600;
     transition: var(--transition-smooth);
     width: fit-content;
   }
 
   .email-link:hover {
-    color: #059669;
+    color: #151f3f;
     text-decoration: underline;
   }
 
@@ -461,7 +461,7 @@ import Layout from '../layouts/Layout.astro';
   .location-badge {
     align-self: flex-start;
     background: rgba(16, 185, 129, 0.08);
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -507,11 +507,11 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .highlight-green .hour-lbl {
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
   }
 
   .highlight-green .hour-val {
-    color: var(--brand-gold-dark);
+    color: var(--accent-dark);
     font-size: 0.95rem;
   }
 
@@ -531,7 +531,7 @@ import Layout from '../layouts/Layout.astro';
   .form-title {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-white);
+    color: var(--text-heading);
     margin-bottom: 8px;
   }
 
@@ -563,11 +563,11 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--text-white);
+    color: var(--text-heading);
   }
 
   .req {
-    color: var(--brand-gold);
+    color: var(--accent);
   }
 
   .input-wrapper {
@@ -582,7 +582,7 @@ import Layout from '../layouts/Layout.astro';
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    color: var(--brand-gold);
+    color: var(--accent);
     pointer-events: none;
   }
 
@@ -598,7 +598,7 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 8px;
     padding-left: 44px;
     padding-right: 16px;
-    color: var(--text-white);
+    color: var(--text-heading);
     font-size: 0.9rem;
     transition: var(--transition-smooth);
   }
@@ -613,7 +613,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .input-wrapper input:focus, .input-wrapper select:focus, .input-wrapper textarea:focus {
-    border-color: var(--brand-gold);
+    border-color: var(--accent);
     background: rgba(5, 13, 26, 0.8);
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
   }
@@ -634,7 +634,7 @@ import Layout from '../layouts/Layout.astro';
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid var(--brand-gold);
+    border-top: 5px solid var(--accent);
     pointer-events: none;
   }
 

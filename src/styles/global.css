@@ -1,41 +1,61 @@
 /* ==========================================================================
-   SF TRAVELS - Premium Design System (Dark Navy Blue & Soft Emerald Theme)
+   SF TRAVELS — Premium Design System
+   Palette: Deep Indigo · Warm Amber · Ivory White
+   Inspired by India's rich culture & premium travel experiences
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* Colors */
-  --bg-primary: #ffffff;       /* Pure White Background */
-  --bg-secondary: #f8fafc;     /* Soft Light Slate */
-  --bg-tertiary: #f1f5f9;      /* Slightly Darker Light Slate */
-  
-  --brand-green: #10b981;      /* Premium Emerald Green */
-  --brand-green-hover: #059669; /* Deep Emerald Green */
-  --brand-blue: #2563eb;       /* Royal Sapphire Blue */
-  --brand-blue-hover: #1d4ed8;  /* Deep Sapphire Blue */
-  
-  --brand-gold: #c5a85c;       /* 3% Luxury Gold Accent (used only for logo monogram) */
-  --brand-gold-light: #ebdcb9; 
-  --brand-gold-dark: #aa8439;  
-  
-  --text-white: #0f172a;       /* Dark Charcoal for high contrast text */
-  --text-light: #1e293b;       /* Primary Slate Dark Text */
-  --text-muted: #64748b;       /* Cool Gray for secondary text */
-  
-  --border-glass: rgba(226, 232, 240, 0.8); /* Light border for elements */
-  --bg-glass: rgba(255, 255, 255, 0.85);      /* Translucent White Background */
-  
-  /* Fonts */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  
-  /* Effects */
-  --shadow-green: 0 4px 20px rgba(16, 185, 129, 0.08);
-  --shadow-premium: 0 10px 30px rgba(15, 23, 42, 0.05);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius: 12px;
+  /* ─── Brand Colors ─────────────────────────────────────────────── */
+  --primary:         #1E2D5A;   /* Deep Indigo Navy */
+  --primary-dark:    #151f3f;   /* Deeper Navy for hover */
+  --primary-light:   #2d4080;   /* Lighter Indigo */
+
+  --accent:          #D97706;   /* Warm Amber / Saffron */
+  --accent-dark:     #b45309;   /* Deeper Amber hover */
+  --accent-light:    #fbbf24;   /* Soft Gold Amber */
+  --accent-subtle:   #fef3c7;   /* Pale Amber tint for backgrounds */
+
+  /* ─── Backgrounds ──────────────────────────────────────────────── */
+  --bg-primary:      #ffffff;
+  --bg-secondary:    #fafaf8;   /* Warm Ivory — barely off-white */
+  --bg-tertiary:     #f5f4f0;   /* Warm Light Stone */
+  --bg-accent-warm:  #fffbeb;   /* Amber-tinted cream for sections */
+
+  /* ─── Text ─────────────────────────────────────────────────────── */
+  --text-heading:    #1a1f36;   /* Near-black deep indigo */
+  --text-body:       #374151;   /* Charcoal grey body text */
+  --text-muted:      #6b7280;   /* Warm medium grey */
+  --text-light:      #9ca3af;   /* Soft placeholder grey */
+
+  /* ─── Borders & Glass ──────────────────────────────────────────── */
+  --border:          #e5e3dc;   /* Warm stone border */
+  --border-focus:    #D97706;   /* Amber focus border */
+  --bg-glass:        rgba(255, 255, 255, 0.92);
+  --border-glass:    rgba(213, 210, 200, 0.7);
+
+  /* ─── Shadows ───────────────────────────────────────────────────── */
+  --shadow-sm:       0 1px 3px rgba(30, 45, 90, 0.06), 0 1px 2px rgba(30, 45, 90, 0.04);
+  --shadow-md:       0 4px 16px rgba(30, 45, 90, 0.08), 0 2px 6px rgba(30, 45, 90, 0.04);
+  --shadow-lg:       0 10px 30px rgba(30, 45, 90, 0.10), 0 4px 10px rgba(30, 45, 90, 0.05);
+  --shadow-accent:   0 4px 20px rgba(217, 119, 6, 0.18);
+  --shadow-primary:  0 4px 20px rgba(30, 45, 90, 0.15);
+
+  /* ─── Fonts ─────────────────────────────────────────────────────── */
+  --font-heading:    'Outfit', sans-serif;
+  --font-body:       'Inter', sans-serif;
+
+  /* ─── Effects ───────────────────────────────────────────────────── */
+  --transition:      all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius:          12px;
+  --radius-lg:       20px;
+  --radius-xl:       28px;
 }
 
-/* --- Global Resets & Defaults --- */
+/* ==========================================================================
+   Resets & Defaults
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -46,7 +66,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-primary);
-  color: var(--text-light);
+  color: var(--text-body);
   overflow-x: hidden;
 }
 
@@ -54,13 +74,14 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
+  background: var(--bg-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--text-white);
+  color: var(--text-heading);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -68,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: inherit;
   text-decoration: none;
-  transition: var(--transition-smooth);
+  transition: var(--transition);
 }
 
 button, input, select, textarea {
@@ -80,81 +101,11 @@ button, input, select, textarea {
   outline: none;
 }
 
-/* --- Core Premium Utilities --- */
+img { display: block; max-width: 100%; }
 
-/* Glassmorphism Cards */
-.glass-card {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-premium);
-  transition: var(--transition-smooth);
-}
-
-.glass-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: var(--shadow-green), var(--shadow-premium);
-  transform: translateY(-2px);
-}
-
-/* Premium Primary Buttons (Green-to-Blue Travel Gradient) */
-.btn-gold {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
-  color: var(--text-white) !important;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 12px 28px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.btn-gold:hover {
-  background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%);
-  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn-gold:active {
-  transform: translateY(0);
-}
-
-/* Secondary Outline Buttons */
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px solid var(--brand-green);
-  color: var(--brand-green);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 12px 28px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.btn-outline:hover {
-  background: rgba(16, 185, 129, 0.1);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-  color: var(--brand-blue);
-  border-color: var(--brand-blue);
-  transform: translateY(-2px);
-}
-
-/* Containers */
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -164,19 +115,6 @@ button, input, select, textarea {
   padding-right: 20px;
 }
 
-/* Gradients */
-.gold-text {
-  background: linear-gradient(135deg, var(--brand-gold-light) 0%, var(--brand-gold) 50%, var(--brand-gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.bg-navy-gradient {
-  background: radial-gradient(circle at top right, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-}
-
-/* Section Structures */
 .section-padding {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -189,7 +127,169 @@ button, input, select, textarea {
   }
 }
 
-/* --- Accessible Text Contrast on Light/White Backgrounds --- */
+/* ==========================================================================
+   Premium Cards (Glassmorphism — Light)
+   ========================================================================== */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  border-color: rgba(217, 119, 6, 0.25);
+  box-shadow: var(--shadow-accent), var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Primary CTA Button — Deep Indigo + Amber Gradient
+   ========================================================================== */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 13px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-primary);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  border-radius: inherit;
+}
+
+.btn-gold:hover::before {
+  opacity: 1;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn-gold > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Amber accent variant */
+.btn-amber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 13px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-accent);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-amber:hover {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, #92400e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
+}
+
+/* Outline variant */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Text Gradient Utilities
+   ========================================================================== */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* legacy alias */
+.gold-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================================================
+   Section Backgrounds
+   ========================================================================== */
+.bg-navy-gradient {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.bg-warm-section {
+  background: var(--bg-accent-warm);
+}
+
+.bg-stone-section {
+  background: var(--bg-tertiary);
+}
+
+/* ==========================================================================
+   Accessible Text on Light Backgrounds
+   ========================================================================== */
 .positions-section,
 .onboarding-section,
 .faq-section,
@@ -197,7 +297,7 @@ button, input, select, textarea {
 .values-section,
 .trust-section,
 .bg-white {
-  color: #374151 !important;
+  color: var(--text-body) !important;
 }
 
 .positions-section .gold-subtitle,
@@ -207,7 +307,7 @@ button, input, select, textarea {
 .values-section .gold-subtitle,
 .trust-section .gold-subtitle,
 .bg-white .gold-subtitle {
-  color: var(--brand-gold-dark) !important;
+  color: var(--accent-dark) !important;
 }
 
 .positions-section h1, .positions-section h2, .positions-section h3,
@@ -217,7 +317,7 @@ button, input, select, textarea {
 .values-section h1, .values-section h2, .values-section h3,
 .trust-section h1, .trust-section h2, .trust-section h3,
 .bg-white h1, .bg-white h2, .bg-white h3 {
-  color: #050d1a !important;
+  color: var(--text-heading) !important;
 }
 
 .positions-section .text-muted,
@@ -234,57 +334,45 @@ button, input, select, textarea {
 .values-section .section-desc,
 .trust-section .section-desc,
 .bg-white .section-desc {
-  color: #4b5563 !important;
+  color: var(--text-muted) !important;
   opacity: 1 !important;
 }
 
-/* ==================== WEB3FORMS ACTIONS, LOADERS & MODALS ==================== */
-
-/* Button loading state styles */
+/* ==========================================================================
+   Form Loading & Success States
+   ========================================================================== */
 .btn-loading {
   position: relative;
   pointer-events: none;
   opacity: 0.8;
 }
 
-.btn-loading span {
-  opacity: 0 !important;
-}
-
-.btn-loading svg {
-  opacity: 0 !important;
-}
+.btn-loading span { opacity: 0 !important; }
+.btn-loading svg  { opacity: 0 !important; }
 
 .btn-loading::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   margin: auto;
   border: 3px solid transparent;
-  border-top-color: var(--text-white) !important;
+  border-top-color: #ffffff;
   border-radius: 50%;
   animation: button-spinner 0.6s linear infinite;
 }
 
 @keyframes button-spinner {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* Premium Success Modal Overlay */
+/* Success Modal */
 .form-success-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 13, 26, 0.85);
+  background: rgba(26, 31, 54, 0.80);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -302,31 +390,30 @@ button, input, select, textarea {
 }
 
 .form-success-card {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-gold), var(--shadow-premium);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   padding: 40px;
   max-width: 520px;
   width: 90%;
   text-align: center;
   transform: translateY(30px);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-white);
+  color: var(--text-heading);
 }
 
 .form-success-overlay.active .form-success-card {
   transform: translateY(0);
 }
 
-/* Success Pulse Icon */
 .success-icon-circle {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.15);
-  border: 2px solid var(--brand-green);
-  color: var(--brand-green);
+  background: rgba(217, 119, 6, 0.10);
+  border: 2px solid var(--accent);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,15 +428,9 @@ button, input, select, textarea {
 }
 
 @keyframes pulse-success {
-  0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-  }
+  0%   { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+  70%  { box-shadow: 0 0 0 15px rgba(217, 119, 6, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
 }
 
 .success-title {
@@ -357,10 +438,11 @@ button, input, select, textarea {
   font-weight: 800;
   margin-bottom: 12px;
   line-height: 1.3;
+  color: var(--text-heading);
 }
 
 .success-message {
-  color: var(--text-light);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -374,60 +456,57 @@ button, input, select, textarea {
 
 .success-actions .btn-wa-success {
   width: 100%;
-  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: #ffffff;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   height: 48px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   cursor: pointer;
-  transition: var(--transition-smooth);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
 }
 
 .success-actions .btn-wa-success:hover {
-  background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: var(--shadow-accent);
 }
 
 .success-actions .btn-close-success {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid var(--border);
   color: var(--text-muted);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   height: 48px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: var(--transition);
+  background: transparent;
 }
 
 .success-actions .btn-close-success:hover {
-  border-color: var(--text-white);
-  color: var(--text-white);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(30, 45, 90, 0.04);
 }
 
 /* Inline success block */
 .form-success-inline {
   text-align: center;
   padding: 40px 20px;
-  color: var(--text-white);
+  color: var(--text-heading);
   animation: fadeInSuccess 0.5s ease-out;
 }
 
 .form-success-inline p {
-  color: var(--text-light) !important;
+  color: var(--text-muted) !important;
 }
 
 .form-success-inline .success-icon-circle {
@@ -435,13 +514,6 @@ button, input, select, textarea {
 }
 
 @keyframes fadeInSuccess {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-

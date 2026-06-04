@@ -16,7 +16,7 @@ export const fleet = [
     minimumKm: "80 km/day",
     bestFor: ["Airport Transfers", "Local Hire", "Outstation"],
     badge: "Most Popular",
-    badgeColor: "#10b981",
+    badgeColor: "#1E2D5A",
   },
   {
     id: "toyota-innova",
@@ -64,7 +64,7 @@ export const fleet = [
     minimumKm: "100 km/day",
     bestFor: ["Group Tours", "Outstation", "Corporate Events"],
     badge: "Group Pick",
-    badgeColor: "#3b82f6",
+    badgeColor: "#2d4080",
   },
   {
     id: "force-urbania",

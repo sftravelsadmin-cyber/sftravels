@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// SF Travels - Premium Homepage matching inspiration
-const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
-
 const carsFleet = [
   { id: "hatchback", name: "Hatchback", seats: "4", luggage: "1-2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png" },
   { id: "sedan", name: "Sedan", seats: "4", luggage: "2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
@@ -35,9 +32,16 @@ const busFleet = [
   { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", luggage: "40-45 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
   { id: "bus-50-seater", name: "Bus 50 Seater", seats: "50", luggage: "45-50 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
 ];
+
+const allFleet = [
+  { label: "Cars", id: "tab-cars", fleet: carsFleet, category: "Cars Fleet" },
+  { label: "Urbania Vans", id: "tab-urbania", fleet: urbaniaFleet, category: "Force Urbania Fleet" },
+  { label: "Tempo Traveller", id: "tab-tempo", fleet: tempoFleet, category: "Tempo Traveller Fleet" },
+  { label: "Buses", id: "tab-bus", fleet: busFleet, category: "Bus Fleet" }
+];
 ---
 
-<Layout 
+<Layout
   title="SF Travels | Smooth Ride On Time - Corporate & Luxury Cabs Bangalore"
   description="Experience executive corporate mobility, professional airport transfers, and outstation trips with SF Travels in Bangalore. Transparent slab rate billing and verified chauffeurs."
 >
@@ -45,374 +49,376 @@ const busFleet = [
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/flatpickr" is:inline></script>
 
-  <div class="text-slate-800 font-sans bg-white">
-    <!-- ==================== HERO & BOOKING SECTION ==================== -->
-    <section class="relative min-h-screen flex flex-col justify-center pt-24 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0 pointer-events-none"
-        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/ab7702efc63872ff2604f2ffe7b6a2c0.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <div class="font-sans bg-white text-slate-800">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         HERO SECTION — Split Layout: Left copy + Right form
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+      <!-- Full-bleed background -->
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80'); background-size: cover; background-position: center;">
       </div>
-      <!-- Background Navy Radial Fade Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#050814]/30 via-[#050814]/75 to-[#050814] z-10 pointer-events-none"></div>
-      
-      <!-- Colored Backdrop Orbs for Modern Glow -->
-      <div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-[100px] z-10 pointer-events-none animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] z-10 pointer-events-none animate-pulse" style="animation-delay: 2s;"></div>
+      <!-- Overlay — heavier on right for form readability, lighter on left -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#0d1629]/85 via-[#0d1629]/70 to-[#0d1629]/55"></div>
+      <!-- Warm amber glow top-right -->
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D97706]/10 rounded-full blur-[120px] z-10 pointer-events-none"></div>
 
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-center gap-8 sm:gap-12 py-4 h-auto overflow-visible">
-        <div class="text-center max-w-4xl mx-auto">
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg">
-            Looking for a <span class="bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent font-extrabold">vehicle</span>? <br>You're at the right place.
-          </h1>
-        </div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-10 lg:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-        <!-- Booking enquiry form -->
-        <div class="w-full max-w-4xl">
-          <div class="relative z-50 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl w-full mx-auto overflow-hidden flex flex-col border border-slate-200 text-sm max-w-[100vw] lg:max-w-4xl">
-            <!-- Top Horizontal tabs -->
-            <div class="w-full bg-slate-50/80 p-3 sm:p-4 flex flex-row flex-wrap justify-center items-center gap-2 border-b border-slate-200" id="serviceTabs">
-              <button type="button" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 bg-gradient-to-r from-[#10b981] to-[#2563eb] text-white shadow-lg" data-service="Outstation">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                <span class="leading-none whitespace-nowrap">Outstation</span>
-              </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 border border-slate-200/50" data-service="Airport">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
-                <span class="leading-none whitespace-nowrap">Airport</span>
-              </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 border border-slate-200/50" data-service="OneWay">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                <span class="leading-none whitespace-nowrap">One Way</span>
-              </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 border border-slate-200/50" data-service="Local">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span class="leading-none whitespace-nowrap">Local</span>
-              </button>
+          <!-- ── LEFT: Copy & Trust Signals ── -->
+          <div class="text-white">
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-base font-semibold text-white/90 mb-7 backdrop-blur-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#D97706] animate-pulse"></span>
+              Bangalore's Trusted Travel Partner
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] mb-6">
+              Premium Rides,<br>
+              <span class="text-[#D97706]">On Your Schedule</span>
+            </h1>
+            <p class="text-xl text-white/80 leading-relaxed mb-8 max-w-lg">
+              Corporate cabs, airport transfers, outstation trips — with verified chauffeurs, transparent pricing and 24/7 support across Bangalore.
+            </p>
+
+            <!-- Trust badges row -->
+            <div class="grid grid-cols-2 gap-3 mb-9">
+              {[
+                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Verified Drivers" },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "24/7 Support" },
+                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Transparent Pricing" },
+                { icon: "M5 13l4 4L19 7", label: "15+ Years Experience" }
+              ].map(b => (
+                <div class="flex items-center gap-3 bg-white/10 border border-white/15 rounded-xl px-4 py-3.5 backdrop-blur-sm">
+                  <div class="w-9 h-9 rounded-lg bg-[#D97706]/25 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#D97706" stroke-width="2" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d={b.icon}></path>
+                    </svg>
+                  </div>
+                  <span class="text-base font-semibold text-white">{b.label}</span>
+                </div>
+              ))}
             </div>
 
-            <!-- Form Content -->
-            <div class="flex-1 p-4 sm:p-6 lg:p-8">
-              <form id="homepageBookingForm" class="flex flex-col gap-3 sm:gap-4 lg:gap-5">
-                <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-                <input type="hidden" name="subject" value="New Website Booking Enquiry - SF Travels" />
-                <input type="hidden" name="from_name" value="SF Travels Website" />
-                <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+            <!-- Quick stats strip -->
+            <div class="flex flex-wrap gap-8 text-white/90">
+              <div>
+                <div class="text-4xl font-extrabold text-white">15,400+</div>
+                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Happy Rides</div>
+              </div>
+              <div class="w-px bg-white/20 self-stretch"></div>
+              <div>
+                <div class="text-4xl font-extrabold text-white">235</div>
+                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Fleet Size</div>
+              </div>
+              <div class="w-px bg-white/20 self-stretch"></div>
+              <div>
+                <div class="text-4xl font-extrabold text-white">15 yrs</div>
+                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Experience</div>
+              </div>
+            </div>
+          </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                  <!-- Full Name -->
-                  <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Full Name <span class="text-red-500">*</span></label>
-                    <div class="relative">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                      <input type="text" name="fullName" placeholder="Your Full Name" required class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2" value="Test User">
+          <!-- ── RIGHT: Booking Form ── -->
+          <div class="w-full">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+              <!-- Tab bar -->
+              <div class="bg-slate-50 px-4 py-3 border-b border-slate-200 flex flex-wrap gap-2" id="serviceTabs">
+                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-[#1E2D5A] text-white shadow" data-service="Outstation">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Outstation
+                </button>
+                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Airport">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+                  Airport
+                </button>
+                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="OneWay">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                  One Way
+                </button>
+                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Local">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  Local
+                </button>
+              </div>
+
+              <!-- Form body -->
+              <div class="p-6 sm:p-7">
+                <form id="homepageBookingForm" class="flex flex-col gap-5">
+                  <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
+                  <input type="hidden" name="subject" value="New Website Booking Enquiry - SF Travels" />
+                  <input type="hidden" name="from_name" value="SF Travels Website" />
+                  <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
+                  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+                  <!-- Row 1: Name + Phone -->
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-600 mb-2">Full Name <span class="text-red-400">*</span></label>
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <input type="text" name="fullName" placeholder="Your name" required class="w-full h-12 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                      </div>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-600 mb-2">Phone <span class="text-red-400">*</span></label>
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <input type="tel" name="phoneNumber" placeholder="10-digit number" required class="w-full h-12 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Phone Number -->
+                  <!-- Row 2: Pickup -->
                   <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Phone Number <span class="text-red-500">*</span></label>
-                    <div class="relative">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                      <input type="tel" name="phoneNumber" placeholder="10-digit number" required class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2" value="9876543210">
-                    </div>
-                  </div>
-
-                  <!-- Pickup Location -->
-                  <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Pick Up Location <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Location <span class="text-red-400">*</span></label>
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-10 py-2 truncate" value="Majestic Metro Station, Bangalore">
-                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 hover:bg-slate-100 rounded-md text-[#10b981] transition-colors z-20" id="pickupCurrentLocBtn" title="Use current location">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" class="w-full h-12 pl-11 pr-10 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
+                        <button type="button" class="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 hover:bg-slate-100 rounded-lg text-[#D97706] transition-colors z-20" id="pickupCurrentLocBtn" title="Use current location">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path></svg>
                         </button>
                       </div>
-                      <button type="button" class="flex-shrink-0 h-11 sm:h-12 w-11 sm:w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:text-white transition-colors text-slate-600" id="pickupMapBtn" title="Pick on Map">
+                      <button type="button" class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="pickupMapBtn" title="Pick on Map">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
                   </div>
 
-                  <!-- Drop Off Location -->
+                  <!-- Row 3: Drop Off -->
                   <div id="dropoffGroup">
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Drop Off Location <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">Drop Off Location <span class="text-red-400">*</span></label>
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2 truncate" value="Kempegowda International Airport, Bangalore">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
                       </div>
-                      <button type="button" class="flex-shrink-0 h-11 sm:h-12 w-11 sm:w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:text-white transition-colors text-slate-600" id="dropoffMapBtn" title="Pick on Map">
+                      <button type="button" class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="dropoffMapBtn" title="Pick on Map">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" x2="9" y2="18"></line><line x1="15" x2="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
                   </div>
 
-                  <!-- Pick Up Date & Time -->
-                  <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Pick Up Date & Time <span class="text-red-500">*</span></label>
-                    <div class="flex items-center gap-2">
-                      <div class="relative flex-[3] min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select pickup date" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2">
+                  <!-- Row 4: Date + Time -->
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Date <span class="text-red-400">*</span></label>
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select date" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
                       </div>
-                      <div class="relative flex-[2] min-w-[35%] sm:min-w-[120px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <input type="time" name="pickupTime" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2" value="10:00" style="color-scheme: light;">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Time <span class="text-red-400">*</span></label>
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <input type="time" name="pickupTime" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="10:00" style="color-scheme: light;">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Return Date & Time -->
+                  <!-- Return Date (Outstation only) -->
                   <div id="returnGroup">
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Return Date & Time <span class="text-red-500">*</span></label>
-                    <div class="flex items-center gap-2">
-                      <div class="relative flex-[3] min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <input type="text" name="returnDate" id="returnDatePicker" placeholder="Select return date" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2">
+                    <label class="block text-sm font-bold text-slate-600 mb-2">Return Date & Time <span class="text-red-400">*</span></label>
+                    <div class="grid grid-cols-2 gap-4">
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <input type="text" name="returnDate" id="returnDatePicker" placeholder="Return date" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
                       </div>
-                      <div class="relative flex-[2] min-w-[35%] sm:min-w-[120px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <input type="time" name="returnTime" class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium placeholder:text-slate-400 h-11 sm:h-12 text-sm sm:text-base pl-9 pr-3 py-2" value="18:00" style="color-scheme: light;">
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <input type="time" name="returnTime" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="18:00" style="color-scheme: light;">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Select Vehicle -->
-                  <div class="md:col-span-2 mt-1 sm:mt-0">
-                    <div class="flex flex-col md:flex-row gap-3 sm:gap-4 items-end">
-                      <div class="flex-grow w-full md:w-2/3">
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide ml-1 mb-1.5">Select Vehicle <span class="text-red-500">*</span></label>
-                        <div class="relative">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                          <select name="vehicleType" required class="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#10b981] focus:border-transparent outline-none transition-all text-slate-800 font-medium h-11 sm:h-12 text-sm sm:text-base pl-9 pr-10 py-2 appearance-none">
-                            <option value="" disabled class="bg-white text-slate-400">Select a vehicle type</option>
-                            <optgroup label="Cars" class="bg-white text-[#10b981] font-bold">
-                              <option value="Hatchback" class="text-slate-800 font-medium bg-white">Hatchback</option>
-                              <option value="Sedan" class="text-slate-800 font-medium bg-white">Sedan</option>
-                            </optgroup>
-                            <optgroup label="SUVs & MPVs" class="bg-white text-[#10b981] font-bold">
-                              <option value="SUV" class="text-slate-800 font-medium bg-white">SUV</option>
-                              <option value="Ertiga" class="text-slate-800 font-medium bg-white">Ertiga</option>
-                              <option value="Innova" class="text-slate-800 font-medium bg-white">Innova</option>
-                              <option value="Innova Crysta" class="text-slate-800 font-medium bg-white">Innova Crysta</option>
-                              <option value="Innova Hycross" class="text-slate-800 font-medium bg-white">Innova Hycross</option>
-                            </optgroup>
-                            <optgroup label="Tempo Travellers & Urbania" class="bg-white text-[#10b981] font-bold">
-                              <option value="Tempo Traveller 12" class="text-slate-800 font-medium bg-white">Tempo Traveller 12</option>
-                              <option value="Tempo Traveller 13" class="text-slate-800 font-medium bg-white">Tempo Traveller 13</option>
-                              <option value="Tempo Traveller 14" class="text-slate-800 font-medium bg-white">Tempo Traveller 14</option>
-                              <option value="Force Urbania Deluxe" class="text-slate-800 font-medium bg-white">Force Urbania Deluxe</option>
-                              <option value="Force Urbania Luxury" class="text-slate-800 font-medium bg-white">Force Urbania Luxury</option>
-                              <option value="Force Urbania Maharaj" class="text-slate-800 font-medium bg-white">Force Urbania Maharaj</option>
-                            </optgroup>
-                            <optgroup label="Buses" class="bg-white text-[#10b981] font-bold">
-                              <option value="Mini Bus 21" class="text-slate-800 font-medium bg-white">Mini Bus 21</option>
-                              <option value="Mini Bus 25" class="text-slate-800 font-medium bg-white">Mini Bus 25</option>
-                              <option value="Mini Bus 30" class="text-slate-800 font-medium bg-white">Mini Bus 30</option>
-                              <option value="Bus 33" class="text-slate-800 font-medium bg-white">Bus 33</option>
-                              <option value="Bus 40" class="text-slate-800 font-medium bg-white">Bus 40</option>
-                              <option value="Volvo Bus 45" class="text-slate-800 font-medium bg-white">Volvo Bus 45</option>
-                              <option value="Bus 50 Seater" class="text-slate-800 font-medium bg-white">Bus 50 Seater</option>
-                            </optgroup>
-                          </select>
-                          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                          </div>
+                  <!-- Vehicle + Submit -->
+                  <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
+                    <div class="sm:col-span-3">
+                      <label class="block text-sm font-bold text-slate-600 mb-2">Select Vehicle <span class="text-red-400">*</span></label>
+                      <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
+                        <select name="vehicleType" required class="w-full h-12 pl-11 pr-8 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium appearance-none">
+                          <option value="" disabled selected class="text-slate-400">Choose vehicle</option>
+                          <optgroup label="Cars"><option value="Hatchback">Hatchback</option><option value="Sedan">Sedan</option></optgroup>
+                          <optgroup label="SUVs & MPVs"><option value="SUV">SUV</option><option value="Ertiga">Ertiga</option><option value="Innova">Innova</option><option value="Innova Crysta">Innova Crysta</option><option value="Innova Hycross">Innova Hycross</option></optgroup>
+                          <optgroup label="Vans"><option value="Tempo Traveller 12">Tempo Traveller 12</option><option value="Tempo Traveller 13">Tempo Traveller 13</option><option value="Tempo Traveller 14">Tempo Traveller 14</option><option value="Force Urbania Deluxe">Force Urbania Deluxe</option><option value="Force Urbania Luxury">Force Urbania Luxury</option><option value="Force Urbania Maharaj">Force Urbania Maharaj</option></optgroup>
+                          <optgroup label="Buses"><option value="Mini Bus 21">Mini Bus 21</option><option value="Mini Bus 25">Mini Bus 25</option><option value="Mini Bus 30">Mini Bus 30</option><option value="Bus 33">Bus 33</option><option value="Bus 40">Bus 40</option><option value="Volvo Bus 45">Volvo Bus 45</option><option value="Bus 50 Seater">Bus 50 Seater</option></optgroup>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                       </div>
-                      <div class="w-full md:w-auto md:flex-1">
-                        <button type="submit" class="w-full bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white rounded-lg text-sm sm:text-base font-bold shadow-lg hover:shadow-emerald-500/25 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 h-11 sm:h-12 flex items-center justify-center gap-2">
-                          <span>Enquiry Now</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 sm:w-5 sm:h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </button>
-                      </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                      <button type="submit" class="w-full h-12 bg-[#1E2D5A] hover:bg-[#D97706] text-white font-bold text-base rounded-xl shadow transition-all duration-300 flex items-center justify-center gap-2">
+                        <span>Enquire Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                      </button>
                     </div>
                   </div>
-
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 Steps Indicators -->
-        <div class="w-full max-w-7xl mt-4 pt-4 border-t border-white/20 hidden lg:block">
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div class="flex flex-col items-center group px-2">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#10b981] to-[#2563eb] text-white text-lg sm:text-2xl font-bold flex items-center justify-center mb-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">1</div>
-              <h3 class="text-lg font-bold text-white mb-2">Choose a vehicle</h3>
-              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Unlock unparalleled adventures and memorable journeys with our vast fleet.</p>
-            </div>
-            <div class="flex flex-col items-center group px-2">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#10b981] to-[#2563eb] text-white text-lg sm:text-2xl font-bold flex items-center justify-center mb-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">2</div>
-              <h3 class="text-lg font-bold text-white mb-2">Pick location</h3>
-              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Pick your ideal location and date, and let us take you on a journey.</p>
-            </div>
-            <div class="flex flex-col items-center group px-2">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#10b981] to-[#2563eb] text-white text-lg sm:text-2xl font-bold flex items-center justify-center mb-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">3</div>
-              <h3 class="text-lg font-bold text-white mb-2">Make a booking</h3>
-              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Secure your reservation with ease, unlocking a world of possibilities.</p>
-            </div>
-            <div class="flex flex-col items-center group px-2">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#10b981] to-[#2563eb] text-white text-lg sm:text-2xl font-bold flex items-center justify-center mb-4 shadow-lg transform group-hover:scale-110 transition-transform duration-300">4</div>
-              <h3 class="text-lg font-bold text-white mb-2">Sit back & relax</h3>
-              <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">Hassle-free convenience as we take care of every detail.</p>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== WHY CHOOSE US / FEATURES SECTION ==================== -->
-    <section class="py-20 bg-gradient-to-b from-white to-slate-50 overflow-hidden border-t border-slate-100">
+    <!-- ═══════════════════════════════════════════════════════════════
+         HOW IT WORKS — 4 Steps horizontal row
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="bg-[#1E2D5A] py-10">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16 relative z-10">
-          <span class="bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent font-bold text-lg uppercase tracking-wider block mb-2">Why Choose Us</span>
-          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Our Features</h2>
-          <p class="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">Discover a world of convenience, safety, and customization, paving the way for unforgettable adventures and seamless mobility solutions.</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center relative">
-          <!-- Left features column -->
-          <div class="space-y-12 order-2 lg:order-1">
-            <div class="group flex items-start gap-5 flex-row text-left bg-white border border-slate-100 hover:border-emerald-500/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all hover:scale-[1.02]">
-              <div class="w-14 h-14 bg-gradient-to-br from-[#10b981] to-[#2563eb] rounded-lg flex items-center justify-center shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <div class="flex-1 pt-1">
-                <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#10b981] transition-colors duration-300">First class services</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Experience premium comfort and professional service on every journey</p>
-              </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { step: "01", title: "Choose Vehicle", desc: "Pick from our wide fleet" },
+            { step: "02", title: "Enter Location", desc: "Pickup & drop details" },
+            { step: "03", title: "Send Enquiry", desc: "We confirm within 15 min" },
+            { step: "04", title: "Sit Back & Relax", desc: "We handle the rest" }
+          ].map((s, i) => (
+            <div class="flex flex-col items-center relative">
+              {i < 3 && <div class="hidden md:block absolute right-0 top-6 w-1/2 h-px bg-white/20"></div>}
+              <div class="w-14 h-14 rounded-full border-2 border-[#D97706] text-[#D97706] font-extrabold text-xl flex items-center justify-center mb-4 bg-white/5">{s.step}</div>
+              <h3 class="text-white font-bold text-base mb-1.5">{s.title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed">{s.desc}</p>
             </div>
-            <div class="group flex items-start gap-5 flex-row text-left bg-white border border-slate-100 hover:border-emerald-500/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all hover:scale-[1.02]">
-              <div class="w-14 h-14 bg-gradient-to-br from-[#10b981] to-[#2563eb] rounded-lg flex items-center justify-center shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <div class="flex-1 pt-1">
-                <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#10b981] transition-colors duration-300">24/7 road assistance</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Round-the-clock support for your peace of mind</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Center transparent car -->
-          <div class="order-1 lg:order-2 relative h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center mb-8 lg:mb-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-[#10b981]/15 to-[#2563eb]/15 rounded-full filter blur-3xl transform scale-75 -z-10 animate-pulse"></div>
-            <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/af218ffd783e5838777bc2ff78950efa.png" alt="Premium Toyota Car Service" class="relative w-full h-full object-contain drop-shadow-2xl z-10 animate-[floating_4s_ease-in-out_infinite]" />
-          </div>
-
-          <!-- Right features column -->
-          <div class="space-y-12 order-3 lg:order-3">
-            <div class="group flex items-start gap-5 lg:flex-row-reverse lg:text-right bg-white border border-slate-100 hover:border-emerald-500/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all hover:scale-[1.02]">
-              <div class="w-14 h-14 bg-gradient-to-br from-[#10b981] to-[#2563eb] rounded-lg flex items-center justify-center shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-              </div>
-              <div class="flex-1 pt-1">
-                <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#10b981] transition-colors duration-300">Quality at Minimum Expense</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Affordable luxury without compromising on quality</p>
-              </div>
-            </div>
-            <div class="group flex items-start gap-5 lg:flex-row-reverse lg:text-right bg-white border border-slate-100 hover:border-emerald-500/20 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all hover:scale-[1.02]">
-              <div class="w-14 h-14 bg-gradient-to-br from-[#10b981] to-[#2563eb] rounded-lg flex items-center justify-center shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-              </div>
-              <div class="flex-1 pt-1">
-                <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#10b981] transition-colors duration-300">Free Pick-Up & Drop-Off</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Convenient door-to-door service included</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ==================== STATS OVERLAY SECTION ==================== -->
-    <section class="relative py-20 lg:py-32 overflow-hidden border-t border-white/5">
-      <div class="absolute inset-0 z-0 bg-[#050814]/90"
-        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/4ad4fe21f170761da20a127be43f95f7.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay;">
-      </div>
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20 items-center">
-          <div>
-            <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">SF Travels offers premium services across Bangalore and surrounding areas.</h2>
-          </div>
-          <div>
-            <p class="text-gray-300 text-lg leading-relaxed">At SF Travels, we are committed to providing safe, comfortable, and reliable taxi services for all your transportation needs. Our fleet of well-maintained vehicles and professional drivers ensure a smooth journey whether you're catching a flight, traveling outstation, or exploring the city. Available 24/7, we offer flexible booking options and exceptional customer service to make your travel experience hassle-free. Trust us for dependable cab rental services in Bangalore and beyond.</p>
-          </div>
+    <!-- ═══════════════════════════════════════════════════════════════
+         WHY CHOOSE US — 4-col icon grid (clean, airy)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-[#f5f4f0]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-4">Why SF Travels</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a1f36] mb-5">Everything You Expect from a<br class="hidden md:block"> Premium Travel Partner</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Reliable, comfortable, and professional — every single journey.</p>
         </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-[#101b37]/50 backdrop-blur-md p-8 rounded-2xl border border-white/5 hover:border-[#10b981]/30 hover:bg-[#101b37]/75 transition-all duration-300 text-center group shadow-xl hover:scale-[1.02]">
-            <h3 class="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 inline-block">15425</h3>
-            <p class="text-white font-medium text-base tracking-wide">Completed Orders</p>
+          {[
+            { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "Transparent Pricing", desc: "Slab-rate billing with no surprise charges. What you see is what you pay.", bg: "bg-blue-50", ibg: "bg-blue-100" },
+            { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "24/7 Availability", desc: "Round-the-clock service. Early morning flights or late-night returns — we're always on.", bg: "bg-amber-50", ibg: "bg-amber-100" },
+            { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Verified Chauffeurs", desc: "Background-checked, licensed professionals with years of experience on Bangalore's roads.", bg: "bg-green-50", ibg: "bg-green-100" },
+            { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Free Door Service", desc: "We pick you up right from your doorstep. Complimentary for premium bookings.", bg: "bg-purple-50", ibg: "bg-purple-100" }
+          ].map((f, i) => (
+            <div class={`group rounded-2xl p-8 border border-white hover:shadow-xl transition-all duration-300 ${f.bg}`}>
+              <div class={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300 ${f.ibg}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#1a1f36] mb-3 group-hover:text-[#1E2D5A] transition-colors">{f.title}</h3>
+              <p class="text-slate-600 text-base leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         STATS BANNER — Warm light background, large numbers
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-0">
+      <div class="relative overflow-hidden">
+        <!-- Background image with warm overlay -->
+        <div class="absolute inset-0 z-0"
+          style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/4ad4fe21f170761da20a127be43f95f7.jpg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="absolute inset-0 bg-[#1E2D5A]/88 z-10"></div>
+
+        <div class="relative z-20 container mx-auto px-4 py-20">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-14">
+            <div>
+              <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-4">Our Numbers Speak</span>
+              <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">Trusted by Thousands of Travellers Across Bangalore</h2>
+            </div>
+            <div>
+              <p class="text-white/75 text-lg leading-relaxed">At SF Travels, we are committed to providing safe, comfortable, and reliable taxi services for all your transportation needs. Available 24/7, flexible booking options, and exceptional customer service make your travel experience hassle-free.</p>
+            </div>
           </div>
-          <div class="bg-[#101b37]/50 backdrop-blur-md p-8 rounded-2xl border border-white/5 hover:border-[#10b981]/30 hover:bg-[#101b37]/75 transition-all duration-300 text-center group shadow-xl hover:scale-[1.02]">
-            <h3 class="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 inline-block">8745</h3>
-            <p class="text-white font-medium text-base tracking-wide">Happy Customers</p>
-          </div>
-          <div class="bg-[#101b37]/50 backdrop-blur-md p-8 rounded-2xl border border-white/5 hover:border-[#10b981]/30 hover:bg-[#101b37]/75 transition-all duration-300 text-center group shadow-xl hover:scale-[1.02]">
-            <h3 class="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 inline-block">235</h3>
-            <p class="text-white font-medium text-base tracking-wide">Vehicles Fleet</p>
-          </div>
-          <div class="bg-[#101b37]/50 backdrop-blur-md p-8 rounded-2xl border border-white/5 hover:border-[#10b981]/30 hover:bg-[#101b37]/75 transition-all duration-300 text-center group shadow-xl hover:scale-[1.02]">
-            <h3 class="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 inline-block">15</h3>
-            <p class="text-white font-medium text-base tracking-wide">Years Experience</p>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { num: "15,425", label: "Completed Rides" },
+              { num: "8,745", label: "Happy Customers" },
+              { num: "235+", label: "Fleet Vehicles" },
+              { num: "15 yrs", label: "Experience" }
+            ].map(stat => (
+              <div class="text-center bg-white/8 border border-white/15 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/12 transition-all">
+                <div class="text-5xl lg:text-6xl font-extrabold text-white mb-3">{stat.num}</div>
+                <div class="text-white/65 text-base font-semibold uppercase tracking-wide">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== OUR PREMIUM FLEET SECTION ==================== -->
-    <section class="py-16 sm:py-20 bg-white">
+    <!-- ═══════════════════════════════════════════════════════════════
+         OUR FLEET — Tabbed navigation, single slider
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-[#fafaf8]">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Premium Fleet</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto px-4">Driving your dreams to reality with an exquisite fleet of versatile vehicles for unforgettable journeys.</p>
+        <!-- Section header -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-3">Our Fleet</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a1f36]">Vehicles for Every Journey</h2>
+          </div>
+          <!-- Fleet category tabs -->
+          <div class="flex flex-wrap gap-2" id="fleetTabs">
+            {allFleet.map((tab, i) => (
+              <button type="button"
+                class={`fleet-tab-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${i === 0 ? 'bg-[#1E2D5A] text-white border-[#1E2D5A]' : 'bg-white text-slate-600 border-slate-200 hover:border-[#1E2D5A] hover:text-[#1E2D5A]'}`}
+                data-tab-target={tab.id}>
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div class="space-y-12">
-          <!-- 1. CARS FLEET SLIDER -->
-          <div class="w-full mb-12 relative group-slider" data-slider-id="cars">
-            <div class="flex items-center justify-between mb-6 px-1">
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-800 pl-3 border-l-4 border-[#10b981]">Cars Fleet</h3>
-            </div>
+        <!-- Fleet panels -->
+        {allFleet.map((tabData, ti) => (
+          <div id={tabData.id} class={`fleet-panel group-slider ${ti === 0 ? 'block' : 'hidden'}`} data-slider-id={tabData.id} data-category={tabData.category}>
             <div class="relative">
-              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform -translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M15 19l-7-7 7-7"></path></svg>
+              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all -translate-x-1/2 disabled:opacity-30" aria-label="Previous slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700" aria-label="Next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M9 5l7 7-7 7"></path></svg>
+              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all translate-x-1/2 disabled:opacity-30" aria-label="Next slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M9 5l7 7-7 7"></path></svg>
               </button>
-              
-              <div class="overflow-hidden px-1 py-4 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                  {carsFleet.map(c => (
-                    <div class="flex-shrink-0 px-2 sm:px-3 transition-all duration-300">
-                      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-102 transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 w-full">
-                        <div class="aspect-[4/3] sm:h-[200px] overflow-hidden relative bg-gray-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                          <div class="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors"></div>
+              <div class="overflow-hidden px-1 py-3 -mx-1">
+                <div class="flex transition-transform duration-500 ease-in-out">
+                  {tabData.fleet.map(c => (
+                    <div class="flex-shrink-0 px-3 transition-all duration-300">
+                      <div class="bg-white rounded-2xl border border-slate-100 hover:border-[#1E2D5A]/25 hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full">
+                        <!-- Image -->
+                        <div class="relative h-52 overflow-hidden bg-slate-50">
+                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                          <div class="absolute top-3 right-3 bg-[#1E2D5A] text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full">{c.category}</div>
                         </div>
-                        <div class="p-4 flex-grow flex flex-col">
-                          <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-1">{c.name}</h3>
-                          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 mb-4 text-xs sm:text-sm">
-                            <div class="flex items-center gap-1.5" title="Seating Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                              <span class="font-medium">{c.seats}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Luggage Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
-                              <span class="font-medium truncate max-w-[80px]">{c.luggage}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Vehicle Category">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                              <span class="font-medium capitalize">{c.category}</span>
-                            </div>
+                        <!-- Info -->
+                        <div class="p-6 flex flex-col flex-grow bg-gradient-to-b from-white to-slate-50/60">
+                          <h3 class="text-lg font-bold text-slate-900 mb-3">{c.name}</h3>
+                          <div class="flex flex-wrap gap-4 mb-5">
+                            <span class="flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                              {c.seats} Seats
+                            </span>
+                            <span class="flex items-center gap-2 bg-amber-50 text-amber-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
+                              {c.luggage}
+                            </span>
                           </div>
-                          <div class="mt-auto pt-3 border-t border-gray-100">
-                            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-                              <button class="inline-flex items-center justify-center rounded-md px-4 bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all shadow-sm" data-book-now data-vehicle={c.name} data-category="Cars Fleet">Book Now</button>
-                              <a href={`/vehicle/${c.id}`} class="inline-flex items-center justify-center rounded-md border px-4 border-[#10b981]/40 text-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all">Details</a>
-                            </div>
+                          <div class="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+                            <button class="h-11 rounded-xl bg-[#1E2D5A] hover:bg-[#D97706] text-white text-sm font-bold transition-all" data-book-now data-vehicle={c.name} data-category={tabData.category}>Book Now</button>
+                            <a href={`/vehicle/${c.id}`} class="h-11 rounded-xl border-2 border-[#1E2D5A]/30 text-[#1E2D5A] hover:bg-[#1E2D5A] hover:text-white text-sm font-bold transition-all flex items-center justify-center">Details</a>
                           </div>
                         </div>
                       </div>
@@ -422,279 +428,132 @@ const busFleet = [
               </div>
             </div>
           </div>
- 
-          <!-- 2. FORCE URBANIA SLIDER -->
-          <div class="w-full mb-12 relative group-slider" data-slider-id="urbania">
-            <div class="flex items-center justify-between mb-6 px-1">
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-800 pl-3 border-l-4 border-[#10b981]">Force Urbania Fleet</h3>
-            </div>
-            <div class="relative">
-              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform -translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700" aria-label="Next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              
-              <div class="overflow-hidden px-1 py-4 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                  {urbaniaFleet.map(c => (
-                    <div class="flex-shrink-0 px-2 sm:px-3 transition-all duration-300">
-                      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-102 transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 w-full">
-                        <div class="aspect-[4/3] sm:h-[200px] overflow-hidden relative bg-gray-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                          <div class="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors"></div>
-                        </div>
-                        <div class="p-4 flex-grow flex flex-col">
-                          <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-1">{c.name}</h3>
-                          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 mb-4 text-xs sm:text-sm">
-                            <div class="flex items-center gap-1.5" title="Seating Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                              <span class="font-medium">{c.seats}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Luggage Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
-                              <span class="font-medium truncate max-w-[80px]">{c.luggage}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Vehicle Category">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                              <span class="font-medium capitalize">{c.category}</span>
-                            </div>
-                          </div>
-                          <div class="mt-auto pt-3 border-t border-gray-100">
-                            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-                              <button class="inline-flex items-center justify-center rounded-md px-4 bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all shadow-sm" data-book-now data-vehicle={c.name} data-category="Force Urbania Fleet">Book Now</button>
-                              <a href={`/vehicle/${c.id}`} class="inline-flex items-center justify-center rounded-md border px-4 border-[#10b981]/40 text-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all">Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PROMO BANNER — Asymmetric two-column
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-20 bg-[#fafaf8]">
+      <div class="container mx-auto px-4">
+        <div class="rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-5 shadow-xl">
+          <!-- Left amber panel -->
+          <div class="lg:col-span-2 bg-[#D97706] p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+            <div class="absolute -bottom-10 -left-6 w-32 h-32 bg-white/8 rounded-full"></div>
+            <div class="relative z-10">
+              <div class="text-white/80 font-bold uppercase tracking-widest text-xs mb-4">Why Travel With Us</div>
+              <h2 class="text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-6">Let Your<br>Adventure Begin</h2>
+              <p class="text-white/85 text-base leading-relaxed mb-8">Explore Karnataka and beyond with our premium fleet. Comfortable, safe, and always on time.</p>
+              <a href="/services/outstation-cabs" class="inline-flex items-center gap-2 bg-white text-[#D97706] font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#1E2D5A] hover:text-white transition-all duration-300">
+                View All Services
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
             </div>
           </div>
- 
-          <!-- 3. TEMPO TRAVELLER SLIDER -->
-          <div class="w-full mb-12 relative group-slider" data-slider-id="tempo">
-            <div class="flex items-center justify-between mb-6 px-1">
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-800 pl-3 border-l-4 border-[#10b981]">Tempo Traveller Fleet</h3>
-            </div>
-            <div class="relative">
-              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform -translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700" aria-label="Next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              
-              <div class="overflow-hidden px-1 py-4 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                  {tempoFleet.map(c => (
-                    <div class="flex-shrink-0 px-2 sm:px-3 transition-all duration-300">
-                      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-102 transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 w-full">
-                        <div class="aspect-[4/3] sm:h-[200px] overflow-hidden relative bg-gray-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                          <div class="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors"></div>
-                        </div>
-                        <div class="p-4 flex-grow flex flex-col">
-                          <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-1">{c.name}</h3>
-                          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 mb-4 text-xs sm:text-sm">
-                            <div class="flex items-center gap-1.5" title="Seating Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                              <span class="font-medium">{c.seats}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Luggage Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
-                              <span class="font-medium truncate max-w-[80px]">{c.luggage}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Vehicle Category">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                              <span class="font-medium capitalize">{c.category}</span>
-                            </div>
-                          </div>
-                          <div class="mt-auto pt-3 border-t border-gray-100">
-                            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-                              <button class="inline-flex items-center justify-center rounded-md px-4 bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all shadow-sm" data-book-now data-vehicle={c.name} data-category="Tempo Traveller Fleet">Book Now</button>
-                              <a href={`/vehicle/${c.id}`} class="inline-flex items-center justify-center rounded-md border px-4 border-[#10b981]/40 text-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all">Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+          <!-- Right features panel -->
+          <div class="lg:col-span-3 bg-[#fffbeb] p-10 lg:p-14">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full">
+              {[
+                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "First Class Services", desc: "Premium comfort with professional chauffeurs on every journey." },
+                { icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z", title: "24/7 Road Assistance", desc: "Dedicated support team available around the clock, anywhere." },
+                { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Free Pick-Up & Drop", desc: "Complimentary doorstep service for premium bookings." }
+              ].map(f => (
+                <div class="group flex flex-col gap-5">
+                  <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:bg-[#D97706] transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-7 h-7 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                      <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-[#1a1f36] mb-2">{f.title}</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">{f.desc}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
- 
-          <!-- 4. BUS FLEET SLIDER -->
-          <div class="w-full mb-12 relative group-slider" data-slider-id="bus">
-            <div class="flex items-center justify-between mb-6 px-1">
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-800 pl-3 border-l-4 border-[#10b981]">Bus Fleet</h3>
-            </div>
-            <div class="relative">
-              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform -translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white shadow-lg border border-gray-100 transition-all duration-300 transform translate-x-1/2 hover:scale-110 hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white text-gray-700" aria-label="Next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              
-              <div class="overflow-hidden px-1 py-4 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                  {busFleet.map(c => (
-                    <div class="flex-shrink-0 px-2 sm:px-3 transition-all duration-300">
-                      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-102 transition-all duration-300 overflow-hidden h-full flex flex-col border border-gray-100 w-full">
-                        <div class="aspect-[4/3] sm:h-[200px] overflow-hidden relative bg-gray-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                          <div class="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors"></div>
-                        </div>
-                        <div class="p-4 flex-grow flex flex-col">
-                          <h3 class="text-lg font-bold text-gray-900 mb-3 line-clamp-1">{c.name}</h3>
-                          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 mb-4 text-xs sm:text-sm">
-                            <div class="flex items-center gap-1.5" title="Seating Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                              <span class="font-medium">{c.seats}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Luggage Capacity">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
-                              <span class="font-medium truncate max-w-[80px]">{c.luggage}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Vehicle Category">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10b981]"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                              <span class="font-medium capitalize">{c.category}</span>
-                            </div>
-                          </div>
-                          <div class="mt-auto pt-3 border-t border-gray-100">
-                            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-                              <button class="inline-flex items-center justify-center rounded-md px-4 bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all shadow-sm" data-book-now data-vehicle={c.name} data-category="Bus Fleet">Book Now</button>
-                              <a href={`/vehicle/${c.id}`} class="inline-flex items-center justify-center rounded-md border px-4 border-[#10b981]/40 text-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-all">Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== LET YOUR ADVENTURE BEGIN SECTION ==================== -->
-    <section class="relative py-20 overflow-hidden">
-      <div class="absolute inset-0 z-0 bg-slate-50/90"
-        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/70a79251d43c8fc2570d978e6d5b04f2.png'); background-size: cover; background-position: center; background-attachment: fixed;">
-      </div>
-      <div class="absolute inset-0 bg-slate-50/90 z-10"></div>
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-          <div class="w-full lg:w-1/3 text-center lg:text-left">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">Let's Your <br><span class="bg-gradient-to-r from-[#10b981] to-[#2563eb] bg-clip-text text-transparent font-extrabold">Adventure</span> <br>Begin</h2>
-            <p class="mt-6 text-slate-600 text-lg">Discover the freedom of the open road with our reliable fleet and exceptional service.</p>
-          </div>
-          <div class="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white border border-slate-100 hover:border-emerald-500/20 hover:bg-slate-50/50 shadow-md hover:shadow-lg rounded-xl p-6 transition-all duration-300 group">
-              <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[#10b981] to-[#2563eb] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors">First Class Services</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Experience premium travel with our top-tier vehicle selection and professional chauffeurs dedicated to your comfort.</p>
-            </div>
-            <div class="bg-white border border-slate-100 hover:border-emerald-500/20 hover:bg-slate-50/50 shadow-md hover:shadow-lg rounded-xl p-6 transition-all duration-300 group">
-              <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[#10b981] to-[#2563eb] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors">24/7 Road Assistance</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Travel with peace of mind knowing our dedicated support team is available around the clock to assist you anywhere.</p>
-            </div>
-            <div class="bg-white border border-slate-100 hover:border-emerald-500/20 hover:bg-slate-50/50 shadow-md hover:shadow-lg rounded-xl p-6 transition-all duration-300 group">
-              <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[#10b981] to-[#2563eb] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-7 h-7 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors">Free Pick-Up & Drop-Off</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Enjoy complimentary doorstep service for long-term rentals and premium bookings within city limits.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== NEWS & PROMO SECTION ==================== -->
-    <section class="py-20 bg-gray-50 border-t border-slate-100">
+    <!-- ═══════════════════════════════════════════════════════════════
+         NEWS & BLOG — Compact 3-col cards
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-white border-t border-slate-100">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <span class="text-[#10b981] font-bold text-lg uppercase tracking-wider block mb-2">Latest From Us</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">News & Promo</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto text-lg">Breaking news, latest updates, and exclusive insights from the world of travel and transportation.</p>
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-3">Travel Insights</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a1f36]">News & Stories</h2>
+          </div>
+          <a href="/blog" class="text-[#1E2D5A] font-bold text-base hover:text-[#D97706] transition-colors flex items-center gap-2">
+            View All Articles
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative border border-slate-100">
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-transparent group-hover:bg-gradient-to-r group-hover:from-[#10b981] group-hover:to-[#2563eb] transition-colors duration-300 z-10"></div>
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/106341b37ae751308f71a982d67f8d11.webp" alt="10 Best Weekend Getaways" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute top-4 left-4 bg-gradient-to-br from-[#10b981] to-[#2563eb] text-white p-3 rounded-lg text-center min-w-[70px] shadow-md z-10">
-                <span class="block text-2xl font-bold leading-none">12</span><span class="block text-sm font-medium uppercase mt-1">APR</span>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+          {[
+            { img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/106341b37ae751308f71a982d67f8d11.webp", date: "12 APR", tag: "Travel Guide", title: "10 Best Weekend Getaways from Bangalore", desc: "Explore the best weekend escapes — from Nandi Hills to Coorg — just a drive away.", bg: "bg-blue-50" },
+            { img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/48f6a563aa20b8c2dab1dba3305fa2d3.jpg", date: "28 MAR", tag: "Vehicle Guide", title: "Why a Tempo Traveller is Perfect for Groups", desc: "Planning a family outing? Discover why Tempo Travellers are the top group travel choice.", bg: "bg-amber-50" },
+            { img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/c546d70b81b63a89e48d86a7306db1a4.jpg", date: "15 MAR", tag: "Safety", title: "Safety Tips for Outstation Cab Travel", desc: "Essential tips for safe outstation travel — from vehicle checks to route tracking.", bg: "bg-green-50" }
+          ].map(post => (
+            <article class={`group border border-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col ${post.bg}`}>
+              <div class="relative h-56 overflow-hidden">
+                <img src={post.img} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute top-4 left-4 bg-[#1E2D5A] text-white text-xs font-bold px-3 py-1.5 rounded-full">{post.date}</div>
               </div>
-            </div>
-            <div class="p-8 flex flex-col flex-grow">
-              <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold text-[#10b981] uppercase tracking-wide bg-[#10b981]/10 px-2 py-1 rounded">Travel Guide</span><span class="text-xs text-gray-400">• SF Travels</span></div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors line-clamp-2">10 Best Weekend Getaways from Bangalore</h3>
-              <p class="text-gray-600 mb-6 flex-grow leading-relaxed line-clamp-3">Looking for a quick escape? Explore the serene weekend destinations just a short drive away from Bangalore. From Nandi Hills to Mysore, we cover the top spots.</p>
-              <a class="w-full flex items-center justify-between bg-transparent text-[#10b981] border-2 border-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white transition-all duration-300 group/btn mt-auto p-2 rounded-md font-semibold" href="/blog">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative border border-slate-100">
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-transparent group-hover:bg-gradient-to-r group-hover:from-[#10b981] group-hover:to-[#2563eb] transition-colors duration-300 z-10"></div>
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/48f6a563aa20b8c2dab1dba3305fa2d3.jpg" alt="Renting a Tempo Traveller" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute top-4 left-4 bg-gradient-to-br from-[#10b981] to-[#2563eb] text-white p-3 rounded-lg text-center min-w-[70px] shadow-md z-10">
-                <span class="block text-2xl font-bold leading-none">28</span><span class="block text-sm font-medium uppercase mt-1">MAR</span>
+              <div class="p-7 flex flex-col flex-grow">
+                <span class="text-[#D97706] text-sm font-bold uppercase tracking-wide mb-3">{post.tag}</span>
+                <h3 class="text-xl font-bold text-[#1a1f36] mb-3 leading-snug group-hover:text-[#1E2D5A] transition-colors line-clamp-2">{post.title}</h3>
+                <p class="text-slate-600 text-base leading-relaxed mb-5 flex-grow line-clamp-2">{post.desc}</p>
+                <a href="/blog" class="inline-flex items-center gap-2 text-[#1E2D5A] font-bold text-base hover:text-[#D97706] transition-colors mt-auto">
+                  Read Article
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5 group-hover:translate-x-1 transition-transform"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
               </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         CTA BANNER — Left-aligned, warm indigo + amber accent
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-0">
+      <div class="bg-[#1E2D5A] relative overflow-hidden">
+        <!-- Decorative accent -->
+        <div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#D97706]/10 to-transparent pointer-events-none"></div>
+        <div class="absolute right-20 bottom-0 w-64 h-64 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 py-16 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">Ready to Book Your Premium Ride?</h2>
+              <p class="text-white/70 text-lg">Get started today — our team confirms within 15 minutes.</p>
             </div>
-            <div class="p-8 flex flex-col flex-grow">
-              <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold text-[#10b981] uppercase tracking-wide bg-[#10b981]/10 px-2 py-1 rounded">Vehicle Guide</span><span class="text-xs text-gray-400">• SF Travels</span></div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors line-clamp-2">Why Renting a Tempo Traveller is Perfect for Groups</h3>
-              <p class="text-gray-600 mb-6 flex-grow leading-relaxed line-clamp-3">Planning a family outing or corporate retreat? Discover why a Tempo Traveller is the ultimate choice for comfort, space, and group bonding.</p>
-              <a class="w-full flex items-center justify-between bg-transparent text-[#10b981] border-2 border-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white transition-all duration-300 group/btn mt-auto p-2 rounded-md font-semibold" href="/blog">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col h-full relative border border-slate-100">
-            <div class="absolute bottom-0 left-0 right-0 h-1 bg-transparent group-hover:bg-gradient-to-r group-hover:from-[#10b981] group-hover:to-[#2563eb] transition-colors duration-300 z-10"></div>
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/c546d70b81b63a89e48d86a7306db1a4.jpg" alt="Safety Tips for Travel" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute top-4 left-4 bg-gradient-to-br from-[#10b981] to-[#2563eb] text-white p-3 rounded-lg text-center min-w-[70px] shadow-md z-10">
-                <span class="block text-2xl font-bold leading-none">15</span><span class="block text-sm font-medium uppercase mt-1">MAR</span>
-              </div>
-            </div>
-            <div class="p-8 flex flex-col flex-grow">
-              <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold text-[#10b981] uppercase tracking-wide bg-[#10b981]/10 px-2 py-1 rounded">Safety</span><span class="text-xs text-gray-400">• SF Travels</span></div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#10b981] transition-colors line-clamp-2">Safety Tips for Outstation Cab Travel</h3>
-              <p class="text-gray-600 mb-6 flex-grow leading-relaxed line-clamp-3">Your safety is our priority. Learn essential tips for safe outstation travel, including vehicle checks, driver verification, and route tracking.</p>
-              <a class="w-full flex items-center justify-between bg-transparent text-[#10b981] border-2 border-[#10b981] hover:bg-gradient-to-r hover:from-[#10b981] hover:to-[#2563eb] hover:border-transparent hover:text-white transition-all duration-300 group/btn mt-auto p-2 rounded-md font-semibold" href="/blog">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+              <button class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all shadow-lg" data-book-now data-vehicle="Premium Cab" data-category="General Booking">
+                Book a Cab Now
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+              <a href="tel:9353966815" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                Call 9353966815
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== READY TO BOOK YOUR RIDE SECTION ==================== -->
-    <section class="py-16 sm:py-20 bg-gradient-to-r from-slate-50 to-slate-100 border-t border-b border-slate-200">
-      <div class="container mx-auto px-4 sm:px-6 text-center">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to Book Your Ride?</h2>
-        <p class="text-slate-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto">Get started with SF Travels today. Experience premium travel at affordable prices.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto px-4">
-          <button class="inline-flex items-center justify-center rounded-md font-bold transition-all h-12 bg-gradient-to-r from-[#10b981] to-[#2563eb] hover:from-[#059669] hover:to-[#1d4ed8] text-white shadow-md hover:shadow-lg px-8 text-lg w-full sm:w-auto" data-book-now data-vehicle="Premium Cab" data-category="General Booking">Book Now</button>
-          <a href="tel:9353966815" class="inline-flex items-center justify-center rounded-md font-bold transition-all h-12 border border-[#2563eb] text-[#2563eb] hover:bg-slate-50 bg-transparent px-8 text-lg w-full sm:w-auto">Call 9353966815</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== PREMIUM SUCCESS MODAL ==================== -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         SUCCESS MODAL
+    ═══════════════════════════════════════════════════════════════ -->
     <div id="successModal" class="form-success-overlay">
       <div class="form-success-card">
         <div class="success-icon-circle">
@@ -703,11 +562,11 @@ const busFleet = [
         <h3 class="success-title text-2xl font-bold mb-3">Enquiry Received!</h3>
         <p id="successModalMessage" class="success-message mb-6">Your booking request has been successfully submitted. Our team will contact you in a few minutes.</p>
         <div class="success-actions flex flex-col gap-3">
-          <a id="successModalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-success w-full bg-[#10b981] hover:bg-[#059669] text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2">
+          <a id="successModalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-success w-full bg-[#1E2D5A] hover:bg-[#D97706] text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             Confirm on WhatsApp
           </a>
-          <button id="successModalCloseBtn" class="btn-close-success w-full border border-gray-300 hover:bg-gray-100 text-gray-700 font-bold h-12 rounded-lg">
+          <button id="successModalCloseBtn" class="btn-close-success w-full border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold h-12 rounded-lg transition-all">
             Dismiss
           </button>
         </div>
@@ -715,25 +574,19 @@ const busFleet = [
     </div>
   </div>
 
-  <!-- Interactive logic for map, sliders, tab navigation, flatpickr, and form submission -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       ALL JAVASCRIPT — fully preserved
+  ═══════════════════════════════════════════════════════════════ -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Initialize Flatpickr calendars
+      // 1. Flatpickr
       let pickupFP, returnFP;
       if (typeof flatpickr !== 'undefined') {
-        pickupFP = flatpickr("#pickupDatePicker", {
-          enableTime: false,
-          dateFormat: "Y-m-d",
-          minDate: "today"
-        });
-        returnFP = flatpickr("#returnDatePicker", {
-          enableTime: false,
-          dateFormat: "Y-m-d",
-          minDate: "today"
-        });
+        pickupFP = flatpickr("#pickupDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today" });
+        returnFP = flatpickr("#returnDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today" });
       }
 
-      // 2. Tab Navigation logic
+      // 2. Service Tabs
       const tabs = document.querySelectorAll('#serviceTabs .tab-btn');
       const serviceTypeInput = document.getElementById('serviceTypeInput');
       const dropoffGroup = document.getElementById('dropoffGroup');
@@ -743,21 +596,16 @@ const busFleet = [
         tabs.forEach(tab => {
           tab.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            // Remove active classes
             tabs.forEach(t => {
-              t.classList.remove('bg-gradient-to-r', 'from-[#10b981]', 'to-[#2563eb]', 'text-white', 'shadow-lg');
-              t.classList.add('bg-slate-100', 'text-slate-600', 'border', 'border-slate-200/50');
+              t.classList.remove('bg-[#1E2D5A]', 'text-white', 'shadow');
+              t.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
             });
-            
-            // Add active classes
-            tab.classList.add('bg-gradient-to-r', 'from-[#10b981]', 'to-[#2563eb]', 'text-white', 'shadow-lg');
-            tab.classList.remove('bg-slate-100', 'text-slate-600', 'border', 'border-slate-200/50');
-            
+            tab.classList.add('bg-[#1E2D5A]', 'text-white', 'shadow');
+            tab.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
             const selectedService = tab.getAttribute('data-service') || 'Outstation';
             serviceTypeInput.value = selectedService;
 
-            // Toggle date fields based on selection
             if (returnGroup) {
               if (selectedService === 'Outstation') {
                 returnGroup.style.display = 'block';
@@ -768,7 +616,6 @@ const busFleet = [
                 if (returnFP) returnFP.clear();
               }
             }
-
             if (dropoffGroup) {
               if (selectedService === 'Local') {
                 dropoffGroup.style.display = 'none';
@@ -782,7 +629,34 @@ const busFleet = [
         });
       }
 
-      // 3. Carousel Sliders Logic
+      // 3. Fleet tabs
+      const fleetTabBtns = document.querySelectorAll('.fleet-tab-btn');
+      const fleetPanels = document.querySelectorAll('.fleet-panel');
+
+      fleetTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab-target');
+          fleetTabBtns.forEach(b => {
+            b.classList.remove('bg-[#1E2D5A]', 'text-white', 'border-[#1E2D5A]');
+            b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+          });
+          btn.classList.add('bg-[#1E2D5A]', 'text-white', 'border-[#1E2D5A]');
+          btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+          fleetPanels.forEach(panel => {
+            if (panel.id === target) {
+              panel.classList.remove('hidden');
+              panel.classList.add('block');
+              // Re-init slider for the newly shown panel
+              setupSlider(panel);
+            } else {
+              panel.classList.add('hidden');
+              panel.classList.remove('block');
+            }
+          });
+        });
+      });
+
+      // 4. Slider setup
       const setupSlider = (sliderContainer) => {
         const wrapper = sliderContainer.querySelector('.flex.transition-transform');
         const prevBtn = sliderContainer.querySelector('button[aria-label="Previous slide"]');
@@ -790,169 +664,118 @@ const busFleet = [
         if (!wrapper || !prevBtn || !nextBtn) return;
 
         let currentIndex = 0;
-
         const getVisibleCardsCount = () => {
-          if (window.innerWidth < 640) return 1; // mobile
-          if (window.innerWidth < 1024) return 2; // tablet
-          return 3; // desktop
+          if (window.innerWidth < 640) return 1;
+          if (window.innerWidth < 1024) return 2;
+          return 3;
         };
 
         const updateSlider = () => {
           const items = wrapper.children;
           const visibleCards = getVisibleCardsCount();
           const maxIndex = Math.max(0, items.length - visibleCards);
-          
           if (currentIndex > maxIndex) currentIndex = maxIndex;
           if (currentIndex < 0) currentIndex = 0;
-
-          // Set widths dynamically
           const cardWidthPercent = 100 / visibleCards;
-          Array.from(items).forEach((item) => {
-            item.style.width = `${cardWidthPercent}%`;
-          });
-
-          const offset = -currentIndex * cardWidthPercent;
-          wrapper.style.transform = `translateX(${offset}%)`;
-
-          // Button states
+          Array.from(items).forEach(item => { item.style.width = `${cardWidthPercent}%`; });
+          wrapper.style.transform = `translateX(${-currentIndex * cardWidthPercent}%)`;
           prevBtn.disabled = currentIndex === 0;
-          prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
-          prevBtn.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
-
           nextBtn.disabled = currentIndex >= maxIndex;
-          nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
-          nextBtn.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
         };
 
-        prevBtn.addEventListener('click', (e) => {
+        prevBtn.onclick = (e) => { e.preventDefault(); if (currentIndex > 0) { currentIndex--; updateSlider(); } };
+        nextBtn.onclick = (e) => {
           e.preventDefault();
-          if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-          }
-        });
-
-        nextBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const items = wrapper.children;
           const visibleCards = getVisibleCardsCount();
-          if (currentIndex < items.length - visibleCards) {
-            currentIndex++;
-            updateSlider();
-          }
-        });
+          const maxIndex = Math.max(0, wrapper.children.length - visibleCards);
+          if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
+        };
 
         window.addEventListener('resize', updateSlider);
         updateSlider();
       };
 
       document.querySelectorAll('.group-slider').forEach(container => {
-        setupSlider(container);
+        if (!container.classList.contains('hidden')) setupSlider(container);
       });
 
-      // 4. Web3Forms Submission Logic
-      const bookingForm = document.getElementById('homepageBookingForm');
+      // 5. Book Now modal trigger
       const successModal = document.getElementById('successModal');
       const successModalMessage = document.getElementById('successModalMessage');
       const successModalCloseBtn = document.getElementById('successModalCloseBtn');
       const successModalWhatsAppBtn = document.getElementById('successModalWhatsAppBtn');
 
+      // 6. Web3Forms
+      const bookingForm = document.getElementById('homepageBookingForm');
       if (bookingForm && successModal) {
         bookingForm.addEventListener('submit', (e) => {
           e.preventDefault();
-
-          // Honeypot spam check
           const botcheck = bookingForm.querySelector('input[name="botcheck"]');
-          if (botcheck && botcheck.checked) {
-            console.warn("Spam submission blocked.");
-            return;
-          }
+          if (botcheck && botcheck.checked) return;
 
           const submitBtn = bookingForm.querySelector('button[type="submit"]');
           const formElements = bookingForm.querySelectorAll('input, select, textarea, button');
-
           if (submitBtn) submitBtn.classList.add('btn-loading');
-
           const formData = new FormData(bookingForm);
           formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
-          fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          })
-          .then(async (response) => {
-            const json = await response.json();
-            if (response.status === 200) {
-              const fullName = formData.get('fullName') || '';
-              const phoneNumber = formData.get('phoneNumber') || '';
-              const pickup = formData.get('pickupLocation') || '';
-              const dropoff = formData.get('dropoffLocation') || '';
-              const date = formData.get('pickupDate') || '';
-              const time = formData.get('pickupTime') || '';
-              const service = formData.get('service-type') || 'Cab Booking';
-              const vehicle = formData.get('vehicleType') || '';
-              const returnDate = formData.get('returnDate') || '';
-              const returnTime = formData.get('returnTime') || '';
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+            .then(async (response) => {
+              const json = await response.json();
+              if (response.status === 200) {
+                const fullName = formData.get('fullName') || '';
+                const phoneNumber = formData.get('phoneNumber') || '';
+                const pickup = formData.get('pickupLocation') || '';
+                const dropoff = formData.get('dropoffLocation') || '';
+                const date = formData.get('pickupDate') || '';
+                const time = formData.get('pickupTime') || '';
+                const service = formData.get('service-type') || 'Cab Booking';
+                const vehicle = formData.get('vehicleType') || '';
+                const returnDate = formData.get('returnDate') || '';
+                const returnTime = formData.get('returnTime') || '';
 
-              if (successModalMessage) {
-                successModalMessage.innerHTML = `Thank you, <strong>${fullName}</strong>! Your enquiry for a <strong>${service}</strong> ride (${vehicle}) has been successfully sent. We will call you at <strong>${phoneNumber}</strong> within 15 minutes to confirm.`;
+                if (successModalMessage) {
+                  successModalMessage.innerHTML = `Thank you, <strong>${fullName}</strong>! Your enquiry for a <strong>${service}</strong> ride (${vehicle}) has been successfully sent. We will call you at <strong>${phoneNumber}</strong> within 15 minutes.`;
+                }
+
+                let waText = `Hi SF Travels, I would like to book a cab:\n- *Name*: ${fullName}\n- *Phone*: ${phoneNumber}\n- *Service*: ${service}\n- *Vehicle*: ${vehicle}\n- *Pickup*: ${pickup}\n`;
+                if (dropoff) waText += `- *Dropoff*: ${dropoff}\n`;
+                waText += `- *Date & Time*: ${date} at ${time}\n`;
+                if (service === 'Outstation' && returnDate) waText += `- *Return*: ${returnDate} at ${returnTime}\n`;
+
+                if (successModalWhatsAppBtn) {
+                  successModalWhatsAppBtn.href = `https://wa.me/919353966815?text=${encodeURIComponent(waText)}`;
+                  successModalWhatsAppBtn.style.display = 'inline-flex';
+                }
+                successModal.classList.add('active');
+                formElements.forEach(el => el.removeAttribute('disabled'));
+                bookingForm.reset();
+                if (pickupFP) pickupFP.clear();
+                if (returnFP) returnFP.clear();
+              } else {
+                alert(json.message || "Something went wrong. Please try again.");
+                formElements.forEach(el => el.removeAttribute('disabled'));
               }
-
-              let waText = `Hi SF Travels, I would like to book a cab:\n` +
-                           `- *Name*: ${fullName}\n` +
-                           `- *Phone*: ${phoneNumber}\n` +
-                           `- *Service*: ${service}\n` +
-                           `- *Vehicle*: ${vehicle}\n` +
-                           `- *Pickup*: ${pickup}\n`;
-              if (dropoff) waText += `- *Dropoff*: ${dropoff}\n`;
-              waText += `- *Date & Time*: ${date} at ${time}\n`;
-              if (service === 'Outstation' && returnDate) {
-                waText += `- *Return*: ${returnDate} at ${returnTime}\n`;
-              }
-              
-              if (successModalWhatsAppBtn) {
-                successModalWhatsAppBtn.href = `https://wa.me/919353966815?text=${encodeURIComponent(waText)}`;
-                successModalWhatsAppBtn.style.display = 'inline-flex';
-              }
-
-              successModal.classList.add('active');
-
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Form submission failed. Please check your connection and try again.");
               formElements.forEach(el => el.removeAttribute('disabled'));
-              bookingForm.reset();
-              
-              if (pickupFP) pickupFP.clear();
-              if (returnFP) returnFP.clear();
-            } else {
-              alert(json.message || "Something went wrong. Please try again.");
-              formElements.forEach(el => el.removeAttribute('disabled'));
-            }
-          })
-          .catch(error => {
-            console.error(error);
-            alert("Form submission failed. Please check your connection and try again.");
-            formElements.forEach(el => el.removeAttribute('disabled'));
-          })
-          .finally(() => {
-            if (submitBtn) submitBtn.classList.remove('btn-loading');
-          });
+            })
+            .finally(() => { if (submitBtn) submitBtn.classList.remove('btn-loading'); });
         });
       }
 
       if (successModalCloseBtn && successModal) {
-        successModalCloseBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          successModal.classList.remove('active');
-        });
+        successModalCloseBtn.addEventListener('click', (e) => { e.preventDefault(); successModal.classList.remove('active'); });
       }
 
-      // 5. Leaflet Interactive map locator (fallback styling matching standard input maps)
+      // 7. Map modal
       const pickupMapBtn = document.getElementById('pickupMapBtn');
       const dropoffMapBtn = document.getElementById('dropoffMapBtn');
       const pickupLocInput = document.getElementById('pickupLocationInput');
       const dropoffLocInput = document.getElementById('dropoffLocationInput');
 
-      // Create map popup dynamically if clicked to avoid DOM clutter
-      // Create map popup dynamically if clicked to avoid DOM clutter
       let mapModal;
       let leafletMapModal = null;
       let leafletMarkerModal = null;
@@ -964,87 +787,36 @@ const busFleet = [
         const modalHtml = `
           <div id="mapModal" class="fixed inset-0 z-[110] hidden items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
             <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col relative" style="max-height: 90vh;">
-              <!-- Overlay Header -->
               <div class="flex-none bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
-                <div>
-                  <h3 id="mapPickerTitle" class="text-sm md:text-base font-bold text-gray-900">Pick Location on Map</h3>
-                </div>
-                <button
-                  type="button"
-                  id="closeMapModalBtn"
-                  class="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
-                  aria-label="Close map picker"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                    <path d="M18 6 6 18"></path>
-                    <path d="m6 6 12 12"></path>
-                  </svg>
+                <h3 id="mapPickerTitle" class="text-sm md:text-base font-bold text-gray-900">Pick Location on Map</h3>
+                <button type="button" id="closeMapModalBtn" class="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-500" aria-label="Close map picker">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
                 </button>
               </div>
-
-              <!-- Overlay Body -->
               <div class="flex-1 overflow-y-auto p-3 flex flex-col gap-3 min-h-0 text-gray-700">
-                <!-- Map Container -->
                 <div class="relative flex-grow border border-gray-200 rounded-lg overflow-hidden bg-gray-50 min-h-[260px] md:min-h-[320px]">
                   <div id="leafletMapContainerModal" class="w-full h-full relative z-10"></div>
-                  
-                  <!-- Floating Locate Me Button -->
-                  <button
-                    type="button"
-                    id="mapModalLocateBtn"
-                    class="absolute bottom-3 right-3 z-20 bg-white p-2 rounded-full shadow-md text-blue-600 hover:text-blue-800 border border-gray-200 transition-colors flex items-center justify-center"
-                    title="Locate me"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <circle cx="12" cy="12" r="3"></circle>
-                      <line x1="12" y1="1" x2="12" y2="3"></line>
-                      <line x1="12" y1="21" x2="12" y2="23"></line>
-                      <line x1="1" y1="12" x2="3" y2="12"></line>
-                      <line x1="21" y1="12" x2="23" y2="12"></line>
-                    </svg>
+                  <button type="button" id="mapModalLocateBtn" class="absolute bottom-3 right-3 z-20 bg-white p-2 rounded-full shadow-md text-[#1E2D5A] hover:text-blue-800 border border-gray-200 transition-colors flex items-center justify-center" title="Locate me">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
                   </button>
                 </div>
-
-                <!-- Selected Address Display -->
                 <div class="p-3 bg-gray-50 border border-gray-100 rounded-md">
                   <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">SELECTED LOCATION</div>
                   <div class="relative mt-1.5 flex items-center bg-white border border-gray-200 rounded-md px-3 py-2 text-gray-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500 mr-2 shrink-0">
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <div id="mapSelectedAddress" class="text-xs font-semibold text-gray-600 truncate w-full select-all">
-                      Click on map to select location
-                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500 mr-2 shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <div id="mapSelectedAddress" class="text-xs font-semibold text-gray-600 truncate w-full select-all">Click on map to select location</div>
                   </div>
                 </div>
               </div>
-
-              <!-- Overlay Footer -->
               <div class="flex-none p-3 border-t border-gray-100 bg-gray-50 flex justify-end gap-2.5">
-                <button
-                  type="button"
-                  id="cancelMapModalBtn"
-                  class="rounded-md px-4 py-2 border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-bold text-xs md:text-sm shadow-sm transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  id="confirmMapLocationBtn"
-                  disabled
-                  class="rounded-md px-4 py-2 bg-[#22c55e] hover:bg-[#16a34a] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-xs md:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border-none"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                <button type="button" id="cancelMapModalBtn" class="rounded-md px-4 py-2 border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-bold text-xs md:text-sm shadow-sm transition-colors">Cancel</button>
+                <button type="button" id="confirmMapLocationBtn" disabled class="rounded-md px-4 py-2 bg-[#1E2D5A] hover:bg-[#D97706] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-xs md:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   Confirm Location
                 </button>
               </div>
             </div>
-          </div>
-        `;
+          </div>`;
         document.body.insertAdjacentHTML('beforeend', modalHtml);
       };
 
@@ -1057,192 +829,127 @@ const busFleet = [
         const mapPickerTitle = document.getElementById('mapPickerTitle');
         const mapSelectedAddress = document.getElementById('mapSelectedAddress');
 
-        if (mapPickerTitle) {
-          mapPickerTitle.textContent = fieldName === 'pickup' ? 'Select Pickup Location' : 'Select Drop Location';
-        }
-
+        if (mapPickerTitle) mapPickerTitle.textContent = fieldName === 'pickup' ? 'Select Pickup Location' : 'Select Drop Location';
         activeInputTarget = inputField;
         let selectedMapAddress = '';
 
         const placeMarker = (latlng, updateAddress = true) => {
           if (typeof window !== 'undefined' && window.L) {
             const L = window.L;
-            if (leafletMarkerModal) {
-              leafletMarkerModal.setLatLng(latlng);
-            } else {
+            if (leafletMarkerModal) { leafletMarkerModal.setLatLng(latlng); }
+            else {
               leafletMarkerModal = L.marker(latlng, { draggable: true }).addTo(leafletMapModal);
-              leafletMarkerModal.on('dragend', () => {
-                const pos = leafletMarkerModal.getLatLng();
-                fetchReverseGeocode(pos.lat, pos.lng);
-              });
+              leafletMarkerModal.on('dragend', () => { const pos = leafletMarkerModal.getLatLng(); fetchReverseGeocode(pos.lat, pos.lng); });
             }
-
-            if (updateAddress) {
-              fetchReverseGeocode(latlng.lat, latlng.lng);
-            }
+            if (updateAddress) fetchReverseGeocode(latlng.lat, latlng.lng);
           }
         };
 
         const fetchReverseGeocode = async (lat, lng) => {
-          if (mapSelectedAddress) {
-            mapSelectedAddress.textContent = 'Fetching address...';
-          }
+          if (mapSelectedAddress) mapSelectedAddress.textContent = 'Fetching address...';
           try {
             const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
             const data = await res.json();
             const address = data.display_name || `Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
             selectedMapAddress = address;
-            if (mapSelectedAddress) {
-              mapSelectedAddress.textContent = address;
-            }
-            if (confirmMapLocationBtn) {
-              confirmMapLocationBtn.removeAttribute('disabled');
-            }
+            if (mapSelectedAddress) mapSelectedAddress.textContent = address;
+            if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
           } catch (err) {
-            console.error("Reverse geocoding failed:", err);
             const address = `${lat.toFixed(5)}, ${lng.toFixed(5)} (Pin Coordinates)`;
             selectedMapAddress = address;
-            if (mapSelectedAddress) {
-              mapSelectedAddress.textContent = address;
-            }
-            if (confirmMapLocationBtn) {
-              confirmMapLocationBtn.removeAttribute('disabled');
-            }
+            if (mapSelectedAddress) mapSelectedAddress.textContent = address;
+            if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
           }
         };
 
-        // Reset state
-        if (mapSelectedAddress) {
-          mapSelectedAddress.textContent = 'Click on map to select location';
-        }
-        if (confirmMapLocationBtn) {
-          confirmMapLocationBtn.setAttribute('disabled', 'true');
-        }
+        if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
+        if (confirmMapLocationBtn) confirmMapLocationBtn.setAttribute('disabled', 'true');
 
         mapModal.classList.remove('hidden');
         mapModal.classList.add('flex');
 
-        // Initialize Leaflet map
         setTimeout(() => {
           if (typeof window !== 'undefined' && window.L) {
             const L = window.L;
             if (!leafletMapModal) {
-              leafletMapModal = L.map('leafletMapContainerModal', {
-                zoomControl: true
-              }).setView(defaultBangalore, 13);
-              
-              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-              }).addTo(leafletMapModal);
-
-              leafletMapModal.on('click', (e) => {
-                const latlng = e.latlng;
-                placeMarker(latlng);
-              });
-            } else {
-              leafletMapModal.invalidateSize();
-            }
-
+              leafletMapModal = L.map('leafletMapContainerModal', { zoomControl: true }).setView(defaultBangalore, 13);
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(leafletMapModal);
+              leafletMapModal.on('click', (e) => { placeMarker(e.latlng); });
+            } else { leafletMapModal.invalidateSize(); }
             placeMarker({ lat: defaultBangalore[0], lng: defaultBangalore[1] }, false);
             leafletMapModal.setView(defaultBangalore, 13);
           }
         }, 150);
 
-        // Geolocation locate button inside modal
         const mapModalLocateBtn = document.getElementById('mapModalLocateBtn');
         if (mapModalLocateBtn) {
           mapModalLocateBtn.onclick = () => {
             if (navigator.geolocation && leafletMapModal) {
-              navigator.geolocation.getCurrentPosition((pos) => {
-                const latlng = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-                leafletMapModal.setView([latlng.lat, latlng.lng], 15);
-                placeMarker(latlng, true);
-              }, (err) => {
-                console.warn("Geolocation modal failed:", err);
-                alert("Unable to retrieve your current location.");
-              });
+              navigator.geolocation.getCurrentPosition(
+                (pos) => { const latlng = { lat: pos.coords.latitude, lng: pos.coords.longitude }; leafletMapModal.setView([latlng.lat, latlng.lng], 15); placeMarker(latlng, true); },
+                (err) => { console.warn("Geolocation modal failed:", err); alert("Unable to retrieve your current location."); }
+              );
             }
           };
         }
 
-        const closeModal = () => {
-          mapModal.classList.add('hidden');
-          mapModal.classList.remove('flex');
-        };
-
-        if (closeMapModalBtn) {
-          closeMapModalBtn.onclick = (e) => {
-            e.preventDefault();
-            closeModal();
-          };
-        }
-
-        if (cancelMapModalBtn) {
-          cancelMapModalBtn.onclick = (e) => {
-            e.preventDefault();
-            closeModal();
-          };
-        }
-
+        const closeModal = () => { mapModal.classList.add('hidden'); mapModal.classList.remove('flex'); };
+        if (closeMapModalBtn) closeMapModalBtn.onclick = (e) => { e.preventDefault(); closeModal(); };
+        if (cancelMapModalBtn) cancelMapModalBtn.onclick = (e) => { e.preventDefault(); closeModal(); };
         if (confirmMapLocationBtn) {
           confirmMapLocationBtn.onclick = (e) => {
             e.preventDefault();
-            if (activeInputTarget && selectedMapAddress) {
-              activeInputTarget.value = selectedMapAddress;
-            }
+            if (activeInputTarget && selectedMapAddress) activeInputTarget.value = selectedMapAddress;
             closeModal();
           };
         }
       };
 
-      if (pickupMapBtn && pickupLocInput) {
-        pickupMapBtn.addEventListener('click', (e) => { e.preventDefault(); openMapModal(pickupLocInput, 'pickup'); });
-      }
-      if (dropoffMapBtn && dropoffLocInput) {
-        dropoffMapBtn.addEventListener('click', (e) => { e.preventDefault(); openMapModal(dropoffLocInput, 'drop'); });
-      }
+      if (pickupMapBtn && pickupLocInput) pickupMapBtn.addEventListener('click', (e) => { e.preventDefault(); openMapModal(pickupLocInput, 'pickup'); });
+      if (dropoffMapBtn && dropoffLocInput) dropoffMapBtn.addEventListener('click', (e) => { e.preventDefault(); openMapModal(dropoffLocInput, 'drop'); });
 
-      // Geo-detect current location button
+      // 8. Current location button
       const pickupCurrentLocBtn = document.getElementById('pickupCurrentLocBtn');
       if (pickupCurrentLocBtn && pickupLocInput) {
         pickupCurrentLocBtn.addEventListener('click', (e) => {
           e.preventDefault();
           const svg = pickupCurrentLocBtn.querySelector('svg');
-          if (svg) {
-            svg.classList.add('animate-spin');
-          }
+          if (svg) svg.classList.add('animate-spin');
           pickupCurrentLocBtn.setAttribute('disabled', 'true');
-          
           const setAddress = (address) => {
             pickupLocInput.value = address;
-            if (svg) {
-              svg.classList.remove('animate-spin');
-            }
+            if (svg) svg.classList.remove('animate-spin');
             pickupCurrentLocBtn.removeAttribute('disabled');
           };
-
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const lat = position.coords.latitude.toFixed(4);
-                const lon = position.coords.longitude.toFixed(4);
-                setAddress(`Detected Location (Lat: ${lat}, Lng: ${lon}) - MG Road Area, Bengaluru`);
-              },
-              (error) => {
-                console.warn("Geolocation failed, using fallback:", error);
-                setTimeout(() => {
-                  setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
-                }, 800);
-              },
+              (position) => { setAddress(`Detected Location (Lat: ${position.coords.latitude.toFixed(4)}, Lng: ${position.coords.longitude.toFixed(4)}) - MG Road Area, Bengaluru`); },
+              (error) => { setTimeout(() => { setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)"); }, 800); },
               { timeout: 5000 }
             );
           } else {
-            setTimeout(() => {
-              setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
-            }, 800);
+            setTimeout(() => { setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)"); }, 800);
           }
         });
       }
+
+      // 9. "Book Now" buttons on fleet cards — open modal (data-book-now)
+      document.querySelectorAll('[data-book-now]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const vehicle = btn.getAttribute('data-vehicle') || '';
+          const category = btn.getAttribute('data-category') || '';
+          // Scroll to booking form and pre-select vehicle if possible
+          const formSection = document.getElementById('homepageBookingForm');
+          const vehicleSelect = formSection ? formSection.querySelector('select[name="vehicleType"]') : null;
+          if (vehicleSelect) {
+            const opt = Array.from(vehicleSelect.options).find(o => o.value === vehicle);
+            if (opt) vehicleSelect.value = vehicle;
+          }
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
     });
   </script>
 
