@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
                   <span>+91 9187232348</span>
                 </a>
                 <a 
-                  href="https://wa.me/919187232348?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." 
+                  href="https://wa.me/918073110973?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   class="btn-card-wa"
@@ -133,7 +133,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Enquiry form (Web3Forms integrated) -->
           <form class="contact-enquiry-form" name="contact-enquiry" action="https://api.web3forms.com/submit" method="POST" id="contactEnquiryForm">
-            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"} />
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
             <input type="hidden" name="subject" value="New Website Enquiry - SF Travels" />
             <input type="hidden" name="from_name" value="SF Travels Website" />
             <input type="hidden" name="replyto" value="" id="contactReplyToInput" />
@@ -729,9 +729,9 @@ import Layout from '../layouts/Layout.astro';
       const formElements = contactForm.querySelectorAll('input, select, textarea, button');
 
       if (submitBtn) submitBtn.classList.add('btn-loading');
-      formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
       const formData = new FormData(contactForm);
+      formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -755,7 +755,7 @@ import Layout from '../layouts/Layout.astro';
                   Thank you for reaching out, <strong>${formData.get('fullName')}</strong>. Your enquiry has been routed directly to our mobility desk. Gagan or a dispatch coordinator will contact you shortly.
                 </p>
                 <div class="success-actions">
-                  <a href="https://wa.me/919187232348?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="btn-wa-success">
+                  <a href="https://wa.me/918073110973?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="btn-wa-success">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 18px; height: 18px;" stroke-linecap="round" stroke-linejoin="round">
                       <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
                     </svg>

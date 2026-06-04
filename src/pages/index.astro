@@ -54,7 +54,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
         <div class="booking-body">
           <!-- Dynamic Lead Capture Form -->
           <form class="booking-form" name="homepage-inquiry" action="https://api.web3forms.com/submit" method="POST" id="homepageBookingForm">
-            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"} />
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
             <input type="hidden" name="subject" value="New Booking Enquiry - SF Travels" />
             <input type="hidden" name="from_name" value="SF Travels Website" />
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
@@ -67,7 +67,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                 <label>Full Name <span class="accent-gold">*</span></label>
                 <div class="input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                  <input type="text" name="fullName" placeholder="Your Full Name" required />
+                  <input type="text" name="fullName" placeholder="Your Full Name" value="Test User" required />
                 </div>
               </div>
 
@@ -76,7 +76,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                 <label>Phone Number <span class="accent-gold">*</span></label>
                 <div class="input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  <input type="tel" name="phoneNumber" placeholder="10-digit number" required />
+                  <input type="tel" name="phoneNumber" placeholder="10-digit number" value="9876543210" required />
                 </div>
               </div>
 
@@ -86,7 +86,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                 <div class="location-input-row">
                   <div class="input-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    <input type="text" id="pickupLocationInput" name="pickupLocation" placeholder="Enter pickup address" required />
+                    <input type="text" id="pickupLocationInput" name="pickupLocation" placeholder="Enter pickup address" value="Majestic Metro Station, Bangalore" required />
                     <button type="button" class="current-loc-btn" id="pickupCurrentLocBtn" title="Use current location">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><circle cx="12" cy="12" r="7"></circle></svg>
                     </button>
@@ -103,7 +103,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                 <div class="location-input-row">
                   <div class="input-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    <input type="text" id="dropoffLocationInput" name="dropoffLocation" placeholder="Enter destination address" required />
+                    <input type="text" id="dropoffLocationInput" name="dropoffLocation" placeholder="Enter destination address" value="Kempegowda International Airport, Bangalore" required />
                     <button type="button" class="current-loc-btn" id="dropoffCurrentLocBtn" title="Use current location">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><circle cx="12" cy="12" r="7"></circle></svg>
                     </button>
@@ -122,7 +122,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     <input type="text" id="pickupDatePicker" name="pickupDate" placeholder="Select Pick Up Date" required />
                   </div>
-                  <input type="time" name="pickupTime" required />
+                  <input type="time" name="pickupTime" value="10:00" required />
                 </div>
               </div>
 
@@ -134,7 +134,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     <input type="text" id="returnDatePicker" name="returnDate" placeholder="Select Return Date" />
                   </div>
-                  <input type="time" name="returnTime" />
+                  <input type="time" name="returnTime" value="18:00" />
                 </div>
               </div>
 
@@ -144,9 +144,9 @@ const homeBlogPosts = blogPosts.slice(0, 3);
                 <div class="input-wrapper select-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
                   <select name="vehicleType" required>
-                    <option value="" disabled selected>Select a vehicle type</option>
+                    <option value="" disabled>Select a vehicle type</option>
                     <optgroup label="Executive Cars">
-                      <option value="Hatchback">Hatchback (Dzire / Etios)</option>
+                      <option value="Hatchback" selected>Hatchback (Dzire / Etios)</option>
                       <option value="Sedan">Sedan (Executive Sedan)</option>
                     </optgroup>
                     <optgroup label="Slab-Duty SUVs & MPVs">
@@ -2316,6 +2316,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
       altInput: true,
       altFormat: "F j, Y",
       disableMobile: true,
+      defaultDate: new Date(Date.now() + 86400000), // Tomorrow
       onChange: function(selectedDates, dateStr, instance) {
         if (returnFP) {
           returnFP.set('minDate', dateStr || "today");
@@ -2328,7 +2329,8 @@ const homeBlogPosts = blogPosts.slice(0, 3);
       dateFormat: "Y-m-d",
       altInput: true,
       altFormat: "F j, Y",
-      disableMobile: true
+      disableMobile: true,
+      defaultDate: new Date(Date.now() + 86400000 * 2) // Day after tomorrow
     });
 
     // Remove required attribute from original hidden input elements to avoid Chrome's focus error
@@ -2640,9 +2642,9 @@ const homeBlogPosts = blogPosts.slice(0, 3);
         const formElements = bookingForm.querySelectorAll('input, select, textarea, button');
 
         if (submitBtn) submitBtn.classList.add('btn-loading');
-        formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
         const formData = new FormData(bookingForm);
+        formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -2683,7 +2685,7 @@ const homeBlogPosts = blogPosts.slice(0, 3);
             
             const encodedText = encodeURIComponent(waText);
             if (successModalWhatsAppBtn) {
-              successModalWhatsAppBtn.href = `https://wa.me/919187232348?text=${encodedText}`;
+              successModalWhatsAppBtn.href = `https://wa.me/918073110973?text=${encodedText}`;
               successModalWhatsAppBtn.style.display = 'inline-flex';
             }
 
