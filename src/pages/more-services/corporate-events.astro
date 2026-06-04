@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
+
+const corporateServices = [
+  { title: "Conference Transportation", desc: "Airport pickups, hotel transfers, and venue shuttles for conferences and seminars." },
+  { title: "Team Building Events", desc: "Comfortable group travel for team outings, picnics, and training programs." },
+  { title: "Client Meetings", desc: "Executive sedans and luxury vehicles for client entertainment and meetings." },
+  { title: "Employee Shuttles", desc: "Daily or event-based shuttle services for employee transportation." },
+  { title: "Annual Day Events", desc: "Transportation for annual day celebrations and company functions." },
+  { title: "Corporate Outings", desc: "Weekend trips and adventure activities for employee engagement." }
+];
+
+const fleet = [
+  { id: "sedan", name: "Sedan", seats: "4+1", category: "Car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
+  { id: "innova-crysta", name: "Innova Crysta", seats: "7+1", category: "MPV", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
+  { id: "force-urbania-deluxe", name: "Force Urbania Deluxe", seats: "9", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-deluxe-1770870970157-1.png" },
+  { id: "tempo-traveller-12", name: "Tempo Traveller 12", seats: "12", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-12-1770871044575-9.png" },
+  { id: "mini-bus-30", name: "Mini Bus 30", seats: "30", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" }
+];
+---
+
+<Layout 
+  title="Corporate Event Transportation Bangalore - SF Travels"
+  description="Executive corporate mobility and event transportation services in Bangalore. Punctual, reliable, and premium cabs, vans, and buses."
+>
+  
+
+  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12 text-slate-800">
+    <!-- Hero Section -->
+    <section class="relative min-h-[50vh] flex items-center justify-center pt-20 overflow-hidden">
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/bda0fdb8b258bf205c0653b2583c1ec0.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+      </div>
+      <div class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none"></div>
+      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Corporate Event Transportation</h1>
+        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
+          Professional transportation solutions for all your corporate events. Reliable, punctual, and comfortable.
+        </p>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Professional Corporate Transportation</h2>
+          <p class="text-gray-600 mb-4">SF Travels specializes in corporate event transportation services in Bangalore. We understand the importance of punctuality, professionalism, and comfort in business settings. Our fleet of well-maintained vehicles and experienced drivers ensure your corporate events run smoothly.</p>
+          <p class="text-gray-600 mb-4">From small executive meetings to large conferences and team outings, we provide customized transportation solutions tailored to your specific requirements. We offer both short-term event transportation and long-term corporate contracts.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <h3 class="font-semibold text-gray-900 mb-2">Professional</h3>
+              <p class="text-sm text-gray-600">Executive service</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <h3 class="font-semibold text-gray-900 mb-2">Punctual</h3>
+              <p class="text-sm text-gray-600">Always on time</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+              </svg>
+              <h3 class="font-semibold text-gray-900 mb-2">Any Size</h3>
+              <p class="text-sm text-gray-600">1 to 100+ employees</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+              </svg>
+              <h3 class="font-semibold text-gray-900 mb-2">Reliable</h3>
+              <p class="text-sm text-gray-600">Guaranteed service</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Corporate Services</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {corporateServices.map(cs => (
+              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{cs.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{cs.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Fleet Vehicles -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Corporate Fleet</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {fleet.map(c => (
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full w-full">
+              <div class="relative aspect-[16/10] overflow-hidden bg-gray-50">
+                <img src={c.image} alt={c.name} class="w-full h-full object-cover" />
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-800 shadow-sm">
+                  {c.category.toUpperCase()}
+                </div>
+              </div>
+              <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2">{c.name}</h3>
+                <div class="flex items-center text-gray-500 mb-3 text-xs sm:text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 text-[#10b981]">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                  </svg>
+                  <span>{c.seats} Seater</span>
+                </div>
+                <div class="space-y-1 mb-4 flex-grow text-sm">
+                  <div class="flex items-center text-gray-600">
+                    <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
+                    <span>Verified Professional Driver</span>
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
+                    <span>Clean & Sanitized Cabin</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-gray-100 mt-auto">
+                  <div class="grid grid-cols-2 gap-2 sm:gap-3">
+                    <button 
+                      class="inline-flex items-center justify-center rounded-md px-4 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
+                      data-book-now 
+                      data-vehicle={c.name} 
+                      data-category="Corporate Fleet"
+                    >
+                      Book Now
+                    </button>
+                    <a 
+                      href={`/vehicle/${c.id}`} 
+                      class="inline-flex items-center justify-center rounded-md border border-[#10b981] text-[#10b981] hover:bg-[#10b981] hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
+                    >
+                      Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

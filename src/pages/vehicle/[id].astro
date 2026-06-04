@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allVehicles = [
+    // Cars
+    { id: "hatchback", name: "Hatchback", seats: "4+1", luggage: "1-2 Bags", category: "Car", type: "Standard Comfort", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png" },
+    { id: "sedan", name: "Sedan", seats: "4+1", luggage: "2 Bags", category: "Car", type: "Standard Comfort", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
+    { id: "suv", name: "SUV", seats: "6+1", luggage: "3 Bags", category: "SUV", type: "Spacious Travel", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/suv-1770870907832-54.png" },
+    { id: "ertiga", name: "Ertiga", seats: "6+1", luggage: "3 Bags", category: "MPV", type: "Family Travel", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/ertiga-1770870707273-12.png" },
+    { id: "innova", name: "Innova", seats: "7+1", luggage: "4 Bags", category: "MPV", type: "Premium Tourer", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-1770870734987-27.png" },
+    { id: "innova-crysta", name: "Innova Crysta", seats: "7+1", luggage: "4 Bags", category: "MPV", type: "Executive Class", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
+    { id: "innova-hycross", name: "Innova Hycross", seats: "7+1", luggage: "4 Bags", category: "MPV", type: "Luxury Hybrid Class", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-hycross-1770870785541-24.png" },
+    
+    // Force Urbania
+    { id: "force-urbania-deluxe", name: "Force Urbania Deluxe", seats: "9", luggage: "6-8 Bags", category: "Van", type: "Premium Cruiser", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-deluxe-1770870970157-1.png" },
+    { id: "force-urbania-luxury", name: "Force Urbania Luxury", seats: "12", luggage: "8-10 Bags", category: "Van", type: "Royal Luxury Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-luxury-1770870993546-3.png" },
+    { id: "force-urbania-maharaj", name: "Force Urbania Maharaj", seats: "14", luggage: "10-12 Bags", category: "Van", type: "Maharaj Edition", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-maharaj-1770871014554-6.png" },
+    
+    // Tempo Traveller
+    { id: "tempo-traveller-12", name: "Tempo Traveller 12", seats: "12", luggage: "8 Bags", category: "Van", type: "Standard Tourist Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-12-1770871044575-9.png" },
+    { id: "tempo-traveller-13", name: "Tempo Traveller 13", seats: "13", luggage: "9 Bags", category: "Van", type: "Standard Tourist Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-13-1770871064897-30.png" },
+    { id: "tempo-traveller-14", name: "Tempo Traveller 14", seats: "14", luggage: "10 Bags", category: "Van", type: "Executive Group Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-14-1770871083292-33.png" },
+    
+    // Buses
+    { id: "mini-bus-21", name: "Mini Bus 21", seats: "21", luggage: "15-20 Bags", category: "Bus", type: "Mini Group Travel", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-21-1770871153503-36.png" },
+    { id: "mini-bus-25", name: "Mini Bus 25", seats: "25", luggage: "20-25 Bags", category: "Bus", type: "Premium Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-25-1770871172403-39.png" },
+    { id: "mini-bus-30", name: "Mini Bus 30", seats: "30", luggage: "25-30 Bags", category: "Bus", type: "Corporate Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" },
+    { id: "bus-33", name: "Bus 33", seats: "33", luggage: "30 Bags", category: "Bus", type: "Standard Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-33-1770871212474-45.png" },
+    { id: "bus-40", name: "Bus 40", seats: "40", luggage: "35-40 Bags", category: "Bus", type: "Large Group Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-40-1770871824256-47.png" },
+    { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", luggage: "40-45 Bags", category: "Bus", type: "Volvo Premium Class", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
+    { id: "bus-50-seater", name: "Bus 50 Seater", seats: "50", luggage: "45-50 Bags", category: "Bus", type: "Ultra High Capacity Coach", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
+  ];
+
+  return allVehicles.map(v => ({
+    params: { id: v.id },
+    props: { vehicle: v }
+  }));
+}
+
+const { vehicle } = Astro.props;
+const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
+---
+
+<Layout 
+  title={`${vehicle.name} - SF Travels Bangalore`}
+  description={`Book premium ${vehicle.name} (${vehicle.seats} seats) with professional drivers for airport transfers, outstation tours and local corporate mobility in Bangalore.`}
+>
+  
+
+  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12">
+    <!-- Header Banner -->
+    <div class="pt-24 pb-16 sm:pt-28 sm:pb-16 text-white relative overflow-hidden w-full"
+      style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/3b8e9400e73e26f8200a9bd6278c1578.jpg'); background-size: cover; background-position: center center; background-attachment: scroll;">
+      <div class="absolute inset-0 bg-slate-900/80"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <button
+          onclick="history.back()"
+          class="group mb-6 sm:mb-8 flex items-center gap-2 text-gray-300 hover:text-[#10b981] transition-colors"
+        >
+          <div class="bg-white/10 p-2 rounded-full group-hover:bg-[#10b981]/20 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5">
+              <path d="m12 19-7-7 7-7"></path>
+              <path d="M19 12H5"></path>
+            </svg>
+          </div>
+          <span class="font-medium text-sm sm:text-base">Back</span>
+        </button>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 break-words">{vehicle.name}</h1>
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm md:text-base text-gray-300">
+          <span class="bg-[#10b981] text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full font-semibold text-[10px] sm:text-sm uppercase">{vehicle.category}</span>
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 sm:w-4 sm:h-4">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg> 
+            {vehicle.seats} Seater
+          </span>
+          <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+          <span>{vehicle.type}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 sm:py-12 -mt-8 sm:-mt-10 relative z-20">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="lg:col-span-2 space-y-6 sm:space-y-8 w-full min-w-0">
+          <!-- Vehicle Image & Thumbnails -->
+          <div class="rounded-xl overflow-hidden shadow-lg bg-white w-full">
+            <div class="space-y-4 p-4">
+              <div class="relative h-64 md:h-96 w-full rounded-xl overflow-hidden bg-gray-100 shadow-md">
+                <img src={vehicle.image} alt={vehicle.name} class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview Stats -->
+          <div class="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">{vehicle.name}</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
+              <div class="flex items-start gap-4">
+                <div class="bg-[#10b981]/10 p-2 sm:p-3 rounded-lg shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-[#10b981]">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs sm:text-sm text-gray-500">Seating Capacity</p>
+                  <p class="font-semibold text-gray-900 text-sm sm:text-base">{vehicle.seats} Seater</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-[#10b981]/10 p-2 sm:p-3 rounded-lg shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-[#10b981]">
+                    <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs sm:text-sm text-gray-500">Luggage Space</p>
+                  <p class="font-semibold text-gray-900 text-sm sm:text-base">{vehicle.luggage}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-[#10b981]/10 p-2 sm:p-3 rounded-lg shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-[#10b981]">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs sm:text-sm text-gray-500">Safety Features</p>
+                  <p class="font-semibold text-gray-900 text-sm sm:text-base">GPS, First Aid, Fire Extinguisher</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-[#10b981]/10 p-2 sm:p-3 rounded-lg shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-[#10b981]">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs sm:text-sm text-gray-500">Permit Type</p>
+                  <p class="font-semibold text-gray-900 text-sm sm:text-base">All India Tourist Permit</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Features -->
+            <div class="border-t border-gray-100 pt-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Features</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5 text-[#10b981] flex-shrink-0">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base text-gray-700 font-medium">Air Conditioning (AC)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5 text-[#10b981] flex-shrink-0">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base text-gray-700 font-medium">Premium Audio System</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5 text-[#10b981] flex-shrink-0">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base text-gray-700 font-medium">Professional Driver</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5 text-[#10b981] flex-shrink-0">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base text-gray-700 font-medium">Clean & Sanitized Interior</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services Availability -->
+          <div class="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Available For Services</h2>
+            <div class="flex flex-wrap gap-2">
+              {["Local Hire", "Airport Transfers", "Outstation Tours", "One-Way Trips"].map(s => (
+                <span class="bg-gray-50 text-gray-700 border border-gray-200 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:border-[#10b981] hover:text-[#10b981] transition-colors cursor-default">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Booking Widget -->
+        <div class="lg:col-span-1 space-y-6 w-full">
+          <div class="bg-white p-5 sm:p-6 rounded-xl shadow-lg border-t-4 border-[#10b981] sticky top-24">
+            <button
+              class="w-full bg-[#10b981] hover:bg-[#059669] text-white text-base sm:text-lg py-5 sm:py-6 mb-6 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 rounded-md font-bold"
+              data-book-now
+              data-vehicle={vehicle.name}
+              data-category={`${vehicle.category} Fleet`}
+            >
+              Book This Vehicle
+            </button>
+            <div class="text-center text-gray-500 text-sm">
+              <p>Contact us for the best quote tailored to your trip requirements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

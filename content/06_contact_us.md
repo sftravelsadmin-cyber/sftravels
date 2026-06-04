@@ -16,18 +16,18 @@ This file holds the finalized and professionally improvised copy for the **Conta
 
 ## 📞 Section 2: Direct Touchpoints (Emergency & Booking Cords)
 *   **Corporate Desk Hotline**: 
-    *   **+91 9187232348** (Call & WhatsApp)
+    *   **+91 9353966815** (Call & WhatsApp)
 *   **Official Correspondence Email**: 
-    *   `bookings@sftravels.com` / `radhatoursandtravels1969@gmail.com`
+    *   `bookings@sftravels.com` / `sftravelsadmin@gmail.com`
 
 ---
 
 ## 🏢 Section 3: Registered Headquarters & Office Location
 *   **Physical Office Address**:
-    *   *Details*: Royal Bakery Building, No. 11, PWD Road, opposite AMAR ELECTRICALS, Vishweshwaraiah Layout, Akash Nagar, B Narayanapura, Mahadevapura, Bengaluru, Karnataka 560016.
-*   **Location Marker Details**: Located conveniently in Mahadevapura tech corridor, providing swift access to major business parks in Whitefield, Outer Ring Road (ORR), and East Bangalore.
+    *   *Details*: Shirke Rd, KHB Colony, Shirke Layout, Kengeri Satellite Town, Bengaluru, Karnataka 560060, India.
+*   **Location Marker Details*: Located conveniently in Kengeri Satellite Town, providing swift access to South and West Bangalore.
 *   **Operational Hours**:
-    *   *Admin Desk*: 9:00 AM to 10:00 PM (Monday to Sunday)
+    *   *Admin Desk*: Open 24 Hours (Monday to Sunday)
     *   *Emergency Booking & Dispatch Desk*: **Open 24 Hours / 365 Days**
 
 ---

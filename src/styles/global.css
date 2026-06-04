@@ -2,31 +2,35 @@
    SF TRAVELS - Premium Design System (Dark Navy Blue & Soft Emerald Theme)
    ========================================================================== */
 
-/* --- Custom Variables & Tokens --- */
 :root {
   /* Colors */
-  --bg-primary: #050d1a;       /* Absolute Deep Navy (almost black) */
-  --bg-secondary: #0b172a;     /* Executive Dark Blue */
-  --bg-tertiary: #13243d;      /* Slate Blue for hover elements */
+  --bg-primary: #ffffff;       /* Pure White Background */
+  --bg-secondary: #f8fafc;     /* Soft Light Slate */
+  --bg-tertiary: #f1f5f9;      /* Slightly Darker Light Slate */
   
-  --brand-gold: #10b981;       /* Premium Emerald Green */
-  --brand-gold-light: #a7f3d0; /* Soft Mint Green for highlights */
-  --brand-gold-dark: #047857;  /* Deep Forest Emerald for shadows */
+  --brand-green: #10b981;      /* Premium Emerald Green */
+  --brand-green-hover: #059669; /* Deep Emerald Green */
+  --brand-blue: #2563eb;       /* Royal Sapphire Blue */
+  --brand-blue-hover: #1d4ed8;  /* Deep Sapphire Blue */
   
-  --text-white: #ffffff;
-  --text-light: #f3f4f6;       /* Soft Gray for readable body */
-  --text-muted: #9ca3af;       /* Warm Muted Gray */
+  --brand-gold: #c5a85c;       /* 3% Luxury Gold Accent (used only for logo monogram) */
+  --brand-gold-light: #ebdcb9; 
+  --brand-gold-dark: #aa8439;  
   
-  --border-glass: rgba(16, 185, 129, 0.15); /* Translucent Emerald Border */
-  --bg-glass: rgba(11, 23, 42, 0.7);        /* Translucent Navy Background */
+  --text-white: #0f172a;       /* Dark Charcoal for high contrast text */
+  --text-light: #1e293b;       /* Primary Slate Dark Text */
+  --text-muted: #64748b;       /* Cool Gray for secondary text */
+  
+  --border-glass: rgba(226, 232, 240, 0.8); /* Light border for elements */
+  --bg-glass: rgba(255, 255, 255, 0.85);      /* Translucent White Background */
   
   /* Fonts */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
   
   /* Effects */
-  --shadow-gold: 0 4px 20px rgba(16, 185, 129, 0.15);
-  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-green: 0 4px 20px rgba(16, 185, 129, 0.08);
+  --shadow-premium: 0 10px 30px rgba(15, 23, 42, 0.05);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --border-radius: 12px;
 }
@@ -90,18 +94,18 @@ button, input, select, textarea {
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.35);
-  box-shadow: var(--shadow-gold), var(--shadow-premium);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: var(--shadow-green), var(--shadow-premium);
   transform: translateY(-2px);
 }
 
-/* Premium Emerald Buttons */
+/* Premium Primary Buttons (Green-to-Blue Travel Gradient) */
 .btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
   color: var(--text-white) !important;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -109,14 +113,14 @@ button, input, select, textarea {
   letter-spacing: 0.5px;
   padding: 12px 28px;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
   cursor: pointer;
   transition: var(--transition-smooth);
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, var(--brand-gold-dark) 0%, #059669 100%);
-  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%);
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
   transform: translateY(-2px);
 }
 
@@ -124,14 +128,14 @@ button, input, select, textarea {
   transform: translateY(0);
 }
 
-/* Secondary Ghost Buttons */
+/* Secondary Outline Buttons */
 .btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid var(--brand-gold);
-  color: var(--brand-gold);
+  border: 1px solid var(--brand-green);
+  color: var(--brand-green);
   font-family: var(--font-heading);
   font-weight: 600;
   text-transform: uppercase;
@@ -143,8 +147,10 @@ button, input, select, textarea {
 }
 
 .btn-outline:hover {
-  background: rgba(212, 175, 55, 0.1);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+  color: var(--brand-blue);
+  border-color: var(--brand-blue);
   transform: translateY(-2px);
 }
 
@@ -319,8 +325,8 @@ button, input, select, textarea {
   height: 72px;
   border-radius: 50%;
   background: rgba(16, 185, 129, 0.15);
-  border: 2px solid var(--brand-gold);
-  color: var(--brand-gold);
+  border: 2px solid var(--brand-green);
+  color: var(--brand-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,7 +374,7 @@ button, input, select, textarea {
 
 .success-actions .btn-wa-success {
   width: 100%;
-  background: #10b981;
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
   color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
@@ -385,7 +391,7 @@ button, input, select, textarea {
 }
 
 .success-actions .btn-wa-success:hover {
-  background: #059669;
+  background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
 }

@@ -1,0 +1,805 @@
+---
+// SF Travels Global Booking Modal Component
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe";
+---
+
+<div
+  id="bookingModal"
+  class="fixed inset-0 z-[100] hidden items-end md:items-center justify-center md:p-4 bg-black/60 backdrop-blur-sm overflow-hidden"
+>
+  <div
+    class="bg-white w-full h-full md:h-auto md:max-h-[95vh] md:max-w-2xl rounded-none md:rounded-xl shadow-2xl relative flex flex-col"
+    style="opacity: 1; transform: translateY(0%) scale(1) translateZ(0px);"
+  >
+    <!-- Modal Header -->
+    <div class="flex-none bg-white border-b border-gray-100 px-4 py-3 md:px-5 md:py-4 flex items-center justify-between rounded-none md:rounded-t-xl sticky top-0 z-10 shrink-0">
+      <div>
+        <h2 class="text-base md:text-xl font-bold text-gray-900">Book Your Ride</h2>
+        <p class="text-[10px] md:text-xs text-gray-500 mt-0.5">Fill in the details below</p>
+      </div>
+      <button
+        id="closeBookingModal"
+        class="p-1.5 md:p-2 -mr-2 hover:bg-gray-100 rounded-full transition-colors disabled:opacity-50"
+        aria-label="Close modal"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-500">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="flex-1 md:overflow-y-auto p-3 md:p-5 scrollbar-hide text-gray-700">
+      <!-- Active Vehicle Badge -->
+      <div class="mb-3 md:mb-6 p-2 md:p-4 bg-green-50 rounded-lg border border-green-100 flex items-center gap-3 md:gap-4">
+        <div class="bg-white p-1.5 md:p-2.5 rounded-full shadow-sm shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 md:w-5 md:h-5 text-[#1ecb15]">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+            <circle cx="7" cy="17" r="2"></circle>
+            <path d="M9 17h6"></path>
+            <circle cx="17" cy="17" r="2"></circle>
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <p id="modalVehicleName" class="font-bold text-gray-900 text-xs md:text-base truncate">Hatchback</p>
+          <p id="modalVehicleCategory" class="text-[10px] md:text-sm text-gray-600 mt-0.5 truncate">Premium Fleet</p>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="modalBookingForm" class="space-y-2 md:space-y-5">
+        <input type="hidden" name="access_key" value={accessKey} />
+        <input type="hidden" name="subject" value="New Vehicle Booking Enquiry - SF Travels" />
+        <input type="hidden" name="from_name" value="SF Travels Website" />
+        <input type="hidden" name="vehicle_name" id="hiddenVehicleInput" value="Hatchback" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+        <div class="grid grid-cols-2 gap-2 md:gap-5">
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Full Name <span class="text-red-500">*</span></label>
+            <div class="relative w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-400 pointer-events-none">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" name="fullName" value="John Doe" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="John Doe">
+            </div>
+          </div>
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Phone <span class="text-red-500">*</span></label>
+            <div class="relative w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-400 pointer-events-none">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <input type="tel" name="phone" value="9876543210" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="10-digit number">
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-1 md:space-y-2">
+          <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Email <span class="text-red-500">*</span></label>
+          <div class="relative w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-400 pointer-events-none">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <input type="email" name="email" value="john.doe@example.com" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="john@example.com">
+          </div>
+        </div>
+
+        <div class="space-y-2 md:space-y-5">
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Pickup <span class="text-red-500">*</span></label>
+            <div class="relative flex items-center gap-2 w-full">
+              <div class="relative flex-grow w-full min-w-0">
+                <div class="relative w-full">
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 pointer-events-none z-10">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <input type="text" id="modalPickupInput" name="pickup" required placeholder="Enter Pickup" class="w-full pl-8 sm:pl-9 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 pr-8 md:pr-10 text-xs md:text-sm disabled:opacity-50" value="Majestic Metro Station, Bengaluru">
+                  </div>
+                </div>
+                <button type="button" id="useCurrentLocationBtn" class="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 md:p-2 hover:bg-gray-100 rounded-md text-[#1ecb15] transition-colors z-20 disabled:opacity-50" title="Use current location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4">
+                    <line x1="2" x2="5" y1="12" y2="12"></line>
+                    <line x1="19" x2="22" y1="12" y2="12"></line>
+                    <line x1="12" x2="12" y1="2" y2="5"></line>
+                    <line x1="12" x2="12" y1="19" y2="22"></line>
+                    <circle cx="12" cy="12" r="7"></circle>
+                  </svg>
+                </button>
+              </div>
+              <button type="button" id="pickPickupOnMapBtn" class="flex-shrink-0 bg-gray-100 border border-gray-200 rounded-md hover:bg-[#1ecb15] hover:text-white transition-colors text-gray-600 h-8 w-8 md:h-10 md:w-10 flex items-center justify-center disabled:opacity-50" title="Pick on Map">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 md:w-5 md:h-5">
+                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                  <line x1="9" x2="9" y1="3" y2="18"></line>
+                  <line x1="15" x2="15" y1="6" y2="21"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Drop <span class="text-red-500">*</span></label>
+            <div class="relative flex items-center gap-2 w-full">
+              <div class="relative flex-grow w-full min-w-0">
+                <div class="relative w-full">
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 pointer-events-none z-10">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <input type="text" id="modalDropInput" name="drop" required placeholder="Enter Drop" class="w-full pl-8 sm:pl-9 pr-8 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 text-xs md:text-sm disabled:opacity-50" value="Kempegowda International Airport, Terminal 1">
+                  </div>
+                </div>
+              </div>
+              <button type="button" id="pickDropOnMapBtn" class="flex-shrink-0 bg-gray-100 border border-gray-200 rounded-md hover:bg-[#1ecb15] hover:text-white transition-colors text-gray-600 h-8 w-8 md:h-10 md:w-10 flex items-center justify-center disabled:opacity-50" title="Pick on Map">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 md:w-5 md:h-5">
+                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                  <line x1="9" x2="9" y1="3" y2="18"></line>
+                  <line x1="15" x2="15" y1="6" y2="21"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 md:gap-4">
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Date <span class="text-red-500">*</span></label>
+            <div class="relative w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-400 pointer-events-none">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                <line x1="16" x2="16" y1="2" y2="6"></line>
+                <line x1="8" x2="8" y1="2" y2="6"></line>
+                <line x1="3" x2="21" y1="10" y2="10"></line>
+              </svg>
+              <input type="date" name="date" value="2026-06-05" required class="w-full pl-7 md:pl-10 pr-2 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 min-w-0 h-8 md:h-auto border-gray-300">
+            </div>
+          </div>
+
+          <div class="space-y-1 md:space-y-2">
+            <label class="block text-[10px] md:text-xs font-bold text-gray-700 uppercase tracking-wide ml-0.5">Time <span class="text-red-500">*</span></label>
+            <div class="flex gap-1.5 md:gap-2 w-full">
+              <div class="relative flex-1 min-w-0">
+                <select name="hour" required class="w-full px-1 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] outline-none text-xs md:text-sm text-gray-900 appearance-none text-center h-8 md:h-auto border-gray-300">
+                  {Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0')).map(h => (
+                    <option value={h}>{h}</option>
+                  ))}
+                </select>
+              </div>
+              <select name="minute" required class="flex-1 px-1 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] outline-none text-xs md:text-sm text-gray-900 text-center min-w-0 h-8 md:h-auto border-gray-300">
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+              </select>
+              <select name="period" required class="w-12 md:w-16 px-1 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] outline-none text-xs md:text-sm text-gray-900 text-center h-8 md:h-auto border-gray-300">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal Footer Actions -->
+    <div class="flex-none p-3 md:p-5 border-t border-gray-100 bg-gray-50 rounded-b-none md:rounded-b-xl flex flex-col sm:flex-row gap-2 md:gap-3 shrink-0 pb-safe w-full">
+      <button
+        id="modalSubmitBtn"
+        type="submit"
+        form="modalBookingForm"
+        class="rounded-md transition-colors disabled:pointer-events-none disabled:opacity-50 px-4 w-full flex-1 bg-[#1ecb15] hover:bg-[#19b512] text-white font-bold py-2 md:py-3 text-xs md:text-sm h-9 md:h-11 shadow-sm flex items-center justify-center"
+      >
+        Confirm Request
+      </button>
+      <button
+        id="modalWhatsAppBtn"
+        type="button"
+        class="inline-flex items-center justify-center rounded-md transition-colors disabled:pointer-events-none px-4 w-full flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-2 md:py-3 text-xs md:text-sm h-9 md:h-11 shadow-sm disabled:opacity-50"
+      >
+        WhatsApp
+      </button>
+    </div>
+
+    <!-- Map Picker Overlay (hidden by default) -->
+    <div
+      id="mapPickerOverlay"
+      class="absolute inset-0 z-50 bg-white hidden flex-col rounded-none md:rounded-xl overflow-hidden"
+    >
+      <!-- Overlay Header -->
+      <div class="flex-none bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
+        <div>
+          <h3 id="mapPickerTitle" class="text-sm md:text-base font-bold text-gray-900">Pick Location on Map</h3>
+        </div>
+        <button
+          type="button"
+          id="closeMapPickerCrossBtn"
+          class="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
+          aria-label="Close map picker"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Overlay Body -->
+      <div class="flex-1 overflow-y-auto p-3 flex flex-col gap-3 min-h-0 text-gray-700">
+        <!-- Map Container -->
+        <div class="relative flex-grow border border-gray-200 rounded-lg overflow-hidden bg-gray-50 min-h-[260px] md:min-h-[320px]">
+          <div id="leafletMapContainerModal" class="w-full h-full relative z-10"></div>
+          
+          <!-- Floating Locate Me Button -->
+          <button
+            type="button"
+            id="mapModalLocateBtn"
+            class="absolute bottom-3 right-3 z-20 bg-white p-2 rounded-full shadow-md text-blue-600 hover:text-blue-800 border border-gray-200 transition-colors flex items-center justify-center"
+            title="Locate me"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4.5 h-4.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="3"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Selected Address Display -->
+        <div class="p-3 bg-gray-50 border border-gray-100 rounded-md">
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">SELECTED LOCATION</div>
+          <div class="relative mt-1.5 flex items-center bg-white border border-gray-200 rounded-md px-3 py-2 text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500 mr-2 shrink-0">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div id="mapSelectedAddress" class="text-xs font-semibold text-gray-600 truncate w-full select-all">
+              Click on map to select location
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overlay Footer -->
+      <div class="flex-none p-3 border-t border-gray-100 bg-gray-50 flex justify-end gap-2.5">
+        <button
+          type="button"
+          id="closeMapPickerBtn"
+          class="rounded-md px-4 py-2 border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-bold text-xs md:text-sm shadow-sm transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          id="confirmMapLocationBtn"
+          disabled
+          class="rounded-md px-4 py-2 bg-[#22c55e] hover:bg-[#16a34a] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-xs md:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border-none"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Confirm Location
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOBAL BOOKING SUCCESS MODAL -->
+<div id="bookingSuccessModal" class="form-success-overlay">
+  <div class="form-success-card">
+    <div class="success-icon-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    </div>
+    <h3 class="success-title text-2xl font-bold mb-3 text-gray-900">Enquiry Received!</h3>
+    <p id="bookingSuccessModalMessage" class="success-message mb-6 text-gray-600">Your booking request has been successfully submitted. Our team will contact you in a few minutes.</p>
+    <div class="success-actions flex flex-col gap-3">
+      <a id="bookingSuccessModalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-success w-full bg-[#10b981] hover:bg-[#059669] text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 text-sm tracking-wide transition-all uppercase">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        CONFIRM ON WHATSAPP
+      </a>
+      <button id="bookingSuccessModalCloseBtn" type="button" class="btn-close-success w-full border border-gray-300 hover:bg-gray-100 text-gray-700 font-bold h-12 rounded-lg text-sm tracking-wide uppercase transition-colors">
+        DISMISS
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const initBookingModal = () => {
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = document.getElementById('closeBookingModal');
+    const form = document.getElementById('modalBookingForm') as HTMLFormElement;
+    
+    const modalVehicleName = document.getElementById('modalVehicleName');
+    const modalVehicleCategory = document.getElementById('modalVehicleCategory');
+    const hiddenVehicleInput = document.getElementById('hiddenVehicleInput') as HTMLInputElement;
+    const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
+    const submitBtn = document.getElementById('modalSubmitBtn');
+
+    // Location & Map Elements
+    const pickupInput = document.getElementById('modalPickupInput') as HTMLInputElement;
+    const dropInput = document.getElementById('modalDropInput') as HTMLInputElement;
+    const useCurrentLocationBtn = document.getElementById('useCurrentLocationBtn');
+    const pickPickupOnMapBtn = document.getElementById('pickPickupOnMapBtn');
+    const pickDropOnMapBtn = document.getElementById('pickDropOnMapBtn');
+    const mapPickerOverlay = document.getElementById('mapPickerOverlay');
+    const closeMapPickerBtn = document.getElementById('closeMapPickerBtn');
+    const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtn') as HTMLButtonElement;
+    const mapPickerTitle = document.getElementById('mapPickerTitle');
+    const mapSearchInput = document.getElementById('mapSearchInput') as HTMLInputElement;
+    const mapClickArea = document.getElementById('mapClickArea');
+    const mapPickerPin = document.getElementById('mapPickerPin');
+    const mapSelectedAddress = document.getElementById('mapSelectedAddress');
+
+    const localAddresses = [
+      "Malleshwaram 8th Cross, Margosa Road, Bengaluru",
+      "Sadashivanagar Palace Cross Road, Bengaluru",
+      "Yeswanthpur Junction, Tumkur Road, Bengaluru",
+      "Cubbon Park Metro Plaza, Ambedkar Veedhi, Bengaluru",
+      "Lalbagh Botanical Garden West Gate, Bengaluru",
+      "Commercial Street Shopping Lanes, Shivaji Nagar, Bengaluru",
+      "Koramangala 5th Block, Jyoti Nivas College Rd, Bengaluru",
+      "Jayanagar 4th Block Complex, Bengaluru",
+      "HSR Layout Sector 1, Outer Ring Road, Bengaluru",
+      "Bellandur EcoSpace Main Gate, Bengaluru"
+    ];
+
+    if (modal && closeBtn) {
+      // Global listener for "Book Now" triggers
+      document.addEventListener('click', (e) => {
+        const target = (e.target as HTMLElement).closest('[data-book-now]');
+        if (target) {
+          e.preventDefault();
+          const vehicle = target.getAttribute('data-vehicle') || 'Executive Cab';
+          const category = target.getAttribute('data-category') || 'Premium Fleet';
+
+          if (modalVehicleName) modalVehicleName.textContent = vehicle;
+          if (modalVehicleCategory) modalVehicleCategory.textContent = category;
+          if (hiddenVehicleInput) hiddenVehicleInput.value = vehicle;
+
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
+      // Close modal function
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+        if (form) form.reset();
+        closeMapPicker();
+      };
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Global Success Modal close listeners
+      const bookingSuccessModal = document.getElementById('bookingSuccessModal');
+      const bookingSuccessModalCloseBtn = document.getElementById('bookingSuccessModalCloseBtn');
+      if (bookingSuccessModal && bookingSuccessModalCloseBtn) {
+        bookingSuccessModalCloseBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          bookingSuccessModal.classList.remove('active');
+        });
+        bookingSuccessModal.addEventListener('click', (e) => {
+          if (e.target === bookingSuccessModal) {
+            bookingSuccessModal.classList.remove('active');
+          }
+        });
+      }
+
+      // --- Current Location Functionality ---
+      if (useCurrentLocationBtn && pickupInput) {
+        useCurrentLocationBtn.addEventListener('click', () => {
+          const svg = useCurrentLocationBtn.querySelector('svg');
+          if (svg) {
+            svg.classList.add('animate-spin');
+          }
+          useCurrentLocationBtn.setAttribute('disabled', 'true');
+          
+          const setAddress = (address: string) => {
+            pickupInput.value = address;
+            if (svg) {
+              svg.classList.remove('animate-spin');
+            }
+            useCurrentLocationBtn.removeAttribute('disabled');
+          };
+
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const lat = position.coords.latitude.toFixed(4);
+                const lon = position.coords.longitude.toFixed(4);
+                setAddress(`Detected Location (Lat: ${lat}, Lng: ${lon}) - MG Road Area, Bengaluru`);
+              },
+              (error) => {
+                console.warn("Geolocation failed, using fallback:", error);
+                setTimeout(() => {
+                  setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
+                }, 800);
+              },
+              { timeout: 5000 }
+            );
+          } else {
+            setTimeout(() => {
+              setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
+            }, 800);
+          }
+        });
+      }
+
+      // --- Leaflet Map Picker Functionality ---
+      let leafletMap: any = null;
+      let leafletMarker: any = null;
+      let activeLocationField = ''; // 'pickup' or 'drop'
+      let selectedMapAddress = '';
+      const defaultBangalore = [12.9716, 77.5946];
+
+      const openMapPicker = (field: string) => {
+        activeLocationField = field;
+        if (mapPickerTitle) {
+          mapPickerTitle.textContent = field === 'pickup' ? 'Select Pickup Location' : 'Select Drop Location';
+        }
+        
+        selectedMapAddress = '';
+        if (mapSelectedAddress) {
+          mapSelectedAddress.textContent = 'Click on map to select location';
+        }
+        if (confirmMapLocationBtn) {
+          confirmMapLocationBtn.setAttribute('disabled', 'true');
+        }
+
+        if (mapPickerOverlay) {
+          mapPickerOverlay.classList.remove('hidden');
+          mapPickerOverlay.classList.add('flex');
+        }
+
+        // Initialize Leaflet map
+        setTimeout(() => {
+          if (typeof window !== 'undefined' && (window as any).L) {
+            const L = (window as any).L;
+            if (!leafletMap) {
+              leafletMap = L.map('leafletMapContainerModal', {
+                zoomControl: true
+              }).setView(defaultBangalore, 13);
+              
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+              }).addTo(leafletMap);
+
+              // Click handler on map
+              leafletMap.on('click', (e: any) => {
+                const latlng = e.latlng;
+                placeMarker(latlng);
+              });
+            } else {
+              leafletMap.invalidateSize();
+            }
+
+            // Reset marker position to Bangalore center initially
+            placeMarker({ lat: defaultBangalore[0], lng: defaultBangalore[1] }, false);
+            leafletMap.setView(defaultBangalore, 13);
+          }
+        }, 150);
+      };
+
+      const placeMarker = (latlng: { lat: number; lng: number }, updateAddress = true) => {
+        if (typeof window !== 'undefined' && (window as any).L) {
+          const L = (window as any).L;
+          if (leafletMarker) {
+            leafletMarker.setLatLng(latlng);
+          } else {
+            leafletMarker = L.marker(latlng, { draggable: true }).addTo(leafletMap);
+            leafletMarker.on('dragend', () => {
+              const pos = leafletMarker.getLatLng();
+              fetchReverseGeocode(pos.lat, pos.lng);
+            });
+          }
+
+          if (updateAddress) {
+            fetchReverseGeocode(latlng.lat, latlng.lng);
+          }
+        }
+      };
+
+      const fetchReverseGeocode = async (lat: number, lng: number) => {
+        if (mapSelectedAddress) {
+          mapSelectedAddress.textContent = 'Fetching address...';
+        }
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+          const data = await res.json();
+          const address = data.display_name || `Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          selectedMapAddress = address;
+          if (mapSelectedAddress) {
+            mapSelectedAddress.textContent = address;
+          }
+          if (confirmMapLocationBtn) {
+            confirmMapLocationBtn.removeAttribute('disabled');
+          }
+        } catch (err) {
+          console.error("Reverse geocoding failed:", err);
+          const address = `${lat.toFixed(5)}, ${lng.toFixed(5)} (Pin Coordinates)`;
+          selectedMapAddress = address;
+          if (mapSelectedAddress) {
+            mapSelectedAddress.textContent = address;
+          }
+          if (confirmMapLocationBtn) {
+            confirmMapLocationBtn.removeAttribute('disabled');
+          }
+        }
+      };
+
+      const closeMapPicker = () => {
+        if (mapPickerOverlay) {
+          mapPickerOverlay.classList.add('hidden');
+          mapPickerOverlay.classList.remove('flex');
+        }
+        activeLocationField = '';
+      };
+
+      if (pickPickupOnMapBtn) {
+        pickPickupOnMapBtn.addEventListener('click', () => openMapPicker('pickup'));
+      }
+      if (pickDropOnMapBtn) {
+        pickDropOnMapBtn.addEventListener('click', () => openMapPicker('drop'));
+      }
+      if (closeMapPickerBtn) {
+        closeMapPickerBtn.addEventListener('click', closeMapPicker);
+      }
+      
+      const closeMapPickerCrossBtn = document.getElementById('closeMapPickerCrossBtn');
+      if (closeMapPickerCrossBtn) {
+        closeMapPickerCrossBtn.addEventListener('click', closeMapPicker);
+      }
+
+      // Geolocation Locate Button inside map modal
+      const mapModalLocateBtn = document.getElementById('mapModalLocateBtn');
+      if (mapModalLocateBtn) {
+        mapModalLocateBtn.addEventListener('click', () => {
+          if (navigator.geolocation && leafletMap) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+              const latlng = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+              leafletMap.setView([latlng.lat, latlng.lng], 15);
+              placeMarker(latlng, true);
+            }, (err) => {
+              console.warn("Geolocation modal failed:", err);
+              alert("Unable to retrieve your current location.");
+            });
+          }
+        });
+      }
+
+      if (confirmMapLocationBtn) {
+        confirmMapLocationBtn.addEventListener('click', () => {
+          if (selectedMapAddress) {
+            if (activeLocationField === 'pickup' && pickupInput) {
+              pickupInput.value = selectedMapAddress;
+            } else if (activeLocationField === 'drop' && dropInput) {
+              dropInput.value = selectedMapAddress;
+            }
+          }
+          closeMapPicker();
+        });
+      }
+
+      // WhatsApp redirection logic
+      if (modalWhatsAppBtn && form) {
+        modalWhatsAppBtn.addEventListener('click', () => {
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const formData = new FormData(form);
+          const vehicle = formData.get('vehicle_name') || 'Executive Cab';
+          const fullName = formData.get('fullName') || '';
+          const phone = formData.get('phone') || '';
+          const email = formData.get('email') || '';
+          const pickup = formData.get('pickup') || '';
+          const drop = formData.get('drop') || '';
+          const date = formData.get('date') || '';
+          const hour = formData.get('hour') || '';
+          const minute = formData.get('minute') || '';
+          const period = formData.get('period') || '';
+
+          const waText = `Hi SF Travels, I would like to book a ride:\n` +
+                        `- *Vehicle*: ${vehicle}\n` +
+                        `- *Name*: ${fullName}\n` +
+                        `- *Phone*: ${phone}\n` +
+                        `- *Email*: ${email}\n` +
+                        `- *Pickup*: ${pickup}\n` +
+                        `- *Dropoff*: ${drop}\n` +
+                        `- *Date & Time*: ${date} at ${hour}:${minute} ${period}`;
+
+          window.open(`https://wa.me/919353966815?text=${encodeURIComponent(waText)}`, '_blank');
+        });
+      }
+
+      // Web3Forms Form submission handler
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const botcheck = form.querySelector('input[name="botcheck"]') as HTMLInputElement;
+          if (botcheck && botcheck.checked) {
+            console.warn("Spam submission blocked.");
+            return;
+          }
+
+          const formElements = form.querySelectorAll('input, select, textarea, button');
+          if (submitBtn) {
+            submitBtn.classList.add('btn-loading');
+            submitBtn.setAttribute('disabled', 'true');
+          }
+
+          const formData = new FormData(form);
+          formElements.forEach(el => {
+            if (el !== submitBtn) el.setAttribute('disabled', 'true');
+          });
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          })
+          .then(async (response) => {
+            const json = await response.json();
+            if (response.status === 200) {
+              const fullName = formData.get('fullName') || '';
+              const vehicle = formData.get('vehicle_name') || '';
+              const phone = formData.get('phone') || '';
+              const pickup = formData.get('pickup') || '';
+              const drop = formData.get('drop') || '';
+              const date = formData.get('date') || '';
+              const hour = formData.get('hour') || '';
+              const minute = formData.get('minute') || '';
+              const period = formData.get('period') || '';
+
+              closeModal();
+
+              const successModal = document.getElementById('bookingSuccessModal');
+              const successModalMessage = document.getElementById('bookingSuccessModalMessage');
+              const successModalWhatsAppBtn = document.getElementById('bookingSuccessModalWhatsAppBtn') as HTMLAnchorElement;
+
+              if (successModal) {
+                if (successModalMessage) {
+                  successModalMessage.innerHTML = `Thank you, <strong>${fullName}</strong>! Your enquiry for a <strong>${vehicle}</strong> has been successfully sent. We will call you at <strong>${phone}</strong> within 15 minutes to confirm.`;
+                }
+
+                const waText = `Hi SF Travels, I would like to book a ride:\n` +
+                              `- *Vehicle*: ${vehicle}\n` +
+                              `- *Name*: ${fullName}\n` +
+                              `- *Phone*: ${phone}\n` +
+                              `- *Pickup*: ${pickup}\n` +
+                              `- *Dropoff*: ${drop}\n` +
+                              `- *Date & Time*: ${date} at ${hour}:${minute} ${period}`;
+
+                if (successModalWhatsAppBtn) {
+                  successModalWhatsAppBtn.setAttribute('href', `https://wa.me/919353966815?text=${encodeURIComponent(waText)}`);
+                }
+                successModal.classList.add('active');
+              } else {
+                alert(`Thank you, ${fullName}! Your enquiry for a ${vehicle} has been sent successfully.`);
+              }
+            } else {
+              alert(json.message || "Failed to submit booking enquiry. Please try again.");
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            alert("Form submission failed. Please check your network and try again.");
+          })
+          .finally(() => {
+            formElements.forEach(el => el.removeAttribute('disabled'));
+            if (submitBtn) {
+              submitBtn.classList.remove('btn-loading');
+              submitBtn.removeAttribute('disabled');
+            }
+          });
+        });
+      }
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBookingModal);
+  } else {
+    initBookingModal();
+  }
+</script>
+
+<style>
+  /* Custom scrollbar hiding helper */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Modal visibility transitions */
+  #bookingModal {
+    transition: opacity 0.3s ease-out;
+  }
+  
+  /* Safe padding for mobile notch spacing */
+  .pb-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom, 12px) + 12px);
+  }
+
+  /* Styling for the success message modal */
+  .form-success-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 13, 26, 0.85);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  .form-success-overlay.active {
+    display: flex;
+  }
+  .form-success-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 520px;
+    width: 90%;
+    text-align: center;
+    color: #1e293b;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  .success-icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(30, 203, 21, 0.1);
+    border: 2px solid #1ecb15;
+    color: #1ecb15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+  .btn-wa-success {
+    background: #10b981;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+  .btn-wa-success:hover {
+    background: #059669;
+    transform: translateY(-2px);
+  }
+  .btn-close-success {
+    border: none !important;
+    background: transparent !important;
+    color: #94a3b8 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    transition: color 0.3s ease !important;
+    box-shadow: none !important;
+    margin-top: 8px;
+  }
+  .btn-close-success:hover {
+    color: #475569 !important;
+    background: transparent !important;
+  }
+</style>

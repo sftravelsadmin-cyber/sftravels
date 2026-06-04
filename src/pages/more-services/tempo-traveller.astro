@@ -3,20 +3,16 @@ import Layout from '../../layouts/Layout.astro';
 
 const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
 
-const busFleet = [
-  { id: "mini-bus-21", name: "Mini Bus 21", seats: "21", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-21-1770871153503-36.png" },
-  { id: "mini-bus-25", name: "Mini Bus 25", seats: "25", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-25-1770871172403-39.png" },
-  { id: "mini-bus-30", name: "Mini Bus 30", seats: "30", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" },
-  { id: "bus-33", name: "Bus 33", seats: "33", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-33-1770871212474-45.png" },
-  { id: "bus-40", name: "Bus 40", seats: "40", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-40-1770871824256-47.png" },
-  { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
-  { id: "bus-50-seater", name: "Bus 50 Seater", seats: "50", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
+const tempoFleet = [
+  { id: "tempo-traveller-12", name: "Tempo Traveller 12", seats: "12", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-12-1770871044575-9.png" },
+  { id: "tempo-traveller-13", name: "Tempo Traveller 13", seats: "13", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-13-1770871064897-30.png" },
+  { id: "tempo-traveller-14", name: "Tempo Traveller 14", seats: "14", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-14-1770871083292-33.png" }
 ];
 ---
 
 <Layout 
-  title="Bus Rental Service Bangalore - SF Travels"
-  description="Premium bus rental for groups. Mini buses, Volvo coaches, and luxury buses for all corporate events, weddings, tours in Bangalore."
+  title="Tempo Traveller Rental Bangalore - SF Travels"
+  description="Rent 12, 13, or 14 seater Tempo Travellers in Bangalore with SF Travels. Clean vehicles, push-back seats, and verified drivers for local and outstation trips."
 >
   
 
@@ -28,9 +24,9 @@ const busFleet = [
       </div>
       <div class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none"></div>
       <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Bus Rental Service</h1>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Tempo Traveller Rental</h1>
         <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-          Premium bus rental for groups. Mini buses, Volvo coaches, and luxury buses for all occasions.
+          Comfortable 12+1, 13+1, and 14+1 seater Tempo Travellers for group travel. Perfect for family trips, pilgrimages, and corporate events.
         </p>
       </div>
     </section>
@@ -39,48 +35,40 @@ const busFleet = [
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Group Transportation Solutions</h2>
-          <p class="text-gray-600 mb-4">Our bus rental service in Bangalore provides comfortable and reliable transportation for large groups. Whether you're organizing a corporate event, wedding, educational tour, or pilgrimage, we have the perfect bus for your needs.</p>
-          <p class="text-gray-600 mb-4">Choose from our fleet of mini buses (21-30 seater), standard buses (33-40 seater), Volvo luxury coaches (45 seater), and large buses (50 seater). All vehicles are well-maintained, air-conditioned, and come with experienced drivers who prioritize safety and comfort.</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Spacious Group Transportation</h2>
+          <p class="text-gray-600 mb-4">Our Tempo Traveller rental service in Bangalore offers the perfect solution for medium to large group travel. With comfortable seating variants for 12, 13, or 14 passengers plus driver, it's ideal for family trips, religious tours, corporate outings, and group vacations.</p>
+          <p class="text-gray-600 mb-4">All our Tempo Travellers are well-maintained, equipped with air conditioning, push-back seats, and ample luggage space. Experience comfortable long-distance travel with professional drivers who prioritize your safety and convenience.</p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
-                <path d="M8 6v6"></path>
-                <path d="M15 6v6"></path>
-                <path d="M2 12h19.6"></path>
-                <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path>
-                <circle cx="7" cy="18" r="2"></circle>
-                <path d="M9 18h5"></path>
-                <circle cx="16" cy="18" r="2"></circle>
-              </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Wide Fleet</h3>
-              <p class="text-sm text-gray-600">21 to 50 seaters</p>
-            </div>
-            <div class="text-center p-4 bg-gray-50 rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Large Groups</h3>
-              <p class="text-sm text-gray-600">Perfect for teams</p>
+              <h3 class="font-semibold text-gray-900 mb-2">12-14 Seats</h3>
+              <p class="text-sm text-gray-600">Various capacities</p>
             </div>
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Safe Travel</h3>
-              <p class="text-sm text-gray-600">Experienced drivers</p>
+              <h3 class="font-semibold text-gray-900 mb-2">AC Comfort</h3>
+              <p class="text-sm text-gray-600">Climate controlled</p>
             </div>
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Flexible Plans</h3>
-              <p class="text-sm text-gray-600">Daily & monthly rentals</p>
+              <h3 class="font-semibold text-gray-900 mb-2">Any Destination</h3>
+              <p class="text-sm text-gray-600">Pan India service</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <h3 class="font-semibold text-gray-900 mb-2">Ample Space</h3>
+              <p class="text-sm text-gray-600">Large luggage capacity</p>
             </div>
           </div>
         </div>
@@ -90,9 +78,9 @@ const busFleet = [
     <!-- Fleet Cards Section -->
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Bus Fleet</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {busFleet.map(c => (
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Tempo Traveller Variants</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {tempoFleet.map(c => (
             <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full w-full">
               <div class="relative aspect-[16/10] overflow-hidden bg-gray-50">
                 <img src={c.image} alt={c.name} class="w-full h-full object-cover" />
@@ -125,7 +113,7 @@ const busFleet = [
                       class="inline-flex items-center justify-center rounded-md px-4 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
                       data-book-now 
                       data-vehicle={c.name} 
-                      data-category="Bus Fleet"
+                      data-category="Tempo Traveller Fleet"
                     >
                       Book Now
                     </button>
@@ -144,26 +132,36 @@ const busFleet = [
       </div>
     </section>
 
-    <!-- Perfect For Section -->
+    <!-- Features Section -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Perfect For</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Events</h3>
-            <p class="text-gray-600">Employee transportation for conferences, team outings, and company events.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Transportation</h3>
-            <p class="text-gray-600">Comfortable travel for wedding guests between venues and hotels.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Educational Tours</h3>
-            <p class="text-gray-600">Safe and supervised transportation for school and college trips.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Pilgrimages</h3>
-            <p class="text-gray-600">Religious tours to temples and holy places across India.</p>
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Features & Amenities</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ Push Back Seats</h3>
+              <p class="text-gray-600">Reclining seats for comfortable long-distance travel.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ Air Conditioning</h3>
+              <p class="text-gray-600">Powerful AC to keep everyone cool during the journey.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ Music System</h3>
+              <p class="text-gray-600">Entertainment system with USB connectivity and speakers.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ Large Windows</h3>
+              <p class="text-gray-600">Enjoy scenic views through large panoramic windows.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ Luggage Carrier</h3>
+              <p class="text-gray-600">Top carrier and rear storage for all your luggage needs.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">✓ First Aid Kit</h3>
+              <p class="text-gray-600">Safety equipment and first aid kit always available.</p>
+            </div>
           </div>
         </div>
       </div>

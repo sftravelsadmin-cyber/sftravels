@@ -7,18 +7,35 @@
     
     <!-- Premium Logo Section -->
     <a href="/" class="logo-wrapper">
-      <!-- Golden Circle SVG Logo -->
+      <!-- Golden dynamic circle monogram SVG Logo -->
       <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="44" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"></circle>
-        <circle cx="50" cy="50" r="38" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4 2"></circle>
         <defs>
           <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f3e5ab"></stop>
-            <stop offset="50%" stop-color="#d4af37"></stop>
-            <stop offset="100%" stop-color="#aa7c11"></stop>
+            <stop offset="0%" stop-color="#F2E5C9"></stop>
+            <stop offset="30%" stop-color="#C5A85C"></stop>
+            <stop offset="50%" stop-color="#AA8439"></stop>
+            <stop offset="70%" stop-color="#EBDCB9"></stop>
+            <stop offset="100%" stop-color="#8A6623"></stop>
           </linearGradient>
         </defs>
-        <text x="50%" y="58%" text-anchor="middle" font-family="Outfit" font-weight="900" font-size="28" fill="url(#goldGrad)">SF</text>
+        
+        <!-- Outer dynamic swooshes (Top-right crescent) -->
+        <path d="M 50 8 C 73.19 8 92 26.81 92 50 C 92 65.5 83.5 79 70 86 C 82 76 87 60 87 50 C 87 29.56 70.44 13 50 13 Z" fill="url(#goldGrad)"></path>
+        
+        <!-- Bottom-left crescent swoosh -->
+        <path d="M 50 92 C 26.81 92 8 73.19 8 50 C 8 34.5 16.5 21 30 14 C 18 24 13 40 13 50 C 13 70.44 29.56 87 50 87 Z" fill="url(#goldGrad)"></path>
+        
+        <!-- Inner thin decorative swoosh lines -->
+        <path d="M 50 18 A 32 32 0 0 1 82 50 A 32 32 0 0 1 73 72" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M 50 82 A 32 32 0 0 1 18 50 A 32 32 0 0 1 27 28" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"></path>
+        
+        <!-- Stylized "SF" Monogram inside -->
+        <g fill="url(#goldGrad)">
+          <!-- "S" Path -->
+          <path d="M 28,45 C 28,34 39,32 44,32 C 48,32 50,34 50,37 C 50,42 42,42 38,44 C 31,46.5 27,50 27,57 C 27,65 35,68 45,68 C 50,68 53,67 56,65 L 56,59 C 52,61 47,62 44,62 C 40,62 35,61 35,57 C 35,51 44,51 48,49 C 54,46 58,43 58,36 C 58,29 50,26 42,26 C 35,26 29,28 28,30 Z"></path>
+          <!-- "F" Path -->
+          <path d="M 64,28 L 64,68 L 71,68 L 71,51 L 82,51 L 82,45 L 71,45 L 71,34 L 84,34 L 84,28 Z"></path>
+        </g>
       </svg>
       <div class="logo-text">
         <span class="logo-title">SF TRAVELS</span>
@@ -41,7 +58,7 @@
           <a href="/services/airport-taxi" class="dropdown-link">Airport Taxi</a>
           <a href="/services/outstation-cabs" class="dropdown-link">Outstation Cabs</a>
           <a href="/services/local-hire" class="dropdown-link">Local Hourly Cabs</a>
-          <a href="/services/corporate" class="dropdown-link">Corporate Slab Rates</a>
+          <a href="/services/one-way-taxi" class="dropdown-link">One Way Taxi</a>
         </div>
       </div>
       
@@ -52,9 +69,12 @@
           <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
         <div class="dropdown-menu glass-card">
-          <a href="/more-services/bus-rental" class="dropdown-link">Bus Rental Services</a>
-          <a href="/more-services/wedding-transport" class="dropdown-link">Wedding Events</a>
-          <a href="/more-services/tour-packages" class="dropdown-link">Custom Tour Packages</a>
+          <a href="/more-services/bus-rental" class="dropdown-link">Bus Rental Service</a>
+          <a href="/more-services/force-urbania" class="dropdown-link">Urban Rental Service</a>
+          <a href="/more-services/tempo-traveller" class="dropdown-link">Tempo Traveller Rental</a>
+          <a href="/more-services/corporate-events" class="dropdown-link">Corporate Events</a>
+          <a href="/more-services/marriage-events" class="dropdown-link">Marriage Events</a>
+          <a href="/more-services/tour-packages" class="dropdown-link">Tour Packages</a>
         </div>
       </div>
       
@@ -65,7 +85,7 @@
 
     <!-- Desktop Call Button -->
     <div class="header-action">
-      <a href="tel:9187232348" class="btn-gold header-btn">
+      <a href="tel:9353966815" class="btn-gold header-btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         <span>Call Now</span>
       </a>
@@ -101,7 +121,7 @@
           <a href="/services/airport-taxi" class="mobile-sub-link">Airport Taxi</a>
           <a href="/services/outstation-cabs" class="mobile-sub-link">Outstation Cabs</a>
           <a href="/services/local-hire" class="mobile-sub-link">Local Hourly Cabs</a>
-          <a href="/services/corporate" class="mobile-sub-link">Corporate Slab Rates</a>
+          <a href="/services/one-way-taxi" class="mobile-sub-link">One Way Taxi</a>
         </div>
       </div>
       
@@ -111,9 +131,12 @@
           <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
         </button>
         <div class="mobile-submenu">
-          <a href="/more-services/bus-rental" class="mobile-sub-link">Bus Rental Services</a>
-          <a href="/more-services/wedding-transport" class="mobile-sub-link">Wedding Events</a>
-          <a href="/more-services/tour-packages" class="mobile-sub-link">Custom Tour Packages</a>
+          <a href="/more-services/bus-rental" class="mobile-sub-link">Bus Rental Service</a>
+          <a href="/more-services/force-urbania" class="mobile-sub-link">Urban Rental Service</a>
+          <a href="/more-services/tempo-traveller" class="mobile-sub-link">Tempo Traveller Rental</a>
+          <a href="/more-services/corporate-events" class="mobile-sub-link">Corporate Events</a>
+          <a href="/more-services/marriage-events" class="mobile-sub-link">Marriage Events</a>
+          <a href="/more-services/tour-packages" class="mobile-sub-link">Tour Packages</a>
         </div>
       </div>
       
@@ -121,7 +144,7 @@
       <a href="/contact" class="mobile-link">Contact Us</a>
       <a href="/blog" class="mobile-link">Blog</a>
       
-      <a href="tel:9187232348" class="btn-gold mobile-call-btn">
+      <a href="tel:9353966815" class="btn-gold mobile-call-btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         <span>Call Hotline</span>
       </a>
@@ -137,10 +160,10 @@
     left: 0;
     right: 0;
     z-index: 99;
-    background: rgba(5, 13, 26, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     transition: var(--transition-smooth);
     padding: 12px 0;
   }
@@ -162,7 +185,7 @@
   .logo-svg {
     width: 48px;
     height: 48px;
-    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.2));
+    filter: drop-shadow(0 2px 8px rgba(197, 168, 92, 0.15));
     transition: var(--transition-smooth);
   }
   
@@ -180,8 +203,7 @@
     font-weight: 800;
     font-size: 1.15rem;
     letter-spacing: 0.5px;
-    color: var(--text-white);
-    background: linear-gradient(135deg, var(--brand-gold-light) 0%, var(--brand-gold) 100%);
+    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, var(--brand-gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -217,13 +239,13 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background: var(--brand-gold);
+    background: var(--brand-green);
     transition: var(--transition-smooth);
     transform: translateX(-50%);
   }
   
   .nav-link:hover, .nav-link.active {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .nav-link:hover::after, .nav-link.active::after {
@@ -255,7 +277,7 @@
   }
   
   .dropdown-wrapper:hover .dropdown-btn {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .dropdown-wrapper:hover .chevron-icon {
@@ -292,8 +314,8 @@
   }
   
   .dropdown-link:hover {
-    background: rgba(212, 175, 55, 0.1);
-    color: var(--brand-gold);
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--brand-green);
     padding-left: 16px;
   }
 
@@ -307,29 +329,29 @@
     padding: 10px 20px;
     font-size: 0.85rem;
     border-radius: 8px;
-    background: #ffffff !important;
-    color: var(--brand-gold-dark) !important;
-    border: 1px solid rgba(16, 185, 129, 0.2) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15) !important;
     transition: var(--transition-smooth);
+    border: none !important;
   }
   
   .header-btn:hover {
-    background: #f8fafc !important;
+    background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.25) !important;
   }
   
   .header-btn svg {
     width: 16px !important;
     height: 16px !important;
-    color: var(--brand-gold) !important;
+    color: #ffffff !important;
     flex-shrink: 0;
   }
   
   .mobile-toggle-btn {
     display: none;
-    color: var(--text-white);
+    color: var(--text-light);
     cursor: pointer;
     background: none;
     border: none;
@@ -338,7 +360,7 @@
   }
   
   .mobile-toggle-btn:hover {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
 
   .mobile-toggle-btn svg,
@@ -354,7 +376,7 @@
     position: fixed;
     inset: 0;
     z-index: 100;
-    background: rgba(5, 13, 26, 0.6);
+    background: rgba(15, 23, 42, 0.5);
     backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
@@ -383,6 +405,8 @@
     gap: 32px;
     transform: translateX(100%);
     transition: var(--transition-smooth);
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
   }
   
   .mobile-menu-overlay.open .mobile-menu-panel {
@@ -393,7 +417,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding-bottom: 16px;
   }
   
@@ -401,6 +425,7 @@
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 1.3rem;
+    color: var(--text-light);
   }
   
   .mobile-close-btn {
@@ -410,7 +435,7 @@
   }
   
   .mobile-close-btn:hover {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .nav-mobile-links {
@@ -431,7 +456,7 @@
   }
   
   .mobile-link:hover, .mobile-link.active {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .mobile-expandable {
@@ -454,7 +479,7 @@
   }
   
   .mobile-expandable:hover .mobile-expand-btn {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .mobile-expandable.active .chevron-icon {
@@ -467,7 +492,7 @@
     gap: 8px;
     padding-left: 16px;
     margin-top: 4px;
-    border-left: 1px dashed rgba(212, 175, 55, 0.2);
+    border-left: 1px dashed rgba(16, 185, 129, 0.2);
   }
   
   .mobile-expandable.active .mobile-submenu {
@@ -481,7 +506,7 @@
   }
   
   .mobile-sub-link:hover {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .mobile-call-btn {
@@ -497,9 +522,9 @@
 
   /* ==================== SCROLLED HEADER TRANSITION ==================== */
   .header-main.scrolled {
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     padding: 6px 0;
   }
   
@@ -510,39 +535,39 @@
   }
   
   .header-main.scrolled .logo-tagline {
-    color: #4b5563;
+    color: var(--text-muted);
   }
   
   .header-main.scrolled .nav-link,
   .header-main.scrolled .dropdown-btn {
-    color: #334155;
+    color: var(--text-light);
   }
   
   .header-main.scrolled .nav-link:hover,
   .header-main.scrolled .nav-link.active,
   .header-main.scrolled .dropdown-wrapper:hover .dropdown-btn {
-    color: var(--brand-gold);
+    color: var(--brand-green);
   }
   
   .header-main.scrolled .mobile-toggle-btn {
-    color: #050d1a;
+    color: var(--text-light);
   }
   
   .header-main.scrolled .header-btn {
-    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%) !important;
-    color: var(--text-white) !important;
+    background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%) !important;
+    color: #ffffff !important;
     border: none !important;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15) !important;
   }
   
   .header-main.scrolled .header-btn:hover {
-    background: linear-gradient(135deg, var(--brand-gold-dark) 0%, #059669 100%) !important;
-    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.4) !important;
+    background: linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-blue-hover) 100%) !important;
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.25) !important;
     transform: translateY(-2px);
   }
   
   .header-main.scrolled .header-btn svg {
-    color: var(--text-white) !important;
+    color: #ffffff !important;
   }
 
   /* Responsive breakpoints */

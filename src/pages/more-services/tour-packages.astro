@@ -1,148 +1,235 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
+
 const tourPackages = [
   {
-    name: 'Bangalore to Mysuru & Coorg',
-    duration: '2 Days / 1 Night',
-    distance: '~500 km',
-    icon: '🌿',
-    highlights: ['Brindavan Gardens', 'Mysuru Palace', 'Abbey Falls', 'Coffee Estates'],
-    vehicle: 'Sedan or SUV',
-    price: 'From ₹6,500',
+    name: "Coorg Weekend Getaway",
+    duration: "2 Days / 1 Night",
+    desc: "Explore the Scotland of India with coffee plantations and waterfalls",
+    highlights: ["Abbey Falls", "Raja's Seat", "Coffee Plantation Tour", "Madikeri Fort"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/58801745e21c3702631b334b5cddf57d.png"
   },
   {
-    name: 'Bangalore to Ooty & Coonoor',
-    duration: '2 Days / 1 Night',
-    distance: '~550 km',
-    icon: '🏔️',
-    highlights: ['Doddabetta Peak', 'Ooty Lake', 'Tea Gardens', 'Nilgiri Train View'],
-    vehicle: 'Sedan or SUV',
-    price: 'From ₹7,200',
+    name: "Ooty Hill Station Tour",
+    duration: "3 Days / 2 Nights",
+    desc: "Visit the Queen of Hill Stations and enjoy scenic beauty",
+    highlights: ["Botanical Garden", "Ooty Lake", "Doddabetta Peak", "Toy Train Ride"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/e3a3286b88c3cbb532fbc0a0cd7c2779.png"
   },
   {
-    name: 'Bangalore to Goa',
-    duration: '3 Days / 2 Nights',
-    distance: '~1,140 km',
-    icon: '🏖️',
-    highlights: ['Calangute Beach', 'Old Goa Churches', 'Dudhsagar Falls', 'Anjuna Market'],
-    vehicle: 'SUV or Tempo',
-    price: 'From ₹14,000',
+    name: "Mysore Palace & Gardens",
+    duration: "1 Day",
+    desc: "One day trip to the City of Palaces",
+    highlights: ["Mysore Palace", "Brindavan Gardens", "Chamundi Hills", "Local Shopping"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/2bab1fc02a213be6a7e14dd42fca31cb.jpg"
   },
   {
-    name: 'South India Pilgrimage Circuit',
-    duration: '4 Days / 3 Nights',
-    distance: '~1,400 km',
-    icon: '🛕',
-    highlights: ['Tirupati', 'Srisailam', 'Mantralayam', 'Dharmasthala'],
-    vehicle: 'Tempo Traveller',
-    price: 'From ₹22,000',
+    name: "Chikmagalur Coffee Land",
+    duration: "2 Days / 1 Night",
+    desc: "Experience coffee estates and mountain peaks",
+    highlights: ["Mullayanagiri Peak", "Baba Budangiri", "Hebbe Falls", "Coffee Estate Visit"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/baad984aea1fc703ceb81ac7fc7f48dd.png"
   },
+  {
+    name: "Gokarna Beach Retreat",
+    duration: "2 Days / 1 Night",
+    desc: "Relax at pristine beaches and temples",
+    highlights: ["Om Beach", "Kudle Beach", "Mahabaleshwar Temple", "Beach Activities"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/4bb726435500525094f28cd6699300b5.png"
+  },
+  {
+    name: "Hampi Heritage Tour",
+    duration: "2 Days / 1 Night",
+    desc: "Explore UNESCO World Heritage Site",
+    highlights: ["Virupaksha Temple", "Stone Chariot", "Vittala Temple", "Royal Enclosure"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/2c775c7091fcf1f8f1768dd81acb4340.png"
+  },
+  {
+    name: "North Indian Tour",
+    duration: "10 Days / 9 Nights",
+    desc: "Experience the grandeur of Delhi, Agra, and Jaipur",
+    highlights: ["Taj Mahal", "Red Fort", "Hawa Mahal", "Amber Fort"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/893b7f26811c5b264ca4b8350f4980b7.png"
+  },
+  {
+    name: "Prayagraj Pilgrimage",
+    duration: "3 Days / 2 Nights",
+    desc: "Spiritual journey to the holy Sangam",
+    highlights: ["Triveni Sangam", "Hanuman Temple", "Anand Bhavan", "Alopi Devi Mandir"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/6013980f361b5addb4ba24096355eab9.png"
+  },
+  {
+    name: "Kashi & Varanasi",
+    duration: "4 Days / 3 Nights",
+    desc: "Experience the spiritual capital of India",
+    highlights: ["Kashi Vishwanath Temple", "Ganga Aarti", "Sarnath", "Boat Ride"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/6d2e68429b7e4bf9199eab3c1071d662.png"
+  },
+  {
+    name: "Tirupati Balaji Darshan",
+    duration: "2 Days / 1 Night",
+    desc: "Seek blessings at the richest temple in the world",
+    highlights: ["Lord Venkateswara Temple", "Padmavathi Ammavari Temple", "Kapila Theertham", "Akasaganga"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/15f660d3cfb8cf8e21cd619c06d1adfd.png"
+  },
+  {
+    name: "Madurai & Rameshwaram",
+    duration: "3 Days / 2 Nights",
+    desc: "Explore ancient temples and the Pamban Bridge",
+    highlights: ["Meenakshi Amman Temple", "Ramanathaswamy Temple", "Dhanushkodi", "Pamban Bridge"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/3ae91067b941909f14ba7871c70b29e5.png"
+  },
+  {
+    name: "Kanyakumari",
+    duration: "2 Days / 1 Night",
+    desc: "Visit the southernmost tip of India",
+    highlights: ["Vivekananda Rock Memorial", "Thiruvalluvar Statue", "Kanyakumari Temple", "Sunset View"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/deff6c74416549d72ffaf16c4959a149.png"
+  },
+  {
+    name: "Munnar Kerala Round Trip",
+    duration: "4 Days / 3 Nights",
+    desc: "Enjoy the serene beauty of tea gardens and hills",
+    highlights: ["Tea Museum", "Mattupetty Dam", "Eravikulam National Park", "Attukad Waterfalls"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/4f532c9cdade945b1b93f5bb19ef1366.png"
+  },
+  {
+    name: "Goa Round Trip",
+    duration: "4 Days / 3 Nights",
+    desc: "Fun-filled vacation with beaches and nightlife",
+    highlights: ["Baga Beach", "Fort Aguada", "Basilica of Bom Jesus", "Dudhsagar Falls"],
+    img: "https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/502af6c8daa9238a39e2e80a1deabb93.png"
+  }
+];
+
+const vehicles = [
+  { id: "sedan", name: "Sedan", seats: "4+1", category: "Car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
+  { id: "innova-crysta", name: "Innova Crysta", seats: "7+1", category: "MPV", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
+  { id: "force-urbania-luxury", name: "Force Urbania Luxury", seats: "12", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-luxury-1770870993546-3.png" },
+  { id: "tempo-traveller-14", name: "Tempo Traveller 14", seats: "14", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-14-1770871083292-33.png" },
+  { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" }
 ];
 ---
 
-<Layout
-  title="Custom Tour Packages Bangalore | SF Travels — South India Cab Tours"
-  description="Book custom cab tour packages from Bangalore. 2-day, 3-day South India getaways to Mysuru, Coorg, Ooty, Goa, and pilgrimage circuits with SF Travels."
+<Layout 
+  title="Tour Packages from Bangalore - SF Travels"
+  description="Discover amazing destinations with our curated tour packages. Complete travel solutions with private transport and professional driver guidance."
 >
+  
 
-  <section class="service-hero tours-hero">
-    <div class="hero-overlay-dark"></div>
-    <div class="container service-hero-content">
-      <div class="service-badge-pill">🗺️ Custom Tour Packages</div>
-      <h1 class="service-hero-title">
-        Explore South India —<br />
-        <span class="gold-text">At Your Own Pace.</span>
-      </h1>
-      <p class="service-hero-desc">
-        Curated multi-day tour packages with private cab, experienced driver-guide, and flexible itineraries. No crowded buses. No fixed schedules.
-      </p>
-      <div class="service-hero-cta">
-        <a href="/contact" class="btn-gold">📞 Customise My Tour</a>
-        <a href="https://wa.me/918073110973?text=Hi%2C%20I%20need%20a%20custom%20tour%20package%20from%20Bangalore." target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Tour Plan</a>
+  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12 text-slate-800">
+    <!-- Hero Section -->
+    <section class="relative min-h-[50vh] flex items-center justify-center pt-20 overflow-hidden">
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/bda0fdb8b258bf205c0653b2583c1ec0.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
       </div>
-      <div class="hero-pills">
-        <span class="pill">✓ Private cab, no sharing</span>
-        <span class="pill">✓ Flexible itinerary</span>
-        <span class="pill">✓ 50+ South India routes</span>
+      <div class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none"></div>
+      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Tour Packages from Bangalore</h1>
+        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
+          Discover amazing destinations with our curated tour packages. Complete travel solutions with transport and guidance.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-padding tours-section">
-    <div class="container">
-      <div class="section-label">Popular Tour Packages</div>
-      <h2 class="section-title">Curated <span class="gold-text">Getaways</span></h2>
-      <p class="section-desc">All packages include a private cab with driver. Hotels and meals are optional add-ons.</p>
-      <div class="tours-grid">
-        {tourPackages.map(pkg => (
-          <div class="tour-card glass-card">
-            <div class="tour-icon">{pkg.icon}</div>
-            <div class="tour-body">
-              <h3 class="tour-name">{pkg.name}</h3>
-              <div class="tour-meta">
-                <span>📅 {pkg.duration}</span>
-                <span>📏 {pkg.distance}</span>
-                <span>🚗 {pkg.vehicle}</span>
+    <!-- Tour Packages Grid -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Tour Packages</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tourPackages.map(pkg => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full group border border-gray-100">
+              <div class="overflow-hidden h-48 w-full relative bg-gray-100">
+                <img src={pkg.img} alt={pkg.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div class="tour-highlights">
-                {pkg.highlights.map(h => <span class="highlight-tag">✓ {h}</span>)}
-              </div>
-              <div class="tour-price-row">
-                <span class="tour-price">{pkg.price}</span>
-                <a href={`https://wa.me/918073110973?text=Hi%2C%20I%20need%20the%20tour%20package%20for%20${encodeURIComponent(pkg.name)}`} target="_blank" rel="noopener" class="btn-gold tour-btn">Book This Tour</a>
+              <div class="p-6 flex-grow flex flex-col">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
+                <p class="text-sm text-[#10b981] font-semibold mb-3">{pkg.duration}</p>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">{pkg.desc}</p>
+                <div class="mb-6 flex-grow">
+                  <p class="font-semibold text-gray-900 mb-2 text-sm">Highlights:</p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    {pkg.highlights.map(hl => (
+                      <li>• {hl}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="pt-4 border-t border-gray-100 mt-auto">
+                  <button 
+                    class="w-full inline-flex items-center justify-center rounded-md px-4 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-sm py-2.5 h-10 transition-colors"
+                    data-book-now 
+                    data-vehicle={pkg.name} 
+                    data-category="Tour Package"
+                  >
+                    Enquire Now
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta-banner">
-    <div class="container cta-content">
-      <h2 class="cta-title">Have a Custom Route in Mind?</h2>
-      <p class="cta-subtitle">Tell us your destination, group size, and dates — we'll build a personalised tour itinerary and fare quote.</p>
-      <div class="cta-actions">
-        <a href="tel:+919187232348" class="btn-gold">📞 Plan My Tour: 9187232348</a>
-        <a href="https://wa.me/918073110973?text=Hi%2C%20I%20want%20a%20custom%20tour%20from%20Bangalore" target="_blank" rel="noopener" class="btn-outline">💬 WhatsApp Tour Plan</a>
+    <!-- Choose Your Tour Vehicle Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Choose Your Tour Vehicle</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Select the most comfortable vehicle for your multi-day tour package.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {vehicles.map(c => (
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full w-full">
+              <div class="relative aspect-[16/10] overflow-hidden bg-gray-50">
+                <img src={c.image} alt={c.name} class="w-full h-full object-cover" />
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-800 shadow-sm">
+                  {c.category.toUpperCase()}
+                </div>
+              </div>
+              <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2">{c.name}</h3>
+                <div class="flex items-center text-gray-500 mb-3 text-xs sm:text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 text-[#10b981]">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                  </svg>
+                  <span>{c.seats} Seater</span>
+                </div>
+                <div class="space-y-1 mb-4 flex-grow text-sm">
+                  <div class="flex items-center text-gray-600">
+                    <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
+                    <span>Professional Chauffeur</span>
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
+                    <span>AC & Music System</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-gray-100 mt-auto">
+                  <div class="grid grid-cols-2 gap-2 sm:gap-3">
+                    <button 
+                      class="inline-flex items-center justify-center rounded-md px-4 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
+                      data-book-now 
+                      data-vehicle={c.name} 
+                      data-category="Tour Fleet"
+                    >
+                      Book Now
+                    </button>
+                    <a 
+                      href={`/vehicle/${c.id}`} 
+                      class="inline-flex items-center justify-center rounded-md border border-[#10b981] text-[#10b981] hover:bg-[#10b981] hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
+                    >
+                      Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-
+    </section>
+  </main>
 </Layout>
-
-<style>
-.service-hero { position: relative; min-height: 520px; display: flex; align-items: center; overflow: hidden; }
-.tours-hero { background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80'); background-size: cover; background-position: center 60%; }
-.hero-overlay-dark { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.72) 100%); }
-.service-hero-content { position: relative; z-index: 2; padding: 120px 20px 80px; max-width: 720px; }
-.service-badge-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #10b981; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
-.service-hero-title { font-size: clamp(2rem, 5vw, 3rem); color: #fff; line-height: 1.15; margin-bottom: 18px; }
-.service-hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 28px; max-width: 560px; }
-.service-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-.hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
-.pill { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: #a7f3d0; padding: 5px 14px; border-radius: 50px; font-size: 0.82rem; }
-.tours-section { background: var(--bg-primary); }
-.tours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; }
-.tour-card { padding: 28px 26px; display: flex; gap: 20px; align-items: flex-start; }
-.tour-icon { font-size: 2.8rem; flex-shrink: 0; }
-.tour-body { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.tour-name { font-size: 1.1rem; font-weight: 700; color: #fff; line-height: 1.3; }
-.tour-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.82rem; color: rgba(255,255,255,0.55); }
-.tour-highlights { display: flex; flex-wrap: wrap; gap: 6px; }
-.highlight-tag { font-size: 0.78rem; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.18); color: #a7f3d0; padding: 3px 9px; border-radius: 50px; }
-.tour-price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; flex-wrap: wrap; gap: 10px; }
-.tour-price { font-size: 1.25rem; font-weight: 700; color: #10b981; font-family: var(--font-heading); }
-.tour-btn { font-size: 0.85rem; padding: 10px 20px; }
-.cta-banner { background: linear-gradient(135deg, #0b172a 0%, #051a2c 100%); border-top: 1px solid rgba(16,185,129,0.2); padding: 80px 20px; }
-.cta-content { text-align: center; }
-.cta-title { font-size: clamp(1.6rem, 4vw, 2.4rem); color: #fff; margin-bottom: 14px; }
-.cta-subtitle { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 32px; }
-.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #10b981; margin-bottom: 10px; }
-.section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: #fff; margin-bottom: 12px; }
-.section-desc { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 560px; }
-@media (max-width: 900px) { .tours-grid { grid-template-columns: 1fr; } .tour-card { flex-direction: column; } }
-@media (max-width: 640px) { .service-hero-cta { flex-direction: column; } }
-</style>

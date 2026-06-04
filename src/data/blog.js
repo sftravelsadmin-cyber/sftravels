@@ -200,8 +200,8 @@ export const blogPosts = [
       },
       {
         type: "cta",
-        text: "Get Corporate Slab Rate Quote",
-        href: "/services/corporate"
+        text: "Get One Way Taxi Quote",
+        href: "/services/one-way-taxi"
       }
     ]
   },
@@ -310,7 +310,7 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "Share your group size, route, and travel date on WhatsApp (+91 8073110973). We'll confirm vehicle availability and send a fixed quote within the hour. For large group bookings (35+ seat coaches), we request 3–5 days advance notice."
+        text: "Share your group size, route, and travel date on WhatsApp (+91 9353966815). We'll confirm vehicle availability and send a fixed quote within the hour. For large group bookings (35+ seat coaches), we request 3–5 days advance notice."
       },
       {
         type: "cta",

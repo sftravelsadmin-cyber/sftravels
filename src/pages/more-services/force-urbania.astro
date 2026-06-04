@@ -3,20 +3,16 @@ import Layout from '../../layouts/Layout.astro';
 
 const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
 
-const busFleet = [
-  { id: "mini-bus-21", name: "Mini Bus 21", seats: "21", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-21-1770871153503-36.png" },
-  { id: "mini-bus-25", name: "Mini Bus 25", seats: "25", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-25-1770871172403-39.png" },
-  { id: "mini-bus-30", name: "Mini Bus 30", seats: "30", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" },
-  { id: "bus-33", name: "Bus 33", seats: "33", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-33-1770871212474-45.png" },
-  { id: "bus-40", name: "Bus 40", seats: "40", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-40-1770871824256-47.png" },
-  { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
-  { id: "bus-50-seater", name: "Bus 50 Seater", seats: "50", category: "Bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
+const urbaniaFleet = [
+  { id: "force-urbania-deluxe", name: "Force Urbania Deluxe", seats: "9", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-deluxe-1770870970157-1.png" },
+  { id: "force-urbania-luxury", name: "Force Urbania Luxury", seats: "12", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-luxury-1770870993546-3.png" },
+  { id: "force-urbania-maharaj", name: "Force Urbania Maharaj", seats: "14", category: "Van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-maharaj-1770871014554-6.png" }
 ];
 ---
 
 <Layout 
-  title="Bus Rental Service Bangalore - SF Travels"
-  description="Premium bus rental for groups. Mini buses, Volvo coaches, and luxury buses for all corporate events, weddings, tours in Bangalore."
+  title="Force Urbania Rental Bangalore - SF Travels"
+  description="Experience premium luxury group travel with Force Urbania in Bangalore. Perfect for corporate events, family get-togethers, and weddings."
 >
   
 
@@ -28,9 +24,9 @@ const busFleet = [
       </div>
       <div class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none"></div>
       <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Bus Rental Service</h1>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Force Urbania Rental</h1>
         <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-          Premium bus rental for groups. Mini buses, Volvo coaches, and luxury buses for all occasions.
+          Experience luxury group travel with Force Urbania. Perfect for families and small groups seeking comfort and style.
         </p>
       </div>
     </section>
@@ -39,48 +35,40 @@ const busFleet = [
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Group Transportation Solutions</h2>
-          <p class="text-gray-600 mb-4">Our bus rental service in Bangalore provides comfortable and reliable transportation for large groups. Whether you're organizing a corporate event, wedding, educational tour, or pilgrimage, we have the perfect bus for your needs.</p>
-          <p class="text-gray-600 mb-4">Choose from our fleet of mini buses (21-30 seater), standard buses (33-40 seater), Volvo luxury coaches (45 seater), and large buses (50 seater). All vehicles are well-maintained, air-conditioned, and come with experienced drivers who prioritize safety and comfort.</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Premium Group Travel Experience</h2>
+          <p class="text-gray-600 mb-4">The Force Urbania is a premium luxury van perfect for family trips, group outings, and corporate travel. With its spacious interior, comfortable captain seats, and modern amenities, it offers an unmatched travel experience for groups of up to 14 people.</p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
-                <path d="M8 6v6"></path>
-                <path d="M15 6v6"></path>
-                <path d="M2 12h19.6"></path>
-                <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path>
-                <circle cx="7" cy="18" r="2"></circle>
-                <path d="M9 18h5"></path>
-                <circle cx="16" cy="18" r="2"></circle>
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                <circle cx="7" cy="17" r="2"></circle>
+                <path d="M9 17h6"></path>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Wide Fleet</h3>
-              <p class="text-sm text-gray-600">21 to 50 seaters</p>
+              <h3 class="font-semibold text-gray-900 mb-2">Luxury Layout</h3>
+              <p class="text-sm text-gray-600">Spacious interior</p>
             </div>
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Large Groups</h3>
-              <p class="text-sm text-gray-600">Perfect for teams</p>
+              <h3 class="font-semibold text-gray-900 mb-2">Captain Seats</h3>
+              <p class="text-sm text-gray-600">Premium comfort</p>
             </div>
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
               </svg>
               <h3 class="font-semibold text-gray-900 mb-2">Safe Travel</h3>
-              <p class="text-sm text-gray-600">Experienced drivers</p>
+              <p class="text-sm text-gray-600">Latest safety features</p>
             </div>
             <div class="text-center p-4 bg-gray-50 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-[#10b981] mx-auto mb-3">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <h3 class="font-semibold text-gray-900 mb-2">Flexible Plans</h3>
-              <p class="text-sm text-gray-600">Daily & monthly rentals</p>
+              <h3 class="font-semibold text-gray-900 mb-2">Flexible Booking</h3>
+              <p class="text-sm text-gray-600">Daily & outstation</p>
             </div>
           </div>
         </div>
@@ -90,9 +78,9 @@ const busFleet = [
     <!-- Fleet Cards Section -->
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Bus Fleet</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {busFleet.map(c => (
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Force Urbania Fleet</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {urbaniaFleet.map(c => (
             <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full w-full">
               <div class="relative aspect-[16/10] overflow-hidden bg-gray-50">
                 <img src={c.image} alt={c.name} class="w-full h-full object-cover" />
@@ -116,6 +104,10 @@ const busFleet = [
                   </div>
                   <div class="flex items-center text-gray-600">
                     <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
+                    <span>Luxury Captain Seats</span>
+                  </div>
+                  <div class="flex items-center text-gray-600">
+                    <span class="text-[#10b981] mr-1.5 font-bold">✓</span>
                     <span>AC & Music System</span>
                   </div>
                 </div>
@@ -125,7 +117,7 @@ const busFleet = [
                       class="inline-flex items-center justify-center rounded-md px-4 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
                       data-book-now 
                       data-vehicle={c.name} 
-                      data-category="Bus Fleet"
+                      data-category="Force Urbania Fleet"
                     >
                       Book Now
                     </button>
@@ -140,31 +132,6 @@ const busFleet = [
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Perfect For Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Perfect For</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Events</h3>
-            <p class="text-gray-600">Employee transportation for conferences, team outings, and company events.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Transportation</h3>
-            <p class="text-gray-600">Comfortable travel for wedding guests between venues and hotels.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Educational Tours</h3>
-            <p class="text-gray-600">Safe and supervised transportation for school and college trips.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Pilgrimages</h3>
-            <p class="text-gray-600">Religious tours to temples and holy places across India.</p>
-          </div>
         </div>
       </div>
     </section>
