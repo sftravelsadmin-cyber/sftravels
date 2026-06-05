@@ -215,7 +215,7 @@ export const blogPosts = [
     date: "2024-03-22",
     dateFormatted: "March 22, 2024",
     author: "SF Travels Team",
-    image: "https://images.unsplash.com/photo-1566296440929-a5e2ebad2b0c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1614531341773-3bff8b7cb3fc?w=800&q=80",
     tags: ["Coorg", "Road Trip", "Weekend Getaway"],
     featured: false,
     content: [

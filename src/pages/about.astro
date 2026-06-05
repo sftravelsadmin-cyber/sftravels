@@ -7,30 +7,37 @@ import Layout from '../layouts/Layout.astro';
   description="Learn about the legacy of SF Travels. Built on absolute safety, transparent slab rate pricing, exceptional chauffeur hospitality, and executive corporate fleet transport."
 >
   
-
-  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12 text-slate-800">
-    <section class="relative min-h-[50vh] flex items-center justify-center pt-20 overflow-hidden">
+  <main class="bg-white min-h-screen overflow-x-hidden pt-12 text-slate-800">
+    <!-- Hero Banner Section (Matches homepage dark-themed vibe, styled for bright and clear readability) -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 z-0"
-            style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/bda0fdb8b258bf205c0653b2583c1ec0.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/bda0fdb8b258bf205c0653b2583c1ec0.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
         </div>
-        <div
-            class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none">
-        </div>
-        <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">About Us
+        <!-- Ultra-premium high-contrast dark overlay to make text pop -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050914]/95 via-[#0A1128]/85 to-[#050914]/95 z-10 pointer-events-none"></div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center max-w-4xl">
+            <span class="font-bold text-sm uppercase tracking-[0.25em] block mb-4 drop-shadow" style="color: #ffffff !important;">ABOUT SF Travels</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md" style="color: #ffffff !important;">
+                Redefining Premium Mobility <br /><span style="color: #fbbf24 !important;" class="drop-shadow-md">in Bangalore</span>
             </h1>
-            <p
-                class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-                Your trusted partner for reliable and comfortable transportation in Bangalore</p>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-md" style="color: #ffffff !important;">
+                Learn about the legacy of SF Travels. Built on absolute safety, transparent slab rate pricing, exceptional chauffeur hospitality, and executive corporate fleet transport.
+            </p>
+            <div class="inline-block bg-[#D97706]/20 border border-[#D97706]/40 text-[#fbbf24] font-bold text-xs md:text-sm uppercase tracking-widest px-6 py-2.5 rounded-full shadow-md backdrop-blur-sm">
+                <span>"Smooth Ride On Time"</span>
+            </div>
         </div>
     </section>
-    <section class="py-12 sm:py-16 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6">
+
+    <!-- Our Story Section (Matches homepage's grid with floating cards) -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                <div class="lg:w-1/2"><span
-                        class="text-[#1E2D5A] font-bold tracking-wider uppercase text-sm mb-2 block">Who We Are</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-                    <div class="prose prose-lg text-gray-600 space-y-4">
+                <!-- Left: Copy -->
+                <div class="lg:w-1/2">
+                    <span class="text-[#D97706] font-bold tracking-[0.2em] uppercase text-sm mb-3 block">Who We Are</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-[#1a1f36] mb-6">Our Story</h2>
+                    <div class="prose prose-lg text-slate-600 space-y-5 leading-relaxed">
                         <p>SF Travels has been serving Bangalore with premium taxi and vehicle rental
                             services. What started as a small venture has grown into one of the most trusted
                             transportation service providers in the city, thanks to our commitment to quality and
@@ -43,27 +50,30 @@ import Layout from '../layouts/Layout.astro';
                             rentals to event transportation.</p>
                     </div>
                 </div>
-                <div class="lg:w-1/2 w-full">
-                    <div class="relative group">
-                        <div
-                            class="absolute -inset-4 bg-[#1E2D5A]/20 rounded-2xl transform rotate-3 -z-10 transition-transform duration-500 group-hover:rotate-6">
-                        </div><img
-                            src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/17d45fe9289d06ad8c7db9829895c83d.png"
-                            alt="SF Travels Premium Office"
-                            class="w-full h-auto rounded-xl shadow-2xl object-cover transform transition-transform duration-500 hover:scale-[1.01]">
-                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl hidden md:block">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-green-100 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="w-6 h-6 text-[#1E2D5A]">
-                                        <circle cx="12" cy="8" r="6"></circle>
-                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                                    </svg></div>
-                                <div>
-                                    <p class="text-sm text-gray-500 font-medium">Experience</p>
-                                    <p class="text-lg font-bold text-gray-900">Premium Quality</p>
-                                </div>
+                <!-- Right: Image with overlaps -->
+                <div class="lg:w-1/2 w-full relative">
+                    <!-- Floating shadow background glow -->
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#D97706]/15 to-[#1E2D5A]/10 rounded-[36px] blur-2xl opacity-60"></div>
+                    <div class="relative group px-4">
+                        <div class="absolute -inset-2 bg-[#1E2D5A]/10 rounded-2xl transform rotate-3 -z-10 transition-transform duration-500 group-hover:rotate-6"></div>
+                        <img
+                            src="/premium_travel_fleet.png"
+                            alt="SF Travels Premium Fleet"
+                            class="w-full h-auto rounded-xl shadow-2xl object-cover transform transition-transform duration-500 hover:scale-[1.01]"
+                        />
+                        <div class="absolute -bottom-6 -left-2 bg-slate-900/95 backdrop-blur-md p-5 rounded-2xl shadow-2xl border border-slate-800 hidden md:flex items-center gap-4 text-white z-20">
+                            <div class="bg-[#D97706]/15 p-3 rounded-xl border border-[#D97706]/30">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="w-6 h-6">
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Experience</p>
+                                <p class="text-base font-extrabold text-[#D97706]">Premium Quality Service</p>
                             </div>
                         </div>
                     </div>
@@ -71,173 +81,207 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
-    <section class="py-12 sm:py-16 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border-t-4 border-[#1E2D5A]">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-                    <p class="text-gray-600 leading-relaxed">To provide safe, reliable, and comfortable transportation
-                        services that exceed customer expectations. We strive to make every journey pleasant and
-                        hassle-free by maintaining the highest standards of service quality and professionalism.</p>
+
+    <!-- Mission & Vision Section (Alternating layout: Car Image on Left, Cards on Right) -->
+    <section class="py-24 bg-[#fafaf8] border-y border-slate-100 relative overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#1E2D5A]/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#D97706]/5 rounded-full blur-3xl"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <!-- Left: Luxury Car Image -->
+                <div class="lg:w-5/12 w-full relative">
+                    <!-- Floating shadow background glow -->
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#D97706]/10 to-[#1E2D5A]/15 rounded-[36px] blur-2xl opacity-60"></div>
+                    <div class="relative group px-4">
+                        <div class="absolute -inset-2 bg-[#D97706]/10 rounded-2xl transform -rotate-3 -z-10 transition-transform duration-500 group-hover:-rotate-6"></div>
+                        <img
+                            src="/luxury_mission_car.png"
+                            alt="SF Travels Premium Sedan"
+                            class="w-full h-auto rounded-xl shadow-2xl object-cover transform transition-transform duration-500 hover:scale-[1.01]"
+                        />
+                    </div>
                 </div>
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border-t-4 border-slate-800">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
-                    <p class="text-gray-600 leading-relaxed">To be the most preferred transportation service provider in
-                        Bangalore and beyond, known for our commitment to excellence, innovation, and customer
-                        satisfaction. We aim to set new benchmarks in the travel and tourism industry.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-12 sm:py-16 bg-white">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">Our Core Values</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-green-50 p-3 rounded-lg flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="w-8 h-8 text-[#1E2D5A]">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-                            </svg></div>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Safety First</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Well-maintained vehicles and
-                                verified professional drivers ensure your safety.</p>
+                <!-- Right: Mission & Vision Cards Stack -->
+                <div class="lg:w-7/12 w-full flex flex-col gap-8">
+                    <!-- Mission Card -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200/50 border-t-8 border-t-[#1E2D5A] hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#1E2D5A" stroke-width="2.5" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
                         </div>
+                        <h2 class="text-2xl font-extrabold text-[#1a1f36] mb-4">Our Mission</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            To provide safe, reliable, and comfortable transportation services that exceed customer expectations. We strive to make every journey pleasant and hassle-free by maintaining the highest standards of service quality and professionalism.
+                        </p>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-green-50 p-3 rounded-lg flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="w-8 h-8 text-[#1E2D5A]">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg></div>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Punctuality</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">We value your time and ensure
-                                on-time service for all bookings.</p>
+                    <!-- Vision Card -->
+                    <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-200/50 border-t-8 border-t-[#D97706] hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#D97706" stroke-width="2.5" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
                         </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-green-50 p-3 rounded-lg flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="w-8 h-8 text-[#1E2D5A]">
-                                <path
-                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
-                                </path>
-                            </svg></div>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Customer Care</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Your satisfaction is our
-                                priority with 24/7 customer support.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-green-50 p-3 rounded-lg flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="w-8 h-8 text-[#1E2D5A]">
-                                <circle cx="12" cy="8" r="6"></circle>
-                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                            </svg></div>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Quality Service</h3>
-                            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">Premium vehicles and
-                                professional service at competitive prices.</p>
-                        </div>
+                        <h2 class="text-2xl font-extrabold text-[#1a1f36] mb-4">Our Vision</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            To be the most preferred transportation service provider in Bangalore and beyond, known for our commitment to excellence, innovation, and customer satisfaction. We aim to set new benchmarks in the travel and tourism industry.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="py-12 sm:py-16 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Why Choose Us</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+
+    <!-- Core Values Section (Matches the homepage clean features section) -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block text-center mb-3">Our Core Values</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] text-center mb-5">The Principles We Stand By</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">We guide our daily operations through a customer-first commitment to quality travel.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Value 1: Safety First -->
+                <div class="group rounded-3xl p-8 border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1a1f36] mb-3 group-hover:text-[#1E2D5A] transition-colors">Safety First</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Well-maintained vehicles and verified professional drivers ensure absolute passenger safety.</p>
+                </div>
+                
+                <!-- Value 2: Punctuality -->
+                <div class="group rounded-3xl p-8 border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6 group-hover:bg-[#D97706] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1a1f36] mb-3 group-hover:text-[#D97706] transition-colors">Punctuality</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We value your time above all. We ensure on-time chauffeur dispatches for every booking.</p>
+                </div>
+                
+                <!-- Value 3: Customer Care -->
+                <div class="group rounded-3xl p-8 border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1a1f36] mb-3 group-hover:text-[#1E2D5A] transition-colors">Customer Care</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Dedicated 24/7 helpdesk and booking coordinators ready to assist with custom travel plans.</p>
+                </div>
+                
+                <!-- Value 4: Quality Service -->
+                <div class="group rounded-3xl p-8 border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6 group-hover:bg-[#D97706] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1a1f36] mb-3 group-hover:text-[#D97706] transition-colors">Quality Service</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Premium fleet presentation, clean cabins, and highly professional chauffeur hospitality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section (Matches the homepage's News/Stories and clean 3-col grids) -->
+    <section class="py-24 bg-[#f5f4f0] border-t border-slate-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Why Choose Us</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Everything You Expect from a Premium Travel Partner</h2>
+                <p class="text-slate-505 max-w-2xl mx-auto text-lg leading-relaxed">We provide Bangalore's most reliable and professional executive passenger transit.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Reason 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">Wide Fleet Selection</h3>
-                            <p class="text-gray-600 text-sm">From sedans to luxury buses, we have vehicles for every
-                                need.</p>
-                        </div>
                     </div>
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">Wide Fleet Selection</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-grow">From sedans and premium SUVs to executive vans and luxury buses, we have vehicles for every custom travel need.</p>
+                </div>
+                
+                <!-- Reason 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">Professional Drivers</h3>
-                            <p class="text-gray-600 text-sm">Experienced, courteous, and well-trained chauffeurs.</p>
-                        </div>
                     </div>
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">Professional Drivers</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-grow">Experienced, courteous, and well-trained chauffeurs specialized in local routing and highway safety guidelines.</p>
+                </div>
+                
+                <!-- Reason 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">24/7 Availability</h3>
-                            <p class="text-gray-600 text-sm">Round-the-clock service for all your travel needs.</p>
-                        </div>
                     </div>
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">24/7 Dispatch Desk</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-grow">Dedicated round-the-clock booking dispatchers and customer help desks for instant booking updates.</p>
+                </div>
+                
+                <!-- Reason 4 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">Transparent Pricing</h3>
-                            <p class="text-gray-600 text-sm">No hidden charges, clear pricing for all services.</p>
-                        </div>
                     </div>
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">Transparent Slab Rates</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-grow">No surprise fees or extra mileage markups. Detailed slab billing with clear itemized invoicing provided.</p>
+                </div>
+                
+                <!-- Reason 5 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">Well-Maintained Vehicles</h3>
-                            <p class="text-gray-600 text-sm">Regular maintenance and cleaning for your comfort.</p>
-                        </div>
                     </div>
-                    <div
-                        class="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm border border-transparent hover:border-[#1E2D5A]/30 transition-colors">
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">Well-Maintained Fleet</h3>
+                    <p class="text-slate-505 text-sm leading-relaxed flex-grow">Every vehicle undergoes mandatory multi-point inspections and complete sanitization before every run.</p>
+                </div>
+                
+                <!-- Reason 6 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:border-[#1E2D5A]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center mb-6 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="w-5 h-5 text-[#1E2D5A] flex-shrink-0 mt-0.5">
+                            stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-6 h-6 text-[#D97706]">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <path d="m9 11 3 3L22 4"></path>
                         </svg>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-1">Customer Support</h3>
-                            <p class="text-gray-600 text-sm">Dedicated team ready to assist you anytime.</p>
-                        </div>
                     </div>
+                    <h3 class="font-extrabold text-[#1a1f36] text-lg mb-2">Corporate Attachment</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-grow">Trusted corporate transit attachment provider for major MNCs, tech hubs, and corporate events across Karnataka.</p>
                 </div>
             </div>
         </div>

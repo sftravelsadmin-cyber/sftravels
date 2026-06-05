@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// SF Travels - Contact Us Page (Excluding Map as requested)
 ---
 
 <Layout 
@@ -9,781 +7,384 @@ import Layout from '../layouts/Layout.astro';
   description="Connect with the SF Travels team in Bangalore. Operational 24/7 for booking dispatch, corporate attachment programs, outstations, and premium travel coordination."
 >
 
-  <!-- ==================== PAGE HERO HEADER ==================== -->
-  <section class="contact-hero-section">
-    <div class="hero-overlay"></div>
-    <div class="container relative z-10 text-center">
-      <span class="gold-subtitle">CONTACT US</span>
-      <h1 class="contact-hero-title">
-        Connect with the <br /><span class="gold-text">SF Travels</span> Mobility Desk
-      </h1>
-      <p class="contact-hero-subtitle max-w-3xl mx-auto">
-        Our dispatch and corporate booking desks are operational 24/7 to manage your travel logistics, business attachments, or custom outstation itineraries.
-      </p>
-      <div class="tagline-badge">
-        <span>"Smooth Ride On Time"</span>
+  <main class="bg-white min-h-screen overflow-x-hidden pt-12 text-slate-800">
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center center; background-attachment: fixed;">
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== CONTACT CHANNELS & FORM SECTION ==================== -->
-  <section class="section-padding contact-main-section">
-    <div class="container contact-container">
-      
-      <!-- Left Column: Rich Contact Cards -->
-      <div class="contact-info-col">
-        <div class="text-left mb-8">
-          <span class="gold-subtitle">DIRECT REACH</span>
-          <h2 class="section-title text-dark">Get in Touch Instantly</h2>
-          <p class="section-desc text-muted">
-            Have an urgent booking, a corporate dispatch requirement, or want to attach your premium commercial vehicle? Tap any channel below to reach Gagan's operations desk immediately.
-          </p>
+      <!-- Ultra-premium dark overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#050914]/95 via-[#0A1128]/85 to-[#050914]/95 z-10 pointer-events-none"></div>
+      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center max-w-4xl">
+        <span class="font-bold text-sm uppercase tracking-[0.25em] block mb-4 drop-shadow" style="color: #ffffff !important;">Contact Us</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md" style="color: #ffffff !important;">
+          Connect with the <br />
+          <span style="color: #fbbf24 !important;" class="drop-shadow-md">SF Travels</span> Mobility Desk
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-md" style="color: #ffffff !important;">
+          Our dispatch and corporate booking desks are operational 24/7 to manage your travel logistics, business attachments, or custom outstation itineraries.
+        </p>
+        <div class="inline-block bg-[#D97706]/20 border border-[#D97706]/40 text-[#fbbf24] font-bold text-xs md:text-sm uppercase tracking-widest px-6 py-2.5 rounded-full shadow-md backdrop-blur-sm">
+          <span>"Smooth Ride On Time"</span>
         </div>
+      </div>
+    </section>
 
-        <!-- Contact Detail Cards -->
-        <div class="info-cards-stack">
-          
-          <!-- Card 1: Phones & WhatsApp -->
-          <div class="info-card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    <!-- ===== QUICK CONTACT CTA STRIP ===== -->
+    <section class="bg-[#1E2D5A] py-0">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <!-- Phone -->
+          <a href="tel:9353966815" class="flex items-center justify-center gap-4 py-6 px-6 hover:bg-white/5 transition-colors duration-300 group">
+            <div class="w-10 h-10 rounded-full bg-[#D97706]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D97706]/40 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#fbbf24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
             </div>
-            <div class="card-content">
-              <h3 class="card-label">Corporate Hotlines</h3>
-              <p class="card-val-text">Immediate Operations Support & Dispatch</p>
-              <div class="card-action-row">
-                <a href="tel:9353966815" class="btn-card-phone">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  <span>+91 9353966815</span>
-                </a>
-                <a 
-                  href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="btn-card-wa"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
-                  <span>WhatsApp Chat</span>
-                </a>
-              </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Call Directly</p>
+              <p class="text-white font-extrabold text-base">+91 9353966815</p>
             </div>
-          </div>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 py-6 px-6 hover:bg-white/5 transition-colors duration-300 group">
+            <div class="w-10 h-10 rounded-full bg-[#D97706]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D97706]/40 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#fbbf24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">WhatsApp Chat</p>
+              <p class="text-white font-extrabold text-base">+91 9353966815</p>
+            </div>
+          </a>
+          <!-- Email -->
+          <a href="mailto:sftravelsadmin@gmail.com" class="flex items-center justify-center gap-4 py-6 px-6 hover:bg-white/5 transition-colors duration-300 group">
+            <div class="w-10 h-10 rounded-full bg-[#D97706]/20 flex items-center justify-center shrink-0 group-hover:bg-[#D97706]/40 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#fbbf24]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"></path></svg>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Us</p>
+              <p class="text-white font-extrabold text-base">sftravelsadmin@gmail.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-          <!-- Card 2: Email Addresses -->
-          <div class="info-card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            </div>
-            <div class="card-content">
-              <h3 class="card-label">Official Correspondence</h3>
-              <p class="card-val-text">For billing logs, corporate contracts, and vacancy attachments</p>
-              <div class="email-group">
-                <a href="mailto:bookings@sftravels.com" class="email-link">bookings@sftravels.com</a>
-                <a href="mailto:sftravelsadmin@gmail.com" class="email-link">sftravelsadmin@gmail.com</a>
-              </div>
-            </div>
-          </div>
+    <!-- ===== MAIN CONTACT SECTION (Info Cards + Form) ===== -->
+    <section class="py-24 bg-white overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-start">
 
-          <!-- Card 3: Physical Address -->
-          <div class="info-card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <div class="card-content">
-              <h3 class="card-label">Registered Headquarters</h3>
-              <p class="address-text">
-                Shirke Rd, KHB Colony, Shirke Layout, Kengeri Satellite Town, Bengaluru, Karnataka 560060, India
+          <!-- ---- LEFT: Contact Information Cards ---- -->
+          <div>
+            <div class="mb-10">
+              <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Direct Reach</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Get in Touch Instantly</h2>
+              <p class="text-slate-500 text-lg leading-relaxed">
+                Have an urgent booking, a corporate dispatch requirement, or want to attach your premium commercial vehicle? Tap any channel below to reach our operations desk immediately.
               </p>
-              <span class="location-badge">Kengeri satellite town desk</span>
+            </div>
+
+            <div class="flex flex-col gap-5">
+
+              <!-- Card 1: Phone & WhatsApp -->
+              <div class="group bg-[#fafaf8] hover:bg-white border border-slate-100 hover:border-[#D97706]/30 hover:shadow-xl rounded-3xl p-7 flex gap-5 items-start transition-all duration-300 hover:-translate-y-0.5">
+                <div class="w-14 h-14 rounded-2xl bg-[#D97706]/10 flex items-center justify-center shrink-0 group-hover:bg-[#D97706] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D97706] group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                </div>
+                <div class="flex-grow">
+                  <h3 class="font-extrabold text-[#1a1f36] text-lg mb-1">Corporate Hotlines</h3>
+                  <p class="text-slate-500 text-sm mb-4">Immediate operations support &amp; dispatch — 24/7</p>
+                  <div class="flex flex-wrap gap-3">
+                    <a href="tel:9353966815" class="inline-flex items-center gap-2 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                      +91 9353966815
+                    </a>
+                    <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Email -->
+              <div class="group bg-[#fafaf8] hover:bg-white border border-slate-100 hover:border-[#1E2D5A]/20 hover:shadow-xl rounded-3xl p-7 flex gap-5 items-start transition-all duration-300 hover:-translate-y-0.5">
+                <div class="w-14 h-14 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#1E2D5A] group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"></path></svg>
+                </div>
+                <div class="flex-grow">
+                  <h3 class="font-extrabold text-[#1a1f36] text-lg mb-1">Official Correspondence</h3>
+                  <p class="text-slate-500 text-sm mb-3">For billing, corporate contracts, and vacancy attachments</p>
+                  <div class="flex flex-col gap-1.5">
+                    <a href="mailto:sftravelsadmin@gmail.com" class="text-[#D97706] hover:text-[#b45309] font-semibold text-sm transition-colors">sftravelsadmin@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Address -->
+              <div class="group bg-[#fafaf8] hover:bg-white border border-slate-100 hover:border-[#D97706]/30 hover:shadow-xl rounded-3xl p-7 flex gap-5 items-start transition-all duration-300 hover:-translate-y-0.5">
+                <div class="w-14 h-14 rounded-2xl bg-[#D97706]/10 flex items-center justify-center shrink-0 group-hover:bg-[#D97706] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D97706] group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="flex-grow">
+                  <h3 class="font-extrabold text-[#1a1f36] text-lg mb-1">Registered Headquarters</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed mb-3">
+                    Shirke Rd, KHB Colony, Shirke Layout, Kengeri Satellite Town, Bengaluru, Karnataka 560060, India
+                  </p>
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-widest text-[#D97706] bg-[#D97706]/10 border border-[#D97706]/20 px-3 py-1 rounded-full">Kengeri Satellite Town Desk</span>
+                </div>
+              </div>
+
+              <!-- Card 4: Operating Hours -->
+              <div class="group bg-[#fafaf8] hover:bg-white border border-slate-100 hover:border-[#1E2D5A]/20 hover:shadow-xl rounded-3xl p-7 flex gap-5 items-start transition-all duration-300 hover:-translate-y-0.5">
+                <div class="w-14 h-14 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center shrink-0 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#1E2D5A] group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="flex-grow">
+                  <h3 class="font-extrabold text-[#1a1f36] text-lg mb-3">Operational Hours</h3>
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Admin &amp; Onboarding Office</p>
+                      <p class="text-slate-700 font-semibold text-sm">Open 24 Hours <span class="font-normal text-slate-500">(Mon – Sun)</span></p>
+                    </div>
+                    <div class="pt-2 border-t border-slate-100">
+                      <p class="text-[10px] font-bold uppercase tracking-widest text-[#D97706] mb-1">Emergency Dispatch &amp; Booking</p>
+                      <p class="text-[#1E2D5A] font-extrabold text-sm">OPEN 24 HOURS / 365 DAYS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <!-- Card 4: Operating Hours -->
-          <div class="info-card">
-            <div class="card-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-            <div class="card-content">
-              <h3 class="card-label">Operational Hours</h3>
-              <div class="hours-grid">
-                <div class="hour-row">
-                  <span class="hour-lbl">Admin & Onboarding Office:</span>
-                  <span class="hour-val">Open 24 Hours <span class="days">(Mon – Sun)</span></span>
-                </div>
-                <div class="hour-row highlight-green">
-                  <span class="hour-lbl">Emergency Dispatch & Booking:</span>
-                  <span class="hour-val font-bold">OPEN 24 HOURS / 365 DAYS</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Right Column: Premium Netlify Enquiry Form -->
-      <div class="contact-form-col">
-        <div class="form-card glass-card">
-          <div class="form-header">
-            <h3 class="form-title">Send a Message to Our Desk</h3>
-            <p class="form-subtitle">
-              Fill out the enquiry form below. Our operations desk will get in touch with you within 15 minutes.
-            </p>
-          </div>
-
-          <!-- Enquiry form (Web3Forms integrated) -->
-          <form class="contact-enquiry-form" name="contact-enquiry" action="https://api.web3forms.com/submit" method="POST" id="contactEnquiryForm">
-            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-            <input type="hidden" name="subject" value="New Website Enquiry - SF Travels" />
-            <input type="hidden" name="from_name" value="SF Travels Website" />
-            <input type="hidden" name="replyto" value="" id="contactReplyToInput" />
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-            <div class="contact-form-fields">
-              
-              <!-- Full Name -->
-              <div class="form-group">
-                <label>Your Full Name <span class="req">*</span></label>
-                <div class="input-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                  <input type="text" name="fullName" placeholder="Your Name" required />
-                </div>
-              </div>
-
-              <!-- Phone Number -->
-              <div class="form-group">
-                <label>Phone Number <span class="req">*</span></label>
-                <div class="input-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  <input type="tel" name="phoneNumber" placeholder="10-digit number" required />
-                </div>
-              </div>
-
-              <!-- Email Address -->
-              <div class="form-group">
-                <label>Email Address <span class="req">*</span></label>
-                <div class="input-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                  <input type="email" name="emailAddress" placeholder="you@domain.com" required />
-                </div>
-              </div>
-
-              <!-- Enquiry Type Dropdown -->
-              <div class="form-group">
-                <label>Enquiry Type <span class="req">*</span></label>
-                <div class="input-wrapper select-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
-                  <select name="enquiryType" required>
-                    <option value="" disabled selected>Select an enquiry type</option>
-                    <option value="General Cab Booking">General Cab Booking (Local/Airport)</option>
-                    <option value="Corporate Travel Attachment">Corporate Travel Attachment (MNC Contracts)</option>
-                    <option value="Outstation / Tours Package">Outstation / Holiday Tour Packages</option>
-                    <option value="Careers / Vacancy Inquiry">Careers / Chauffeur Vacancies</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Message -->
-              <div class="form-group span-full-grid">
-                <label>Your Message <span class="req">*</span></label>
-                <div class="input-wrapper textarea-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon textarea-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                  <textarea name="message" rows="5" placeholder="Write details about your travel query here..." required></textarea>
-                </div>
-              </div>
-
-              <!-- Action submits -->
-              <div class="form-actions span-full-grid">
-                <button type="submit" class="btn-gold submit-btn">
-                  <span>Send Message</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </button>
-              </div>
-
-            </div>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</Layout>
-
-<style>
-  /* ==================== CONTACT HERO STYLES ==================== */
-  .contact-hero-section {
-    min-height: 50vh;
-    position: relative;
-    padding-top: 150px;
-    padding-bottom: 70px;
-    display: flex;
-    align-items: center;
-    background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    overflow: hidden;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(5, 13, 26, 0.95) 0%, rgba(5, 13, 26, 0.82) 100%);
-    z-index: 1;
-  }
-  
-  .relative {
-    position: relative;
-  }
-  
-  .z-10 {
-    z-index: 10;
-  }
-  
-  .contact-hero-title {
-    font-size: 3.5rem;
-    line-height: 1.15;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--text-heading);
-  }
-  
-  .contact-hero-subtitle {
-    font-size: 1.15rem;
-    color: var(--text-body);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-  
-  .tagline-badge {
-    display: inline-block;
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: var(--accent-light);
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 8px 20px;
-    border-radius: 20px;
-  }
-
-  .gold-subtitle {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-    color: var(--accent-dark);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 12px;
-  }
-
-  .text-dark {
-    color: #050d1a !important;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-  }
-  
-  .section-desc {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 30px;
-  }
-
-  .max-w-3xl {
-    max-width: 48rem;
-  }
-
-  .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ==================== MAIN LAYOUT GRID ==================== */
-  .contact-main-section {
-    background-color: #ffffff;
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
-  }
-
-  .contact-container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 50px;
-    align-items: start;
-  }
-
-  /* Left Column Cards Stack */
-  .info-cards-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .info-card {
-    background: #ffffff;
-    border: 1px solid rgba(5, 13, 26, 0.05);
-    border-radius: var(--border-radius);
-    padding: 28px;
-    display: flex;
-    gap: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-    transition: var(--transition-smooth);
-  }
-
-  .info-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(16, 185, 129, 0.2);
-    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.06);
-  }
-
-  .card-icon-wrapper {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--accent-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .card-icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-grow: 1;
-  }
-
-  .card-label {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #050d1a !important;
-  }
-
-  .card-val-text {
-    font-size: 0.88rem;
-    color: #64748b;
-  }
-
-  /* Hotlines action buttons */
-  .card-action-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-
-  .btn-card-phone, .btn-card-wa {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    height: 38px;
-    padding: 0 16px;
-    border-radius: 6px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: var(--transition-smooth);
-    cursor: pointer;
-  }
-
-  .btn-card-phone {
-    background: #0b172a;
-    color: var(--text-heading) !important;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-  }
-
-  .btn-card-phone:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent-dark);
-  }
-
-  .btn-card-wa {
-    background: var(--accent);
-    color: var(--text-heading) !important;
-  }
-
-  .btn-card-wa:hover {
-    background: var(--accent-dark);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-  }
-
-  .btn-icon {
-    width: 14px;
-    height: 14px;
-    stroke-width: 2.5;
-  }
-
-  /* Emails links */
-  .email-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-top: 4px;
-  }
-
-  .email-link {
-    font-size: 0.95rem;
-    color: var(--accent-dark);
-    font-weight: 600;
-    transition: var(--transition-smooth);
-    width: fit-content;
-  }
-
-  .email-link:hover {
-    color: #151f3f;
-    text-decoration: underline;
-  }
-
-  /* HQ details */
-  .address-text {
-    font-size: 0.92rem;
-    color: #4b5563;
-    line-height: 1.6;
-  }
-
-  .location-badge {
-    align-self: flex-start;
-    background: rgba(16, 185, 129, 0.08);
-    color: var(--accent-dark);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    margin-top: 8px;
-  }
-
-  /* Hours styles */
-  .hours-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .hour-row {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 0.9rem;
-    color: #4b5563;
-  }
-
-  .hour-lbl {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .hour-val {
-    color: #050d1a;
-    font-weight: 600;
-  }
-
-  .days {
-    font-weight: 500;
-    font-size: 0.8rem;
-    color: #64748b;
-  }
-
-  .highlight-green .hour-lbl {
-    color: var(--accent-dark);
-  }
-
-  .highlight-green .hour-val {
-    color: var(--accent-dark);
-    font-size: 0.95rem;
-  }
-
-  /* ==================== ENQUIRY FORM CARD STYLES ==================== */
-  .form-card {
-    padding: 40px;
-    border-color: rgba(16, 185, 129, 0.2);
-    box-shadow: 0 15px 40px rgba(5, 13, 26, 0.08);
-  }
-
-  .form-header {
-    margin-bottom: 30px;
-    border-b: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 20px;
-  }
-
-  .form-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-heading);
-    margin-bottom: 8px;
-  }
-
-  .form-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  .contact-form-fields {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .span-full-grid {
-    grid-column: span 1;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group label {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-heading);
-  }
-
-  .req {
-    color: var(--accent);
-  }
-
-  .input-wrapper {
-    position: relative;
-    width: 100%;
-  }
-
-  .input-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    color: var(--accent);
-    pointer-events: none;
-  }
-
-  .textarea-icon {
-    top: 20px;
-    transform: none;
-  }
-
-  .input-wrapper input, .input-wrapper select, .input-wrapper textarea {
-    width: 100%;
-    background: rgba(5, 13, 26, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding-left: 44px;
-    padding-right: 16px;
-    color: var(--text-heading);
-    font-size: 0.9rem;
-    transition: var(--transition-smooth);
-  }
-
-  .input-wrapper input, .input-wrapper select {
-    height: 48px;
-  }
-
-  .input-wrapper textarea {
-    padding-top: 14px;
-    resize: none;
-  }
-
-  .input-wrapper input:focus, .input-wrapper select:focus, .input-wrapper textarea:focus {
-    border-color: var(--accent);
-    background: rgba(5, 13, 26, 0.8);
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
-  }
-
-  .select-wrapper select {
-    appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-  }
-
-  .select-wrapper::after {
-    content: '';
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid var(--accent);
-    pointer-events: none;
-  }
-
-  .form-actions {
-    margin-top: 10px;
-  }
-
-  .submit-btn {
-    height: 50px;
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .submit-btn svg {
-    width: 18px;
-    height: 18px;
-    stroke-width: 2.5;
-    flex-shrink: 0;
-    transition: var(--transition-smooth);
-  }
-
-  .submit-btn:hover svg {
-    transform: translateX(4px);
-  }
-
-  /* ==================== RESPONSIVE LAYOUTS ==================== */
-  @media (max-width: 992px) {
-    .contact-hero-title {
-      font-size: 2.8rem;
-    }
-
-    .contact-container {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .contact-hero-section {
-      padding-top: 120px;
-      padding-bottom: 50px;
-    }
-
-    .contact-hero-title {
-      font-size: 2.2rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-    }
-
-    .info-card {
-      padding: 20px;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .form-card {
-      padding: 24px;
-    }
-  }
-</style>
-
-<script>
-  const initContactForm = () => {
-    const contactForm = document.getElementById('contactEnquiryForm');
-    if (!contactForm) return;
-
-    const emailInput = contactForm.querySelector('input[name="emailAddress"]');
-    const replyToInput = document.getElementById('contactReplyToInput') as HTMLInputElement;
-
-    if (emailInput && replyToInput) {
-      emailInput.addEventListener('input', () => {
-        replyToInput.value = (emailInput as HTMLInputElement).value;
-      });
-    }
-
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Honeypot spam check
-      const botcheck = contactForm.querySelector('input[name="botcheck"]') as HTMLInputElement;
-      if (botcheck && botcheck.checked) {
-        console.warn("Spam submission blocked.");
-        return;
-      }
-
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const formElements = contactForm.querySelectorAll('input, select, textarea, button');
-
-      if (submitBtn) submitBtn.classList.add('btn-loading');
-
-      const formData = new FormData(contactForm);
-      formElements.forEach(el => el.setAttribute('disabled', 'true'));
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(async (response) => {
-        const json = await response.json();
-        if (response.status === 200) {
-          // Success: replace form content with a premium inline success card
-          const formCard = contactForm.closest('.form-card');
-          if (formCard) {
-            formCard.innerHTML = `
-              <div class="form-success-inline">
-                <div class="success-icon-circle">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width: 36px; height: 36px;">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <h3 class="success-title">Message Sent!</h3>
-                <p class="success-message">
-                  Thank you for reaching out, <strong>${formData.get('fullName')}</strong>. Your enquiry has been routed directly to our mobility desk. Gagan or a dispatch coordinator will contact you shortly.
+          <!-- ---- RIGHT: Enquiry Form ---- -->
+          <div class="lg:sticky lg:top-28">
+            <div class="form-card bg-white rounded-3xl shadow-xl border border-slate-200/50 p-8 md:p-10">
+              <div class="mb-8 pb-6 border-b border-slate-100">
+                <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Send a Message</span>
+                <h2 class="text-2xl font-extrabold text-[#1a1f36] mb-2">Reach Our Operations Desk</h2>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                  Fill out the enquiry form below. Our operations desk will get in touch within 15 minutes.
                 </p>
-                <div class="success-actions">
-                  <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="btn-wa-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 18px; height: 18px;" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
-                    </svg>
-                    <span>Connect via WhatsApp</span>
+              </div>
+
+              <!-- Enquiry form (Web3Forms integrated) -->
+              <form class="space-y-5" name="contact-enquiry" action="https://api.web3forms.com/submit" method="POST" id="contactEnquiryForm">
+                <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
+                <input type="hidden" name="subject" value="New Website Enquiry - SF Travels" />
+                <input type="hidden" name="from_name" value="SF Travels Website" />
+                <input type="hidden" name="replyto" value="" id="contactReplyToInput" />
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+                <!-- Full Name -->
+                <div class="flex flex-col gap-2">
+                  <label class="font-semibold text-slate-700 text-sm">Your Full Name <span class="text-red-500">*</span></label>
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <input type="text" name="fullName" placeholder="Your Name" required
+                      class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm" />
+                  </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="flex flex-col gap-2">
+                  <label class="font-semibold text-slate-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                    <input type="tel" name="phoneNumber" placeholder="10-digit number" required
+                      class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm" />
+                  </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="flex flex-col gap-2">
+                  <label class="font-semibold text-slate-700 text-sm">Email Address <span class="text-red-500">*</span></label>
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"></path></svg>
+                    <input type="email" name="emailAddress" placeholder="you@domain.com" required id="emailAddressInput"
+                      class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm" />
+                  </div>
+                </div>
+
+                <!-- Enquiry Type -->
+                <div class="flex flex-col gap-2">
+                  <label class="font-semibold text-slate-700 text-sm">Enquiry Type <span class="text-red-500">*</span></label>
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                    <select name="enquiryType" required
+                      class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm appearance-none cursor-pointer">
+                      <option value="" disabled selected>Select an enquiry type</option>
+                      <option value="General Cab Booking">General Cab Booking (Local/Airport)</option>
+                      <option value="Corporate Travel Attachment">Corporate Travel Attachment (MNC Contracts)</option>
+                      <option value="Outstation / Tours Package">Outstation / Holiday Tour Packages</option>
+                      <option value="Careers / Vacancy Inquiry">Careers / Chauffeur Vacancies</option>
+                    </select>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div class="flex flex-col gap-2">
+                  <label class="font-semibold text-slate-700 text-sm">Your Message <span class="text-red-500">*</span></label>
+                  <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-4 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
+                    <textarea name="message" rows="4" placeholder="Write details about your travel query here..." required
+                      class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm resize-none"></textarea>
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="pt-2">
+                  <button type="submit" id="contactSubmitBtn" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-4 px-6 transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.01]">
+                    <span>Send Message</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  </button>
+                </div>
+
+                <!-- Quick WhatsApp Alternative -->
+                <div class="text-center pt-1">
+                  <p class="text-slate-400 text-xs mb-3">— or reach us directly on WhatsApp —</p>
+                  <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking%20or%20service." target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold text-sm px-6 py-3 rounded-xl transition-all duration-300 shadow hover:shadow-lg hover:scale-[1.02]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                    Chat on WhatsApp · +91 9353966815
                   </a>
                 </div>
-              </div>
-            `;
-          }
-        } else {
-          alert(json.message || "Something went wrong. Please check your form details and try again.");
-          formElements.forEach(el => el.removeAttribute('disabled'));
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CONTACT US / TRUST BADGES ===== -->
+    <section class="py-20 bg-[#fafaf8] border-t border-slate-100 relative overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-[#1E2D5A]/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-[#D97706]/5 rounded-full blur-3xl"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Our Commitment</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36]">Why Reach Out to SF Travels?</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="group rounded-3xl p-7 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 text-center transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-5 mx-auto group-hover:bg-[#D97706] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#D97706] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="font-extrabold text-[#1a1f36] mb-2">15-Min Response</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Our team responds to every enquiry within 15 minutes during operating hours.</p>
+          </div>
+
+          <div class="group rounded-3xl p-7 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 text-center transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-5 mx-auto group-hover:bg-[#1E2D5A] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#1E2D5A] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3 class="font-extrabold text-[#1a1f36] mb-2">24/7 Operations</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Dispatch and booking support round the clock, every single day of the year.</p>
+          </div>
+
+          <div class="group rounded-3xl p-7 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 text-center transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-5 mx-auto group-hover:bg-[#D97706] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#D97706] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="font-extrabold text-[#1a1f36] mb-2">Trusted Service</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Thousands of corporate clients and individual travelers have trusted us across Bangalore.</p>
+          </div>
+
+          <div class="group rounded-3xl p-7 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 text-center transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-5 mx-auto group-hover:bg-[#1E2D5A] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#1E2D5A] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </div>
+            <h3 class="font-extrabold text-[#1a1f36] mb-2">Dedicated Support</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">A real human coordinator handles your enquiry — no bots, no automated queues.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contactEnquiryForm');
+      if (!contactForm) return;
+
+      // Sync reply-to with email input
+      const emailInput = document.getElementById('emailAddressInput');
+      const replyToInput = document.getElementById('contactReplyToInput');
+      if (emailInput && replyToInput) {
+        emailInput.addEventListener('input', () => {
+          replyToInput.value = emailInput.value;
+        });
+      }
+
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const botcheck = contactForm.querySelector('input[name="botcheck"]');
+        if (botcheck && botcheck.checked) return;
+
+        const submitBtn = document.getElementById('contactSubmitBtn');
+        const formElements = contactForm.querySelectorAll('input, select, textarea, button');
+
+        if (submitBtn) {
+          submitBtn.setAttribute('disabled', 'true');
+          submitBtn.querySelector('span').innerText = 'Sending...';
         }
-      })
-      .catch(error => {
-        console.error("Submission error:", error);
-        alert("Form submission failed. Please check your internet connection and try again.");
-        formElements.forEach(el => el.removeAttribute('disabled'));
-      })
-      .finally(() => {
-        if (submitBtn) submitBtn.classList.remove('btn-loading');
+
+        const formData = new FormData(contactForm);
+        formElements.forEach(el => el.setAttribute('disabled', 'true'));
+
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+          .then(async (response) => {
+            const json = await response.json();
+            if (response.status === 200) {
+              const formCard = contactForm.closest('.form-card');
+              if (formCard) {
+                formCard.innerHTML = `
+                  <div class="text-center py-16 px-4">
+                    <div class="w-20 h-20 bg-[#D97706]/10 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-[#D97706]/30">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5" class="w-10 h-10">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-[#1a1f36] mb-4">Message Sent!</h3>
+                    <p class="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
+                      Thank you for reaching out, <strong>${formData.get('fullName')}</strong>. Your enquiry has been routed directly to our mobility desk. A coordinator will contact you within 15 minutes.
+                    </p>
+                    <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website." target="_blank" rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-3 px-8 transition-all shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                      <span>Connect via WhatsApp · +91 9353966815</span>
+                    </a>
+                  </div>
+                `;
+              }
+            } else {
+              alert(json.message || 'Something went wrong. Please try again.');
+              formElements.forEach(el => el.removeAttribute('disabled'));
+              if (submitBtn) {
+                submitBtn.removeAttribute('disabled');
+                submitBtn.querySelector('span').innerText = 'Send Message';
+              }
+            }
+          })
+          .catch(error => {
+            console.error('Submission error:', error);
+            alert('Form submission failed. Please check your connection and try again.');
+            formElements.forEach(el => el.removeAttribute('disabled'));
+            if (submitBtn) {
+              submitBtn.removeAttribute('disabled');
+              submitBtn.querySelector('span').innerText = 'Send Message';
+            }
+          });
       });
     });
-  };
+  </script>
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactForm);
-  } else {
-    initContactForm();
-  }
-</script>
+</Layout>

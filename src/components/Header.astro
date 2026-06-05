@@ -327,6 +327,17 @@
     border-radius: 14px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(30,45,90,0.08);
   }
+
+  /* Bridge the gap between the button and dropdown to prevent hover loss */
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
+  }
   
   .dropdown-wrapper:hover .dropdown-menu {
     opacity: 1;

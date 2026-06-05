@@ -6,580 +6,572 @@ import Layout from '../layouts/Layout.astro';
   title="Driver Vacancy | Join SF Travels Chauffeur Careers Bangalore"
   description="Apply to join the premier executive fleet at SF Travels in Bangalore. Secure rewarding corporate, airport, or outstation duties, flexible shifts, and timely monthly payouts."
 >
-  
 
-  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12 text-slate-800">
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
-        <div class="absolute inset-0 z-0"
-            style="background-image: url('https://images.unsplash.com/photo-1533382716971-8c02309057ba'); background-size: cover; background-position: center center;">
+  <main class="bg-white min-h-screen overflow-x-hidden pt-12 text-slate-800">
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center min-h-[85vh]">
+      <!-- Background: zoomed-in driver image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/driver_hero_cockpit.png"
+          alt="SF Travels Professional Chauffeur"
+          class="w-full h-full object-cover object-center scale-105"
+          style="filter: brightness(0.45);"
+        />
+      </div>
+      <!-- Ultra-premium gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#050914]/80 via-[#0A1128]/60 to-[#050914]/90 z-10 pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center max-w-4xl">
+        <span class="inline-block font-bold text-sm uppercase tracking-[0.25em] mb-5 px-5 py-1.5 rounded-full border border-[#D97706]/50 bg-[#D97706]/15 backdrop-blur-sm drop-shadow" style="color: #fbbf24 !important;">
+          Careers at SF Travels
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md" style="color: #ffffff !important;">
+          Drive Your Career <br />
+          <span style="color: #fbbf24 !important;" class="drop-shadow-md">Forward With Us</span>
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-md" style="color: #ffffff !important;">
+          Join Bangalore's most trusted executive fleet. Competitive pay, flexible shifts, professional training, and a company that values its chauffeurs above all.
+        </p>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#open-positions" class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.03]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            View Open Positions
+          </a>
+          <a href="#apply-now" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+            Apply Now
+          </a>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#1e40af]/90 to-slate-900/80 z-10"></div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-[#f97316]/20 text-[#f97316] font-semibold text-sm mb-4 border border-[#f97316]/30 uppercase tracking-widest">Careers</span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Driver Vacancies at <br class="hidden md:block"><span class="text-[#f97316]">SF Travels</span></h1>
-            <p class="text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed">Drive your career forward with us. We're looking for reliable, professional drivers to join our growing fleet. Enjoy competitive pay, flexible hours, and excellent benefits.</p>
+      </div>
+      <!-- Stats bar at bottom -->
+      <div class="absolute bottom-0 left-0 right-0 z-20">
+        <div class="container mx-auto px-4 sm:px-6">
+          <div class="bg-white/10 backdrop-blur-md border-t border-white/20 grid grid-cols-3 divide-x divide-white/20">
+            <div class="py-5 text-center">
+              <p class="text-2xl font-extrabold" style="color: #fbbf24 !important;">₹22K+</p>
+              <p class="text-xs font-semibold uppercase tracking-widest mt-1" style="color: #e2e8f0 !important;">Monthly Base Pay</p>
+            </div>
+            <div class="py-5 text-center">
+              <p class="text-2xl font-extrabold" style="color: #fbbf24 !important;">3 Roles</p>
+              <p class="text-xs font-semibold uppercase tracking-widest mt-1" style="color: #e2e8f0 !important;">Open Positions</p>
+            </div>
+            <div class="py-5 text-center">
+              <p class="text-2xl font-extrabold" style="color: #fbbf24 !important;">24hr</p>
+              <p class="text-xs font-semibold uppercase tracking-widest mt-1" style="color: #e2e8f0 !important;">Response Guarantee</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#1e40af] mb-4">Open Positions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Find the perfect driving role that suits your experience and lifestyle.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Position 1 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
-                    <div class="h-56 relative overflow-hidden shrink-0">
-                        <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/320cc7f1dffd78416e551eb18935d5d4.jpg" alt="Taxi/Cab Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1e40af]/90 via-[#1e40af]/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <span class="bg-[#f97316] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time / Part-time</span>
-                            <h3 class="text-2xl font-bold">Taxi/Cab Driver</h3>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col gap-6">
-                        <p class="text-gray-600 leading-relaxed text-sm">Join our core fleet to provide reliable daily transportation for local residents and corporate clients. We need punctual professionals who know city routes well.</p>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Requirements</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Valid Commercial Driving License</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Minimum 2 years local driving experience</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Good communication skills in local languages</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Clean driving record</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Key Benefits</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Flexible shift timings</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Performance incentives</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Regular vehicle maintenance provided</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex gap-3">
-                                <a href="tel:9353966815" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#1e40af] hover:bg-[#1e3a8a] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>Call
-                                </a>
-                                <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Taxi%2FCab%20Driver%20position." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
-                                    </svg>WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 2 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
-                    <div class="h-56 relative overflow-hidden shrink-0">
-                        <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/8f11dda95978e3ba5309f98d3ac66e90.jpg" alt="Airport Pickup & Drop Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1e40af]/90 via-[#1e40af]/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <span class="bg-[#f97316] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time</span>
-                            <h3 class="text-2xl font-bold">Airport Specialist</h3>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col gap-6">
-                        <p class="text-gray-600 leading-relaxed text-sm">Specialize in airport transfers, ensuring timely and comfortable rides for travelers. Requires excellent time management and professional etiquette.</p>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Requirements</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Valid Commercial Driving License</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Excellent time management skills</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Ability to handle luggage assistance</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Basic English communication</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Key Benefits</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Fixed routes</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Night shift allowance</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Premium client tips</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex gap-3">
-                                <a href="tel:9353966815" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#1e40af] hover:bg-[#1e3a8a] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>Call
-                                </a>
-                                <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Airport%20Specialist%20Driver%20position." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
-                                    </svg>WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Position 3 -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
-                    <div class="h-56 relative overflow-hidden shrink-0">
-                        <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/914cfd226753ba6ca59ea1c7287ed3e1.jpg" alt="Long-distance Tour Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1e40af]/90 via-[#1e40af]/40 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <span class="bg-[#f97316] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time</span>
-                            <h3 class="text-2xl font-bold">Long-distance Tour Driver</h3>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col gap-6">
-                        <p class="text-gray-600 leading-relaxed text-sm">Lead our premium outstation and tour packages. Navigate scenic routes across states while ensuring passenger safety and comfort over multi-day trips.</p>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Requirements</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Valid Commercial Driving License (Heavy preferred)</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Minimum 5 years highway driving experience</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Knowledge of inter-state routes</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#f97316] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Willingness to travel for multi-day trips</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#1e40af] mb-3 border-b pb-2">Key Benefits</h4>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Trip-based allowances (food & stay)</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>High earning potential</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-sm text-gray-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#1e40af] shrink-0 mt-0.5">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="m9 12 2 2 4-4"></path>
-                                        </svg>
-                                        <span>Drive premium SUVs/Travellers</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex gap-3">
-                                <a href="tel:9353966815" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#1e40af] hover:bg-[#1e3a8a] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>Call
-                                </a>
-                                <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Long-distance%20Tour%20Driver%20position." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 bg-[#f97316] hover:bg-[#ea580c] text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2">
-                                        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
-                                    </svg>WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== OPEN POSITIONS ===== -->
+    <section id="open-positions" class="py-24 bg-white overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Join the Fleet</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Open Positions</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Find the perfect driving role that suits your experience and lifestyle.</p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Position 1: Taxi/Cab Driver -->
+          <div class="group rounded-3xl border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full">
+            <div class="h-52 relative overflow-hidden shrink-0">
+              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/320cc7f1dffd78416e551eb18935d5d4.jpg" alt="Taxi/Cab Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D5A]/90 via-[#1E2D5A]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time / Part-time</span>
+                <h3 class="text-xl font-extrabold" style="color: #ffffff !important;">Taxi / Cab Driver</h3>
+              </div>
+            </div>
+            <div class="p-7 flex-grow flex flex-col gap-5">
+              <p class="text-slate-600 leading-relaxed text-sm">Join our core fleet to provide reliable daily transportation for local residents and corporate clients. We need punctual professionals who know city routes well.</p>
+              <div class="space-y-4 flex-grow">
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Requirements</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Valid Commercial Driving License</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Minimum 2 years local driving experience</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Good communication in local languages</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Clean driving record</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Key Benefits</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Flexible shift timings</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Performance incentives</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Regular vehicle maintenance provided</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-auto pt-5 border-t border-slate-100">
+                <div class="flex gap-3">
+                  <a href="tel:9353966815" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                    Call
+                  </a>
+                  <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Taxi%2FCab%20Driver%20position." target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Position 2: Airport Specialist -->
+          <div class="group rounded-3xl border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full">
+            <div class="h-52 relative overflow-hidden shrink-0">
+              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/8f11dda95978e3ba5309f98d3ac66e90.jpg" alt="Airport Pickup & Drop Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D5A]/90 via-[#1E2D5A]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time</span>
+                <h3 class="text-xl font-extrabold" style="color: #ffffff !important;">Airport Specialist</h3>
+              </div>
+            </div>
+            <div class="p-7 flex-grow flex flex-col gap-5">
+              <p class="text-slate-600 leading-relaxed text-sm">Specialize in airport transfers, ensuring timely and comfortable rides for travelers. Requires excellent time management and professional etiquette.</p>
+              <div class="space-y-4 flex-grow">
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Requirements</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Valid Commercial Driving License</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Excellent time management skills</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Ability to handle luggage assistance</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Basic English communication</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Key Benefits</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Fixed routes</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Night shift allowance</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Premium client tips</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-auto pt-5 border-t border-slate-100">
+                <div class="flex gap-3">
+                  <a href="tel:9353966815" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                    Call
+                  </a>
+                  <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Airport%20Specialist%20Driver%20position." target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Position 3: Long-distance Tour Driver -->
+          <div class="group rounded-3xl border border-slate-100 bg-[#fafaf8] hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col h-full">
+            <div class="h-52 relative overflow-hidden shrink-0">
+              <img src="https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/914cfd226753ba6ca59ea1c7287ed3e1.jpg" alt="Long-distance Tour Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1E2D5A]/90 via-[#1E2D5A]/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Full-time</span>
+                <h3 class="text-xl font-extrabold" style="color: #ffffff !important;">Long-distance Tour Driver</h3>
+              </div>
+            </div>
+            <div class="p-7 flex-grow flex flex-col gap-5">
+              <p class="text-slate-600 leading-relaxed text-sm">Lead our premium outstation and tour packages. Navigate scenic routes across states while ensuring passenger safety and comfort over multi-day trips.</p>
+              <div class="space-y-4 flex-grow">
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Requirements</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Valid Commercial Driving License (Heavy preferred)</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Minimum 5 years highway driving experience</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Knowledge of inter-state routes</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Willingness to travel for multi-day trips</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-[#1E2D5A] mb-3 pb-2 border-b border-slate-100 text-sm uppercase tracking-widest">Key Benefits</h4>
+                  <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Trip-based allowances (food &amp; stay)</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>High earning potential</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1E2D5A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                      <span>Drive premium SUVs/Travellers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-auto pt-5 border-t border-slate-100">
+                <div class="flex gap-3">
+                  <a href="tel:9353966815" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                    Call
+                  </a>
+                  <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20am%20interested%20in%20applying%20for%20the%20Long-distance%20Tour%20Driver%20position." target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Why Drive with Us Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#1e40af] mb-4">Why Drive With Us?</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Join a company that values its drivers. We offer excellent benefits, a supportive environment, and opportunities for growth.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Benefit 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#f97316]">
-                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Competitive Salary</h3>
-                    <p class="text-gray-600 leading-relaxed">Industry-leading compensation packages with regular performance bonuses and incentives.</p>
-                </div>
-                <!-- Benefit 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#f97316]">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Flexible Hours</h3>
-                    <p class="text-gray-600 leading-relaxed">Choose shifts that work for you with our accommodating full-time and part-time schedules.</p>
-                </div>
-                <!-- Benefit 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#f97316]">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Training</h3>
-                    <p class="text-gray-600 leading-relaxed">Ongoing skill development and soft-skills training to enhance your career trajectory.</p>
-                </div>
-                <!-- Benefit 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#f97316]">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-                            <path d="M8 11h8"></path>
-                            <path d="M12 15V7"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Health & Safety</h3>
-                    <p class="text-gray-600 leading-relaxed">Comprehensive health coverage options and strict adherence to driver safety protocols.</p>
-                </div>
-                <!-- Benefit 5 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[#f97316]">
-                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                            <polyline points="16 7 22 7 22 13"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Career Growth</h3>
-                    <p class="text-gray-600 leading-relaxed">Clear pathways to advance into fleet management or premium client handling roles.</p>
-                </div>
-            </div>
+    <!-- ===== WHY DRIVE WITH US ===== -->
+    <section class="py-24 bg-[#fafaf8] border-y border-slate-100 relative overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#1E2D5A]/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#D97706]/5 rounded-full blur-3xl"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Our Commitment</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Why Drive With Us?</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Join a company that values its drivers. We offer excellent benefits, a supportive environment, and opportunities for growth.</p>
         </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Benefit 1 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6 group-hover:bg-[#D97706] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12V7H5a2 2 0 010-4h14v4M3 5v14a2 2 0 002 2h16v-5M18 12a2 2 0 000 4h4v-4Z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Competitive Salary</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Industry-leading compensation packages with regular performance bonuses and incentives. Monthly payouts, no delays.</p>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Flexible Hours</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Choose shifts that work for you with our accommodating full-time and part-time scheduling system.</p>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6 group-hover:bg-[#D97706] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Professional Training</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Ongoing skill development, defensive driving coaching, and soft-skills training to advance your career.</p>
+          </div>
+
+          <!-- Benefit 4 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10M8 11h8M12 15V7"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Health &amp; Safety</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Comprehensive health coverage options and strict adherence to driver safety protocols and wellness programs.</p>
+          </div>
+
+          <!-- Benefit 5 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#D97706]/10 flex items-center justify-center mb-6 group-hover:bg-[#D97706] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#D97706] group-hover:text-white transition-colors duration-300">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                <polyline points="16 7 22 7 22 13"></polyline>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Career Growth</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Clear pathways to advance into fleet management or premium client handling roles. We promote from within.</p>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div class="group rounded-3xl p-8 border border-slate-100 bg-white hover:shadow-xl hover:border-slate-200/60 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-[#1E2D5A]/10 flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-8 h-8 text-[#1E2D5A] group-hover:text-white transition-colors duration-300">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#1a1f36] mb-3">Maintained Fleet</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Drive premium, company-maintained vehicles. No personal vehicle required — fuel, permits, and service are all covered.</p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Onboarding Form Section -->
-    <section class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div class="text-center mb-12">
-                <span class="text-[#f97316] font-bold tracking-wider uppercase text-sm mb-2 block">Fleet Onboarding</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-[#1e40af] mb-4">Apply to Join the SF Fleet</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Fill out the onboarding application form below. Our HR operations desk will call you within 24 hours to schedule a document check and driving trial.
-                </p>
-            </div>
-
-            <div class="form-card bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12">
-                <!-- Interactive Web3Forms Onboarding Form -->
-                <form class="space-y-6" name="driver-application" action="https://api.web3forms.com/submit" method="POST" id="driverApplicationForm">
-                    <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-                    <input type="hidden" name="subject" value="New Driver Application - SF Travels" />
-                    <input type="hidden" name="from_name" value="SF Travels Website" />
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Driver Name -->
-                        <div class="flex flex-col gap-2">
-                            <label class="font-semibold text-gray-700 text-sm">Driver's Full Name <span class="text-red-500">*</span></label>
-                            <input type="text" name="driverName" placeholder="Your Full Name" required class="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all" />
-                        </div>
-
-                        <!-- Phone Number -->
-                        <div class="flex flex-col gap-2">
-                            <label class="font-semibold text-gray-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
-                            <input type="tel" name="driverPhone" placeholder="10-digit phone number" required class="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all" />
-                        </div>
-
-                        <!-- Position interest -->
-                        <div class="flex flex-col gap-2">
-                            <label class="font-semibold text-gray-700 text-sm">Position of Interest <span class="text-red-500">*</span></label>
-                            <select name="positionInterest" required class="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] bg-white transition-all">
-                                <option value="" disabled selected>Select a position</option>
-                                <option value="Corporate Chauffeur">Corporate Chauffeur (Sedans & SUVs)</option>
-                                <option value="Airport Specialist">Airport Transfer Specialist</option>
-                                <option value="Highway Tourist Chauffeur">Highway Tourist Chauffeur (Outstations & Vans)</option>
-                            </select>
-                        </div>
-
-                        <!-- Years of experience -->
-                        <div class="flex flex-col gap-2">
-                            <label class="font-semibold text-gray-700 text-sm">Years of Driving Experience <span class="text-red-500">*</span></label>
-                            <input type="number" name="yearsExperience" min="0" max="45" placeholder="Years of Experience" required class="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all" />
-                        </div>
-
-                        <!-- Commercial License Number -->
-                        <div class="flex flex-col gap-2 md:col-span-2">
-                            <label class="font-semibold text-gray-700 text-sm">Commercial License Number <span class="text-red-500">*</span></label>
-                            <input type="text" name="licenseNumber" placeholder="E.g., KA-03-2023XXXX" required class="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all" />
-                        </div>
-
-                        <!-- Languages -->
-                        <div class="flex flex-col gap-2 md:col-span-2">
-                            <label class="font-semibold text-gray-700 text-sm">Languages Spoken <span class="text-red-500">*</span></label>
-                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-1">
-                                <label class="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                    <input type="checkbox" name="languages" value="Kannada" class="rounded border-gray-300 text-[#1e40af] focus:ring-[#1e40af]" />
-                                    <span class="text-sm font-medium">Kannada</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                    <input type="checkbox" name="languages" value="English" class="rounded border-gray-300 text-[#1e40af] focus:ring-[#1e40af]" />
-                                    <span class="text-sm font-medium">English</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                    <input type="checkbox" name="languages" value="Hindi" class="rounded border-gray-300 text-[#1e40af] focus:ring-[#1e40af]" />
-                                    <span class="text-sm font-medium">Hindi</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                    <input type="checkbox" name="languages" value="Telugu" class="rounded border-gray-300 text-[#1e40af] focus:ring-[#1e40af]" />
-                                    <span class="text-sm font-medium">Telugu</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                    <input type="checkbox" name="languages" value="Tamil" class="rounded border-gray-300 text-[#1e40af] focus:ring-[#1e40af]" />
-                                    <span class="text-sm font-medium">Tamil</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Action submits -->
-                    <div class="pt-4">
-                        <button type="submit" class="w-full inline-flex items-center justify-center rounded-lg bg-[#f97316] hover:bg-[#ea580c] text-white font-bold py-4 px-6 transition-all duration-300 shadow-md hover:shadow-lg">
-                            <span>Submit Chauffeur Application</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5 ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
+    <!-- ===== APPLICATION FORM ===== -->
+    <section id="apply-now" class="py-24 bg-white border-t border-slate-100">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <div class="text-center mb-14">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Fleet Onboarding</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Apply to Join the SF Fleet</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+            Fill out the onboarding form below. Our HR operations desk will call you within 24 hours to schedule a document check and driving trial.
+          </p>
         </div>
+
+        <div class="form-card bg-white rounded-3xl shadow-xl border border-slate-200/50 p-8 md:p-12">
+          <form class="space-y-6" name="driver-application" action="https://api.web3forms.com/submit" method="POST" id="driverApplicationForm">
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
+            <input type="hidden" name="subject" value="New Driver Application - SF Travels" />
+            <input type="hidden" name="from_name" value="SF Travels Website" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Driver Name -->
+              <div class="flex flex-col gap-2">
+                <label class="font-semibold text-slate-700 text-sm">Driver's Full Name <span class="text-red-500">*</span></label>
+                <input type="text" name="driverName" placeholder="Your Full Name" required
+                  class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
+              </div>
+
+              <!-- Phone Number -->
+              <div class="flex flex-col gap-2">
+                <label class="font-semibold text-slate-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
+                <input type="tel" name="driverPhone" placeholder="10-digit phone number" required
+                  class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
+              </div>
+
+              <!-- Position of Interest -->
+              <div class="flex flex-col gap-2">
+                <label class="font-semibold text-slate-700 text-sm">Position of Interest <span class="text-red-500">*</span></label>
+                <select name="positionInterest" required
+                  class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] bg-[#fafaf8] transition-all">
+                  <option value="" disabled selected>Select a position</option>
+                  <option value="Corporate Chauffeur">Corporate Chauffeur (Sedans &amp; SUVs)</option>
+                  <option value="Airport Specialist">Airport Transfer Specialist</option>
+                  <option value="Highway Tourist Chauffeur">Highway Tourist Chauffeur (Outstations &amp; Vans)</option>
+                </select>
+              </div>
+
+              <!-- Years of experience -->
+              <div class="flex flex-col gap-2">
+                <label class="font-semibold text-slate-700 text-sm">Years of Driving Experience <span class="text-red-500">*</span></label>
+                <input type="number" name="yearsExperience" min="0" max="45" placeholder="Years of Experience" required
+                  class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
+              </div>
+
+              <!-- Commercial License Number -->
+              <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="font-semibold text-slate-700 text-sm">Commercial License Number <span class="text-red-500">*</span></label>
+                <input type="text" name="licenseNumber" placeholder="E.g., KA-03-2023XXXX" required
+                  class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
+              </div>
+
+              <!-- Languages -->
+              <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="font-semibold text-slate-700 text-sm">Languages Spoken <span class="text-red-500">*</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-1">
+                  <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 transition-colors">
+                    <input type="checkbox" name="languages" value="Kannada" class="rounded border-slate-300 text-[#1E2D5A] focus:ring-[#1E2D5A]" />
+                    <span class="text-sm font-medium">Kannada</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 transition-colors">
+                    <input type="checkbox" name="languages" value="English" class="rounded border-slate-300 text-[#1E2D5A] focus:ring-[#1E2D5A]" />
+                    <span class="text-sm font-medium">English</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 transition-colors">
+                    <input type="checkbox" name="languages" value="Hindi" class="rounded border-slate-300 text-[#1E2D5A] focus:ring-[#1E2D5A]" />
+                    <span class="text-sm font-medium">Hindi</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 transition-colors">
+                    <input type="checkbox" name="languages" value="Telugu" class="rounded border-slate-300 text-[#1E2D5A] focus:ring-[#1E2D5A]" />
+                    <span class="text-sm font-medium">Telugu</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-slate-600 hover:text-slate-900 transition-colors">
+                    <input type="checkbox" name="languages" value="Tamil" class="rounded border-slate-300 text-[#1E2D5A] focus:ring-[#1E2D5A]" />
+                    <span class="text-sm font-medium">Tamil</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="pt-4">
+              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-4 px-6 transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.01]">
+                <span>Submit Chauffeur Application</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
 
-    <!-- Frequently Asked Questions Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#1e40af] mb-4">Frequently Asked Questions</h2>
-                <p class="text-gray-600">Got questions about working with us? Find the answers below.</p>
-            </div>
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">What are the basic eligibility requirements?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            You must possess a valid Indian Commercial Driving License (yellow board badge), have a minimum of 2–3 years of local driving experience in Bangalore, be familiar with smartphone maps/navigation, and have clean record sheets with no active major violations. Punctual habits and a courteous customer-facing attitude are highly valued.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">What is the expected salary range?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            We offer competitive, industry-leading payout structures. Full-time corporate chauffeurs earn base salaries ranging from ₹22,000 to ₹28,000 per month, supplemented by regular duty bonuses, night allowances, and performance incentives. Experienced outstation highway drivers have high earning potential based on distance slabs.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">Do you provide training for new drivers?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            Yes, absolutely. Every chauffeur onboarding at SF Travels undergoes a comprehensive professional grooming and skill development program. This includes coaching in safety protocols, executive defensive driving, soft skills/corporate communication etiquettes, and navigating our specialized GPS dispatch apps.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">What are the typical working hours?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            We provide highly flexible shifts to support your lifestyle. You can choose dedicated Day Shifts (mostly corporate commutes), Night Shifts (ideal for airport runs and corporate shifts), or flexible hours for airport transfers. Shift timing preferences can be locked in during your onboarding interview.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">Is accommodation provided for outstation drivers?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            Yes. For outstation highway duties and multi-day tourist itineraries, SF Travels provides generous daily outstation allowances that fully cover clean lodging and healthy meal expenses. Chauffeur comfort during outstation stays is a top priority for client and road safety.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">What documents are required for the application?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            You will need to present your valid Commercial Driving License, Aadhaar Card, PAN Card, current address proof, two passport-sized photographs, and a bank passbook or cancelled check for direct monthly salary transfers. A previous employer reference letter is beneficial if available.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <button class="faq-question-btn w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left" aria-expanded="false">
-                        <span class="font-semibold text-gray-900 pr-4">Do I need to own a vehicle?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#f97316] transition-transform duration-300">
-                            <path d="m6 9 6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="faq-answer-content p-5 border-t border-gray-100 bg-gray-50 text-gray-600 text-sm leading-relaxed">
-                            No, you do not. SF Travels owns and fully maintains an expansive premium fleet of luxury sedans, Innova Crystas, Force Urbanias, and luxury coaches. We manage all fuel expenses, permits, tax renewals, and routine mechanical servicing. You only need to bring your professional driving skills and service excellence!
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="py-24 bg-[#f5f4f0] border-t border-slate-100">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+        <div class="text-center mb-14">
+          <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.25em] block mb-3">Got Questions?</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5">Frequently Asked Questions</h2>
+          <p class="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed">Everything you need to know about joining and working with the SF Travels team.</p>
         </div>
+
+        <div class="space-y-4">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">What are the basic eligibility requirements?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                You must possess a valid Indian Commercial Driving License (yellow board badge), have a minimum of 2–3 years of local driving experience in Bangalore, be familiar with smartphone maps/navigation, and have a clean record with no active major violations.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">What is the expected salary range?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                Full-time corporate chauffeurs earn base salaries ranging from ₹22,000 to ₹28,000 per month, supplemented by regular duty bonuses, night allowances, and performance incentives. Experienced outstation highway drivers have high earning potential based on distance slabs.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">Do you provide training for new drivers?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                Yes, absolutely. Every chauffeur onboarding at SF Travels undergoes a comprehensive professional grooming and skill development program including safety protocols, executive defensive driving, soft skills/corporate communication etiquettes, and GPS dispatch app training.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">What are the typical working hours?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                We provide highly flexible shifts. You can choose dedicated Day Shifts (mostly corporate commutes), Night Shifts (ideal for airport runs), or flexible hours for transfers. Shift timing preferences can be locked in during your onboarding interview.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">Is accommodation provided for outstation drivers?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                Yes. For outstation highway duties and multi-day tourist itineraries, SF Travels provides generous daily outstation allowances fully covering clean lodging and healthy meal expenses. Chauffeur comfort during outstation stays is a top priority.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">What documents are required for the application?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                You will need: valid Commercial Driving License, Aadhaar Card, PAN Card, current address proof, two passport-sized photographs, and a bank passbook or cancelled check for salary transfers. A previous employer reference letter is beneficial.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item border border-slate-200/60 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button class="faq-question-btn w-full flex items-center justify-between p-6 bg-white hover:bg-[#fafaf8] transition-colors text-left" aria-expanded="false">
+              <span class="font-semibold text-[#1a1f36] pr-4">Do I need to own a vehicle?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#D97706] transition-transform duration-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <div class="faq-answer-content p-6 border-t border-slate-100 bg-[#fafaf8] text-slate-600 text-sm leading-relaxed">
+                No. SF Travels owns and fully maintains a premium fleet of luxury sedans, Innova Crystas, Force Urbanias, and luxury coaches. We manage all fuel expenses, permits, tax renewals, and routine mechanical servicing. You only need your professional driving skills!
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
+
   </main>
 
   <script is:inline>
@@ -607,7 +599,7 @@ import Layout from '../layouts/Layout.astro';
             faqItem.classList.add('active');
             btn.setAttribute('aria-expanded', 'true');
             const innerContentHeight = faqItem.querySelector('.faq-answer-content').offsetHeight;
-            answer.style.maxHeight = innerContentHeight + 40 + 'px'; // add padding offset
+            answer.style.maxHeight = innerContentHeight + 40 + 'px';
             if (icon) icon.style.transform = 'rotate(180deg)';
           }
         });
@@ -619,81 +611,66 @@ import Layout from '../layouts/Layout.astro';
         driverForm.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          // Honeypot spam check
           const botcheck = driverForm.querySelector('input[name="botcheck"]');
-          if (botcheck && botcheck.checked) {
-            console.warn("Spam submission blocked.");
-            return;
-          }
+          if (botcheck && botcheck.checked) { return; }
 
           const submitBtn = driverForm.querySelector('button[type="submit"]');
-          const formElements = driverForm.querySelectorAll('input, select, checkbox, button');
+          const formElements = driverForm.querySelectorAll('input, select, button');
 
           if (submitBtn) {
             submitBtn.setAttribute('disabled', 'true');
-            submitBtn.innerText = "Submitting...";
+            submitBtn.querySelector('span').innerText = "Submitting...";
           }
 
           const formData = new FormData(driverForm);
           formElements.forEach(el => el.setAttribute('disabled', 'true'));
 
-          fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          })
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
           .then(async (response) => {
             const json = await response.json();
             if (response.status === 200) {
               const formCard = driverForm.closest('.form-card');
               if (formCard) {
                 formCard.innerHTML = `
-                  <div class="text-center py-10 px-4">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-8 h-8">
+                  <div class="text-center py-16 px-4">
+                    <div class="w-20 h-20 bg-[#D97706]/10 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-[#D97706]/30">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5" class="w-10 h-10">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Application Submitted!</h3>
-                    <p class="text-gray-600 mb-8 max-w-md mx-auto">
+                    <h3 class="text-2xl font-extrabold text-[#1a1f36] mb-4">Application Submitted!</h3>
+                    <p class="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
                       Thank you for applying, <strong>${formData.get('driverName')}</strong>. Your onboarding profile has been received. Our HR team will call you at <strong>${formData.get('driverPhone')}</strong> within 24 hours to arrange document verification and a driving test.
                     </p>
-                    <div>
-                      <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20my%20driver%20onboarding%20application%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-lg bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 transition-all shadow">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5 mr-2">
-                          <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
-                        </svg>
-                        <span>Connect via WhatsApp</span>
-                      </a>
-                    </div>
+                    <a href="https://wa.me/919353966815?text=Hi%20SF%20Travels%2C%20I%20just%20submitted%20my%20driver%20onboarding%20application." target="_blank" rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-bold py-3 px-8 transition-all shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+                      <span>Connect via WhatsApp</span>
+                    </a>
                   </div>
                 `;
               }
             } else {
-              alert(json.message || "Something went wrong. Please check your form details and try again.");
+              alert(json.message || "Something went wrong. Please try again.");
               formElements.forEach(el => el.removeAttribute('disabled'));
               if (submitBtn) {
                 submitBtn.removeAttribute('disabled');
-                submitBtn.innerHTML = `
-                  <span>Submit Chauffeur Application</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5 ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                `;
+                submitBtn.querySelector('span').innerText = "Submit Chauffeur Application";
               }
             }
           })
           .catch(error => {
             console.error("Submission error:", error);
-            alert("Form submission failed. Please check your internet connection and try again.");
+            alert("Form submission failed. Please check your connection and try again.");
             formElements.forEach(el => el.removeAttribute('disabled'));
             if (submitBtn) {
               submitBtn.removeAttribute('disabled');
-              submitBtn.innerHTML = `
-                <span>Submit Chauffeur Application</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5 ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              `;
+              submitBtn.querySelector('span').innerText = "Submit Chauffeur Application";
             }
           });
         });
       }
     });
   </script>
+
 </Layout>
