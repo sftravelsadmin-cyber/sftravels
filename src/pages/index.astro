@@ -2,35 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 
 const carsFleet = [
-  { id: "hatchback", name: "Hatchback", seats: "4", luggage: "1-2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png" },
-  { id: "sedan", name: "Sedan", seats: "4", luggage: "2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
-  { id: "suv", name: "SUV", seats: "6", luggage: "3 Bags", category: "suv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/suv-1770870907832-54.png" },
-  { id: "ertiga", name: "Ertiga", seats: "6", luggage: "3 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/ertiga-1770870707273-12.png" },
-  { id: "innova", name: "Innova", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-1770870734987-27.png" },
-  { id: "innova-crysta", name: "Innova Crysta", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
-  { id: "innova-hycross", name: "Innova Hycross", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-hycross-1770870785541-24.png" }
+  { id: "hatchback", name: "Hatchback", desc: "Compact & economical, ideal for quick city trips and solo travellers.", seats: "4", luggage: "1-2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png" },
+  { id: "sedan", name: "Sedan", desc: "Sleek and comfortable, perfect for business rides or airport transfers.", seats: "4", luggage: "2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
+  { id: "suv", name: "SUV", desc: "Spacious and powerful, great for family outings and tough terrains.", seats: "6", luggage: "3 Bags", category: "suv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/suv-1770870907832-54.png" },
+  { id: "ertiga", name: "Ertiga", desc: "Affordable 6-seater MPV, perfect for family travel on a budget.", seats: "6", luggage: "3 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/ertiga-1770870707273-12.png" },
+  { id: "innova", name: "Innova", desc: "The industry standard for comfortable, reliable long-distance travel.", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-1770870734987-27.png" },
+  { id: "innova-crysta", name: "Innova Crysta", desc: "Premium executive MPV with captain seats and high luxury cabin space.", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
+  { id: "innova-hycross", name: "Innova Hycross", desc: "Eco-friendly premium hybrid MPV with state-of-the-art features.", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-hycross-1770870785541-24.png" }
 ];
 
 const urbaniaFleet = [
-  { id: "force-urbania-deluxe", name: "Force Urbania Deluxe", seats: "9", luggage: "6-8 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-deluxe-1770870970157-1.png" },
-  { id: "force-urbania-luxury", name: "Force Urbania Luxury", seats: "12", luggage: "8-10 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-luxury-1770870993546-3.png" },
-  { id: "force-urbania-maharaj", name: "Force Urbania Maharaj", seats: "14", luggage: "10-12 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-maharaj-1770871014554-6.png" }
+  { id: "force-urbania-deluxe", name: "Force Urbania Deluxe", desc: "Luxury 9-seater van with spacious stand-up cabin and individual AC.", seats: "9", luggage: "6-8 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-deluxe-1770870970157-1.png" },
+  { id: "force-urbania-luxury", name: "Force Urbania Luxury", desc: "Premium 12-seater executive tourer for corporate group transport.", seats: "12", luggage: "8-10 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-luxury-1770870993546-3.png" },
+  { id: "force-urbania-maharaj", name: "Force Urbania Maharaj", desc: "Super luxury 14-seater Maharaj coach with luxury recliner seating.", seats: "14", luggage: "10-12 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/force-urbania-maharaj-1770871014554-6.png" }
 ];
 
 const tempoFleet = [
-  { id: "tempo-traveller-12", name: "Tempo Traveller 12", seats: "12", luggage: "8 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-12-1770871044575-9.png" },
-  { id: "tempo-traveller-13", name: "Tempo Traveller 13", seats: "13", luggage: "9 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-13-1770871064897-30.png" },
-  { id: "tempo-traveller-14", name: "Tempo Traveller 14", seats: "14", luggage: "10 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-14-1770871083292-33.png" }
+  { id: "tempo-traveller-12", name: "Tempo Traveller 12", desc: "Comfortable 12-seater touring coach, ideal for family picnics.", seats: "12", luggage: "8 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-12-1770871044575-9.png" },
+  { id: "tempo-traveller-13", name: "Tempo Traveller 13", desc: "Spacious 13-seater passenger van for weddings and long tours.", seats: "13", luggage: "9 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-13-1770871064897-30.png" },
+  { id: "tempo-traveller-14", name: "Tempo Traveller 14", desc: "Reliable 14-seater multi-utility touring van for outstation group trips.", seats: "14", luggage: "10 Bags", category: "van", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/tempo-traveller-14-1770871083292-33.png" }
 ];
 
 const busFleet = [
-  { id: "mini-bus-21", name: "Mini Bus 21", seats: "21", luggage: "15-20 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-21-1770871153503-36.png" },
-  { id: "mini-bus-25", name: "Mini Bus 25", seats: "25", luggage: "20-25 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-25-1770871172403-39.png" },
-  { id: "mini-bus-30", name: "Mini Bus 30", seats: "30", luggage: "25-30 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" },
-  { id: "bus-33", name: "Bus 33", seats: "33", luggage: "30 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-33-1770871212474-45.png" },
-  { id: "bus-40", name: "Bus 40", seats: "40", luggage: "35-40 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-40-1770871824256-47.png" },
-  { id: "volvo-bus-45", name: "Volvo Bus 45", seats: "45", luggage: "40-45 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
-  { id: "bus-50-seater", name: "Bus 50 Seater", seats: "50", luggage: "45-50 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
+  { id: "mini-bus-21", name: "Mini Bus 21", desc: "21-seater compact coach, perfect for corporate events transit.", seats: "21", luggage: "15-20 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-21-1770871153503-36.png" },
+  { id: "mini-bus-25", name: "Mini Bus 25", desc: "25-seater coach with rich audio-visual options and dual AC.", seats: "25", luggage: "20-25 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-25-1770871172403-39.png" },
+  { id: "mini-bus-30", name: "Mini Bus 30", desc: "30-seater spacious coach for medium tours and long highway rides.", seats: "30", luggage: "25-30 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/mini-bus-30-1770871190798-42.png" },
+  { id: "bus-33", name: "Bus 33", desc: "33-seater spacious bus, great for wedding guests and heavy groups.", seats: "33", luggage: "30 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-33-1770871212474-45.png" },
+  { id: "bus-40", name: "Bus 40", desc: "40-seater luxury heavy coach with standard pushback seating.", seats: "40", luggage: "35-40 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-40-1770871824256-47.png" },
+  { id: "volvo-bus-45", name: "Volvo Bus 45", desc: "45-seater multi-axle luxury coach with state-of-the-art air suspension.", seats: "45", luggage: "40-45 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/volvo-bus-45-1770872238415-49.png" },
+  { id: "bus-50-seater", name: "Bus 50 Seater", desc: "50-seater heavy duty tourist coach for large excursions.", seats: "50", luggage: "45-50 Bags", category: "bus", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/bus-50-1770872267131-52.png" }
 ];
 
 const allFleet = [
@@ -54,240 +54,333 @@ const allFleet = [
     <!-- ═══════════════════════════════════════════════════════════════
          HERO SECTION — Split Layout: Left copy + Right form
     ═══════════════════════════════════════════════════════════════ -->
-    <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
-      <!-- Full-bleed background -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden pt-24 pb-12 bg-[#0d1629]">
+      <!-- Full-bleed background with dark overlay -->
       <div class="absolute inset-0 z-0"
-        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80'); background-size: cover; background-position: center;">
+        style="background-image: url('https://images.unsplash.com/photo-1608340173813-afedec884f1f?w=1920&q=80'); background-size: cover; background-position: center;">
       </div>
-      <!-- Overlay — heavier on right for form readability, lighter on left -->
-      <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#0d1629]/85 via-[#0d1629]/70 to-[#0d1629]/55"></div>
-      <!-- Warm amber glow top-right -->
-      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D97706]/10 rounded-full blur-[120px] z-10 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div class="max-w-4xl mx-auto text-center text-white mb-8">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-2 tracking-tight">
+            <span class="text-white">Premium Rides,</span> <span class="text-[#D97706]">On Your Schedule</span>
+          </h1>
+        </div>
 
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-10 lg:py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-          <!-- ── LEFT: Copy & Trust Signals ── -->
-          <div class="text-white">
-            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-base font-semibold text-white/90 mb-7 backdrop-blur-sm">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#D97706] animate-pulse"></span>
-              Bangalore's Trusted Travel Partner
-            </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] mb-6">
-              Premium Rides,<br>
-              <span class="text-[#D97706]">On Your Schedule</span>
-            </h1>
-            <p class="text-xl text-white/80 leading-relaxed mb-8 max-w-lg">
-              Corporate cabs, airport transfers, outstation trips — with verified chauffeurs, transparent pricing and 24/7 support across Bangalore.
-            </p>
-
-            <!-- Trust badges row -->
-            <div class="grid grid-cols-2 gap-3 mb-9">
-              {[
-                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Verified Drivers" },
-                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "24/7 Support" },
-                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Transparent Pricing" },
-                { icon: "M5 13l4 4L19 7", label: "15+ Years Experience" }
-              ].map(b => (
-                <div class="flex items-center gap-3 bg-white/10 border border-white/15 rounded-xl px-4 py-3.5 backdrop-blur-sm">
-                  <div class="w-9 h-9 rounded-lg bg-[#D97706]/25 flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#D97706" stroke-width="2" class="w-5 h-5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d={b.icon}></path>
-                    </svg>
-                  </div>
-                  <span class="text-base font-semibold text-white">{b.label}</span>
-                </div>
-              ))}
+        <div class="max-w-6xl mx-auto">
+          <!-- ── Booking Form Card ── -->
+          <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
+            <!-- Tab bar -->
+            <div class="bg-slate-50 px-5 py-4 border-b border-slate-200 flex flex-wrap gap-2 justify-center" id="serviceTabs">
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-[#1E2D5A] text-white shadow" data-service="Outstation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Outstation
+              </button>
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Airport">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+                Airport
+              </button>
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="OneWay">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                One Way
+              </button>
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Local">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Local
+              </button>
             </div>
 
-            <!-- Quick stats strip -->
-            <div class="flex flex-wrap gap-8 text-white/90">
-              <div>
-                <div class="text-4xl font-extrabold text-white">15,400+</div>
-                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Happy Rides</div>
-              </div>
-              <div class="w-px bg-white/20 self-stretch"></div>
-              <div>
-                <div class="text-4xl font-extrabold text-white">235</div>
-                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Fleet Size</div>
-              </div>
-              <div class="w-px bg-white/20 self-stretch"></div>
-              <div>
-                <div class="text-4xl font-extrabold text-white">15 yrs</div>
-                <div class="text-sm text-white/60 mt-1 uppercase tracking-wide font-medium">Experience</div>
-              </div>
-            </div>
-          </div>
+            <!-- Form body -->
+            <div class="p-6 sm:p-8">
+              <form id="homepageBookingForm" class="flex flex-col gap-6">
+                <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
+                <input type="hidden" name="subject" value="New Website Booking Enquiry - SF Travels" />
+                <input type="hidden" name="from_name" value="SF Travels Website" />
+                <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
-          <!-- ── RIGHT: Booking Form ── -->
-          <div class="w-full">
-            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
-              <!-- Tab bar -->
-              <div class="bg-slate-50 px-4 py-3 border-b border-slate-200 flex flex-wrap gap-2" id="serviceTabs">
-                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-[#1E2D5A] text-white shadow" data-service="Outstation">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  Outstation
-                </button>
-                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Airport">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
-                  Airport
-                </button>
-                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="OneWay">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                  One Way
-                </button>
-                <button type="button" class="tab-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Local">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  Local
-                </button>
-              </div>
-
-              <!-- Form body -->
-              <div class="p-6 sm:p-7">
-                <form id="homepageBookingForm" class="flex flex-col gap-5">
-                  <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-                  <input type="hidden" name="subject" value="New Website Booking Enquiry - SF Travels" />
-                  <input type="hidden" name="from_name" value="SF Travels Website" />
-                  <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
-                  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-                  <!-- Row 1: Name + Phone -->
-                  <div class="grid grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-bold text-slate-600 mb-2">Full Name <span class="text-red-400">*</span></label>
-                      <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                        <input type="text" name="fullName" placeholder="Your name" required class="w-full h-12 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
-                      </div>
-                    </div>
-                    <div>
-                      <label class="block text-sm font-bold text-slate-600 mb-2">Phone <span class="text-red-400">*</span></label>
-                      <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        <input type="tel" name="phoneNumber" placeholder="10-digit number" required class="w-full h-12 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Row 2: Pickup -->
+                <!-- Row 1: Contact Info & Vehicle Type -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <!-- Full Name -->
                   <div>
-                    <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Location <span class="text-red-400">*</span></label>
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Full Name <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                      <input type="text" name="fullName" placeholder="Your name" required class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                    </div>
+                  </div>
+
+                  <!-- Phone -->
+                  <div>
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Phone <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                      <input type="tel" name="phoneNumber" placeholder="10-digit number" required class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                    </div>
+                  </div>
+
+                  <!-- Select Vehicle -->
+                  <div>
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Select Vehicle <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
+                      <select name="vehicleType" required class="w-full h-14 pl-12 pr-10 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium appearance-none">
+                        <option value="" disabled selected class="text-slate-400">Choose vehicle</option>
+                        <optgroup label="Cars"><option value="Hatchback">Hatchback</option><option value="Sedan">Sedan</option></optgroup>
+                        <optgroup label="SUVs & MPVs"><option value="SUV">SUV</option><option value="Ertiga">Ertiga</option><option value="Innova">Innova</option><option value="Innova Crysta">Innova Crysta</option><option value="Innova Hycross">Innova Hycross</option></optgroup>
+                        <optgroup label="Vans"><option value="Tempo Traveller 12">Tempo Traveller 12</option><option value="Tempo Traveller 13">Tempo Traveller 13</option><option value="Tempo Traveller 14">Tempo Traveller 14</option><option value="Force Urbania Deluxe">Force Urbania Deluxe</option><option value="Force Urbania Luxury">Force Urbania Luxury</option><option value="Force Urbania Maharaj">Force Urbania Maharaj</option></optgroup>
+                        <optgroup label="Buses"><option value="Mini Bus 21">Mini Bus 21</option><option value="Mini Bus 25">Mini Bus 25</option><option value="Mini Bus 30">Mini Bus 30</option><option value="Bus 33">Bus 33</option><option value="Bus 40">Bus 40</option><option value="Volvo Bus 45">Volvo Bus 45</option><option value="Bus 50 Seater">Bus 50 Seater</option></optgroup>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 2: Locations (2 cols for extra space) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <!-- Pick Up Location -->
+                  <div id="pickupLocationGroup" class="transition-all duration-300">
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Pick Up Location <span class="text-red-400">*</span></label>
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" class="w-full h-12 pl-11 pr-10 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
-                        <button type="button" class="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 hover:bg-slate-100 rounded-lg text-[#D97706] transition-colors z-20" id="pickupCurrentLocBtn" title="Use current location">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" class="w-full h-14 pl-12 pr-11 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
+                        <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 hover:bg-slate-100 rounded-lg text-[#D97706] transition-colors z-20" id="pickupCurrentLocBtn" title="Use current location">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path></svg>
                         </button>
                       </div>
-                      <button type="button" class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="pickupMapBtn" title="Pick on Map">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                      <button type="button" class="flex-shrink-0 h-14 w-14 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="pickupMapBtn" title="Pick on Map">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
                   </div>
 
-                  <!-- Row 3: Drop Off -->
-                  <div id="dropoffGroup">
-                    <label class="block text-sm font-bold text-slate-600 mb-2">Drop Off Location <span class="text-red-400">*</span></label>
+                  <!-- Drop Off Location -->
+                  <div id="dropoffGroup" class="transition-all duration-300">
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Drop Off Location <span class="text-red-400">*</span></label>
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
                       </div>
-                      <button type="button" class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="dropoffMapBtn" title="Pick on Map">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" x2="9" y2="18"></line><line x1="15" x2="15" y1="6" x2="15" y2="21"></line></svg>
+                      <button type="button" class="flex-shrink-0 h-14 w-14 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="dropoffMapBtn" title="Pick on Map">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" x2="9" y2="18"></line><line x1="15" x2="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Row 4: Date + Time -->
-                  <div class="grid grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Date <span class="text-red-400">*</span></label>
+                <!-- Row 3: Schedule & CTA -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <!-- Pick Up Date & Time -->
+                  <div id="pickupDateGroup" class="transition-all duration-300">
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Pick Up Date & Time <span class="text-red-400">*</span></label>
+                    <div class="grid grid-cols-2 gap-2">
                       <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select date" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select date" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
                       </div>
-                    </div>
-                    <div>
-                      <label class="block text-sm font-bold text-slate-600 mb-2">Pick Up Time <span class="text-red-400">*</span></label>
                       <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <input type="time" name="pickupTime" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="10:00" style="color-scheme: light;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <input type="time" name="pickupTime" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="10:00" style="color-scheme: light;">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Return Date (Outstation only) -->
-                  <div id="returnGroup">
-                    <label class="block text-sm font-bold text-slate-600 mb-2">Return Date & Time <span class="text-red-400">*</span></label>
-                    <div class="grid grid-cols-2 gap-4">
+                  <!-- Return Date & Time -->
+                  <div id="returnGroup" class="transition-all duration-300">
+                    <label class="block text-sm font-bold text-slate-600 uppercase tracking-wider mb-2">Return Date & Time <span class="text-red-400">*</span></label>
+                    <div class="grid grid-cols-2 gap-2">
                       <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <input type="text" name="returnDate" id="returnDatePicker" placeholder="Return date" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <input type="text" name="returnDate" id="returnDatePicker" placeholder="Return date" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
                       </div>
                       <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <input type="time" name="returnTime" class="w-full h-12 pl-11 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="18:00" style="color-scheme: light;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <input type="time" name="returnTime" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="18:00" style="color-scheme: light;">
                       </div>
                     </div>
                   </div>
 
-                  <!-- Vehicle + Submit -->
-                  <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
-                    <div class="sm:col-span-3">
-                      <label class="block text-sm font-bold text-slate-600 mb-2">Select Vehicle <span class="text-red-400">*</span></label>
-                      <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2m2 0h6m2 0a2 2 0 114 0 2 2 0 01-4 0zM5 17a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                        <select name="vehicleType" required class="w-full h-12 pl-11 pr-8 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium appearance-none">
-                          <option value="" disabled selected class="text-slate-400">Choose vehicle</option>
-                          <optgroup label="Cars"><option value="Hatchback">Hatchback</option><option value="Sedan">Sedan</option></optgroup>
-                          <optgroup label="SUVs & MPVs"><option value="SUV">SUV</option><option value="Ertiga">Ertiga</option><option value="Innova">Innova</option><option value="Innova Crysta">Innova Crysta</option><option value="Innova Hycross">Innova Hycross</option></optgroup>
-                          <optgroup label="Vans"><option value="Tempo Traveller 12">Tempo Traveller 12</option><option value="Tempo Traveller 13">Tempo Traveller 13</option><option value="Tempo Traveller 14">Tempo Traveller 14</option><option value="Force Urbania Deluxe">Force Urbania Deluxe</option><option value="Force Urbania Luxury">Force Urbania Luxury</option><option value="Force Urbania Maharaj">Force Urbania Maharaj</option></optgroup>
-                          <optgroup label="Buses"><option value="Mini Bus 21">Mini Bus 21</option><option value="Mini Bus 25">Mini Bus 25</option><option value="Mini Bus 30">Mini Bus 30</option><option value="Bus 33">Bus 33</option><option value="Bus 40">Bus 40</option><option value="Volvo Bus 45">Volvo Bus 45</option><option value="Bus 50 Seater">Bus 50 Seater</option></optgroup>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-400">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="sm:col-span-2">
-                      <button type="submit" class="w-full h-12 bg-[#1E2D5A] hover:bg-[#D97706] text-white font-bold text-base rounded-xl shadow transition-all duration-300 flex items-center justify-center gap-2">
-                        <span>Enquire Now</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                      </button>
-                    </div>
+                  <!-- CTA Button -->
+                  <div class="flex flex-col justify-end" id="submitBtnGroup">
+                    <label class="hidden lg:block text-sm font-bold uppercase tracking-wider mb-2 opacity-0 select-none">&nbsp;</label>
+                    <button type="submit" class="w-full h-14 bg-[#1E2D5A] hover:bg-[#D97706] text-white font-bold text-lg rounded-xl shadow transition-all duration-300 flex items-center justify-center gap-2">
+                      <span>Enquire Now</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
+          </div>
+          
+          <!-- ── How It Works Steps ── -->
+          <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            {[
+              { step: "01", title: "Choose Vehicle", desc: "Pick from our fleet" },
+              { step: "02", title: "Enter Location", desc: "Pickup & drop details" },
+              { step: "03", title: "Send Enquiry", desc: "Confirm within 15 min" },
+              { step: "04", title: "Sit Back & Relax", desc: "We handle the rest" }
+            ].map((s, i) => (
+              <div class="flex flex-col items-center relative px-2">
+                {i < 3 && <div class="hidden lg:block absolute right-0 top-7 w-1/2 h-px bg-white/25"></div>}
+                <div class="w-14 h-14 rounded-full border-2 border-[#D97706] !text-[#D97706] font-extrabold text-xl flex items-center justify-center mb-3 bg-white/5" style="color: #D97706; border-color: #D97706;">{s.step}</div>
+                <h3 class="!text-white font-extrabold text-base mb-1.5" style="color: #ffffff !important;">{s.title}</h3>
+                <p class="!text-white/90 text-sm leading-relaxed font-medium" style="color: rgba(255, 255, 255, 0.9) !important;">{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════
-         HOW IT WORKS — 4 Steps horizontal row
+         OUR FLEET — Tabbed navigation, single slider
     ═══════════════════════════════════════════════════════════════ -->
-    <section class="bg-[#1E2D5A] py-10">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { step: "01", title: "Choose Vehicle", desc: "Pick from our wide fleet" },
-            { step: "02", title: "Enter Location", desc: "Pickup & drop details" },
-            { step: "03", title: "Send Enquiry", desc: "We confirm within 15 min" },
-            { step: "04", title: "Sit Back & Relax", desc: "We handle the rest" }
-          ].map((s, i) => (
-            <div class="flex flex-col items-center relative">
-              {i < 3 && <div class="hidden md:block absolute right-0 top-6 w-1/2 h-px bg-white/20"></div>}
-              <div class="w-14 h-14 rounded-full border-2 border-[#D97706] text-[#D97706] font-extrabold text-xl flex items-center justify-center mb-4 bg-white/5">{s.step}</div>
-              <h3 class="text-white font-bold text-base mb-1.5">{s.title}</h3>
-              <p class="text-white/60 text-sm leading-relaxed">{s.desc}</p>
+    <section class="py-24 bg-white border-b border-slate-100 relative z-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+          <div>
+            <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-3">Our Fleet</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a1f36]">Vehicles for Every Journey</h2>
+          </div>
+          <!-- Fleet category tabs -->
+          <div class="flex flex-wrap gap-3" id="fleetTabs">
+            {allFleet.map((tab, i) => (
+              <button type="button"
+                class={`fleet-tab-btn px-6 py-3 rounded-full text-base font-extrabold transition-all border shadow-sm duration-200 hover:scale-105 ${i === 0 ? 'bg-[#1E2D5A] text-white border-[#1E2D5A] shadow-md' : 'bg-white text-slate-600 border-slate-200 hover:border-[#1E2D5A] hover:text-[#1E2D5A] hover:shadow-md'}`}
+                data-tab-target={tab.id}>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fleet panels -->
+        {allFleet.map((tabData, ti) => (
+          <div id={tabData.id} class={`fleet-panel group-slider ${ti === 0 ? 'block' : 'hidden'}`} data-slider-id={tabData.id} data-category={tabData.category}>
+            <div class="relative">
+              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all -translate-x-1/2 disabled:opacity-30" aria-label="Previous slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M15 19l-7-7 7-7"></path></svg>
+              </button>
+              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all translate-x-1/2 disabled:opacity-30" aria-label="Next slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M9 5l7 7-7 7"></path></svg>
+              </button>
+              <div class="overflow-hidden px-1 py-3 -mx-1">
+                <div class="flex transition-transform duration-500 ease-in-out">
+                  {tabData.fleet.map(c => (
+                    <div class="flex-shrink-0 px-3 transition-all duration-300">
+                      <div class="bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#1E2D5A]/25 hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full">
+                        <!-- Image -->
+                        <div class="relative h-52 overflow-hidden bg-slate-50">
+                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                          <div class="absolute top-3 right-3 bg-[#1E2D5A] text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full">{c.category}</div>
+                        </div>
+                        <!-- Info -->
+                        <div class="p-6 flex flex-col flex-grow">
+                          <h3 class="text-lg font-extrabold text-slate-900 mb-1">{c.name}</h3>
+                          <p class="text-slate-500 text-xs leading-relaxed mb-4">{c.desc}</p>
+                          <div class="flex flex-wrap gap-4 mb-5">
+                            <span class="flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                              {c.seats} Seats
+                            </span>
+                            <span class="flex items-center gap-2 bg-amber-50 text-amber-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
+                              {c.luggage}
+                            </span>
+                          </div>
+                          <div class="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-200/80">
+                            <button class="h-11 rounded-xl bg-[#1E2D5A] hover:bg-[#D97706] text-white text-sm font-bold transition-all" data-book-now data-vehicle={c.name} data-category={tabData.category}>Book Now</button>
+                            <a href={`/vehicle/${c.id}`} class="h-11 rounded-xl border-2 border-[#1E2D5A]/30 text-[#1E2D5A] hover:bg-[#1E2D5A] hover:text-white text-sm font-bold transition-all flex items-center justify-center">Details</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TRUST & IMPACT SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 bg-[#fafaf8] border-b border-slate-100 relative z-20 overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left Column: Heading and Enlarged Trust Cards -->
+          <div class="lg:col-span-6 flex flex-col justify-center">
+            <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.2em] block mb-3">Our Track Record</span>
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-[#1a1f36] mb-6 leading-tight">Proven Reliability & Experience</h2>
+            <p class="text-slate-600 text-lg leading-relaxed mb-10">
+              Over a decade of providing premium transportation solutions across Bangalore. We prioritize safety, punctuality, and client satisfaction above all else.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Verified Drivers", desc: "Every chauffeur undergoes background checks and professional defensive driving training." },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "24/7 Support", desc: "Dedicated round-the-clock booking dispatchers and customer help desks." },
+                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Transparent Pricing", desc: "Zero hidden fees. Flat slab-rate charges with detailed invoices provided." },
+                { icon: "M5 13l4 4L19 7", label: "15+ Years Experience", desc: "Proudly serving Bangalore's leading corporate hubs and leisure travelers since 2011." }
+              ].map(b => (
+                <div class="flex flex-col gap-4 p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                  <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#D97706" stroke-width="2" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d={b.icon}></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-slate-800 text-lg sm:text-xl mb-2">{b.label}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">{b.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Right Column: Premium Car Image and Floating Stats Glass Card -->
+          <div class="lg:col-span-6 relative mt-12 lg:mt-0 px-2 sm:px-6">
+            <!-- Floating shadow background glow -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-[#D97706]/15 to-[#1E2D5A]/10 rounded-[36px] blur-2xl opacity-60"></div>
+            
+            <!-- Image wrapper -->
+            <div class="relative rounded-[32px] overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-[4/3] md:aspect-[16/10] lg:aspect-auto lg:h-[500px]">
+              <img src="/luxury_sedan.png" alt="Luxury Sedan Car Service" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Overlapping Stats glass card -->
+            <div class="absolute -bottom-6 right-2 left-2 sm:right-6 sm:left-6 lg:-left-8 lg:right-auto bg-slate-900/95 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-slate-800 z-10 flex gap-6 sm:gap-8 justify-around text-white">
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-[#D97706]">15,400+</div>
+                <div class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mt-2">Happy Rides</div>
+              </div>
+              <div class="border-l border-slate-800 h-12 my-auto"></div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-[#D97706]">235</div>
+                <div class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mt-2">Fleet Size</div>
+              </div>
+              <div class="border-l border-slate-800 h-12 my-auto"></div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-[#D97706]">15 yrs</div>
+                <div class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mt-2">Experience</div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
+
 
     <!-- ═══════════════════════════════════════════════════════════════
          WHY CHOOSE US — 4-col icon grid (clean, airy)
@@ -321,163 +414,6 @@ const allFleet = [
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         STATS BANNER — Warm light background, large numbers
-    ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-0">
-      <div class="relative overflow-hidden">
-        <!-- Background image with warm overlay -->
-        <div class="absolute inset-0 z-0"
-          style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/4ad4fe21f170761da20a127be43f95f7.jpg'); background-size: cover; background-position: center;">
-        </div>
-        <div class="absolute inset-0 bg-[#1E2D5A]/88 z-10"></div>
-
-        <div class="relative z-20 container mx-auto px-4 py-20">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-14">
-            <div>
-              <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-4">Our Numbers Speak</span>
-              <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight">Trusted by Thousands of Travellers Across Bangalore</h2>
-            </div>
-            <div>
-              <p class="text-white/75 text-lg leading-relaxed">At SF Travels, we are committed to providing safe, comfortable, and reliable taxi services for all your transportation needs. Available 24/7, flexible booking options, and exceptional customer service make your travel experience hassle-free.</p>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { num: "15,425", label: "Completed Rides" },
-              { num: "8,745", label: "Happy Customers" },
-              { num: "235+", label: "Fleet Vehicles" },
-              { num: "15 yrs", label: "Experience" }
-            ].map(stat => (
-              <div class="text-center bg-white/8 border border-white/15 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/12 transition-all">
-                <div class="text-5xl lg:text-6xl font-extrabold text-white mb-3">{stat.num}</div>
-                <div class="text-white/65 text-base font-semibold uppercase tracking-wide">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         OUR FLEET — Tabbed navigation, single slider
-    ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-24 bg-[#fafaf8]">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section header -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-          <div>
-            <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.18em] block mb-3">Our Fleet</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a1f36]">Vehicles for Every Journey</h2>
-          </div>
-          <!-- Fleet category tabs -->
-          <div class="flex flex-wrap gap-2" id="fleetTabs">
-            {allFleet.map((tab, i) => (
-              <button type="button"
-                class={`fleet-tab-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all border ${i === 0 ? 'bg-[#1E2D5A] text-white border-[#1E2D5A]' : 'bg-white text-slate-600 border-slate-200 hover:border-[#1E2D5A] hover:text-[#1E2D5A]'}`}
-                data-tab-target={tab.id}>
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <!-- Fleet panels -->
-        {allFleet.map((tabData, ti) => (
-          <div id={tabData.id} class={`fleet-panel group-slider ${ti === 0 ? 'block' : 'hidden'}`} data-slider-id={tabData.id} data-category={tabData.category}>
-            <div class="relative">
-              <button class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all -translate-x-1/2 disabled:opacity-30" aria-label="Previous slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white shadow-md border border-slate-100 hover:bg-[#1E2D5A] hover:border-[#1E2D5A] hover:text-white text-slate-600 transition-all translate-x-1/2 disabled:opacity-30" aria-label="Next slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M9 5l7 7-7 7"></path></svg>
-              </button>
-              <div class="overflow-hidden px-1 py-3 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out">
-                  {tabData.fleet.map(c => (
-                    <div class="flex-shrink-0 px-3 transition-all duration-300">
-                      <div class="bg-white rounded-2xl border border-slate-100 hover:border-[#1E2D5A]/25 hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full">
-                        <!-- Image -->
-                        <div class="relative h-52 overflow-hidden bg-slate-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-                          <div class="absolute top-3 right-3 bg-[#1E2D5A] text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full">{c.category}</div>
-                        </div>
-                        <!-- Info -->
-                        <div class="p-6 flex flex-col flex-grow bg-gradient-to-b from-white to-slate-50/60">
-                          <h3 class="text-lg font-bold text-slate-900 mb-3">{c.name}</h3>
-                          <div class="flex flex-wrap gap-4 mb-5">
-                            <span class="flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                              {c.seats} Seats
-                            </span>
-                            <span class="flex items-center gap-2 bg-amber-50 text-amber-700 text-sm font-semibold px-3 py-1.5 rounded-lg">
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"></path></svg>
-                              {c.luggage}
-                            </span>
-                          </div>
-                          <div class="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
-                            <button class="h-11 rounded-xl bg-[#1E2D5A] hover:bg-[#D97706] text-white text-sm font-bold transition-all" data-book-now data-vehicle={c.name} data-category={tabData.category}>Book Now</button>
-                            <a href={`/vehicle/${c.id}`} class="h-11 rounded-xl border-2 border-[#1E2D5A]/30 text-[#1E2D5A] hover:bg-[#1E2D5A] hover:text-white text-sm font-bold transition-all flex items-center justify-center">Details</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         PROMO BANNER — Asymmetric two-column
-    ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-[#fafaf8]">
-      <div class="container mx-auto px-4">
-        <div class="rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-5 shadow-xl">
-          <!-- Left amber panel -->
-          <div class="lg:col-span-2 bg-[#D97706] p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden">
-            <!-- Decorative circles -->
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
-            <div class="absolute -bottom-10 -left-6 w-32 h-32 bg-white/8 rounded-full"></div>
-            <div class="relative z-10">
-              <div class="text-white/80 font-bold uppercase tracking-widest text-xs mb-4">Why Travel With Us</div>
-              <h2 class="text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-6">Let Your<br>Adventure Begin</h2>
-              <p class="text-white/85 text-base leading-relaxed mb-8">Explore Karnataka and beyond with our premium fleet. Comfortable, safe, and always on time.</p>
-              <a href="/services/outstation-cabs" class="inline-flex items-center gap-2 bg-white text-[#D97706] font-bold text-sm px-6 py-3 rounded-xl hover:bg-[#1E2D5A] hover:text-white transition-all duration-300">
-                View All Services
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </a>
-            </div>
-          </div>
-          <!-- Right features panel -->
-          <div class="lg:col-span-3 bg-[#fffbeb] p-10 lg:p-14">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 h-full">
-              {[
-                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "First Class Services", desc: "Premium comfort with professional chauffeurs on every journey." },
-                { icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z", title: "24/7 Road Assistance", desc: "Dedicated support team available around the clock, anywhere." },
-                { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Free Pick-Up & Drop", desc: "Complimentary doorstep service for premium bookings." }
-              ].map(f => (
-                <div class="group flex flex-col gap-5">
-                  <div class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center group-hover:bg-[#D97706] transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="w-7 h-7 text-[#D97706] group-hover:text-white transition-colors duration-300">
-                      <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="text-lg font-bold text-[#1a1f36] mb-2">{f.title}</h3>
-                    <p class="text-slate-600 text-base leading-relaxed">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══════════════════════════════════════════════════════════════
          NEWS & BLOG — Compact 3-col cards
@@ -524,28 +460,28 @@ const allFleet = [
     <!-- ═══════════════════════════════════════════════════════════════
          CTA BANNER — Left-aligned, warm indigo + amber accent
     ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-0">
-      <div class="bg-[#1E2D5A] relative overflow-hidden">
-        <!-- Decorative accent -->
-        <div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#D97706]/10 to-transparent pointer-events-none"></div>
-        <div class="absolute right-20 bottom-0 w-64 h-64 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative overflow-hidden py-16 bg-[#0d1629]">
+      <!-- Background image with deep brand blue/black overlay -->
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://images.unsplash.com/photo-1608340173813-afedec884f1f?w=1920&q=80'); background-size: cover; background-position: center;">
+      </div>
+      <div class="absolute inset-0 bg-slate-950/80 z-10"></div>
 
-        <div class="container mx-auto px-4 py-16 relative z-10">
-          <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-            <div>
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">Ready to Book Your Premium Ride?</h2>
-              <p class="text-white/70 text-lg">Get started today — our team confirms within 15 minutes.</p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-              <button class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all shadow-lg" data-book-now data-vehicle="Premium Cab" data-category="General Booking">
-                Book a Cab Now
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </button>
-              <a href="tel:9353966815" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                Call 9353966815
-              </a>
-            </div>
+      <div class="container mx-auto px-4 relative z-20">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4" style="color: #ffffff !important;">Ready to Book Your Premium Ride?</h2>
+            <p class="text-white/80 text-lg" style="color: rgba(255, 255, 255, 0.8) !important;">Get started today — our team confirms within 15 minutes.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+            <button class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all shadow-lg" data-book-now data-vehicle="Premium Cab" data-category="General Booking">
+              Book a Cab Now
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+            <a href="tel:9353966815" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              Call 9353966815
+            </a>
           </div>
         </div>
       </div>
@@ -591,6 +527,8 @@ const allFleet = [
       const serviceTypeInput = document.getElementById('serviceTypeInput');
       const dropoffGroup = document.getElementById('dropoffGroup');
       const returnGroup = document.getElementById('returnGroup');
+      const pickupLocationGroup = document.getElementById('pickupLocationGroup');
+      const pickupDateGroup = document.getElementById('pickupDateGroup');
 
       if (tabs && serviceTypeInput) {
         tabs.forEach(tab => {
@@ -623,6 +561,22 @@ const allFleet = [
               } else {
                 dropoffGroup.style.display = 'block';
                 dropoffGroup.querySelector('input').setAttribute('required', 'true');
+              }
+            }
+
+            if (pickupLocationGroup) {
+              if (selectedService === 'Local') {
+                pickupLocationGroup.classList.add('lg:col-span-2');
+              } else {
+                pickupLocationGroup.classList.remove('lg:col-span-2');
+              }
+            }
+
+            if (pickupDateGroup) {
+              if (selectedService === 'Outstation') {
+                pickupDateGroup.classList.remove('lg:col-span-2');
+              } else {
+                pickupDateGroup.classList.add('lg:col-span-2');
               }
             }
           });
