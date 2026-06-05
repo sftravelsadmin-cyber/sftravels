@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const placeholderImage = "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png";
-
 const tourPackages = [
   {
     name: "Coorg Weekend Getaway",
@@ -117,49 +115,67 @@ const vehicles = [
   title="Tour Packages from Bangalore - SF Travels"
   description="Discover amazing destinations with our curated tour packages. Complete travel solutions with private transport and professional driver guidance."
 >
-  
-
-  <main class="bg-gray-50 min-h-screen overflow-x-hidden pt-12 text-slate-800">
-    <!-- Hero Section -->
-    <section class="relative min-h-[50vh] flex items-center justify-center pt-20 overflow-hidden">
-      <div class="absolute inset-0 z-0"
-        style="background-image: url('https://horizons-cdn.hostinger.com/e3da7081-89fa-4296-8e0b-208ae94398b5/bda0fdb8b258bf205c0653b2583c1ec0.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+  <main class="bg-[#fafaf8] min-h-screen overflow-x-hidden text-slate-800">
+    <!-- ===== HERO BANNER ===== -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center bg-[#0d1629]">
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80');">
       </div>
-      <div class="absolute inset-0 bg-black/65 bg-gradient-to-b from-black/80 via-black/50 to-black/70 z-10 pointer-events-none"></div>
-      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">Tour Packages from Bangalore</h1>
-        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
-          Discover amazing destinations with our curated tour packages. Complete travel solutions with transport and guidance.
+      <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+      
+      <div class="container mx-auto px-4 sm:px-6 relative z-20 text-center max-w-4xl">
+        <span class="font-bold text-xs sm:text-sm uppercase tracking-[0.25em] block mb-4 drop-shadow text-[#fbbf24]" style="color: #fbbf24 !important;">Holiday Tour Packages</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md text-white" style="color: #ffffff !important;">
+          Tour Packages from Bangalore
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-md text-white" style="color: #ffffff !important;">
+          Discover amazing destinations with our custom-curated tour packages. Comfort and premium transport.
         </p>
+        <div class="inline-block bg-[#D97706]/20 border border-[#D97706]/40 text-[#fbbf24] font-bold text-xs md:text-sm uppercase tracking-widest px-6 py-2.5 rounded-full shadow-md backdrop-blur-sm" style="color: #fbbf24 !important;">
+          <span>"Unforgettable Expeditions"</span>
+        </div>
       </div>
     </section>
 
-    <!-- Tour Packages Grid -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Tour Packages</h2>
+    <!-- ===== TOUR PACKAGES GRID ===== -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <span class="text-[#D97706] font-bold text-xs uppercase tracking-[0.2em] block mb-3">Popular Holiday Trips</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-6 font-heading">Curated Tour Packages</h2>
+          <p class="text-slate-600 text-sm sm:text-base">
+            Select one of our popular tour packages and travel with top-tier comfort. Our private vehicles and experienced chauffeurs guide you through every destination.
+          </p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tourPackages.map(pkg => (
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full group border border-gray-100">
-              <div class="overflow-hidden h-48 w-full relative bg-gray-100">
-                <img src={pkg.img} alt={pkg.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:border-slate-200/60 duration-300 overflow-hidden flex flex-col h-full group">
+              <div class="relative aspect-[16/10] overflow-hidden bg-[#fafaf8]">
+                <img src={pkg.img} alt={pkg.name} class="w-full h-full object-cover transform duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div class="p-6 flex-grow flex flex-col">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                <p class="text-sm text-[#1E2D5A] font-semibold mb-3">{pkg.duration}</p>
-                <p class="text-gray-600 mb-4 text-sm leading-relaxed">{pkg.desc}</p>
-                <div class="mb-6 flex-grow">
-                  <p class="font-semibold text-gray-900 mb-2 text-sm">Highlights:</p>
-                  <ul class="text-sm text-gray-600 space-y-1">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-gray-900 font-heading">{pkg.name}</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-[#D97706] font-bold uppercase tracking-wider mb-3">{pkg.duration}</p>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">{pkg.desc}</p>
+                
+                <div class="mb-6">
+                  <p class="font-bold text-gray-900 mb-2 text-sm font-heading">Highlights:</p>
+                  <ul class="text-sm text-slate-600 space-y-1">
                     {pkg.highlights.map(hl => (
-                      <li>• {hl}</li>
+                      <li class="flex items-center">
+                        <span class="text-[#D97706] mr-2 font-bold">✓</span>
+                        <span>{hl}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-auto">
+                <div class="pt-4 border-t border-slate-100 mt-auto">
                   <button 
-                    class="w-full inline-flex items-center justify-center rounded-md px-4 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-semibold text-sm py-2.5 h-10 transition-colors"
+                    class="btn-gold w-full py-3 text-xs sm:text-sm font-bold rounded-2xl shadow-md hover:shadow-lg transition-all cursor-pointer text-center"
                     data-book-now 
                     data-vehicle={pkg.name} 
                     data-category="Tour Package"
@@ -174,61 +190,77 @@ const vehicles = [
       </div>
     </section>
 
-    <!-- Choose Your Tour Vehicle Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Choose Your Tour Vehicle</h2>
-        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Select the most comfortable vehicle for your multi-day tour package.</p>
+    <!-- ===== VEHICLE SECTION ===== -->
+    <section class="py-24 bg-[#fafaf8] border-y border-slate-100">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-[#D97706] font-bold text-xs uppercase tracking-[0.2em] block mb-3">Tour Vehicles</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a1f36] mb-5 font-heading">Choose Your Tour Vehicle</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+            Select the most comfortable vehicle for your multi-day tour package.
+          </p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {vehicles.map(c => (
-            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full w-full">
-              <div class="relative aspect-[16/10] overflow-hidden bg-gray-50">
-                <img src={c.image} alt={c.name} class="w-full h-full object-cover" />
-                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-800 shadow-sm">
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-100 hover:border-slate-200/60 hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full w-full">
+              <div class="relative aspect-[16/10] overflow-hidden bg-[#fafaf8]">
+                <img src={c.image} alt={c.name} class="w-full h-full object-cover transform duration-500 hover:scale-105" />
+                <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm px-3 py-1 rounded-xl text-xs font-bold text-white shadow-sm">
                   {c.category.toUpperCase()}
                 </div>
               </div>
-              <div class="p-4 sm:p-5 flex flex-col flex-grow">
-                <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2">{c.name}</h3>
-                <div class="flex items-center text-gray-500 mb-3 text-xs sm:text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 text-[#1E2D5A]">
+              <div class="p-5 flex flex-col flex-grow">
+                <h3 class="text-lg font-bold text-gray-900 mb-2 font-heading">{c.name}</h3>
+                <div class="flex items-center text-slate-500 mb-4 text-xs sm:text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1.5 shrink-0">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
                   </svg>
                   <span>{c.seats} Seater</span>
                 </div>
-                <div class="space-y-1 mb-4 flex-grow text-sm">
-                  <div class="flex items-center text-gray-600">
-                    <span class="text-[#1E2D5A] mr-1.5 font-bold">✓</span>
+                <div class="space-y-1 mb-6 flex-grow text-sm">
+                  <div class="flex items-center text-slate-600">
+                    <span class="text-[#D97706] mr-2 font-bold">✓</span>
                     <span>Professional Chauffeur</span>
                   </div>
-                  <div class="flex items-center text-gray-600">
-                    <span class="text-[#1E2D5A] mr-1.5 font-bold">✓</span>
-                    <span>AC & Music System</span>
+                  <div class="flex items-center text-slate-600">
+                    <span class="text-[#D97706] mr-2 font-bold">✓</span>
+                    <span>AC &amp; Music System</span>
                   </div>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-auto">
-                  <div class="grid grid-cols-2 gap-2 sm:gap-3">
-                    <button 
-                      class="inline-flex items-center justify-center rounded-md px-4 bg-[#1E2D5A] hover:bg-[#151f3f] text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
-                      data-book-now 
-                      data-vehicle={c.name} 
-                      data-category="Tour Fleet"
-                    >
-                      Book Now
-                    </button>
-                    <a 
-                      href={`/vehicle/${c.id}`} 
-                      class="inline-flex items-center justify-center rounded-md border border-[#1E2D5A] text-[#1E2D5A] hover:bg-[#1E2D5A] hover:text-white font-semibold text-xs sm:text-sm py-2 h-9 sm:h-10 transition-colors"
-                    >
-                      Details
-                    </a>
-                  </div>
+                <div class="pt-4 border-t border-slate-100 mt-auto flex gap-3">
+                  <button 
+                    class="btn-gold flex-1 py-2.5 text-xs sm:text-sm font-bold rounded-2xl shadow-md hover:shadow-lg transition-all cursor-pointer"
+                    data-book-now 
+                    data-vehicle={c.name} 
+                    data-category="Tour Fleet"
+                  >
+                    Book Now
+                  </button>
+                  <a 
+                    href={`/vehicle/${c.id}`} 
+                    class="flex-1 py-2.5 text-xs sm:text-sm font-bold text-[#1E2D5A] hover:bg-[#1E2D5A]/5 border border-[#1E2D5A]/20 hover:border-[#1E2D5A] rounded-2xl text-center transition-all"
+                  >
+                    Details
+                  </a>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- ===== BOTTOM CTA SECTION ===== -->
+    <section class="py-20 bg-[#1E2D5A] text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80');"></div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4 font-heading" style="color: #ffffff !important;">Plan Your Custom Tour</h2>
+        <p class="text-slate-300 max-w-xl mx-auto mb-8 text-sm sm:text-base">Want a custom itinerary? Get in touch with our travel desks to plan your trip.</p>
+        <button data-book-now data-vehicle="General Enquiry" data-category="Tour Package" class="btn-gold px-8 py-4 font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer">
+          Enquire Tour Booking
+        </button>
       </div>
     </section>
   </main>
