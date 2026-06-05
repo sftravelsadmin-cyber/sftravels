@@ -9,21 +9,8 @@ const currentYear = new Date().getFullYear();
     <!-- Column 1: Brand Info -->
     <div class="footer-col brand-col">
       <a href="/" class="footer-logo">
-        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="44" fill="none" stroke="url(#goldGradFooter)" stroke-width="2.5"></circle>
-          <circle cx="50" cy="50" r="38" fill="none" stroke="url(#goldGradFooter)" stroke-width="1.5" stroke-dasharray="4 2"></circle>
-          <defs>
-            <linearGradient id="goldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#f3e5ab"></stop>
-              <stop offset="50%" stop-color="#d4af37"></stop>
-              <stop offset="100%" stop-color="#aa7c11"></stop>
-            </linearGradient>
-          </defs>
-          <text x="50%" y="58%" text-anchor="middle" font-family="Outfit" font-weight="900" font-size="28" fill="url(#goldGradFooter)">SF</text>
-        </svg>
         <div class="logo-text">
-          <span class="logo-title">SF TRAVELS</span>
-          <span class="logo-tagline">Smooth Ride On Time</span>
+          <span class="logo-title"><span class="logo-sf">SF</span> <span class="logo-travels">Travels</span></span>
         </div>
       </a>
       <p class="brand-desc">
@@ -147,11 +134,7 @@ const currentYear = new Date().getFullYear();
     margin-bottom: 20px;
   }
   
-  .logo-svg {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.2));
-  }
+
   
   .logo-text {
     display: flex;
@@ -161,19 +144,16 @@ const currentYear = new Date().getFullYear();
   .logo-title {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 1.45rem;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   
-  .logo-tagline {
-    font-size: 0.65rem;
-    letter-spacing: 0.2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 600;
+  .logo-sf {
+    color: #ffffff;
+  }
+  
+  .logo-travels {
+    color: #C5A85C; /* brandGold */
   }
   
   .brand-desc {

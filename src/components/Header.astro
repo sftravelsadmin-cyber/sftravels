@@ -7,39 +7,8 @@
     
     <!-- Premium Logo Section -->
     <a href="/" class="logo-wrapper">
-      <!-- Golden dynamic circle monogram SVG Logo -->
-      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#F2E5C9"></stop>
-            <stop offset="30%" stop-color="#C5A85C"></stop>
-            <stop offset="50%" stop-color="#AA8439"></stop>
-            <stop offset="70%" stop-color="#EBDCB9"></stop>
-            <stop offset="100%" stop-color="#8A6623"></stop>
-          </linearGradient>
-        </defs>
-        
-        <!-- Outer dynamic swooshes (Top-right crescent) -->
-        <path d="M 50 8 C 73.19 8 92 26.81 92 50 C 92 65.5 83.5 79 70 86 C 82 76 87 60 87 50 C 87 29.56 70.44 13 50 13 Z" fill="url(#goldGrad)"></path>
-        
-        <!-- Bottom-left crescent swoosh -->
-        <path d="M 50 92 C 26.81 92 8 73.19 8 50 C 8 34.5 16.5 21 30 14 C 18 24 13 40 13 50 C 13 70.44 29.56 87 50 87 Z" fill="url(#goldGrad)"></path>
-        
-        <!-- Inner thin decorative swoosh lines -->
-        <path d="M 50 18 A 32 32 0 0 1 82 50 A 32 32 0 0 1 73 72" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"></path>
-        <path d="M 50 82 A 32 32 0 0 1 18 50 A 32 32 0 0 1 27 28" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"></path>
-        
-        <!-- Stylized "SF" Monogram inside -->
-        <g fill="url(#goldGrad)">
-          <!-- "S" Path -->
-          <path d="M 28,45 C 28,34 39,32 44,32 C 48,32 50,34 50,37 C 50,42 42,42 38,44 C 31,46.5 27,50 27,57 C 27,65 35,68 45,68 C 50,68 53,67 56,65 L 56,59 C 52,61 47,62 44,62 C 40,62 35,61 35,57 C 35,51 44,51 48,49 C 54,46 58,43 58,36 C 58,29 50,26 42,26 C 35,26 29,28 28,30 Z"></path>
-          <!-- "F" Path -->
-          <path d="M 64,28 L 64,68 L 71,68 L 71,51 L 82,51 L 82,45 L 71,45 L 71,34 L 84,34 L 84,28 Z"></path>
-        </g>
-      </svg>
       <div class="logo-text">
-        <span class="logo-title"><span class="logo-title-first">SF</span> TRAVELS</span>
-        <span class="logo-tagline">Smooth Ride On Time</span>
+        <span class="logo-title"><span class="logo-sf">SF</span> <span class="logo-travels">Travels</span></span>
       </div>
     </a>
 
@@ -181,17 +150,7 @@
     align-items: center;
     gap: 12px;
   }
-  
-  .logo-svg {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 2px 8px rgba(197, 168, 92, 0.15));
-    transition: var(--transition-smooth);
-  }
-  
-  .logo-wrapper:hover .logo-svg {
-    transform: scale(1.05) rotate(5deg);
-  }
+
 
   .logo-text {
     display: flex;
@@ -201,27 +160,18 @@
   .logo-title {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   
-  .logo-title-first {
+  .logo-sf {
     color: #ffffff;
-    background: none;
-    -webkit-text-fill-color: initial;
-    -webkit-background-clip: initial;
     transition: var(--transition-smooth);
   }
   
-  .logo-tagline {
-    font-size: 0.7rem;
-    letter-spacing: 0.2px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    font-weight: 600;
+  .logo-travels {
+    color: #C5A85C; /* brandGold */
+    transition: var(--transition-smooth);
   }
 
   /* Desktop Menu Links */
@@ -579,21 +529,12 @@
     padding: 6px 0;
   }
   
-  .header-main.scrolled .logo-title {
-    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .header-main.scrolled .logo-sf {
+    color: #1E2D5A;
   }
   
-  .header-main.scrolled .logo-title-first {
-    color: inherit;
-    background: inherit;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-  
-  .header-main.scrolled .logo-tagline {
-    color: var(--text-muted);
+  .header-main.scrolled .logo-travels {
+    color: #D97706;
   }
   
   .header-main.scrolled .nav-link,
