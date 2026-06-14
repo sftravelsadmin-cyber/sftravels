@@ -857,6 +857,7 @@ const allFleet = [
       let leafletMapModal = null;
       let leafletMarkerModal = null;
       let activeInputTarget = null;
+      let selectedMapAddressHome = '';
       const defaultBangalore = [12.9716, 77.5946];
 
       const createMapModalDOM = () => {
@@ -897,6 +898,43 @@ const allFleet = [
         document.body.insertAdjacentHTML('beforeend', modalHtml);
       };
 
+      const fetchReverseGeocodeHome = async (lat, lng, mapSelectedAddress, confirmMapLocationBtn) => {
+        if (mapSelectedAddress) mapSelectedAddress.textContent = 'Fetching address...';
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+          const data = await res.json();
+          const address = data.display_name || `Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          selectedMapAddressHome = address;
+          if (mapSelectedAddress) mapSelectedAddress.textContent = address;
+          if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+        } catch (err) {
+          const address = `${lat.toFixed(5)}, ${lng.toFixed(5)} (Pin Coordinates)`;
+          selectedMapAddressHome = address;
+          if (mapSelectedAddress) mapSelectedAddress.textContent = address;
+          if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+        }
+      };
+
+      const placeMarkerHome = (latlng, updateAddress = true, mapSelectedAddress = null, confirmMapLocationBtn = null) => {
+        if (typeof window !== 'undefined' && window.L) {
+          const L = window.L;
+          if (leafletMarkerModal) {
+            leafletMarkerModal.setLatLng(latlng);
+          } else {
+            leafletMarkerModal = L.marker(latlng, { draggable: true }).addTo(leafletMapModal);
+            leafletMarkerModal.on('dragend', () => {
+              const pos = leafletMarkerModal.getLatLng();
+              const currentMapSelectedAddress = document.getElementById('mapSelectedAddress');
+              const currentConfirmMapLocationBtn = document.getElementById('confirmMapLocationBtn');
+              fetchReverseGeocodeHome(pos.lat, pos.lng, currentMapSelectedAddress, currentConfirmMapLocationBtn);
+            });
+          }
+          if (updateAddress) {
+            fetchReverseGeocodeHome(latlng.lat, latlng.lng, mapSelectedAddress, confirmMapLocationBtn);
+          }
+        }
+      };
+
       const openMapModal = (inputField, fieldName) => {
         createMapModalDOM();
         mapModal = document.getElementById('mapModal');
@@ -908,36 +946,7 @@ const allFleet = [
 
         if (mapPickerTitle) mapPickerTitle.textContent = fieldName === 'pickup' ? 'Select Pickup Location' : 'Select Drop Location';
         activeInputTarget = inputField;
-        let selectedMapAddress = '';
-
-        const placeMarker = (latlng, updateAddress = true) => {
-          if (typeof window !== 'undefined' && window.L) {
-            const L = window.L;
-            if (leafletMarkerModal) { leafletMarkerModal.setLatLng(latlng); }
-            else {
-              leafletMarkerModal = L.marker(latlng, { draggable: true }).addTo(leafletMapModal);
-              leafletMarkerModal.on('dragend', () => { const pos = leafletMarkerModal.getLatLng(); fetchReverseGeocode(pos.lat, pos.lng); });
-            }
-            if (updateAddress) fetchReverseGeocode(latlng.lat, latlng.lng);
-          }
-        };
-
-        const fetchReverseGeocode = async (lat, lng) => {
-          if (mapSelectedAddress) mapSelectedAddress.textContent = 'Fetching address...';
-          try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
-            const data = await res.json();
-            const address = data.display_name || `Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-            selectedMapAddress = address;
-            if (mapSelectedAddress) mapSelectedAddress.textContent = address;
-            if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
-          } catch (err) {
-            const address = `${lat.toFixed(5)}, ${lng.toFixed(5)} (Pin Coordinates)`;
-            selectedMapAddress = address;
-            if (mapSelectedAddress) mapSelectedAddress.textContent = address;
-            if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
-          }
-        };
+        selectedMapAddressHome = '';
 
         if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
         if (confirmMapLocationBtn) confirmMapLocationBtn.setAttribute('disabled', 'true');
@@ -951,7 +960,9 @@ const allFleet = [
             if (!leafletMapModal) {
               leafletMapModal = L.map('leafletMapContainerHome', { zoomControl: true }).setView(defaultBangalore, 13);
               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(leafletMapModal);
-              leafletMapModal.on('click', (e) => { placeMarker(e.latlng); });
+              leafletMapModal.on('click', (e) => {
+                placeMarkerHome(e.latlng, true, mapSelectedAddress, confirmMapLocationBtn);
+              });
             }
             leafletMapModal.invalidateSize();
             // Second invalidateSize after tiles have started loading
@@ -970,7 +981,7 @@ const allFleet = [
                   const lat = parseFloat(searchData[0].lat);
                   const lon = parseFloat(searchData[0].lon);
                   startLatLng = { lat, lng: lon };
-                  selectedMapAddress = existingAddress;
+                  selectedMapAddressHome = existingAddress;
                   foundLocation = true;
                 }
               } catch (err) {
@@ -979,14 +990,14 @@ const allFleet = [
             }
 
             if (foundLocation) {
-              if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddress;
+              if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddressHome;
               if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
-              placeMarker(startLatLng, false);
+              placeMarkerHome(startLatLng, false, mapSelectedAddress, confirmMapLocationBtn);
               leafletMapModal.setView([startLatLng.lat, startLatLng.lng], 15);
             } else {
               if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
               if (confirmMapLocationBtn) confirmMapLocationBtn.setAttribute('disabled', 'true');
-              placeMarker(startLatLng, false);
+              placeMarkerHome(startLatLng, false, mapSelectedAddress, confirmMapLocationBtn);
               leafletMapModal.setView(defaultBangalore, 13);
             }
           }
@@ -997,7 +1008,11 @@ const allFleet = [
           mapModalLocateBtn.onclick = () => {
             if (navigator.geolocation && leafletMapModal) {
               navigator.geolocation.getCurrentPosition(
-                (pos) => { const latlng = { lat: pos.coords.latitude, lng: pos.coords.longitude }; leafletMapModal.setView([latlng.lat, latlng.lng], 15); placeMarker(latlng, true); },
+                (pos) => {
+                  const latlng = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                  leafletMapModal.setView([latlng.lat, latlng.lng], 15);
+                  placeMarkerHome(latlng, true, mapSelectedAddress, confirmMapLocationBtn);
+                },
                 (err) => { console.warn("Geolocation modal failed:", err); alert("Unable to retrieve your current location."); }
               );
             }
@@ -1010,7 +1025,7 @@ const allFleet = [
         if (confirmMapLocationBtn) {
           confirmMapLocationBtn.onclick = (e) => {
             e.preventDefault();
-            if (activeInputTarget && selectedMapAddress) activeInputTarget.value = selectedMapAddress;
+            if (activeInputTarget && selectedMapAddressHome) activeInputTarget.value = selectedMapAddressHome;
             closeModal();
           };
         }
