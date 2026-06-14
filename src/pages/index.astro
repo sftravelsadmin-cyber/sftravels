@@ -519,8 +519,8 @@ const allFleet = [
       // 1. Flatpickr
       let pickupFP, returnFP;
       if (typeof flatpickr !== 'undefined') {
-        pickupFP = flatpickr("#pickupDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today" });
-        returnFP = flatpickr("#returnDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today" });
+        pickupFP = flatpickr("#pickupDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today", disableMobile: true });
+        returnFP = flatpickr("#returnDatePicker", { enableTime: false, dateFormat: "Y-m-d", minDate: "today", disableMobile: true });
       }
 
       // 1.5 Native Time Picker Click Trigger
