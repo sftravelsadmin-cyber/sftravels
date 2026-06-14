@@ -120,6 +120,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                 </svg>
               </button>
             </div>
+            <p class="text-[9px] md:text-[10px] text-gray-400 font-medium leading-normal mt-1 ml-0.5">Can't find exact address? Feel free to enter just the area or landmark name.</p>
           </div>
 
           <div class="space-y-1 md:space-y-2">
@@ -144,6 +145,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                 </svg>
               </button>
             </div>
+            <p class="text-[9px] md:text-[10px] text-gray-400 font-medium leading-normal mt-1 ml-0.5">Can't find exact address? Feel free to enter just the area or landmark name.</p>
           </div>
         </div>
 
@@ -227,6 +229,15 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
             <path d="m6 6 12 12"></path>
           </svg>
         </button>
+      </div>
+
+      <!-- Location Search Bar -->
+      <div class="flex-none bg-gray-50 border-b border-gray-100 p-3">
+        <div class="relative w-full">
+          <input type="text" id="mapSearchInputGlobal" placeholder="Search address or landmark..." class="w-full pl-9 pr-24 py-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-[#22c55e] focus:border-transparent outline-none text-xs md:text-sm text-gray-900" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <button type="button" id="mapSearchBtnGlobal" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold text-[10px] md:text-xs uppercase tracking-wider px-3 py-1 rounded transition-colors border-none h-7 flex items-center justify-center">Search</button>
+        </div>
       </div>
 
       <!-- Overlay Body -->
@@ -336,6 +347,8 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
     const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtnGlobal') as HTMLButtonElement;
     const mapPickerTitle = document.getElementById('mapPickerTitleGlobal');
     const mapSelectedAddress = document.getElementById('mapSelectedAddressGlobal');
+    const mapSearchInput = document.getElementById('mapSearchInputGlobal') as HTMLInputElement;
+    const mapSearchBtn = document.getElementById('mapSearchBtnGlobal');
 
     // Default dates dynamically to today's date
     const dateInput = form ? form.querySelector('input[name="date"]') as HTMLInputElement : null;
@@ -498,6 +511,10 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
             let foundLocation = false;
 
             const existingAddress = inputField ? inputField.value.trim() : '';
+            if (mapSearchInput) {
+              mapSearchInput.value = existingAddress;
+            }
+
             if (existingAddress && existingAddress.length > 2) {
               if (mapSelectedAddress) mapSelectedAddress.textContent = 'Locating address on map...';
               try {
@@ -526,6 +543,145 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
               placeMarker(startLatLng, false);
               leafletMap.setView(defaultBangalore, 13);
             }
+
+            // Bind Search event inside openMapPicker
+            const handleSearchGlobal = async () => {
+              const query = mapSearchInput ? mapSearchInput.value.trim() : '';
+              if (!query || query.length < 2) return;
+              if (mapSearchBtn) {
+                mapSearchBtn.textContent = 'Searching...';
+                mapSearchBtn.setAttribute('disabled', 'true');
+              }
+              if (mapSelectedAddress) mapSelectedAddress.textContent = 'Searching location...';
+              try {
+                const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&countrycodes=in`);
+                const data = await res.json();
+                if (data && data.length > 0) {
+                  const lat = parseFloat(data[0].lat);
+                  const lon = parseFloat(data[0].lon);
+                  const latlng = { lat, lng: lon };
+                  selectedMapAddress = data[0].display_name || query;
+                  if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddress;
+                  if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+                  placeMarker(latlng, false);
+                  if (leafletMap) {
+                    leafletMap.setView([lat, lon], 15);
+                  }
+                } else {
+                  alert("Location not found. Please try a different name or click directly on the map.");
+                  if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
+                }
+              } catch (err) {
+                console.error("Geocoding failed:", err);
+                alert("Error connecting to search service. Please try again.");
+              } finally {
+                if (mapSearchBtn) {
+                  mapSearchBtn.textContent = 'Search';
+                  mapSearchBtn.removeAttribute('disabled');
+                }
+              }
+            };
+
+            if (mapSearchBtn) {
+              mapSearchBtn.onclick = (e) => {
+                e.preventDefault();
+                handleSearchGlobal();
+              };
+            }
+            if (mapSearchInput) {
+              mapSearchInput.onkeydown = (e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSearchGlobal();
+                }
+              };
+            }
+
+            // Suggestions Autocomplete inside Map modal
+            const mapSearchParent = mapSearchInput.parentElement;
+            let mapSuggestionsDiv = document.getElementById('mapSuggestionsGlobal');
+            if (!mapSuggestionsDiv) {
+              mapSuggestionsDiv = document.createElement('div');
+              mapSuggestionsDiv.id = 'mapSuggestionsGlobal';
+              mapSuggestionsDiv.className = 'absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl z-[120] max-h-60 overflow-y-auto hidden text-slate-800 text-sm font-medium divide-y divide-slate-100';
+              mapSuggestionsDiv.style.top = '100%';
+              if (mapSearchParent) {
+                mapSearchParent.appendChild(mapSuggestionsDiv);
+              }
+            }
+
+            let mapDebounceTimer: any;
+            mapSearchInput.oninput = () => {
+              clearTimeout(mapDebounceTimer);
+              const query = mapSearchInput.value.trim();
+              if (query.length < 3) {
+                mapSuggestionsDiv.innerHTML = '';
+                mapSuggestionsDiv.classList.add('hidden');
+                return;
+              }
+
+              mapDebounceTimer = setTimeout(async () => {
+                try {
+                  const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=in&viewbox=77.35,12.8,77.75,13.1&bounded=0`);
+                  const data = await res.json();
+                  
+                  mapSuggestionsDiv.innerHTML = '';
+                  if (data && data.length > 0) {
+                    data.forEach((item: any) => {
+                      const btn = document.createElement('button');
+                      btn.type = 'button';
+                      btn.className = 'w-full text-left px-4 py-3 hover:bg-slate-50 transition-colors flex items-start gap-2.5';
+                      btn.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <div class="truncate">
+                          <p class="font-semibold text-slate-800 truncate">${item.name || item.display_name.split(',')[0]}</p>
+                          <p class="text-xs text-slate-400 truncate">${item.display_name}</p>
+                        </div>
+                      `;
+
+                      btn.onclick = (e) => {
+                        e.preventDefault();
+                        mapSearchInput.value = item.display_name;
+                        mapSuggestionsDiv.innerHTML = '';
+                        mapSuggestionsDiv.classList.add('hidden');
+                        
+                        const lat = parseFloat(item.lat);
+                        const lon = parseFloat(item.lon);
+                        const latlng = { lat, lng: lon };
+                        selectedMapAddress = item.display_name;
+                        if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddress;
+                        if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+                        placeMarker(latlng, false);
+                        if (leafletMap) {
+                          leafletMap.setView([lat, lon], 15);
+                        }
+                      };
+
+                      mapSuggestionsDiv.appendChild(btn);
+                    });
+                    mapSuggestionsDiv.classList.remove('hidden');
+                  } else {
+                    mapSuggestionsDiv.classList.add('hidden');
+                  }
+                } catch (err) {
+                  console.error("Map autocomplete fetch failed:", err);
+                }
+              }, 150);
+            };
+
+            const closeSuggestionsGlobal = (e: any) => {
+              if (e.target !== mapSearchInput && !mapSuggestionsDiv.contains(e.target)) {
+                mapSuggestionsDiv.classList.add('hidden');
+              }
+            };
+            document.addEventListener('click', closeSuggestionsGlobal);
+
+            // Save reference to clean up when closed
+            (mapPickerOverlay as any).closeSuggestionsListener = closeSuggestionsGlobal;
+            (mapPickerOverlay as any).mapSuggestionsDiv = mapSuggestionsDiv;
           }
         }, 300);
       };
@@ -581,6 +737,13 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
         if (mapPickerOverlay) {
           mapPickerOverlay.classList.add('hidden');
           mapPickerOverlay.classList.remove('flex');
+          if ((mapPickerOverlay as any).closeSuggestionsListener) {
+            document.removeEventListener('click', (mapPickerOverlay as any).closeSuggestionsListener);
+          }
+          if ((mapPickerOverlay as any).mapSuggestionsDiv) {
+            (mapPickerOverlay as any).mapSuggestionsDiv.innerHTML = '';
+            (mapPickerOverlay as any).mapSuggestionsDiv.classList.add('hidden');
+          }
         }
         activeLocationField = '';
       };

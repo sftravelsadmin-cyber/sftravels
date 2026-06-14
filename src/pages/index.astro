@@ -156,6 +156,7 @@ const allFleet = [
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
+                    <p class="mt-2 text-xs text-slate-400 font-medium">Can't find exact address? Feel free to enter just the area or landmark name.</p>
                   </div>
 
                   <!-- Drop Off Location -->
@@ -170,6 +171,7 @@ const allFleet = [
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" x2="9" y2="18"></line><line x1="15" x2="15" y1="6" x2="15" y2="21"></line></svg>
                       </button>
                     </div>
+                    <p class="mt-2 text-xs text-slate-400 font-medium">Can't find exact address? Feel free to enter just the area or landmark name.</p>
                   </div>
                 </div>
 
@@ -908,6 +910,14 @@ const allFleet = [
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
                 </button>
               </div>
+              <!-- Location Search Bar -->
+              <div class="flex-none bg-gray-50 border-b border-gray-100 p-3">
+                <div class="relative w-full">
+                  <input type="text" id="mapSearchInputHome" placeholder="Search address or landmark..." class="w-full pl-9 pr-24 py-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1E2D5A] focus:border-transparent outline-none text-xs md:text-sm text-gray-900" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                  <button type="button" id="mapSearchBtnHome" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#1E2D5A] hover:bg-[#D97706] text-white font-bold text-[10px] md:text-xs uppercase tracking-wider px-3 py-1 rounded transition-colors border-none h-7 flex items-center justify-center">Search</button>
+                </div>
+              </div>
               <div class="flex-1 overflow-y-auto p-3 flex flex-col gap-3 min-h-0 text-gray-700">
                 <div class="relative flex-grow border border-gray-200 rounded-lg overflow-hidden bg-gray-50 min-h-[260px] md:min-h-[320px]">
                   <div id="leafletMapContainerHome" class="absolute inset-0 w-full h-full z-10"></div>
@@ -980,6 +990,8 @@ const allFleet = [
         const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtn');
         const mapPickerTitle = document.getElementById('mapPickerTitle');
         const mapSelectedAddress = document.getElementById('mapSelectedAddress');
+        const mapSearchInput = document.getElementById('mapSearchInputHome');
+        const mapSearchBtn = document.getElementById('mapSearchBtnHome');
 
         if (mapPickerTitle) mapPickerTitle.textContent = fieldName === 'pickup' ? 'Select Pickup Location' : 'Select Drop Location';
         activeInputTarget = inputField;
@@ -1009,6 +1021,10 @@ const allFleet = [
             let foundLocation = false;
 
             const existingAddress = inputField ? inputField.value.trim() : '';
+            if (mapSearchInput) {
+              mapSearchInput.value = existingAddress;
+            }
+
             if (existingAddress && existingAddress.length > 2) {
               if (mapSelectedAddress) mapSelectedAddress.textContent = 'Locating address on map...';
               try {
@@ -1037,6 +1053,143 @@ const allFleet = [
               placeMarkerHome(startLatLng, false, mapSelectedAddress, confirmMapLocationBtn);
               leafletMapModal.setView(defaultBangalore, 13);
             }
+
+            // Bind Search event inside openMapModal
+            const handleSearchHome = async () => {
+              const query = mapSearchInput ? mapSearchInput.value.trim() : '';
+              if (!query || query.length < 2) return;
+              if (mapSearchBtn) {
+                mapSearchBtn.textContent = 'Searching...';
+                mapSearchBtn.setAttribute('disabled', 'true');
+              }
+              if (mapSelectedAddress) mapSelectedAddress.textContent = 'Searching location...';
+              try {
+                const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&countrycodes=in`);
+                const data = await res.json();
+                if (data && data.length > 0) {
+                  const lat = parseFloat(data[0].lat);
+                  const lon = parseFloat(data[0].lon);
+                  const latlng = { lat, lng: lon };
+                  selectedMapAddressHome = data[0].display_name || query;
+                  if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddressHome;
+                  if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+                  placeMarkerHome(latlng, false, mapSelectedAddress, confirmMapLocationBtn);
+                  if (leafletMapModal) {
+                    leafletMapModal.setView([lat, lon], 15);
+                  }
+                } else {
+                  alert("Location not found. Please try a different name or click directly on the map.");
+                  if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
+                }
+              } catch (err) {
+                console.error("Geocoding failed:", err);
+                alert("Error connecting to search service. Please try again.");
+              } finally {
+                if (mapSearchBtn) {
+                  mapSearchBtn.textContent = 'Search';
+                  mapSearchBtn.removeAttribute('disabled');
+                }
+              }
+            };
+
+            if (mapSearchBtn) {
+              mapSearchBtn.onclick = (e) => {
+                e.preventDefault();
+                handleSearchHome();
+              };
+            }
+            if (mapSearchInput) {
+              mapSearchInput.onkeydown = (e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSearchHome();
+                }
+              };
+            }
+
+            // Suggestions Autocomplete inside Map modal
+            const mapSearchParent = mapSearchInput.parentElement;
+            let mapSuggestionsDiv = document.getElementById('mapSuggestionsHome');
+            if (!mapSuggestionsDiv) {
+              mapSuggestionsDiv = document.createElement('div');
+              mapSuggestionsDiv.id = 'mapSuggestionsHome';
+              mapSuggestionsDiv.className = 'absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl z-[120] max-h-60 overflow-y-auto hidden text-slate-800 text-sm font-medium divide-y divide-slate-100';
+              mapSuggestionsDiv.style.top = '100%';
+              mapSearchParent.appendChild(mapSuggestionsDiv);
+            }
+
+            let mapDebounceTimer;
+            mapSearchInput.oninput = () => {
+              clearTimeout(mapDebounceTimer);
+              const query = mapSearchInput.value.trim();
+              if (query.length < 3) {
+                mapSuggestionsDiv.innerHTML = '';
+                mapSuggestionsDiv.classList.add('hidden');
+                return;
+              }
+
+              mapDebounceTimer = setTimeout(async () => {
+                try {
+                  const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=in&viewbox=77.35,12.8,77.75,13.1&bounded=0`);
+                  const data = await res.json();
+                  
+                  mapSuggestionsDiv.innerHTML = '';
+                  if (data && data.length > 0) {
+                    data.forEach(item => {
+                      const btn = document.createElement('button');
+                      btn.type = 'button';
+                      btn.className = 'w-full text-left px-4 py-3 hover:bg-slate-50 transition-colors flex items-start gap-2.5';
+                      btn.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <div class="truncate">
+                          <p class="font-semibold text-slate-800 truncate">${item.name || item.display_name.split(',')[0]}</p>
+                          <p class="text-xs text-slate-400 truncate">${item.display_name}</p>
+                        </div>
+                      `;
+
+                      btn.onclick = (e) => {
+                        e.preventDefault();
+                        mapSearchInput.value = item.display_name;
+                        mapSuggestionsDiv.innerHTML = '';
+                        mapSuggestionsDiv.classList.add('hidden');
+                        
+                        const lat = parseFloat(item.lat);
+                        const lon = parseFloat(item.lon);
+                        const latlng = { lat, lng: lon };
+                        selectedMapAddressHome = item.display_name;
+                        if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddressHome;
+                        if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+                        placeMarkerHome(latlng, false, mapSelectedAddress, confirmMapLocationBtn);
+                        if (leafletMapModal) {
+                          leafletMapModal.setView([lat, lon], 15);
+                        }
+                      };
+
+                      mapSuggestionsDiv.appendChild(btn);
+                    });
+                    mapSuggestionsDiv.classList.remove('hidden');
+                  } else {
+                    mapSuggestionsDiv.classList.add('hidden');
+                  }
+                } catch (err) {
+                  console.error("Map autocomplete fetch failed:", err);
+                }
+              }, 150);
+            };
+
+            const closeSuggestionsHome = (e) => {
+              if (e.target !== mapSearchInput && !mapSuggestionsDiv.contains(e.target)) {
+                mapSuggestionsDiv.classList.add('hidden');
+              }
+            };
+            document.addEventListener('click', closeSuggestionsHome);
+
+            // Save reference to cleanup when modal is closed
+            mapModal.closeSuggestionsHomeListener = closeSuggestionsHome;
+            mapModal.mapSuggestionsDiv = mapSuggestionsDiv;
           }
         }, 150);
 
@@ -1056,7 +1209,17 @@ const allFleet = [
           };
         }
 
-        const closeModal = () => { mapModal.classList.add('hidden'); mapModal.classList.remove('flex'); };
+        const closeModal = () => { 
+          mapModal.classList.add('hidden'); 
+          mapModal.classList.remove('flex'); 
+          if (mapModal.closeSuggestionsHomeListener) {
+            document.removeEventListener('click', mapModal.closeSuggestionsHomeListener);
+          }
+          if (mapModal.mapSuggestionsDiv) {
+            mapModal.mapSuggestionsDiv.innerHTML = '';
+            mapModal.mapSuggestionsDiv.classList.add('hidden');
+          }
+        };
         if (closeMapModalBtn) closeMapModalBtn.onclick = (e) => { e.preventDefault(); closeModal(); };
         if (cancelMapModalBtn) cancelMapModalBtn.onclick = (e) => { e.preventDefault(); closeModal(); };
         if (confirmMapLocationBtn) {
