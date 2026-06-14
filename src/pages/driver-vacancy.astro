@@ -396,7 +396,7 @@ import Layout from '../layouts/Layout.astro';
               <!-- Phone Number -->
               <div class="flex flex-col gap-2">
                 <label class="font-semibold text-slate-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
-                <input type="tel" name="driverPhone" placeholder="10-digit phone number" maxlength="13" inputmode="numeric" pattern="^[6-9]\d{9}$" title="Please enter a valid 10-digit Indian mobile number (e.g. 9876543210)" required
+                <input type="tel" name="driverPhone" placeholder="10-digit phone number" maxlength="20" inputmode="numeric" required
                   class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
               </div>
 
@@ -629,6 +629,7 @@ import Layout from '../layouts/Layout.astro';
               alert("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
               return;
             }
+            phoneInput.value = digits;
           }
 
           const submitBtn = driverForm.querySelector('button[type="submit"]');
