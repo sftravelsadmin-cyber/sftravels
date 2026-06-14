@@ -147,7 +147,7 @@ const allFleet = [
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" class="w-full h-14 pl-12 pr-11 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
+                        <input type="text" name="pickupLocation" id="pickupLocationInput" placeholder="Enter pickup location" required class="w-full h-14 pl-12 pr-11 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
                         <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 hover:bg-slate-100 rounded-lg text-[#D97706] transition-colors z-20" id="pickupCurrentLocBtn" title="Use current location">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path></svg>
                         </button>
@@ -164,7 +164,7 @@ const allFleet = [
                     <div class="relative flex gap-2 items-center">
                       <div class="relative flex-grow min-w-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none z-10"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
+                        <input type="text" name="dropoffLocation" id="dropoffLocationInput" placeholder="Enter dropoff location" required class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium truncate">
                       </div>
                       <button type="button" class="flex-shrink-0 h-14 w-14 flex items-center justify-center bg-slate-50 border border-slate-200 rounded-xl hover:bg-[#1E2D5A] hover:text-white hover:border-[#1E2D5A] transition-all text-slate-500" id="dropoffMapBtn" title="Pick on Map">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-6 h-6"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" x2="9" y2="18"></line><line x1="15" x2="15" y1="6" x2="15" y2="21"></line></svg>
@@ -181,11 +181,11 @@ const allFleet = [
                     <div class="grid grid-cols-2 gap-2">
                       <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select date" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
+                        <input type="text" name="pickupDate" id="pickupDatePicker" placeholder="Select date" required class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium">
                       </div>
                       <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <input type="time" name="pickupTime" class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="10:00" style="color-scheme: light;">
+                        <input type="time" name="pickupTime" required class="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-base text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium" value="10:00" style="color-scheme: light;">
                       </div>
                     </div>
                   </div>
@@ -741,6 +741,36 @@ const allFleet = [
           e.preventDefault();
           const botcheck = bookingForm.querySelector('input[name="botcheck"]');
           if (botcheck && botcheck.checked) return;
+
+          // JS-side validation for required fields
+          const pickupLoc = bookingForm.querySelector('input[name="pickupLocation"]');
+          const dropoffLoc = bookingForm.querySelector('input[name="dropoffLocation"]');
+          const pickupDate = bookingForm.querySelector('input[name="pickupDate"]');
+          const serviceType = serviceTypeInput ? serviceTypeInput.value : 'Outstation';
+
+          if (pickupLoc && !pickupLoc.value.trim()) {
+            pickupLoc.focus();
+            alert("Please enter a pickup location.");
+            return;
+          }
+          if (serviceType !== 'Local' && dropoffLoc && !dropoffLoc.value.trim()) {
+            dropoffLoc.focus();
+            alert("Please enter a dropoff location.");
+            return;
+          }
+          if (pickupDate && !pickupDate.value.trim()) {
+            pickupDate.focus();
+            alert("Please select a pickup date.");
+            return;
+          }
+          if (serviceType === 'Outstation') {
+            const returnDate = bookingForm.querySelector('input[name="returnDate"]');
+            if (returnDate && !returnDate.value.trim()) {
+              returnDate.focus();
+              alert("Please select a return date.");
+              return;
+            }
+          }
 
           // Strict client-side phone number validation
           const phoneInput = bookingForm.querySelector('input[name="phoneNumber"]');

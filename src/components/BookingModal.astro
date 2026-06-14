@@ -674,6 +674,26 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
             return;
           }
 
+          // Validate required fields
+          const pickupInput = form.querySelector('input[name="pickup"]') as HTMLInputElement;
+          const dropInput = form.querySelector('input[name="drop"]') as HTMLInputElement;
+          const dateInput = form.querySelector('input[name="date"]') as HTMLInputElement;
+          if (pickupInput && !pickupInput.value.trim()) {
+            pickupInput.focus();
+            alert("Please enter a pickup location.");
+            return;
+          }
+          if (dropInput && !dropInput.value.trim()) {
+            dropInput.focus();
+            alert("Please enter a drop location.");
+            return;
+          }
+          if (dateInput && !dateInput.value.trim()) {
+            dateInput.focus();
+            alert("Please select a date.");
+            return;
+          }
+
           // Strict client-side phone number validation
           const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement;
           if (phoneInput) {
