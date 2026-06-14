@@ -688,6 +688,7 @@ const allFleet = [
 
         wrapper.addEventListener('pointerdown', (e) => {
           if (e.button !== 0) return; // Only track left clicks / primary touches
+          if (e.target.closest('button, a')) return; // Ignore interactive elements
           isPointerDown = true;
           pointerStartX = e.clientX;
           pointerStartY = e.clientY;
