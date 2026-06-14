@@ -134,14 +134,6 @@ export const blogPosts = [
         text: "• **Mysuru Palace:** India's most visited monument after the Taj. Go early (before 10 AM) to avoid crowds.\n• **Chamundeshwari Temple:** Atop Chamundi Hills — 1,000+ steps or drive up.\n• **Brindavan Gardens:** Arrive at 6:30 PM for the musical fountain show (illuminated on weekends).\n• **Devaraja Market:** Oldest market in Mysuru — jasmine garlands, spices, silk."
       },
       {
-        type: "h2",
-        text: "SF Travels Mysuru Outstation Rates"
-      },
-      {
-        type: "p",
-        text: "Sedan (Swift Dzire): From ₹2,500 one-way | SUV (Innova): From ₹3,800 one-way. Includes driver, fuel, and toll. Driver allowance (₹200) for one-way trips. Book via WhatsApp for instant confirmation."
-      },
-      {
         type: "cta",
         text: "Book Bangalore to Mysuru Cab",
         href: "/services/outstation-cabs"
@@ -172,7 +164,7 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "Slab-rate billing charges a fixed amount per trip based on distance band — not a running meter or per-km rate. At SF Travels, we use this structure:\n\n• 0–10 km: ₹600 flat\n• 11–20 km: ₹700 flat\n• 21–30 km: ₹800 flat\n• 31+ km: ₹900 flat"
+        text: "Slab-rate billing charges a fixed amount per trip based on distance band — not a running meter or per-km rate. At SF Travels, we use this structure:\n\n• 0–10 km: ₹700 flat\n• 11–20 km: ₹800 flat\n• 21–30 km: ₹900 flat\n• 31+ km: ₹1,000 flat"
       },
       {
         type: "h2",
@@ -294,7 +286,7 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "Tempo Traveller pricing depends on: (1) Distance in km, (2) Number of days, (3) Whether the route is local or outstation, (4) State permits for inter-state travel. SF Travels charges ₹28/km for a 12-seater and ₹35/km for a Force Urbania, with a minimum of 100 km per day."
+        text: "Tempo Traveller pricing depends on: (1) Distance in km, (2) Number of days, (3) Whether the route is local or outstation, (4) State permits for inter-state travel. SF Travels charges ₹24/km for a 12-seater and ₹37/km for a Force Urbania, with a minimum of 300 km per day."
       },
       {
         type: "h2",
@@ -359,7 +351,7 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "We offer 4-hour (₹680), 6-hour (₹960), 8-hour (₹1,200), and 10-hour (₹1,450) packages for Sedans in Bangalore. Each package includes a km allowance. Extra distance is billed at ₹12/km — disclosed upfront, never a surprise."
+        text: "We offer 4-hour, 6-hour, 8-hour, and 12-hour packages for Sedans in Bangalore. Each package includes a km allowance. Extra distance is billed per km — disclosed upfront, never a surprise."
       },
       {
         type: "cta",

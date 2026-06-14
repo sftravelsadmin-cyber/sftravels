@@ -77,10 +77,10 @@ To save token usage and allow for collaborative reviews, we will build this webs
 ## 📋 3. Slab Rates Integration (Corporate Duty)
 
 We will incorporate Gagan's custom **Slab Rate Card** in the corporate booking and services section:
-*   **0-10 kms**: ₹600
-*   **11-20 kms**: ₹700
-*   **21-30 kms**: ₹800
-*   **31+ kms**: ₹900
+*   **0-10 kms**: ₹700
+*   **11-20 kms**: ₹800
+*   **21-30 kms**: ₹900
+*   **31+ kms**: ₹1,000
 *   *Escort Charge*: 1.5 as per Slab Rate
 
 ---

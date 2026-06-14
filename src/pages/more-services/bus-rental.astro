@@ -194,15 +194,33 @@ const busFleet = [
       </div>
     </section>
 
-    <!-- ===== BOTTOM CTA SECTION ===== -->
-    <section class="py-20 bg-[#1E2D5A] text-white relative overflow-hidden">
-      <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1920&q=80');"></div>
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-4 font-heading" style="color: #ffffff !important;">Reserve Your Passenger Coach</h2>
-        <p class="text-slate-300 max-w-xl mx-auto mb-8 text-sm sm:text-base">Request a custom quote for your group journey today. Safe, smooth, and dependable bus rentals in Bengaluru.</p>
-        <button data-book-now data-vehicle="General Enquiry" data-category="Bus Rental" class="btn-gold px-8 py-4 font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer">
-          Enquire Now
-        </button>
+    <!-- ═══════════════════════════════════════════════════════════════
+         CTA BANNER — Left-aligned, warm indigo + amber accent
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden py-16 bg-[#0d1629]">
+      <!-- Background image with deep brand blue/black overlay -->
+      <div class="absolute inset-0 z-0"
+        style="background-image: url('https://images.unsplash.com/photo-1608340173813-afedec884f1f?w=1920&q=80'); background-size: cover; background-position: center;">
+      </div>
+      <div class="absolute inset-0 bg-slate-950/80 z-10"></div>
+
+      <div class="container mx-auto px-4 relative z-20">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4" style="color: #ffffff !important;">Ready to Book Your Premium Ride?</h2>
+            <p class="text-white/80 text-lg" style="color: rgba(255, 255, 255, 0.8) !important;">Get started today — our team confirms within 15 minutes.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+            <button class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all shadow-lg" data-book-now data-vehicle="Premium Cab" data-category="General Booking">
+              Book a Cab Now
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+            <a href="tel:9353966815" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl text-lg transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              Call 9353966815
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>

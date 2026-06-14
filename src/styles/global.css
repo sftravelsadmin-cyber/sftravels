@@ -517,3 +517,47 @@ img { display: block; max-width: 100%; }
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Fleet Category Tab Buttons */
+.fleet-tab-btn.inactive-tab {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.fleet-tab-btn.inactive-tab:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.fleet-tab-btn.active-tab {
+  background-color: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+}
+
+.fleet-tab-btn.active-tab:hover {
+  color: #ffffff !important;
+}
+
+/* Service Tab Buttons */
+.tab-btn.inactive-tab {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.tab-btn.inactive-tab:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.tab-btn.active-tab {
+  background-color: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+}
+
+.tab-btn.active-tab:hover {
+  background-color: var(--primary) !important;
+  color: #ffffff !important;
+}

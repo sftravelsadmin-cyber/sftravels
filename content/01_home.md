@@ -56,7 +56,7 @@ This file holds the finalized and professionally improvised copy for the landing
     *   *Label*: Happy Corporate & Retail Clients
 *   **Stat 3**: **230+**
     *   *Label*: Premium Active Fleet Vehicles
-*   **Stat 4**: **15+ Years**
+*   **Stat 4**: **7+ Years**
     *   *Label*: Combined Industry Operational Excellence
 
 ---

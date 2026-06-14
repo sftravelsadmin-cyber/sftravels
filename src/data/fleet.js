@@ -60,8 +60,8 @@ export const fleet = [
     luggage: "Luggage Carrier",
     image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&q=80",
     features: ["GPS Tracked", "12-Seater", "Full AC", "Roof Carrier"],
-    pricePerKm: "₹28/km",
-    minimumKm: "100 km/day",
+    pricePerKm: "₹24/km",
+    minimumKm: "300 km/day",
     bestFor: ["Group Tours", "Outstation", "Corporate Events"],
     badge: "Group Pick",
     badgeColor: "#2d4080",
@@ -76,8 +76,8 @@ export const fleet = [
     luggage: "Rear Cargo Bay",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     features: ["GPS Tracked", "17-Seater", "Full AC", "Luxury Seats"],
-    pricePerKm: "₹35/km",
-    minimumKm: "100 km/day",
+    pricePerKm: "₹37/km",
+    minimumKm: "300 km/day",
     bestFor: ["Corporate Groups", "Airport Pickups", "Tours"],
     badge: "New Fleet",
     badgeColor: "#8b5cf6",
@@ -102,10 +102,10 @@ export const fleet = [
 
 // Slab Rate Card (Corporate Duty)
 export const slabRates = [
-  { range: "0 – 10 km", rate: "₹600", perTrip: true },
-  { range: "11 – 20 km", rate: "₹700", perTrip: true },
-  { range: "21 – 30 km", rate: "₹800", perTrip: true },
-  { range: "31+ km", rate: "₹900", perTrip: true },
+  { range: "0 – 10 km", rate: "₹700", perTrip: true },
+  { range: "11 – 20 km", rate: "₹800", perTrip: true },
+  { range: "21 – 30 km", rate: "₹900", perTrip: true },
+  { range: "31+ km", rate: "₹1,000", perTrip: true },
 ];
 
 export const escortCharge = "1.5x Slab Rate";

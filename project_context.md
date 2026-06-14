@@ -14,10 +14,10 @@
   * *Typography*: Google Fonts **Outfit** (Headings) and **Inter** (Body text).
   * *Colors (HSL scoped in `global.css`)*: Scoped variables in `src/styles/global.css` (e.g., `--gold-base`, `--navy-base`, `--glass-bg`).
 * **Slab Rates**: Standard corporate rate card:
-  * 0–10 km: ₹600
-  * 11–20 km: ₹700
-  * 21–30 km: ₹800
-  * 31+ km: ₹900
+  * 0–10 km: ₹700
+  * 11–20 km: ₹800
+  * 21–30 km: ₹900
+  * 31+ km: ₹1,000
   * Escort charges: 1.5x Slab Rate.
 
 ---

@@ -6,7 +6,6 @@ const featuredBlogPosts = blogPosts.slice(0, 3);
 const carsFleet = [
   { id: "hatchback", name: "Hatchback", desc: "Compact & economical, ideal for quick city trips and solo travellers.", seats: "4", luggage: "1-2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/hatchback-1770872540052-15.png" },
   { id: "sedan", name: "Sedan", desc: "Sleek and comfortable, perfect for business rides or airport transfers.", seats: "4", luggage: "2 Bags", category: "car", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/sedan-1770872682504-18.png" },
-  { id: "suv", name: "SUV", desc: "Spacious and powerful, great for family outings and tough terrains.", seats: "6", luggage: "3 Bags", category: "suv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/suv-1770870907832-54.png" },
   { id: "ertiga", name: "Ertiga", desc: "Affordable 6-seater MPV, perfect for family travel on a budget.", seats: "6", luggage: "3 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/ertiga-1770870707273-12.png" },
   { id: "innova", name: "Innova", desc: "The industry standard for comfortable, reliable long-distance travel.", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-1770870734987-27.png" },
   { id: "innova-crysta", name: "Innova Crysta", desc: "Premium executive MPV with captain seats and high luxury cabin space.", seats: "7", luggage: "4 Bags", category: "mpv", image: "https://wdybiksmheimcrkzgzcm.supabase.co/storage/v1/object/public/vehicle-images/innova-crysta-1770870762832-21.png" },
@@ -74,19 +73,19 @@ const allFleet = [
           <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100">
             <!-- Tab bar -->
             <div class="bg-slate-50 px-5 py-4 border-b border-slate-200 flex flex-wrap gap-2 justify-center" id="serviceTabs">
-              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-[#1E2D5A] text-white shadow" data-service="Outstation">
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all active-tab shadow" data-service="Outstation">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Outstation
               </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Airport">
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all inactive-tab" data-service="Airport">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
                 Airport
               </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="OneWay">
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all inactive-tab" data-service="OneWay">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg>
                 One Way
               </button>
-              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100" data-service="Local">
+              <button type="button" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-xl text-base font-bold transition-all inactive-tab" data-service="Local">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 Local
               </button>
@@ -129,7 +128,7 @@ const allFleet = [
                       <select name="vehicleType" required class="w-full h-14 pl-12 pr-10 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-lg text-slate-800 focus:ring-2 focus:ring-[#D97706] focus:border-transparent outline-none transition-all font-medium appearance-none">
                         <option value="" disabled selected class="text-slate-400">Choose vehicle</option>
                         <optgroup label="Cars"><option value="Hatchback">Hatchback</option><option value="Sedan">Sedan</option></optgroup>
-                        <optgroup label="SUVs & MPVs"><option value="SUV">SUV</option><option value="Ertiga">Ertiga</option><option value="Innova">Innova</option><option value="Innova Crysta">Innova Crysta</option><option value="Innova Hycross">Innova Hycross</option></optgroup>
+                        <optgroup label="SUVs & MPVs"><option value="Ertiga">Ertiga</option><option value="Innova">Innova</option><option value="Innova Crysta">Innova Crysta</option><option value="Innova Hycross">Innova Hycross</option></optgroup>
                         <optgroup label="Vans"><option value="Tempo Traveller 12">Tempo Traveller 12</option><option value="Tempo Traveller 13">Tempo Traveller 13</option><option value="Tempo Traveller 14">Tempo Traveller 14</option><option value="Force Urbania Deluxe">Force Urbania Deluxe</option><option value="Force Urbania Luxury">Force Urbania Luxury</option><option value="Force Urbania Maharaj">Force Urbania Maharaj</option></optgroup>
                         <optgroup label="Buses"><option value="Mini Bus 21">Mini Bus 21</option><option value="Mini Bus 25">Mini Bus 25</option><option value="Mini Bus 30">Mini Bus 30</option><option value="Bus 33">Bus 33</option><option value="Bus 40">Bus 40</option><option value="Volvo Bus 45">Volvo Bus 45</option><option value="Bus 50 Seater">Bus 50 Seater</option></optgroup>
                       </select>
@@ -228,7 +227,7 @@ const allFleet = [
               { step: "04", title: "Sit Back & Relax", desc: "We handle the rest" }
             ].map((s, i) => (
               <div class="flex flex-col items-center relative px-2">
-                {i < 3 && <div class="hidden lg:block absolute right-0 top-7 w-1/2 h-px bg-white/25"></div>}
+                {i < 3 && <div class="hidden lg:block absolute left-[calc(50%+28px)] top-7 w-[calc(100%-56px)] h-px bg-white/25"></div>}
                 <div class="w-14 h-14 rounded-full border-2 border-[#D97706] !text-[#D97706] font-extrabold text-xl flex items-center justify-center mb-3 bg-white/5" style="color: #D97706; border-color: #D97706;">{s.step}</div>
                 <h3 class="!text-white font-extrabold text-base mb-1.5" style="color: #ffffff !important;">{s.title}</h3>
                 <p class="!text-white/90 text-sm leading-relaxed font-medium" style="color: rgba(255, 255, 255, 0.9) !important;">{s.desc}</p>
@@ -254,7 +253,7 @@ const allFleet = [
           <div class="flex flex-wrap gap-3" id="fleetTabs">
             {allFleet.map((tab, i) => (
               <button type="button"
-                class={`fleet-tab-btn px-6 py-3 rounded-full text-base font-extrabold transition-all border shadow-sm duration-200 hover:scale-105 ${i === 0 ? 'bg-[#1E2D5A] text-white border-[#1E2D5A] shadow-md' : 'bg-white text-slate-600 border-slate-200 hover:border-[#1E2D5A] hover:text-[#1E2D5A] hover:shadow-md'}`}
+                class={`fleet-tab-btn px-6 py-3 rounded-full text-base font-extrabold transition-all border shadow-sm duration-200 hover:scale-105 hover:shadow-md ${i === 0 ? 'active-tab shadow-md' : 'inactive-tab'}`}
                 data-tab-target={tab.id}>
                 {tab.label}
               </button>
@@ -273,13 +272,13 @@ const allFleet = [
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M9 5l7 7-7 7"></path></svg>
               </button>
               <div class="overflow-hidden px-1 py-3 -mx-1">
-                <div class="flex transition-transform duration-500 ease-in-out">
+                <div class="flex transition-transform duration-500 ease-in-out cursor-grab active:cursor-grabbing select-none" style="touch-action: pan-y;">
                   {tabData.fleet.map(c => (
                     <div class="flex-shrink-0 px-3 transition-all duration-300">
                       <div class="bg-slate-50 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#1E2D5A]/25 hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full">
                         <!-- Image -->
                         <div class="relative h-52 overflow-hidden bg-slate-50">
-                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                          <img src={c.image} alt={c.name} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105 pointer-events-none select-none" />
                           <div class="absolute top-3 right-3 bg-[#1E2D5A] text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full">{c.category}</div>
                         </div>
                         <!-- Info -->
@@ -306,6 +305,9 @@ const allFleet = [
                   ))}
                 </div>
               </div>
+              <!-- Dots Indicators -->
+              <div class="flex justify-center gap-2 mt-4 dots-container"></div>
+            </div>
             </div>
           </div>
         ))}
@@ -324,15 +326,15 @@ const allFleet = [
             <span class="text-[#D97706] font-bold text-sm uppercase tracking-[0.2em] block mb-3">Our Track Record</span>
             <h2 class="text-4xl sm:text-5xl font-extrabold text-[#1a1f36] mb-6 leading-tight">Proven Reliability & Experience</h2>
             <p class="text-slate-600 text-lg leading-relaxed mb-10">
-              Over a decade of providing premium transportation solutions across Bangalore. We prioritize safety, punctuality, and client satisfaction above all else.
+              Providing premium transportation solutions across Bangalore since 2019. We prioritize safety, punctuality, and client satisfaction above all else.
             </p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Verified Drivers", desc: "Every chauffeur undergoes background checks and professional defensive driving training." },
-                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "24/7 Support", desc: "Dedicated round-the-clock booking dispatchers and customer help desks." },
-                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Transparent Pricing", desc: "Zero hidden fees. Flat slab-rate charges with detailed invoices provided." },
-                { icon: "M5 13l4 4L19 7", label: "15+ Years Experience", desc: "Proudly serving Bangalore's leading corporate hubs and leisure travelers since 2011." }
+                { icon: "M5 13l4 4L19 7", label: "7+ Years of Excellence", desc: "Proudly serving Bangalore's leading corporate hubs and leisure travelers since 2019." },
+                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "GPS-Tracked Safety", desc: "Every journey is GPS-monitored 24/7 with active tracking and panic alert compliance." },
+                { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", label: "Premium Fleet Scale", desc: "Over 235 company-owned, well-maintained sedans, SUVs, and luxury passenger coaches." },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "24/7 Concierge Support", desc: "Dedicated round-the-clock help desk and booking dispatchers for corporate and retail customers." }
               ].map(b => (
                 <div class="flex flex-col gap-4 p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
                   <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 flex items-center justify-center flex-shrink-0">
@@ -373,7 +375,7 @@ const allFleet = [
               </div>
               <div class="border-l border-slate-800 h-12 my-auto"></div>
               <div class="text-center">
-                <div class="text-3xl sm:text-4xl font-extrabold text-[#D97706]">15 yrs</div>
+                <div class="text-3xl sm:text-4xl font-extrabold text-[#D97706]">7+ yrs</div>
                 <div class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mt-2">Experience</div>
               </div>
             </div>
@@ -397,10 +399,10 @@ const allFleet = [
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "Transparent Pricing", desc: "Slab-rate billing with no surprise charges. What you see is what you pay.", bg: "bg-blue-50", ibg: "bg-blue-100" },
-            { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "24/7 Availability", desc: "Round-the-clock service. Early morning flights or late-night returns — we're always on.", bg: "bg-amber-50", ibg: "bg-amber-100" },
-            { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Verified Chauffeurs", desc: "Background-checked, licensed professionals with years of experience on Bangalore's roads.", bg: "bg-green-50", ibg: "bg-green-100" },
-            { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Free Door Service", desc: "We pick you up right from your doorstep. Complimentary for premium bookings.", bg: "bg-purple-50", ibg: "bg-purple-100" }
+            { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "Transparent Slab Pricing", desc: "Fixed upfront slab-rates with no meter worries, hidden toll extras, or surge pricing.", bg: "bg-blue-50", ibg: "bg-blue-100" },
+            { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "Punctual & Reliable", desc: "A strict 'on-time, every time' policy backed by automated dispatching and active backups.", bg: "bg-amber-50", ibg: "bg-amber-100" },
+            { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Impeccable Hygiene", desc: "Deep-cleaned, sanitized interiors with fresh cabin air for a premium travel experience.", bg: "bg-green-50", ibg: "bg-green-100" },
+            { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Doorstep Convenience", desc: "Complimentary doorstep pickup and drop-offs for all outstation and local packages.", bg: "bg-purple-50", ibg: "bg-purple-100" }
           ].map((f, i) => (
             <div class={`group rounded-2xl p-8 border border-white hover:shadow-xl transition-all duration-300 ${f.bg}`}>
               <div class={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#1E2D5A] transition-colors duration-300 ${f.ibg}`}>
@@ -534,11 +536,11 @@ const allFleet = [
           tab.addEventListener('click', (e) => {
             e.preventDefault();
             tabs.forEach(t => {
-              t.classList.remove('bg-[#1E2D5A]', 'text-white', 'shadow');
-              t.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+              t.classList.remove('active-tab');
+              t.classList.add('inactive-tab');
             });
-            tab.classList.add('bg-[#1E2D5A]', 'text-white', 'shadow');
-            tab.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            tab.classList.add('active-tab');
+            tab.classList.remove('inactive-tab');
 
             const selectedService = tab.getAttribute('data-service') || 'Outstation';
             serviceTypeInput.value = selectedService;
@@ -590,11 +592,11 @@ const allFleet = [
         btn.addEventListener('click', () => {
           const target = btn.getAttribute('data-tab-target');
           fleetTabBtns.forEach(b => {
-            b.classList.remove('bg-[#1E2D5A]', 'text-white', 'border-[#1E2D5A]');
-            b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            b.classList.remove('active-tab');
+            b.classList.add('inactive-tab');
           });
-          btn.classList.add('bg-[#1E2D5A]', 'text-white', 'border-[#1E2D5A]');
-          btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+          btn.classList.add('active-tab');
+          btn.classList.remove('inactive-tab');
           fleetPanels.forEach(panel => {
             if (panel.id === target) {
               panel.classList.remove('hidden');
@@ -614,6 +616,7 @@ const allFleet = [
         const wrapper = sliderContainer.querySelector('.flex.transition-transform');
         const prevBtn = sliderContainer.querySelector('button[aria-label="Previous slide"]');
         const nextBtn = sliderContainer.querySelector('button[aria-label="Next slide"]');
+        const dotsContainer = sliderContainer.querySelector('.dots-container');
         if (!wrapper || !prevBtn || !nextBtn) return;
 
         let currentIndex = 0;
@@ -634,6 +637,25 @@ const allFleet = [
           wrapper.style.transform = `translateX(${-currentIndex * cardWidthPercent}%)`;
           prevBtn.disabled = currentIndex === 0;
           nextBtn.disabled = currentIndex >= maxIndex;
+
+          // Rebuild dots
+          if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            if (maxIndex > 0) {
+              for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === currentIndex ? 'bg-[#1E2D5A] w-6' : 'bg-slate-300 hover:bg-slate-400'}`;
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.onclick = (e) => {
+                  e.preventDefault();
+                  currentIndex = i;
+                  updateSlider();
+                };
+                dotsContainer.appendChild(dot);
+              }
+            }
+          }
         };
 
         prevBtn.onclick = (e) => { e.preventDefault(); if (currentIndex > 0) { currentIndex--; updateSlider(); } };
@@ -643,6 +665,45 @@ const allFleet = [
           const maxIndex = Math.max(0, wrapper.children.length - visibleCards);
           if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
         };
+
+        // Swipe & drag gestures support using pointer events
+        let pointerStartX = 0;
+        let pointerStartY = 0;
+        let isPointerDown = false;
+
+        wrapper.addEventListener('pointerdown', (e) => {
+          if (e.button !== 0) return; // Only track left clicks / primary touches
+          isPointerDown = true;
+          pointerStartX = e.clientX;
+          pointerStartY = e.clientY;
+          wrapper.setPointerCapture(e.pointerId);
+        });
+
+        wrapper.addEventListener('pointerup', (e) => {
+          if (!isPointerDown) return;
+          isPointerDown = false;
+          wrapper.releasePointerCapture(e.pointerId);
+
+          const deltaX = pointerStartX - e.clientX;
+          const deltaY = pointerStartY - e.clientY;
+
+          // Swipe threshold of 40px, ensuring horizontal movement dominates over vertical scroll
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            const visibleCards = getVisibleCardsCount();
+            const maxIndex = Math.max(0, wrapper.children.length - visibleCards);
+            if (deltaX > 0) {
+              if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+              }
+            } else {
+              if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+              }
+            }
+          }
+        });
 
         window.addEventListener('resize', updateSlider);
         updateSlider();

@@ -29,10 +29,10 @@ This is the official pricing grid for attached vehicles and corporate executive 
 
 | Kilometer Slab | Slab Base Rate (₹) | Description / Coverage |
 | :--- | :--- | :--- |
-| **0 to 10 kms** | **₹600** | Short-range executive transits and quick pickups. |
-| **11 to 20 kms** | **₹700** | Medium-range office commutes and local business drops. |
-| **21 to 30 kms** | **₹800** | Subregional business travel and longer commutes. |
-| **31+ kms** | **₹900** | Extended intercity travel and cross-town routes. |
+| **0 to 10 kms** | **₹700** | Short-range executive transits and quick pickups. |
+| **11 to 20 kms** | **₹800** | Medium-range office commutes and local business drops. |
+| **21 to 30 kms** | **₹900** | Subregional business travel and longer commutes. |
+| **31+ kms** | **₹1,000** | Extended intercity travel and cross-town routes. |
 
 ### 🛠️ Escort Duty / Specialized Services
 *   **Escort Service Charge**: **1.5 times the Slab Rate**.
