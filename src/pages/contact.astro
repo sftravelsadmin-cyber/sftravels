@@ -347,6 +347,13 @@ import Layout from '../layouts/Layout.astro';
           phoneInput.value = digits;
         }
 
+        // Dynamically update subject with actual user name
+        const nameInputForSubject = contactForm.querySelector('input[name="fullName"]');
+        const subjectInput = contactForm.querySelector('input[name="subject"]');
+        if (subjectInput && nameInputForSubject) {
+          subjectInput.value = subjectInput.value.replace('{{fullName}}', nameInputForSubject.value.trim() || 'Guest');
+        }
+
         const submitBtn = document.getElementById('contactSubmitBtn');
         const formElements = contactForm.querySelectorAll('input, select, textarea, button');
 

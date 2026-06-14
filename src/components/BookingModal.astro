@@ -712,6 +712,13 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
             phoneInput.value = digits;
           }
 
+          // Dynamically update subject with actual user name
+          const nameInputForSubject = form.querySelector('input[name="fullName"]');
+          const subjectInput = form.querySelector('input[name="subject"]');
+          if (subjectInput && nameInputForSubject) {
+            subjectInput.value = subjectInput.value.replace('{{fullName}}', nameInputForSubject.value.trim() || 'Guest');
+          }
+
           const formElements = form.querySelectorAll('input, select, textarea, button');
           if (submitBtn) {
             submitBtn.classList.add('btn-loading');
