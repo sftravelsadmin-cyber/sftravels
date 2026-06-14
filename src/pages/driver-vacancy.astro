@@ -396,7 +396,7 @@ import Layout from '../layouts/Layout.astro';
               <!-- Phone Number -->
               <div class="flex flex-col gap-2">
                 <label class="font-semibold text-slate-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
-                <input type="tel" name="driverPhone" placeholder="10-digit phone number" required
+                <input type="tel" name="driverPhone" placeholder="10-digit phone number" pattern="^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$" title="Please enter a valid 10-digit Indian mobile number (e.g. 9876543210, starting with +91 or 0)" required
                   class="w-full pl-4 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all bg-[#fafaf8]" />
               </div>
 
@@ -613,6 +613,17 @@ import Layout from '../layouts/Layout.astro';
 
           const botcheck = driverForm.querySelector('input[name="botcheck"]');
           if (botcheck && botcheck.checked) { return; }
+
+          // Strict client-side phone number validation
+          const phoneInput = driverForm.querySelector('input[name="driverPhone"]');
+          if (phoneInput) {
+            const phoneVal = phoneInput.value.trim();
+            const phoneRegex = /^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$/;
+            if (!phoneRegex.test(phoneVal)) {
+              alert("Please enter a valid 10-digit Indian phone number (starting with 6-9, with optional +91 or 0 prefix).");
+              return;
+            }
+          }
 
           const submitBtn = driverForm.querySelector('button[type="submit"]');
           const formElements = driverForm.querySelectorAll('input, select, button');

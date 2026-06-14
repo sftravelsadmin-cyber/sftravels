@@ -63,7 +63,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
-              <input type="text" name="fullName" value="John Doe" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="John Doe">
+              <input type="text" name="fullName" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="John Doe">
             </div>
           </div>
           <div class="space-y-1 md:space-y-2">
@@ -72,7 +72,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-400 pointer-events-none">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              <input type="tel" name="phone" value="9876543210" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="10-digit number">
+              <input type="tel" name="phone" pattern="^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$" title="Please enter a valid 10-digit Indian mobile number (e.g. 9876543210, starting with +91 or 0)" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="10-digit number">
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
               <rect width="20" height="16" x="2" y="4" rx="2"></rect>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
-            <input type="email" name="email" value="john.doe@example.com" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="john@example.com">
+            <input type="email" name="email" required class="w-full pl-7 md:pl-10 pr-2 md:pr-3 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 h-8 md:h-auto border-gray-300" placeholder="john@example.com">
           </div>
         </div>
 
@@ -99,7 +99,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <input type="text" id="modalPickupInput" name="pickup" required placeholder="Enter Pickup" class="w-full pl-8 sm:pl-9 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 pr-8 md:pr-10 text-xs md:text-sm disabled:opacity-50" value="Majestic Metro Station, Bengaluru">
+                    <input type="text" id="modalPickupInput" name="pickup" required placeholder="Enter Pickup Location" class="w-full pl-8 sm:pl-9 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 pr-8 md:pr-10 text-xs md:text-sm disabled:opacity-50">
                   </div>
                 </div>
                 <button type="button" id="useCurrentLocationBtn" class="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 md:p-2 hover:bg-gray-100 rounded-md text-[#1ecb15] transition-colors z-20 disabled:opacity-50" title="Use current location">
@@ -132,7 +132,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <input type="text" id="modalDropInput" name="drop" required placeholder="Enter Drop" class="w-full pl-8 sm:pl-9 pr-8 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 text-xs md:text-sm disabled:opacity-50" value="Kempegowda International Airport, Terminal 1">
+                    <input type="text" id="modalDropInput" name="drop" required placeholder="Enter Drop Location" class="w-full pl-8 sm:pl-9 pr-8 sm:py-2 bg-gray-50 border border-gray-200 rounded-md focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-gray-900 placeholder:text-gray-400 font-medium sm:text-sm sm:h-10 truncate py-1.5 md:py-2.5 h-8 md:h-10 text-xs md:text-sm disabled:opacity-50">
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                 <line x1="8" x2="8" y1="2" y2="6"></line>
                 <line x1="3" x2="21" y1="10" y2="10"></line>
               </svg>
-              <input type="date" name="date" value="2026-06-05" required class="w-full pl-7 md:pl-10 pr-2 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 min-w-0 h-8 md:h-auto border-gray-300">
+              <input type="date" name="date" required class="w-full pl-7 md:pl-10 pr-2 py-1.5 md:py-2.5 bg-white border rounded-lg focus:ring-1 focus:ring-[#1ecb15] focus:border-transparent outline-none transition-all text-xs md:text-sm text-gray-900 min-w-0 h-8 md:h-auto border-gray-300">
             </div>
           </div>
 
@@ -208,17 +208,17 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
 
     <!-- Map Picker Overlay (hidden by default) -->
     <div
-      id="mapPickerOverlay"
+      id="mapPickerOverlayGlobal"
       class="absolute inset-0 z-50 bg-white hidden flex-col rounded-none md:rounded-xl overflow-hidden"
     >
       <!-- Overlay Header -->
       <div class="flex-none bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div>
-          <h3 id="mapPickerTitle" class="text-sm md:text-base font-bold text-gray-900">Pick Location on Map</h3>
+          <h3 id="mapPickerTitleGlobal" class="text-sm md:text-base font-bold text-gray-900">Pick Location on Map</h3>
         </div>
         <button
           type="button"
-          id="closeMapPickerCrossBtn"
+          id="closeMapPickerCrossBtnGlobal"
           class="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
           aria-label="Close map picker"
         >
@@ -233,12 +233,12 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
       <div class="flex-1 overflow-y-auto p-3 flex flex-col gap-3 min-h-0 text-gray-700">
         <!-- Map Container -->
         <div class="relative flex-grow border border-gray-200 rounded-lg overflow-hidden bg-gray-50 min-h-[260px] md:min-h-[320px]">
-          <div id="leafletMapContainerModal" class="w-full h-full relative z-10"></div>
+          <div id="leafletMapContainerGlobal" class="absolute inset-0 w-full h-full z-10"></div>
           
           <!-- Floating Locate Me Button -->
           <button
             type="button"
-            id="mapModalLocateBtn"
+            id="mapModalLocateBtnGlobal"
             class="absolute bottom-3 right-3 z-20 bg-white p-2 rounded-full shadow-md text-[#1E2D5A] hover:text-blue-800 border border-gray-200 transition-colors flex items-center justify-center"
             title="Locate me"
           >
@@ -261,7 +261,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <div id="mapSelectedAddress" class="text-xs font-semibold text-gray-600 truncate w-full select-all">
+            <div id="mapSelectedAddressGlobal" class="text-xs font-semibold text-gray-600 truncate w-full select-all">
               Click on map to select location
             </div>
           </div>
@@ -272,14 +272,14 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
       <div class="flex-none p-3 border-t border-gray-100 bg-gray-50 flex justify-end gap-2.5">
         <button
           type="button"
-          id="closeMapPickerBtn"
+          id="closeMapPickerBtnGlobal"
           class="rounded-md px-4 py-2 border border-gray-300 bg-white hover:bg-gray-100 text-gray-700 font-bold text-xs md:text-sm shadow-sm transition-colors"
         >
           Cancel
         </button>
         <button
           type="button"
-          id="confirmMapLocationBtn"
+          id="confirmMapLocationBtnGlobal"
           disabled
           class="rounded-md px-4 py-2 bg-[#22c55e] hover:bg-[#16a34a] disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-xs md:text-sm shadow-sm flex items-center justify-center gap-1.5 transition-colors border-none"
         >
@@ -331,27 +331,19 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
     const useCurrentLocationBtn = document.getElementById('useCurrentLocationBtn');
     const pickPickupOnMapBtn = document.getElementById('pickPickupOnMapBtn');
     const pickDropOnMapBtn = document.getElementById('pickDropOnMapBtn');
-    const mapPickerOverlay = document.getElementById('mapPickerOverlay');
-    const closeMapPickerBtn = document.getElementById('closeMapPickerBtn');
-    const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtn') as HTMLButtonElement;
-    const mapPickerTitle = document.getElementById('mapPickerTitle');
-    const mapSearchInput = document.getElementById('mapSearchInput') as HTMLInputElement;
-    const mapClickArea = document.getElementById('mapClickArea');
-    const mapPickerPin = document.getElementById('mapPickerPin');
-    const mapSelectedAddress = document.getElementById('mapSelectedAddress');
+    const mapPickerOverlay = document.getElementById('mapPickerOverlayGlobal');
+    const closeMapPickerBtn = document.getElementById('closeMapPickerBtnGlobal');
+    const confirmMapLocationBtn = document.getElementById('confirmMapLocationBtnGlobal') as HTMLButtonElement;
+    const mapPickerTitle = document.getElementById('mapPickerTitleGlobal');
+    const mapSelectedAddress = document.getElementById('mapSelectedAddressGlobal');
 
-    const localAddresses = [
-      "Malleshwaram 8th Cross, Margosa Road, Bengaluru",
-      "Sadashivanagar Palace Cross Road, Bengaluru",
-      "Yeswanthpur Junction, Tumkur Road, Bengaluru",
-      "Cubbon Park Metro Plaza, Ambedkar Veedhi, Bengaluru",
-      "Lalbagh Botanical Garden West Gate, Bengaluru",
-      "Commercial Street Shopping Lanes, Shivaji Nagar, Bengaluru",
-      "Koramangala 5th Block, Jyoti Nivas College Rd, Bengaluru",
-      "Jayanagar 4th Block Complex, Bengaluru",
-      "HSR Layout Sector 1, Outer Ring Road, Bengaluru",
-      "Bellandur EcoSpace Main Gate, Bengaluru"
-    ];
+    // Default dates dynamically to today's date
+    const dateInput = form ? form.querySelector('input[name="date"]') as HTMLInputElement : null;
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+      dateInput.min = today;
+    }
 
     if (modal && closeBtn) {
       // Global listener for "Book Now" triggers
@@ -420,23 +412,34 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
 
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const lat = position.coords.latitude.toFixed(4);
-                const lon = position.coords.longitude.toFixed(4);
-                setAddress(`Detected Location (Lat: ${lat}, Lng: ${lon}) - MG Road Area, Bengaluru`);
+              async (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                try {
+                  const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+                  const data = await res.json();
+                  const address = data.display_name || `Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+                  setAddress(address);
+                } catch (err) {
+                  setAddress(`Location at ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+                }
               },
               (error) => {
-                console.warn("Geolocation failed, using fallback:", error);
-                setTimeout(() => {
-                  setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
-                }, 800);
+                console.warn("Geolocation failed:", error);
+                alert("Could not retrieve your current location. Please type it in or select on map.");
+                if (svg) {
+                  svg.classList.remove('animate-spin');
+                }
+                useCurrentLocationBtn.removeAttribute('disabled');
               },
-              { timeout: 5000 }
+              { timeout: 8000 }
             );
           } else {
-            setTimeout(() => {
-              setAddress("Tech Corridor, Outer Ring Rd, Bellandur, Bengaluru (Detected Location)");
-            }, 800);
+            alert("Geolocation is not supported by your browser.");
+            if (svg) {
+              svg.classList.remove('animate-spin');
+            }
+            useCurrentLocationBtn.removeAttribute('disabled');
           }
         });
       }
@@ -468,11 +471,11 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
         }
 
         // Initialize Leaflet map
-        setTimeout(() => {
+        setTimeout(async () => {
           if (typeof window !== 'undefined' && (window as any).L) {
             const L = (window as any).L;
             if (!leafletMap) {
-              leafletMap = L.map('leafletMapContainerModal', {
+              leafletMap = L.map('leafletMapContainerGlobal', {
                 zoomControl: true
               }).setView(defaultBangalore, 13);
               
@@ -485,13 +488,42 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
                 const latlng = e.latlng;
                 placeMarker(latlng);
               });
-            } else {
-              leafletMap.invalidateSize();
+            }
+            leafletMap.invalidateSize();
+
+            const inputField = field === 'pickup' ? pickupInput : dropInput;
+            let startLatLng = { lat: defaultBangalore[0], lng: defaultBangalore[1] };
+            let foundLocation = false;
+
+            const existingAddress = inputField ? inputField.value.trim() : '';
+            if (existingAddress && existingAddress.length > 2) {
+              if (mapSelectedAddress) mapSelectedAddress.textContent = 'Locating address on map...';
+              try {
+                const searchRes = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(existingAddress)}&limit=1&countrycodes=in`);
+                const searchData = await searchRes.json();
+                if (searchData && searchData.length > 0) {
+                  const lat = parseFloat(searchData[0].lat);
+                  const lon = parseFloat(searchData[0].lon);
+                  startLatLng = { lat, lng: lon };
+                  selectedMapAddress = existingAddress;
+                  foundLocation = true;
+                }
+              } catch (err) {
+                console.error("Geocoding existing address failed:", err);
+              }
             }
 
-            // Reset marker position to Bangalore center initially
-            placeMarker({ lat: defaultBangalore[0], lng: defaultBangalore[1] }, false);
-            leafletMap.setView(defaultBangalore, 13);
+            if (foundLocation) {
+              if (mapSelectedAddress) mapSelectedAddress.textContent = selectedMapAddress;
+              if (confirmMapLocationBtn) confirmMapLocationBtn.removeAttribute('disabled');
+              placeMarker(startLatLng, false);
+              leafletMap.setView([startLatLng.lat, startLatLng.lng], 15);
+            } else {
+              if (mapSelectedAddress) mapSelectedAddress.textContent = 'Click on map to select location';
+              if (confirmMapLocationBtn) confirmMapLocationBtn.setAttribute('disabled', 'true');
+              placeMarker(startLatLng, false);
+              leafletMap.setView(defaultBangalore, 13);
+            }
           }
         }, 150);
       };
@@ -561,13 +593,13 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
         closeMapPickerBtn.addEventListener('click', closeMapPicker);
       }
       
-      const closeMapPickerCrossBtn = document.getElementById('closeMapPickerCrossBtn');
+      const closeMapPickerCrossBtn = document.getElementById('closeMapPickerCrossBtnGlobal');
       if (closeMapPickerCrossBtn) {
         closeMapPickerCrossBtn.addEventListener('click', closeMapPicker);
       }
 
       // Geolocation Locate Button inside map modal
-      const mapModalLocateBtn = document.getElementById('mapModalLocateBtn');
+      const mapModalLocateBtn = document.getElementById('mapModalLocateBtnGlobal');
       if (mapModalLocateBtn) {
         mapModalLocateBtn.addEventListener('click', () => {
           if (navigator.geolocation && leafletMap) {
@@ -638,6 +670,17 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
           if (botcheck && botcheck.checked) {
             console.warn("Spam submission blocked.");
             return;
+          }
+
+          // Strict client-side phone number validation
+          const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement;
+          if (phoneInput) {
+            const phoneVal = phoneInput.value.trim();
+            const phoneRegex = /^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$/;
+            if (!phoneRegex.test(phoneVal)) {
+              alert("Please enter a valid 10-digit Indian phone number (starting with 6-9, with optional +91 or 0 prefix).");
+              return;
+            }
           }
 
           const formElements = form.querySelectorAll('input, select, textarea, button');
@@ -711,6 +754,79 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
           });
         });
       }
+
+      // Address Autocomplete live suggestions helper (OSM Nominatim-based with local Bangalore bias)
+      const setupAddressAutocomplete = (inputElement: HTMLInputElement) => {
+        if (!inputElement) return;
+
+        const parent = inputElement.parentElement;
+        if (!parent) return;
+        const suggestionsDiv = document.createElement('div');
+        suggestionsDiv.className = 'absolute left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl z-[120] max-h-60 overflow-y-auto hidden text-slate-800 text-sm font-medium divide-y divide-slate-100';
+        suggestionsDiv.style.top = '100%';
+        parent.appendChild(suggestionsDiv);
+
+        let debounceTimer: any;
+
+        inputElement.addEventListener('input', () => {
+          clearTimeout(debounceTimer);
+          const query = inputElement.value.trim();
+          if (query.length < 3) {
+            suggestionsDiv.innerHTML = '';
+            suggestionsDiv.classList.add('hidden');
+            return;
+          }
+
+          debounceTimer = setTimeout(async () => {
+            try {
+              const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=in&viewbox=77.35,12.8,77.75,13.1&bounded=0`);
+              const data = await res.json();
+              
+              suggestionsDiv.innerHTML = '';
+              if (data && data.length > 0) {
+                data.forEach((item: any) => {
+                  const btn = document.createElement('button');
+                  btn.type = 'button';
+                  btn.className = 'w-full text-left px-4 py-3 hover:bg-slate-50 transition-colors flex items-start gap-2.5';
+                  btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1ecb15] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <div class="truncate">
+                      <p class="font-semibold text-slate-800 truncate">${item.name || item.display_name.split(',')[0]}</p>
+                      <p class="text-xs text-slate-400 truncate">${item.display_name}</p>
+                    </div>
+                  `;
+
+                  btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    inputElement.value = item.display_name;
+                    suggestionsDiv.innerHTML = '';
+                    suggestionsDiv.classList.add('hidden');
+                  });
+
+                  suggestionsDiv.appendChild(btn);
+                });
+                suggestionsDiv.classList.remove('hidden');
+              } else {
+                suggestionsDiv.classList.add('hidden');
+              }
+            } catch (err) {
+              console.error("Autocomplete fetch failed:", err);
+            }
+          }, 400);
+        });
+
+        document.addEventListener('click', (e) => {
+          if (e.target !== inputElement && !suggestionsDiv.contains(e.target as Node)) {
+            suggestionsDiv.classList.add('hidden');
+          }
+        });
+      };
+
+      if (pickupInput) setupAddressAutocomplete(pickupInput);
+      if (dropInput) setupAddressAutocomplete(dropInput);
     }
   };
 
