@@ -172,7 +172,7 @@ import Layout from '../layouts/Layout.astro';
               <!-- Enquiry form (Web3Forms integrated) -->
               <form class="space-y-5" name="contact-enquiry" action="https://api.web3forms.com/submit" method="POST" id="contactEnquiryForm">
                 <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-                <input type="hidden" name="subject" value="New Website Enquiry - SF Travels" />
+                <input type="hidden" name="subject" value="New Contact Message - {{fullName}} - SF Travels" />
                 <input type="hidden" name="from_name" value="SF Travels Website" />
                 <input type="hidden" name="replyto" value="" id="contactReplyToInput" />
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />

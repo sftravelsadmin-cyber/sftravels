@@ -381,7 +381,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="form-card bg-white rounded-3xl shadow-xl border border-slate-200/50 p-8 md:p-12">
           <form class="space-y-6" name="driver-application" action="https://api.web3forms.com/submit" method="POST" id="driverApplicationForm">
             <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-            <input type="hidden" name="subject" value="New Driver Application - SF Travels" />
+            <input type="hidden" name="subject" value="New Driver Application - {{driverName}} - SF Travels" />
             <input type="hidden" name="from_name" value="SF Travels Website" />
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 

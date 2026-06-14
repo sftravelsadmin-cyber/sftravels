@@ -95,7 +95,7 @@ const allFleet = [
             <div class="p-6 sm:p-8">
               <form id="homepageBookingForm" class="flex flex-col gap-6">
                 <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-4d9e-803f-cdf2fa4bebbe"} />
-                <input type="hidden" name="subject" value="New Website Booking Enquiry - SF Travels" />
+                <input type="hidden" name="subject" value="New Website Booking - {{fullName}} - SF Travels" />
                 <input type="hidden" name="from_name" value="SF Travels Website" />
                 <input type="hidden" name="service-type" id="serviceTypeInput" value="Outstation" />
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />

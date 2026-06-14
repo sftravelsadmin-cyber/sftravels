@@ -50,7 +50,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "e2691c76-e159-
       <!-- Booking Form -->
       <form id="modalBookingForm" class="space-y-2 md:space-y-5">
         <input type="hidden" name="access_key" value={accessKey} />
-        <input type="hidden" name="subject" value="New Vehicle Booking Enquiry - SF Travels" />
+        <input type="hidden" name="subject" value="New Vehicle Booking - {{fullName}} - SF Travels" />
         <input type="hidden" name="from_name" value="SF Travels Website" />
         <input type="hidden" name="vehicle_name" id="hiddenVehicleInput" value="Hatchback" />
         <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
