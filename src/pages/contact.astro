@@ -192,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
                   <label class="font-semibold text-slate-700 text-sm">Phone Number <span class="text-red-500">*</span></label>
                   <div class="relative">
                     <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D97706] pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-                    <input type="tel" name="phoneNumber" placeholder="10-digit number" pattern="^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$" title="Please enter a valid 10-digit Indian mobile number (e.g. 9876543210, starting with +91 or 0)" required
+                    <input type="tel" name="phoneNumber" placeholder="10-digit number" maxlength="13" inputmode="numeric" pattern="^[6-9]\d{9}$" title="Please enter a valid 10-digit Indian mobile number (e.g. 9876543210)" required
                       class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-[#fafaf8] focus:outline-none focus:ring-2 focus:ring-[#1E2D5A]/20 focus:border-[#1E2D5A] transition-all text-sm" />
                   </div>
                 </div>
@@ -332,10 +332,16 @@ import Layout from '../layouts/Layout.astro';
         // Strict client-side phone number validation
         const phoneInput = contactForm.querySelector('input[name="phoneNumber"]');
         if (phoneInput) {
-          const phoneVal = phoneInput.value.trim();
-          const phoneRegex = /^(?:\+91[\-\s]?)?[0]?[6-9]\d{9}$/;
-          if (!phoneRegex.test(phoneVal)) {
-            alert("Please enter a valid 10-digit Indian phone number (starting with 6-9, with optional +91 or 0 prefix).");
+          let phoneVal = phoneInput.value.trim();
+          // Strip all non-digit characters
+          let digits = phoneVal.replace(/\D/g, '');
+          // Remove country code prefix if present
+          if (digits.startsWith('91') && digits.length > 10) digits = digits.substring(2);
+          if (digits.startsWith('0') && digits.length > 10) digits = digits.substring(1);
+          // Must be exactly 10 digits starting with 6-9
+          if (digits.length !== 10 || !/^[6-9]/.test(digits)) {
+            phoneInput.focus();
+            alert("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
             return;
           }
         }
